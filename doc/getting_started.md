@@ -4,29 +4,34 @@
 ## Java Development Kit (JDK)
 
 * Install the latest version of [Java SDK](http://www.oracle.com/technetwork/java/javase/downloads/) on your local machine.
+  * Recommended version: **12.x.x**.
+
+
 
 
 ## IntelliJ IDEA
 
-* Apply for the [academic license](https://www.jetbrains.com/shop/eform/students) with your school email address.
 * Install the latest version of [IntelliJ](https://www.jetbrains.com/idea/download) on your local machine:
-  * Make sure to install the **Ultimate** version.
-  * Use the license ID that you applied with the school email address.
+  * Recommended version: **Ultimate 2019.2**.
+  * Apply for the [academic license](https://www.jetbrains.com/shop/eform/students) with your school email address to use the ultimate version.
+* Launch IntelliJ.
 
 
 ## Gradle
 
-* Launch IntelliJ and create a new project.
+* Create a new project.
   * Choose **Gradle** on the left pane.
-  * For the project SDK, choose a java version `12.x.x`. If it is not shown, add the latest version by clicking `New - JDK` and indicate the home directory (e.g., `local_path/jdk-12.x.x.jdk/Contents/Home`).
-* Use the followings for the Gradle project information:
+  * For the project SDK, choose a java version **12.x.x**. If the version is not shown, add it by clicking `[New - JDK]` and selecting the `JAVA_HOME` directory.
+  * Windows: `JAVA_HOME = C:\Program Files\Java\jdk-12.x.x`
+  * Mac: `JAVA_HOME = /Library/Java/JavaVirtualMachines/jdk-12.0.2.jdk`
+* Use the followings for the Gradle project setup:
   * GroupId: `edu.emory.cs`
   * ArtifactId: `cs253`
   * Version: `1.0-SNAPSHOT`
-* Use the followings for the IntelliJ project information:
+* Use the followings for the IntelliJ project setup:
   * Project name: `cs253`
-  * Project location: `local_path/cs253`
-* Once the project is created, edit the `build.gradle` file as follows:
+  * Project location: `some_local_path/cs253`
+* Once the project is created, edit [`build.gradle`](../build.gradle) as follows:
   ```
   sourceCompatibility = JavaVersion.VERSION_12
   targetCompatibility = JavaVersion.VERSION_12
@@ -36,9 +41,18 @@
   * Set the Gradle JVM to the java version `12.x.x`.
 
 
+
+
+## Github
+
+* Create a [Github](https://github.com) account if you do not already have one.
+
+* Setup the version control:
+  * Click `[Version Control - Github]` on the left pane.
+  * Click `[+]` and login with your Github ID and password.
+
 ## Version Control
 
-* Create a [Github](https://github.com) account if you do not have one.
 * Open the `cs253` project with IntelliJ (if not already).
 * Create the `.gitignore` file under the `cs253` project and add the following contents:
   ```
