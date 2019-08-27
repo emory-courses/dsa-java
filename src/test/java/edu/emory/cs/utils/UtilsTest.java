@@ -6,8 +6,7 @@ import static org.junit.Assert.assertEquals;
 
 public class UtilsTest {
     @Test
-    public void getMiddleIndexTest()
-    {
+    public void getMiddleIndexTest() {
         assertEquals(5, Utils.getMiddleIndex(0, 10));
     }
 }

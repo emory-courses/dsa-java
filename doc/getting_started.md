@@ -39,47 +39,47 @@
   sourceCompatibility = JavaVersion.VERSION_12
   targetCompatibility = JavaVersion.VERSION_12
   ```
-* Click the `[Preferences]` menu:
+* Click `[Preferences]`:
   * Go to `[Build, Execution, Deployment - Build Tools - Gradle]`.
   * Set `Gradle JVM` to a java version **12.x.x**.
-* Right click on the `cs253` project and choose `[Open Module Settings]`:
+* Click `[File - Project Structure]`:
   * Go to `[Project Settings - Modules]` and set `Module SDK` to a java version **12.x.x**.
   * Go to `[Platform Settings - SDKs]` and choose **12**.
 
 
 ## Version Control
 
-* Click the `[Preferences]` menu:
-  * Click `[Version Control - Github]` on the left pane.
+* Click `[Preferences]`:
+  * Choose `[Version Control - Github]` on the left pane.
   * Click `[+]` and login with your Github ID and password.
   * If you are using two-factor authentication, login with your [personal access token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).
-* Create [`.gitignore`]((../.gitignore)) under the `cs253` project and add the following contents:
+* Create [`.gitignore`](../.gitignore) under the `cs253` project and add the following contents:
   ```
   .gradle/
   .idea/
   build
   gradle
   ```
-* Click the `VCS` menu and select `[Import into Version Control - Share Project on Github]`. 
+* Click `[VCS - Import into Version Control - Share Project on Github]`. 
 * Create a Github repository:
-  * Make sure to check `private`.
+  * Make sure to check **private**.
   * Repository name: `cs253`
   * Remote: `origin`
   * Description: `CS253: Data Structures and Algorithms`
 * Add all files and make the initial commit.
 * Check if the repository is created under your Github account: `https://github.com/your_id/cs253`.
-* Go to the `Settings` under your `cs253` Github repository and add the instructor and the TA as **collaborators** of this repository:
+* Go to `[Settings]` under your `cs253` Github repository and add the instructor and the TA as **collaborators** of this repository:
   * Jinho Choi: `jdchoi77`.
   * Han He: `hankcs`.
 
 
 ## Java Package
 
-* Right click on the `src/main/java` directory under the `cs253` project and create the package [`edu.emory.cs.utils`]().
-* Right click on the `utils` package and create the Java class [`Utils`]().
+* Right click on the [`src/main/java`](../src/main/java) directory under the `cs253` project and create the package [`edu.emory.cs.utils`](../src/main/java/edu/emory/cs/utils).
+* Right click on the `utils` package and create the Java class [`Utils`](../src/main/java/edu/emory/cs/utils/Utils.java).
   * Add the file to Git if prompted.
 * Add the following methods to the `Utils` class:
-   ```
+   ```java
    static public int getMiddleIndex(int beginIndex, int endIndex) {
        return beginIndex + (endIndex - beginIndex) / 2;
    }
@@ -88,19 +88,19 @@
        System.out.println(getMiddleIndex(0, 10));
    }
    ```
-* Run the program by choosing `[Run -> Run]`.
-* If you see `5` on the output pane, your program is successfully run.
+* Run the program by clicking `[Run -> Run]`.
+* If you see `5` on the output pane, your program is run successfully.
 
 
-## JUnit Test
+## Unit Test
 
-* Right click on the `utils` package and create a class called [`UtilsTest`](../tree/master/src/utils/UtilsTest.java).
+* Right click on the [`src/test/java`](../src/test/java) directory under the `cs253` project and create the package [`edu.emory.cs.utils`](../src/test/java/edu/emory/cs/utils).
+* Right click on the `utils` package and create the Java class [`UtilsTest`](../src/test/java/edu/emory/cs/utils/UtilsTest.java).
 * Add the following method to the `UtilsTest` class:
-   ```
+   ```java
    @Test
-   void getMiddleIndexTest()
-   {
-       assertEquals(Utils.getMiddleIndex(0, 10), 5);
+   public void getMiddleIndexTest() {
+       assertEquals(5, Utils.getMiddleIndex(0, 10));
    }
    ```
   * Make sure to include the [`@Test`](http://junit.sourceforge.net/javadoc/org/junit/Test.html) annotation. You must see `@Test` in red. Hover over and add `JUnit 5`.
@@ -109,22 +109,12 @@
       import static org.junit.jupiter.api.Assertions.assertEquals;
       import org.junit.jupiter.api.Test;
       ```
-* Run the test by choosing `[Run -> Run]`.
-* If you see a green bar with the message "1 test passed", your program passed the unit test.
+* Run the test by clicking `[Run -> Run]`.
+* If you see the test passed, your unit test is run successfully.
 
-## How to change the JDK version in IntelliJ
-
-* Choose [File -> Project Structure].
-* Choose the java version you want for the project SDK. If the java version is not shown, click the `New` button and add.
-* Choose the project language level to the same java version.
 
 ## Quiz
 
-* Submit `Utils.java` and `UtilsTest.java`: https://canvas.emory.edu/courses/32845/assignments/69821
+* 
 
 
-
-
-https://www.jetbrains.com/student/
-
-https://www.jetbrains.com/idea/download/#section=mac
