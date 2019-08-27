@@ -43,7 +43,7 @@
   * Go to `[Build, Execution, Deployment - Build Tools - Gradle]`.
   * Set `Gradle JVM` to a java version **12.x.x**.
 * Click `[File - Project Structure]`:
-  * Go to `[Project Settings - Modules]` and set `Module SDK` to a java version **12.x.x**.
+  * Go to `[Project Settings - Modules - Dependencies]` and set `Module SDK` to a java version **12.x.x**.
   * Go to `[Platform Settings - SDKs]` and choose **12**.
 
 

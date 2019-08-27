@@ -37,11 +37,6 @@
 |12/16| Final Exam: 8AM | ||
 
 
-## Previous Exams ##
-
-* Midterm: [Fall'14](http://mathcs.emory.edu/~choi/courses/cs323/exams/midterm-14f.pdf), [Spring'15](http://mathcs.emory.edu/~choi/courses/cs323/exams/midterm-15s.pdf), [Fall'15](http://mathcs.emory.edu/~choi/courses/cs323/exams/midterm-15f.pdf), [Fall'16](http://mathcs.emory.edu/~choi/courses/cs323/exams/midterm-16f.pdf).
-* Final: [Fall'14](http://mathcs.emory.edu/~choi/courses/cs323/exams/final-14f.pdf), [Spring'15](http://mathcs.emory.edu/~choi/courses/cs323/exams/final-15s.pdf), [Fall'15](http://mathcs.emory.edu/~choi/courses/cs323/exams/final-15f.pdf), [Fall'16](http://mathcs.emory.edu/~choi/courses/cs323/exams/final-16f.pdf).
-
 ## Video Tutorials ##
 
 * [Smart select](https://www.youtube.com/watch?v=rCGP0wy0Z8k&list=PLeWSh_kT5fhSN9A0cMJujOWjw0E_Ww2Ws&index=1), [Binary heap](https://www.youtube.com/watch?v=PwhWhPco8rM&list=PLeWSh_kT5fhSN9A0cMJujOWjw0E_Ww2Ws&index=2)
