@@ -7,6 +7,5 @@ public class Utils {
 
     static public void main(String[] args) {
         System.out.println(getMiddleIndex(0, 10));
-        System.out.print("Hello");
     }
 }
