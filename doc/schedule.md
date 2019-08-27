@@ -1,7 +1,5 @@
 # Schedule
 
-## Fall 2019
-
 || Topics | | Assignments |
 |:---:|---|---|---|
 |08/28| [Introduction](http://mathcs.emory.edu/~choi/courses/cs323/slides/introduction.pdf) | [ex](Getting-Started) | [quiz 0](Getting-Started#quiz0) |
@@ -35,11 +33,3 @@
 |12/04| [Intractability](http://mathcs.emory.edu/~choi/courses/cs323/slides/intractability.pdf) | | |
 |12/09| [Review Session](#previous-exams) | ||
 |12/16| Final Exam: 8AM | ||
-
-
-## Video Tutorials ##
-
-* [Smart select](https://www.youtube.com/watch?v=rCGP0wy0Z8k&list=PLeWSh_kT5fhSN9A0cMJujOWjw0E_Ww2Ws&index=1), [Binary heap](https://www.youtube.com/watch?v=PwhWhPco8rM&list=PLeWSh_kT5fhSN9A0cMJujOWjw0E_Ww2Ws&index=2)
-* [Heap sort](https://www.youtube.com/watch?v=Lsyxu7nHp5Q&list=PLeWSh_kT5fhSN9A0cMJujOWjw0E_Ww2Ws&index=3), [Shell sort](https://www.youtube.com/watch?v=j818Yud-ruc&list=PLeWSh_kT5fhSN9A0cMJujOWjw0E_Ww2Ws&index=4)
-* [Merge sort](https://www.youtube.com/watch?v=hhznLHghePM&list=PLeWSh_kT5fhSN9A0cMJujOWjw0E_Ww2Ws&index=5), [Quick sort](https://www.youtube.com/watch?v=d04LGwrmHmA&list=PLeWSh_kT5fhSN9A0cMJujOWjw0E_Ww2Ws&index=6)
-* [Bucket sort](https://www.youtube.com/watch?v=NvZG0dZ60RQ&list=PLeWSh_kT5fhSN9A0cMJujOWjw0E_Ww2Ws&index=7), [Radix sort](https://www.youtube.com/watch?v=GUHGMtNo6RQ&list=PLeWSh_kT5fhSN9A0cMJujOWjw0E_Ww2Ws&index=8)
