@@ -7,6 +7,9 @@
   * Recommended version: **12.x.x**.
 
 
+## Github
+
+* Create a [Github](https://github.com) account if you do not already have one.
 
 
 ## IntelliJ IDEA
@@ -31,38 +34,33 @@
 * Use the followings for the IntelliJ project setup:
   * Project name: `cs253`
   * Project location: `some_local_path/cs253`
-* Once the project is created, set the Java version in [`build.gradle`](../build.gradle) as follows:
+* Once the project is created, configure the Java version in [`build.gradle`](../build.gradle) as follows:
   ```java
   sourceCompatibility = JavaVersion.VERSION_12
   targetCompatibility = JavaVersion.VERSION_12
   ```
-* Click the `Preferences`:
-  * Go to `Build, Execution, Deployment - Build Tools - Gradle`.
-  * Set the Gradle JVM to the java version `12.x.x`.
+* Click the `[Preferences]` menu:
+  * Go to `[Build, Execution, Deployment - Build Tools - Gradle]`.
+  * Set `Gradle JVM` to a java version **12.x.x**.
+* Right click on the `cs253` project and choose `[Open Module Settings]`:
+  * Go to `[Project Settings - Modules]` and set `Module SDK` to a java version **12.x.x**.
+  * Go to `[Platform Settings - SDKs]` and choose **12**.
 
-
-
-
-## Github
-
-* Create a [Github](https://github.com) account if you do not already have one.
-
-* Setup the version control:
-  * Click `[Version Control - Github]` on the left pane.
-  * Click `[+]` and login with your Github ID and password.
 
 ## Version Control
 
-* Open the `cs253` project with IntelliJ (if not already).
-* Create the `.gitignore` file under the `cs253` project and add the following contents:
+* Click the `[Preferences]` menu:
+  * Click `[Version Control - Github]` on the left pane.
+  * Click `[+]` and login with your Github ID and password.
+  * If you are using two-factor authentication, login with your [personal access token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).
+* Create [`.gitignore`]((../.gitignore)) under the `cs253` project and add the following contents:
   ```
-  /.gradle/
-  /.idea/
+  .gradle/
+  .idea/
+  build
   gradle
   ```
-* Click the `VCS` menu and select `Import into Version Control - Share Project on Github`.
-* Login to Github by choosing the auth-type as `Password` and entering your Github ID and password.
-  * If you are using two-factor authentication, login with your [personal access token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).
+* Click the `VCS` menu and select `[Import into Version Control - Share Project on Github]`. 
 * Create a Github repository:
   * Make sure to check `private`.
   * Repository name: `cs253`
