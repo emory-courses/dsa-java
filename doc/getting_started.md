@@ -31,8 +31,8 @@
 * Use the followings for the IntelliJ project setup:
   * Project name: `cs253`
   * Project location: `some_local_path/cs253`
-* Once the project is created, edit [`build.gradle`](../build.gradle) as follows:
-  ```
+* Once the project is created, set the Java version in [`build.gradle`](../build.gradle) as follows:
+  ```java
   sourceCompatibility = JavaVersion.VERSION_12
   targetCompatibility = JavaVersion.VERSION_12
   ```
