@@ -6,6 +6,7 @@ group 'edu.emory.cs'
 version '1.0-SNAPSHOT'
 
 sourceCompatibility = JavaVersion.VERSION_12
+targetCompatibility = JavaVersion.VERSION_12
 
 repositories {
     mavenCentral()
