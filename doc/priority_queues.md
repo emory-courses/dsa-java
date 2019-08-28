@@ -1,15 +1,15 @@
 # Priority Queues
 
-## Reading
+## Contents
 
-* [Priority queue](https://en.wikipedia.org/wiki/Priority_queue).
-* [Binary heap](https://en.wikipedia.org/wiki/Binary_heap).
-* Package: [main](../src/main/java/edu/emory/cs/queue), [test](../src/test/java/edu/emory/cs/queue).
+* [Abstract Priority Queue](#abstractpriorityqueue).
+* [Lazy Priority Queue](#lazypriorityqueue).
+* [Eager Priority Queue](#eagerpriorityqueue).
 
 
-## AbstractPriorityQueue
+## Abstract Priority Queue
 
-Source: [`AbstractPriorityQueue.java`](../src/main/java/edu/emory/cs/queue/AbstractPriorityQueue.java)
+* Source: [`AbstractPriorityQueue.java`](../src/main/java/edu/emory/cs/queue/AbstractPriorityQueue.java)
 
 ```java
 public abstract class AbstractPriorityQueue<T extends Comparable<T>> {
@@ -18,26 +18,22 @@ public abstract class AbstractPriorityQueue<T extends Comparable<T>> {
     public AbstractPriorityQueue(Comparator<T> comparator) {
         this.comparator = comparator;
     }
-
-    public AbstractPriorityQueue() {
-        this(Comparator.naturalOrder());
-    }
 ```
 
-* Class type: `class`, `abstract class`, `interface`.
-* Generic: `<T extends Comparable<T>>`.
-* Member type: `private`, `package`, `protected`, `public`.
-* Constructor: default, parameters, `this`.
+* Class types: `class` vs. `abstract class` vs. `interface`.
+* Generics: `<T extends Comparable<T>>`.
+* Member types: `private` vs. `package` vs. `protected` vs. `public`.
+* Constructor: `this`.
 
 ```java
     /**
-     * Inserts a comparable key to this priority queue.
+     * Adds a comparable key to this queue.
      * @param key the comparable key.
      */
     abstract public void add(T key);
 
     /**
-     * Finds and removes the key with the highest priority if exists.
+     * Removes the key with the highest priority if exists.
      * @return the key with the highest priority if exists; otherwise, {@code null}.
      */
     abstract protected T remove();
@@ -61,29 +57,66 @@ public abstract class AbstractPriorityQueue<T extends Comparable<T>> {
 * Javadoc.
 
 
-### Operations
+## Lazy Priority Queue
 
-* Add: insert a comparable key.
-* Remove: find and remove the key with the highest priority.
+* Source: [`LazyPriorityQueue.java`](../src/main/java/edu/emory/cs/queue/LazyPriorityQueue.java)
 
-### Application
-Scheduling.
-Implementation
-Lazy vs. Eager.
-Heap.
+```java
+public class LazyPriorityQueue<T extends Comparable<T>> extends AbstractPriorityQueue<T> {
+    private List<T> keys;
+
+    public LazyPriorityQueue(Comparator<T> comparator) {
+        super(comparator);
+        keys = new ArrayList<>();
+    }
+
+    public LazyPriorityQueue() {
+        this(Comparator.naturalOrder());
+    }
+```
+
+* Inheritance: `extends AbstractPriorityQueue<T>`.
+* Constructors: default vs. parameters, `this` vs. `super`.
 
 
+```java
+    /**
+     * Adds a key to the back of the list.
+     * @param key the comparable key.
+     */
+    @Override
+    public void add(T key) {
+        keys.add(key);
+    }
 
-## Reading
+    /**
+     * Finds the key with the highest priority, and removes it from the list.
+     * @return the key with the highest priority if exists; otherwise, {@code null}.
+     */
+    @Override
+    protected T remove() {
+        T max = Collections.max(keys, comparator);
+        keys.remove(max);
+        return max;
+    }
+
+    @Override
+    public int size() {
+        return keys.size();
+    }
+```
+
+* Annotation: [`@Override`](https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/lang/Override.html).
+* Standard API: [`Collections`](https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/util/Collections.html).
+* Complexity: `add`, `remove`.
 
 
-## Exercise
+## Eager Priority Queue
+
+* Source: [`LazyPriorityQueue.java`](../src/main/java/edu/emory/cs/queue/LazyPriorityQueue.java)
 
 
-## Quiz
+## References
 
-* Create a class `TernaryHeap` under [`queue`](../tree/master/src/queue) extending the abstract class [`AbstractPriorityQueue`](../tree/master/src/queue/AbstractPriorityQueue.java).
-* Each node in `TernaryHeap` must take at most 3 children instead of 2 (so it becomes a ternary instead of binary tree). Feel free to use the code in [`BinaryHeap`](../tree/master/src/queue/BinaryHeap.java).
-* Run the [unit test](../tree/master/src/queue/PriorityQueueTest.java) and make sure your heap performs accurately.
-* Compare the speed between `TernaryHeap` and `BinaryHeap` for both the `add` and `remove` operations using the [unit test](../tree/master/src/queue/PriorityQueueTest.java). Write a report about the speed comparison and save it as `quiz1.pdf`.
-* Submit `TernaryHeap.java` and `quiz1.pdf`: https://canvas.emory.edu/courses/32845/assignments/73020
+* [Priority queue](https://en.wikipedia.org/wiki/Priority_queue).
+* [Binary heap](https://en.wikipedia.org/wiki/Binary_heap).

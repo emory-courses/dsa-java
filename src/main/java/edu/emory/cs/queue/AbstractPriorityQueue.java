@@ -28,18 +28,14 @@ public abstract class AbstractPriorityQueue<T extends Comparable<T>> {
         this.comparator = comparator;
     }
 
-    public AbstractPriorityQueue() {
-        this(Comparator.naturalOrder());
-    }
-
     /**
-     * Inserts a comparable key to this priority queue.
+     * Adds a comparable key to this queue.
      * @param key the comparable key.
      */
     abstract public void add(T key);
 
     /**
-     * Finds and removes the key with the highest priority if exists.
+     * Removes the key with the highest priority if exists.
      * @return the key with the highest priority if exists; otherwise, {@code null}.
      */
     abstract protected T remove();
