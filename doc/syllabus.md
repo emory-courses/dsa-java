@@ -1,10 +1,3 @@
----
-marp: true
-paginate: true
-header: CS253: Data Structures and Algorithm
-footer: Jinho D. Choi, Emory University
----
-
 # Syllabus
 
 ## General
@@ -12,20 +5,17 @@ footer: Jinho D. Choi, Emory University
 * Class hours and location: MW 1:00pm - 2:15pm, MSC N302.
 * Prerequisites: CS171.
 
----
 
 ## Office Hours
 
 * [Jinho Choi](http://cs.emory.edu/~choi): MW 2:30pm - 4:00pm, MSC W302F.
 * [Han He](http://hankcs.com): TuTh 12:30pm - 2:30pm, MSC W302.
 
----
 
 ## Textbook
 
 * [Data Structure & Algorithms in Java (6th Edition)](https://www.amazon.com/Data-Structures-Algorithms-Java-6th-ebook/dp/B00JDRQF8C), Goodrich, Tamassia, Goldwasser.
 
----
 
 ## Grading
 
@@ -34,7 +24,6 @@ footer: Jinho D. Choi, Emory University
 * Midterm exam: 20%.
 * Final exam: 30%.
 
----
 
 ## Homework Assignments
 
@@ -42,7 +31,7 @@ footer: Jinho D. Choi, Emory University
 * All assignments are due by the beginning of the class.
 * Late submissions within a week will be accepted with the grading penalty of 15%, and will not be accepted after the first week. Exceptions to this policy will be made only in extraordinary circumstances.
 
----
+
 
 ## Take-Home Quizzes
 
@@ -50,14 +39,12 @@ footer: Jinho D. Choi, Emory University
 * All quizzes are due by the beginning of the class. Late submissions will not be accepted.
 * One take-home quiz will be assigned every week to check if you are keeping up with the topics.
 
----
 
 ## Exams
 
 * One midterm will be given after the break.
 * One final will be given during the exam period, covering all topics discussed throughout the semester. 
 
----
 
 ## Notes
 

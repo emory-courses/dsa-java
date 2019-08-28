@@ -9,10 +9,10 @@
 
 ## Github
 
-* Create a [Github](https://github.com) account if you do not already have one.
+* Create a [Github](https://github.com) account if you do not  have one.
 
 
-## IntelliJ IDEA
+## IntelliJ
 
 * Install the latest version of [IntelliJ](https://www.jetbrains.com/idea/download) on your local machine:
   * Recommended version: **Ultimate 2019.2**.
@@ -35,7 +35,7 @@
   * Project name: `cs253`
   * Project location: `some_local_path/cs253`
 * Once the project is created, configure the Java version in [`build.gradle`](../build.gradle) as follows:
-  ```java
+  ```groovy
   sourceCompatibility = JavaVersion.VERSION_12
   targetCompatibility = JavaVersion.VERSION_12
   ```
@@ -73,7 +73,7 @@
   * Han He: `hankcs`.
 
 
-## Java Package
+## Package
 
 * Right click on the [`src/main/java`](../src/main/java) directory under the `cs253` project and create the package [`edu.emory.cs.utils`](../src/main/java/edu/emory/cs/utils).
 * Right click on the `utils` package and create the Java class [`Utils`](../src/main/java/edu/emory/cs/utils/Utils.java).
@@ -103,11 +103,33 @@
        assertEquals(5, Utils.getMiddleIndex(0, 10));
    }
    ```
-  * Make sure to include the [`@Test`](http://junit.sourceforge.net/javadoc/org/junit/Test.html) annotation. You must see `@Test` in red. Hover over and add `JUnit 5`.
-  * Import the followings:
-      ```
-      import static org.junit.jupiter.api.Assertions.assertEquals;
-      import org.junit.jupiter.api.Test;
-      ```
+* Make sure to include the [`@Test`](http://junit.sourceforge.net/javadoc/org/junit/Test.html) annotation.
+* Import the followings:
+  ```
+  import org.junit.Test;
+  import static org.junit.Assert.assertEquals;
+  ```
 * Run the test by clicking `[Run -> Run]`.
 * If you see the test passed, your unit test is run successfully.
+
+
+## Java Archive (JAR)
+
+* Add the following content to [`build.gradle`](../build.gradle):
+  ```groovy
+  jar {
+      manifest {
+          attributes 'Main-Class': 'edu.emory.cs.utils.Utils'
+      }
+  } 
+  ```
+* Open **Terminal** in IntelliJ and run the following command:
+  ```bash
+  ./gradlew build
+  ```
+* You should see `cs253-1.0-SNAPSHOT.jar` created under the `cs253/build/libs/` directory.
+* Run the following command on the terminal:
+  ```bash
+  java -jar build/libs/cs253-1.0-SNAPSHOT.jar
+  ```
+* If it prompts `5`, you have successfully created a Java archive.
