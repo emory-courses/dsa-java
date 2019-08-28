@@ -25,41 +25,26 @@ import java.util.List;
  */
 public class BinaryHeap<T extends Comparable<T>> extends AbstractPriorityQueue<T> {
     private List<T> keys;
-    private int size;
-
-    public BinaryHeap() {
-        this(Comparator.naturalOrder());
-    }
 
     public BinaryHeap(Comparator<T> comparator) {
         super(comparator);
         keys = new ArrayList<>();
         keys.add(null);    // initialize the first item as null
-        size = 0;
     }
 
-    public List<T> getKeys() {
-        return keys;
+    public BinaryHeap() {
+        this(Comparator.naturalOrder());
     }
 
     @Override
     public int size() {
-        return size;
+        return keys.size() - 1;
     }
 
     @Override
     public void add(T key) {
         keys.add(key);
-        swim(++size);
-    }
-
-    @Override
-    protected T remove() {
-        if (isEmpty()) return null;
-        Collections.swap(keys, 1, size);
-        T max = keys.remove(size--);
-        sink(1);
-        return max;
+        swim(size());
     }
 
     private void swim(int k) {
@@ -69,9 +54,18 @@ public class BinaryHeap<T extends Comparable<T>> extends AbstractPriorityQueue<T
         }
     }
 
+    @Override
+    protected T remove() {
+        if (isEmpty()) return null;
+        Collections.swap(keys, 1, size());
+        T max = keys.remove(size());
+        sink(1);
+        return max;
+    }
+
     private void sink(int k) {
-        for (int i = k * 2; i <= size; k = i, i *= 2) {
-            if (i < size && comparator.compare(keys.get(i), keys.get(i + 1)) < 0) i++;
+        for (int i = k * 2; i <= size(); k = i, i *= 2) {
+            if (i < size() && comparator.compare(keys.get(i), keys.get(i + 1)) < 0) i++;
             if (comparator.compare(keys.get(k), keys.get(i)) >= 0) break;
             Collections.swap(keys, k, i);
         }

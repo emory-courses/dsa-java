@@ -1,5 +1,6 @@
 ---
 marp: true
+theme: cs253-theme
 paginate: true
 ---
 
@@ -47,28 +48,18 @@ public abstract class AbstractPriorityQueue<T extends Comparable<T>> {
      */
     abstract protected T remove();
 
-    /**
-     * @return the size of this queue.
-     */
+    /** @return the size of this queue. */
     abstract public int size();
-```  
 
-* Abstract methods: `add()`, `remove()`, `size()`.
-* Javadoc.
-
----
-
-
-```java
-    /**
-     * @return {@code true} if the queue is empty; otherwise, {@code false}.
-     */
+    /** @return {@code true} if the queue is empty; otherwise, {@code false}. */
     public boolean isEmpty() {
         return size() == 0;
     }
-}
 ```  
+
+* Abstract methods: `add()`, `remove()`, `size()`.
 * Regular method: `isEmpty()`.
+* Javadoc.
 
 ---
 
@@ -101,22 +92,8 @@ public class LazyPriorityQueue<T extends Comparable<T>> extends AbstractPriority
      * @param key the comparable key.
      */
     @Override
-    public void add(T key) {
-        keys.add(key);
-    }
+    public void add(T key) { keys.add(key); }
 
-    @Override
-    public int size() {
-        return keys.size();
-    }
-```
-
-* Annotation: [`@Override`](https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/lang/Override.html).
-* Complexity: `add()`.
-
----
-
-```java
     /**
      * Finds the key with the highest priority, and removes it from the list.
      * @return the key with the highest priority if exists; otherwise, {@code null}.
@@ -128,11 +105,15 @@ public class LazyPriorityQueue<T extends Comparable<T>> extends AbstractPriority
         keys.remove(max);
         return max;
     }
+
+    @Override
+    public int size() { return keys.size(); }
 ```
 
+* Annotation: [`@Override`](https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/lang/Override.html).
 * Edge case handling: `remove()`.
 * Standard API: [`Collections.max()`](https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/util/Collections.html#max(java.util.Collection,java.util.Comparator)).
-* Complexity: `remove()`.
+* Complexity: `add()`, `remove()`.
 
 ---
 
@@ -151,14 +132,7 @@ Source: [`EagerPriorityQueue.java`](../src/main/java/edu/emory/cs/queue/EagerPri
         if (index < 0) index = -(index + 1);
         keys.add(index, key);
     }
-```
 
-* Standard API: [Collections.binarySearch()](https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/util/Collections.html#binarySearch(java.util.List,T,java.util.Comparator)).
-* Complexity: `add()`.
-
----
-
-```java
     /**
      * Remove the last key in the list.
      * @return the key with the highest priority if exists; otherwise, {@code null}.
@@ -169,8 +143,9 @@ Source: [`EagerPriorityQueue.java`](../src/main/java/edu/emory/cs/queue/EagerPri
     }
 ```
 
+* Standard API: [Collections.binarySearch()](https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/util/Collections.html#binarySearch(java.util.List,T,java.util.Comparator)).
 * Ternary conditional operator: `condition ? : `.
-* Complexity: `remove()`.
+* Complexity: `add()`, `remove()`.
 
 ---
 
@@ -178,32 +153,160 @@ Source: [`EagerPriorityQueue.java`](../src/main/java/edu/emory/cs/queue/EagerPri
 
 ### What is a heap?
 
-* A tree where the key of each node has a higher or equal priority than its children.
-* The tree is guaranteed to be balanced.
-* What is a binary heap?
+* A _tree_ where each node has a _higher_ (or equal) priority than its children.
+* The tree must be _balanced_ at all time.
+* What is a _binary_ heap?
 
 ### Operations
-* Add: swim.
-* Remove: sink.
-* Both operations can be done in O(log n).
+* Add: _swim_.
+* Remove: _sink_.
+* Both operations can be done in _$O(\log n)$_.
 
 ---
 
-![](img/priority_queues-0.png)
+![height:15em](img/priority_queues-0.png)
 
 
-* Binary heap can be represented by a list.
+* Binary heap can be represented by a _list_.
 * Index of the parent: $k / 2$
 * Index of the children: $k*2$ and $(k*2) + 1$
 
+---
+
+Source: [`BinaryHeap.java`](../src/main/java/edu/emory/cs/queue/BinaryHeap.java)
+
+```java
+public class BinaryHeap<T extends Comparable<T>> extends AbstractPriorityQueue<T> {
+    private List<T> keys;
+
+    public BinaryHeap(Comparator<T> comparator) {
+        super(comparator);
+        keys = new ArrayList<>();
+        keys.add(null);    // initialize the first item as null
+    }
+
+    public BinaryHeap() {
+        this(Comparator.naturalOrder());
+    }
+
+    @Override
+    public int size() {
+        return keys.size() - 1;
+    }
+```
+
+* How to handle the `null` key at the front.
 
 ---
 
-* Source: [`BinaryHeap.java`](../src/main/java/edu/emory/cs/queue/BinaryHeap.java)
+```java
+    @Override
+    public void add(T key) {
+        keys.add(key);
+        swim(size());
+    }
 
+    private void swim(int k) {
+        while (1 < k && comparator.compare(keys.get(k / 2), keys.get(k)) < 0) {
+            Collections.swap(keys, k / 2, k);
+            k /= 2;
+        }
+    }
+```
 
-Binary heap using a list
+* Add each key to the end of the list, and swim until it becomes a heap ([demo]()).
+* `comparator.compare()`: compare the itself to its parent.
 
+---
+
+```java
+    @Override
+    protected T remove() {
+        if (isEmpty()) return null;
+        Collections.swap(keys, 1, size());
+        T max = keys.remove(size());
+        sink(1);
+        return max;
+    }
+
+    private void sink(int k) {
+        for (int i = k * 2; i <= size(); k = i, i *= 2) {
+            if (i < size() && comparator.compare(keys.get(i), keys.get(i + 1)) < 0) i++;
+            if (comparator.compare(keys.get(k), keys.get(i)) >= 0) break;
+            Collections.swap(keys, k, i);
+        }
+    }
+```
+
+* Replace the root with the last key in the list, and sink until it becomes a heap ([demo]()).
+* Compare two children.
+* Compare itself to the greater child.
+
+---
+
+## Unit Test - Accuracy
+
+Source: [`PriorityQueueTest.java`](../src/test/java/edu/emory/cs/queue/PriorityQueueTest.java)
+
+```java
+@Test
+public void testAccuracy() {
+    testAccuracy(new LazyPriorityQueue<>(), Comparator.reverseOrder());
+    testAccuracy(new EagerPriorityQueue<>(), Comparator.reverseOrder());
+    testAccuracy(new BinaryHeap<>(), Comparator.reverseOrder());
+}
+
+private void testAccuracy(AbstractPriorityQueue<Integer> q, Comparator<Integer> sort) {
+    List<Integer> keys = new ArrayList<>(Arrays.asList(4, 1, 3, 2, 5, 6, 8, 3, 4, 7, 5, 9, 7));
+    keys.forEach(q::add);
+    keys.sort(sort);
+    keys.forEach(key -> assertEquals(key, q.remove()));
+}
+```
+
+* Annotation: `@Test`.
+
+---
+
+## Unit Test - Speed
+
+```java
+private void addRuntime(AbstractPriorityQueue<Integer> queue, long[] times, int[] keys) {
+    long st, et;
+
+    st = System.currentTimeMillis();
+
+    for (int key : keys)
+        queue.add(key);
+
+    et = System.currentTimeMillis();
+    times[0] += et - st;
+
+    st = System.currentTimeMillis();
+
+    while (!queue.isEmpty())
+        queue.remove();
+
+    et = System.currentTimeMillis();
+    times[1] += et - st;
+}
+```
+
+---
+
+## Speed Comparison - Add
+
+![](img/priority_queues-1.png)
+
+* Complexity: $O(1)$, $O(\log n)$, $O(\log n)$
+
+---
+
+## Speed Comparison - Remove
+
+![](img/priority_queues-2.png)
+
+* Complexity: $O(n)$, $O(1)$, $O(\log n)$
 
 ---
 
