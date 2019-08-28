@@ -12,6 +12,8 @@ paginate: true
 * [Lazy Priority Queue](#lazy-priority-queue).
 * [Eager Priority Queue](#eager-priority-queue).
 * [Binary Heap](#binary-heap).
+* [Unit Tests](#unit-tests).
+* [References](#references).
 
 ---
 
@@ -168,8 +170,8 @@ Source: [`EagerPriorityQueue.java`](../src/main/java/edu/emory/cs/queue/EagerPri
 
 
 * Binary heap can be represented by a _list_.
-* Index of the parent: $k / 2$
-* Index of the children: $k*2$ and $(k*2) + 1$
+* Index of the parent: _$k/2$_.
+* Index of the children: _$k*2$_ and _$(k*2) + 1$_.
 
 ---
 
@@ -195,7 +197,7 @@ public class BinaryHeap<T extends Comparable<T>> extends AbstractPriorityQueue<T
     }
 ```
 
-* How to handle the `null` key at the front.
+* Handle the `null` key at the front.
 
 ---
 
@@ -214,8 +216,8 @@ public class BinaryHeap<T extends Comparable<T>> extends AbstractPriorityQueue<T
     }
 ```
 
-* Add each key to the end of the list, and swim until it becomes a heap ([demo]()).
-* `comparator.compare()`: compare the itself to its parent.
+* Add each key to the end of the list and _swim_ ([demo]()).
+* `comparator.compare()`: compare itself to its parent.
 
 ---
 
@@ -238,15 +240,17 @@ public class BinaryHeap<T extends Comparable<T>> extends AbstractPriorityQueue<T
     }
 ```
 
-* Replace the root with the last key in the list, and sink until it becomes a heap ([demo]()).
+* Replace the root with the last key in the list and _sink_ ([demo]()).
 * Compare two children.
 * Compare itself to the greater child.
 
 ---
 
-## Unit Test - Accuracy
+## Unit Tests
 
 Source: [`PriorityQueueTest.java`](../src/test/java/edu/emory/cs/queue/PriorityQueueTest.java)
+
+### Accuracy
 
 ```java
 @Test
@@ -268,7 +272,7 @@ private void testAccuracy(AbstractPriorityQueue<Integer> q, Comparator<Integer> 
 
 ---
 
-## Unit Test - Speed
+### Speed
 
 ```java
 private void addRuntime(AbstractPriorityQueue<Integer> queue, long[] times, int[] keys) {
@@ -294,19 +298,19 @@ private void addRuntime(AbstractPriorityQueue<Integer> queue, long[] times, int[
 
 ---
 
-## Speed Comparison - Add
+### Speed Comparison - Add
 
 ![](img/priority_queues-1.png)
 
-* Complexity: $O(1)$, $O(\log n)$, $O(\log n)$
+* Lazy: _$O(1)$_ vs. Eager: _$O(\log n)$_? vs. Heap: _$O(\log n)$_.
 
 ---
 
-## Speed Comparison - Remove
+### Speed Comparison - Remove
 
 ![](img/priority_queues-2.png)
 
-* Complexity: $O(n)$, $O(1)$, $O(\log n)$
+* Lazy: _$O(n)$_, Eager: _$O(1)$_, Heap: _$O(\log n)$_.
 
 ---
 
