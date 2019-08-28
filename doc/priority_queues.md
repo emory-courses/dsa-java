@@ -2,9 +2,10 @@
 
 ## Contents
 
-* [Abstract Priority Queue](#abstractpriorityqueue).
-* [Lazy Priority Queue](#lazypriorityqueue).
-* [Eager Priority Queue](#eagerpriorityqueue).
+* [Abstract Priority Queue](#abstract-priority-queue).
+* [Lazy Priority Queue](#lazy-priority-queue).
+* [Eager Priority Queue](#eager-priority-queue).
+* [Binary Heap](#binary-heap).
 
 
 ## Abstract Priority Queue
@@ -52,8 +53,8 @@ public abstract class AbstractPriorityQueue<T extends Comparable<T>> {
 }
 ```  
 
-* Abstract methods: `add`, `remove`, `size`.
-* Regular method: `isEmpty`.
+* Abstract methods: `add()`, `remove()`, `size()`.
+* Regular method: `isEmpty()`.
 * Javadoc.
 
 
@@ -95,6 +96,7 @@ public class LazyPriorityQueue<T extends Comparable<T>> extends AbstractPriority
      */
     @Override
     protected T remove() {
+        if (isEmpty()) return null;
         T max = Collections.max(keys, comparator);
         keys.remove(max);
         return max;
@@ -107,16 +109,50 @@ public class LazyPriorityQueue<T extends Comparable<T>> extends AbstractPriority
 ```
 
 * Annotation: [`@Override`](https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/lang/Override.html).
-* Standard API: [`Collections`](https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/util/Collections.html).
-* Complexity: `add`, `remove`.
+* Edge case handling: `remove()`.
+* Standard API: [`Collections.max()`](https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/util/Collections.html#max(java.util.Collection,java.util.Comparator)).
+* Complexity: `add()`, `remove()`.
 
 
 ## Eager Priority Queue
 
-* Source: [`LazyPriorityQueue.java`](../src/main/java/edu/emory/cs/queue/LazyPriorityQueue.java)
+* Source: [`EagerPriorityQueue.java`](../src/main/java/edu/emory/cs/queue/EagerPriorityQueue.java)
 
+```java
+    /**
+     * Adds a key to the list according to the priority.
+     * @param key the comparable key.
+     */
+    @Override
+    public void add(T key) {
+        int index = Collections.binarySearch(keys, key, comparator);
+        if (index < 0) index = -(index + 1);
+        keys.add(index, key);
+    }
+
+    /**
+     * Remove the last key in the list.
+     * @return the key with the highest priority if exists; otherwise, {@code null}.
+     */
+    @Override
+    protected T remove() {
+        return isEmpty() ? null : keys.remove(keys.size() - 1);
+    }
+```
+
+* Standard API: [Collections.binarySearch()](https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/util/Collections.html#binarySearch(java.util.List,T,java.util.Comparator)).
+* Ternary conditional operator: `condition ? : `.
+* Complexity: `add()`, `remove()`.
+
+
+## Binary Heap
+
+* Source: [`EagerPriorityQueue.java`](../src/main/java/edu/emory/cs/queue/BinaryHeap.java)
 
 ## References
 
 * [Priority queue](https://en.wikipedia.org/wiki/Priority_queue).
 * [Binary heap](https://en.wikipedia.org/wiki/Binary_heap).
+* [Generics in Java](https://en.wikipedia.org/wiki/Generics_in_Java).
+
+<iframe src="https://www.slideshare.net/slideshow/embed_code/key/JJnbXMQTt4o5Ux" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" allowfullscreen="1" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;"></iframe>

@@ -15,69 +15,62 @@
  */
 package edu.emory.cs.queue;
 
+import edu.emory.cs.utils.Utils;
 import org.junit.Test;
 
-import java.util.Comparator;
+import java.util.*;
 import java.util.stream.Collectors;
 
+import static org.junit.Assert.assertEquals;
 
 /**
  * @author Jinho D. Choi ({@code jinho.choi@emory.edu})
  */
-public class PriorityQueueTest
-{
+public class PriorityQueueTest {
     @Test
-    void testAccuracy()
-    {
-        testAccuracy(new LazyPriorityQueue<>() , Comparator.reverseOrder());
+    public void testAccuracy() {
+        testAccuracy(new LazyPriorityQueue<>(), Comparator.reverseOrder());
         testAccuracy(new EagerPriorityQueue<>(), Comparator.reverseOrder());
-        testAccuracy(new BinaryHeap<>()        , Comparator.reverseOrder());
+        testAccuracy(new BinaryHeap<>(), Comparator.reverseOrder());
 
-        testAccuracy(new LazyPriorityQueue<Integer>(Comparator.reverseOrder()) , Comparator.naturalOrder());
+        testAccuracy(new LazyPriorityQueue<Integer>(Comparator.reverseOrder()), Comparator.naturalOrder());
         testAccuracy(new EagerPriorityQueue<Integer>(Comparator.reverseOrder()), Comparator.naturalOrder());
-        testAccuracy(new BinaryHeap<Integer>(Comparator.reverseOrder())        , Comparator.naturalOrder());
+        testAccuracy(new BinaryHeap<Integer>(Comparator.reverseOrder()), Comparator.naturalOrder());
     }
 
-    private void testAccuracy(AbstractPriorityQueue<Integer> q, Comparator<Integer> sort)
-    {
-        List<Integer> keys = new ArrayList<>(Arrays.asList(4,1,3,2,5,6,8,3,4,7,5,9,7));
-        keys.forEach(key -> q.add(key));
+    private void testAccuracy(AbstractPriorityQueue<Integer> q, Comparator<Integer> sort) {
+        List<Integer> keys = new ArrayList<>(Arrays.asList(4, 1, 3, 2, 5, 6, 8, 3, 4, 7, 5, 9, 7));
+        keys.forEach(q::add);
         keys.sort(sort);
         keys.forEach(key -> assertEquals(key, q.remove()));
     }
 
     @Test
-    void testSpeed()
-    {
+    public void testSpeed() {
         testSpeed(new LazyPriorityQueue<>(), new EagerPriorityQueue<>(), new BinaryHeap<>());
 //      testSpeed(new NaryHeap<>(2), new NaryHeap<>(3), new NaryHeap<>(4), new NaryHeap<>(5), new NaryHeap<>(6));
     }
 
     @SafeVarargs
-    private final void testSpeed(AbstractPriorityQueue<Integer>... qs)
-    {
+    private void testSpeed(AbstractPriorityQueue<Integer>... qs) {
         final int ITER = 1000, WARM = 10, LENGTH = qs.length;
 
         StringBuilder build = new StringBuilder();
         long[][] times = new long[LENGTH][2];
-        long[][] temp  = new long[LENGTH][2];
-        int[]    keys;
-        Random   rand;
+        long[][] temp = new long[LENGTH][2];
+        int[] keys;
+        Random rand;
 
-        for (int size=100; size<=1000; size+=100)
-        {
-            for (int k=0; k<LENGTH; k++)
-            {
+        for (int size = 100; size <= 1000; size += 100) {
+            for (int k = 0; k < LENGTH; k++) {
                 rand = new Random(size);
 
-                for (int j=0; j<WARM; j++)
-                {
+                for (int j = 0; j < WARM; j++) {
                     keys = Utils.getRandomIntArray(rand, size);
                     addRuntime(qs[k], temp[k], keys);
                 }
 
-                for (int j=0; j<ITER; j++)
-                {
+                for (int j = 0; j < ITER; j++) {
                     keys = Utils.getRandomIntArray(rand, size);
                     addRuntime(qs[k], times[k], keys);
                 }
@@ -94,8 +87,7 @@ public class PriorityQueueTest
         System.out.println(build.toString());
     }
 
-    private void addRuntime(AbstractPriorityQueue<Integer> queue, long[] times, int[] keys)
-    {
+    private void addRuntime(AbstractPriorityQueue<Integer> queue, long[] times, int[] keys) {
         long st, et;
 
         st = System.currentTimeMillis();
