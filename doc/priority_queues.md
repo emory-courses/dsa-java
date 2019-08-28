@@ -155,5 +155,4 @@ public class LazyPriorityQueue<T extends Comparable<T>> extends AbstractPriority
 * [Binary heap](https://en.wikipedia.org/wiki/Binary_heap).
 * [Generics in Java](https://en.wikipedia.org/wiki/Generics_in_Java).
 
-<!--<iframe src="https://www.slideshare.net/slideshow/embed_code/key/JJnbXMQTt4o5Ux" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" allowfullscreen="1" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;"></iframe>
--->
+<iframe src="https://www.slideshare.net/slideshow/embed_code/key/JJnbXMQTt4o5Ux" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" allowfullscreen="1" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;"></iframe>
