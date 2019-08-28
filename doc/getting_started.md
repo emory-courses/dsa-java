@@ -111,11 +111,3 @@
       ```
 * Run the test by clicking `[Run -> Run]`.
 * If you see the test passed, your unit test is run successfully.
-
-
-## Quiz
-
-* Submit the address of your Github repository (e.g., https://github.com/your_id/cs253.git): https://canvas.emory.edu/courses/62873/assignments/253603
-
-
-

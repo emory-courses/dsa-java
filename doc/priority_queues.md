@@ -9,6 +9,8 @@
 
 ## AbstractPriorityQueue
 
+[`AbstractPriorityQueue.java`](../src/main/java/edu/emory/cs/queue/AbstractPriorityQueue.java)
+
 ```java
 public abstract class AbstractPriorityQueue<T extends Comparable<T>> {
     protected Comparator<T> comparator;
@@ -22,6 +24,41 @@ public abstract class AbstractPriorityQueue<T extends Comparable<T>> {
     }
 ```
 
+* Class type: `class`, `abstract class`, `interface`.
+* Generic: `<T extends Comparable<T>>`.
+* Member type: `private`, `package`, `protected`, `public`.
+* Constructor: default, parameters, `this`.
+
+```java
+    /**
+     * Inserts a comparable key to this priority queue.
+     * @param key the comparable key.
+     */
+    abstract public void add(T key);
+
+    /**
+     * Finds and removes the key with the highest priority if exists.
+     * @return the key with the highest priority if exists; otherwise, {@code null}.
+     */
+    abstract protected T remove();
+
+    /**
+     * @return the size of this queue.
+     */
+    abstract public int size();
+    
+    /**
+     * @return {@code true} if the queue is empty; otherwise, {@code false}.
+     */
+    public boolean isEmpty() {
+        return size() == 0;
+    }
+}
+```  
+
+* Abstract methods: `add`, `remove`, `size`.
+* Regular method: `isEmpty`.
+* Javadoc.
 
 
 ### Operations
