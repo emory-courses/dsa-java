@@ -2,7 +2,7 @@
 
 | Date | Topics | | Assignments |
 |:---:|---|---|---|
-|08/28| [Introduction](syllabus.md) | [ex](getting_started.md) | [quiz 0](getting_started.md#quiz) |
+|08/28| [Introduction](syllabus.md) | [ex](getting_started.md) | [quiz 0](quizzes.md#quiz-0) |
 |09/02| Labor Day | | |
 |09/04| [Priority Queues]() | [ex](priority_queues.md), [pdf]() |  |
 |09/09| [Sort: comparison-based]() | [ex](sort_comparison_based.md), [pdf]() | [quiz 1](priority_queues.md#quiz) |

@@ -9,7 +9,7 @@
 
 ## AbstractPriorityQueue
 
-[`AbstractPriorityQueue.java`](../src/main/java/edu/emory/cs/queue/AbstractPriorityQueue.java)
+Source: [`AbstractPriorityQueue.java`](../src/main/java/edu/emory/cs/queue/AbstractPriorityQueue.java)
 
 ```java
 public abstract class AbstractPriorityQueue<T extends Comparable<T>> {
