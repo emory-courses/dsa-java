@@ -1,3 +1,8 @@
+---
+marp: true
+paginate: true
+---
+
 # Priority Queues
 
 ## Contents
@@ -7,10 +12,11 @@
 * [Eager Priority Queue](#eager-priority-queue).
 * [Binary Heap](#binary-heap).
 
+---
 
 ## Abstract Priority Queue
 
-* Source: [`AbstractPriorityQueue.java`](../src/main/java/edu/emory/cs/queue/AbstractPriorityQueue.java)
+Source: [`AbstractPriorityQueue.java`](../src/main/java/edu/emory/cs/queue/AbstractPriorityQueue.java)
 
 ```java
 public abstract class AbstractPriorityQueue<T extends Comparable<T>> {
@@ -25,6 +31,8 @@ public abstract class AbstractPriorityQueue<T extends Comparable<T>> {
 * Generics: `<T extends Comparable<T>>`.
 * Member types: `private` vs. `package` vs. `protected` vs. `public`.
 * Constructor: `this`.
+
+---
 
 ```java
     /**
@@ -43,7 +51,15 @@ public abstract class AbstractPriorityQueue<T extends Comparable<T>> {
      * @return the size of this queue.
      */
     abstract public int size();
-    
+```  
+
+* Abstract methods: `add()`, `remove()`, `size()`.
+* Javadoc.
+
+---
+
+
+```java
     /**
      * @return {@code true} if the queue is empty; otherwise, {@code false}.
      */
@@ -52,15 +68,13 @@ public abstract class AbstractPriorityQueue<T extends Comparable<T>> {
     }
 }
 ```  
-
-* Abstract methods: `add()`, `remove()`, `size()`.
 * Regular method: `isEmpty()`.
-* Javadoc.
 
+---
 
 ## Lazy Priority Queue
 
-* Source: [`LazyPriorityQueue.java`](../src/main/java/edu/emory/cs/queue/LazyPriorityQueue.java)
+Source: [`LazyPriorityQueue.java`](../src/main/java/edu/emory/cs/queue/LazyPriorityQueue.java)
 
 ```java
 public class LazyPriorityQueue<T extends Comparable<T>> extends AbstractPriorityQueue<T> {
@@ -79,6 +93,7 @@ public class LazyPriorityQueue<T extends Comparable<T>> extends AbstractPriority
 * Inheritance: `extends AbstractPriorityQueue<T>`.
 * Constructors: default vs. parameters, `this` vs. `super`.
 
+---
 
 ```java
     /**
@@ -90,6 +105,18 @@ public class LazyPriorityQueue<T extends Comparable<T>> extends AbstractPriority
         keys.add(key);
     }
 
+    @Override
+    public int size() {
+        return keys.size();
+    }
+```
+
+* Annotation: [`@Override`](https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/lang/Override.html).
+* Complexity: `add()`.
+
+---
+
+```java
     /**
      * Finds the key with the highest priority, and removes it from the list.
      * @return the key with the highest priority if exists; otherwise, {@code null}.
@@ -101,22 +128,17 @@ public class LazyPriorityQueue<T extends Comparable<T>> extends AbstractPriority
         keys.remove(max);
         return max;
     }
-
-    @Override
-    public int size() {
-        return keys.size();
-    }
 ```
 
-* Annotation: [`@Override`](https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/lang/Override.html).
 * Edge case handling: `remove()`.
 * Standard API: [`Collections.max()`](https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/util/Collections.html#max(java.util.Collection,java.util.Comparator)).
-* Complexity: `add()`, `remove()`.
+* Complexity: `remove()`.
 
+---
 
 ## Eager Priority Queue
 
-* Source: [`EagerPriorityQueue.java`](../src/main/java/edu/emory/cs/queue/EagerPriorityQueue.java)
+Source: [`EagerPriorityQueue.java`](../src/main/java/edu/emory/cs/queue/EagerPriorityQueue.java)
 
 ```java
     /**
@@ -129,7 +151,14 @@ public class LazyPriorityQueue<T extends Comparable<T>> extends AbstractPriority
         if (index < 0) index = -(index + 1);
         keys.add(index, key);
     }
+```
 
+* Standard API: [Collections.binarySearch()](https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/util/Collections.html#binarySearch(java.util.List,T,java.util.Comparator)).
+* Complexity: `add()`.
+
+---
+
+```java
     /**
      * Remove the last key in the list.
      * @return the key with the highest priority if exists; otherwise, {@code null}.
@@ -140,10 +169,10 @@ public class LazyPriorityQueue<T extends Comparable<T>> extends AbstractPriority
     }
 ```
 
-* Standard API: [Collections.binarySearch()](https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/util/Collections.html#binarySearch(java.util.List,T,java.util.Comparator)).
 * Ternary conditional operator: `condition ? : `.
-* Complexity: `add()`, `remove()`.
+* Complexity: `remove()`.
 
+---
 
 ## Binary Heap
 
