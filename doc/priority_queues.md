@@ -176,7 +176,23 @@ Source: [`EagerPriorityQueue.java`](../src/main/java/edu/emory/cs/queue/EagerPri
 
 ## Binary Heap
 
+### What is a heap?
+
+* A tree where the key of each node has a higher or equal priority than its children.
+* The tree is guaranteed to be balanced.
+* What is a binary heap?
+
+### Operations
+* Add: swim.
+* Remove: sink.
+* Both operations can be done in O(log n).
+
+---
+
 * Source: [`BinaryHeap.java`](../src/main/java/edu/emory/cs/queue/BinaryHeap.java)
+
+
+---
 
 ## References
 
@@ -184,4 +200,3 @@ Source: [`EagerPriorityQueue.java`](../src/main/java/edu/emory/cs/queue/EagerPri
 * [Binary heap](https://en.wikipedia.org/wiki/Binary_heap).
 * [Generics in Java](https://en.wikipedia.org/wiki/Generics_in_Java).
 
-<iframe src="https://www.slideshare.net/slideshow/embed_code/key/JJnbXMQTt4o5Ux" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" allowfullscreen="1" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;"></iframe>
