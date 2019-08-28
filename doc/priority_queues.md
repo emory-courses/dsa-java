@@ -4,11 +4,44 @@
 
 * [Priority queue](https://en.wikipedia.org/wiki/Priority_queue).
 * [Binary heap](https://en.wikipedia.org/wiki/Binary_heap).
+* Package: [main](../src/main/java/edu/emory/cs/queue), [test](../src/test/java/edu/emory/cs/queue).
+
+
+## AbstractPriorityQueue
+
+```java
+public abstract class AbstractPriorityQueue<T extends Comparable<T>> {
+    protected Comparator<T> comparator;
+
+    public AbstractPriorityQueue(Comparator<T> comparator) {
+        this.comparator = comparator;
+    }
+
+    public AbstractPriorityQueue() {
+        this(Comparator.naturalOrder());
+    }
+```
+
+
+
+### Operations
+
+* Add: insert a comparable key.
+* Remove: find and remove the key with the highest priority.
+
+### Application
+Scheduling.
+Implementation
+Lazy vs. Eager.
+Heap.
+
+
+
+## Reading
+
 
 ## Exercise
 
-* [Source codes](../tree/master/src/queue).
-* [Unit tests](../tree/master/src/queue/test/PriorityQueueTest.java).
 
 ## Quiz
 
