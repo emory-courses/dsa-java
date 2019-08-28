@@ -189,7 +189,20 @@ Source: [`EagerPriorityQueue.java`](../src/main/java/edu/emory/cs/queue/EagerPri
 
 ---
 
+![](img/priority_queues-0.png)
+
+
+* Binary heap can be represented by a list.
+* Index of the parent: $k / 2$
+* Index of the children: $k*2$ and $(k*2) + 1$
+
+
+---
+
 * Source: [`BinaryHeap.java`](../src/main/java/edu/emory/cs/queue/BinaryHeap.java)
+
+
+Binary heap using a list
 
 
 ---
