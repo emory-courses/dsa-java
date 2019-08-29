@@ -216,7 +216,7 @@ public class BinaryHeap<T extends Comparable<T>> extends AbstractPriorityQueue<T
     }
 ```
 
-* Add each key to the end of the list and _swim_ ([demo]()).
+* Add each key to the end of the list and _swim_ until it becomes a heap.
 * `comparator.compare()`: compare itself to its parent.
 
 ---
@@ -240,7 +240,7 @@ public class BinaryHeap<T extends Comparable<T>> extends AbstractPriorityQueue<T
     }
 ```
 
-* Replace the root with the last key in the list and _sink_ ([demo]()).
+* Replace the root with the last key in the list and _sink_ until it becomes a heap.
 * Compare two children.
 * Compare itself to the greater child.
 
@@ -300,7 +300,7 @@ private void addRuntime(AbstractPriorityQueue<Integer> queue, long[] times, int[
 
 ### Speed Comparison - Add
 
-![](img/priority_queues-1.png)
+![height:18em](img/priority_queues-1.png)
 
 * Lazy: _$O(1)$_ vs. Eager: _$O(\log n)$_? vs. Heap: _$O(\log n)$_.
 
@@ -308,7 +308,7 @@ private void addRuntime(AbstractPriorityQueue<Integer> queue, long[] times, int[
 
 ### Speed Comparison - Remove
 
-![](img/priority_queues-2.png)
+![height:18em](img/priority_queues-2.png)
 
 * Lazy: _$O(n)$_, Eager: _$O(1)$_, Heap: _$O(\log n)$_.
 
@@ -319,4 +319,3 @@ private void addRuntime(AbstractPriorityQueue<Integer> queue, long[] times, int[
 * [Priority queue](https://en.wikipedia.org/wiki/Priority_queue).
 * [Binary heap](https://en.wikipedia.org/wiki/Binary_heap).
 * [Generics in Java](https://en.wikipedia.org/wiki/Generics_in_Java).
-
