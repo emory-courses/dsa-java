@@ -14,7 +14,7 @@
 
 * Implementation
   * Create the class `TernaryHeap` under the [`queue`](../src/main/java/edu/emory/cs/queue/) package extending the abstract class [`AbstractPriorityQueue`](../src/main/java/edu/emory/cs/queue/AbstractPriorityQueue.java).
-  * Each node in `TernaryHeap` must take at most 3 children instead of 2 (so it becomes a ternary instead of binary tree).
+  * Each node in `TernaryHeap` must take up to 3 children (so it becomes a ternary instead of binary tree).
   * Feel free to use the code in [`BinaryHeap`](../src/main/java/edu/emory/cs/queue/BinaryHeap.java).
 * Unit Tests
   * Add the following method, `testTernaryHeap()`, under the [`PriorityQueueTest`](../src/test/java/edu/emory/cs/queue/PriorityQueueTest.java) class and run it to make sure your heap performs accurately.
@@ -29,5 +29,5 @@
   * Compare speeds between `TernaryHeap` and `BinaryHeap` for both the `add` and `remove` operations using [`PriorityQueueTest#testSpeed()`](../tree/master/src/queue/PriorityQueueTest.java).
   * Write a report about the speed comparisons and save it to `quiz1.pdf`.
 * Submission
-  * Create the directory `cs253/doc/` under your project and put `quiz1.pdf` to the directory.
+  * Create the directory `cs253/doc/` under your project and put `quiz1.pdf` to the `doc/` directory.
   * Commit and push all the updates to your Github repository.
