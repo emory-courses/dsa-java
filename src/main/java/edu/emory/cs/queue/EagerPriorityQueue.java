@@ -53,7 +53,7 @@ public class EagerPriorityQueue<T extends Comparable<T>> extends AbstractPriorit
      * @return the key with the highest priority if exists; otherwise, {@code null}.
      */
     @Override
-    protected T remove() {
+    public T remove() {
         return isEmpty() ? null : keys.remove(keys.size() - 1);
     }
 

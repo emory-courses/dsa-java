@@ -49,7 +49,7 @@ public abstract class AbstractPriorityQueue<T extends Comparable<T>> {
      * Removes the key with the highest priority if exists.
      * @return the key with the highest priority if exists; otherwise, {@code null}.
      */
-    abstract protected T remove();
+    abstract public T remove();
 
     /** @return the size of this queue. */
     abstract public int size();
@@ -102,7 +102,7 @@ public class LazyPriorityQueue<T extends Comparable<T>> extends AbstractPriority
      * @return the key with the highest priority if exists; otherwise, {@code null}.
      */
     @Override
-    protected T remove() {
+    public T remove() {
         if (isEmpty()) return null;
         T max = Collections.max(keys, comparator);
         keys.remove(max);
@@ -141,7 +141,7 @@ Source: [`EagerPriorityQueue.java`](../src/main/java/edu/emory/cs/queue/EagerPri
      * @return the key with the highest priority if exists; otherwise, {@code null}.
      */
     @Override
-    protected T remove() {
+    public T remove() {
         return isEmpty() ? null : keys.remove(keys.size() - 1);
     }
 ```
@@ -173,7 +173,7 @@ Source: [`EagerPriorityQueue.java`](../src/main/java/edu/emory/cs/queue/EagerPri
 * Index of the parent: _$k/2$_.
 * Index of the children: _$k*2$_ and _$(k*2) + 1$_.
 
-![height:15em](img/priority_queues-0.png)
+  <br>![height:15em](img/priority_queues-0.png)
 
 ---
 
@@ -226,7 +226,7 @@ public class BinaryHeap<T extends Comparable<T>> extends AbstractPriorityQueue<T
 
 ```java
     @Override
-    protected T remove() {
+    public T remove() {
         if (isEmpty()) return null;
         Collections.swap(keys, 1, size());
         T max = keys.remove(size());

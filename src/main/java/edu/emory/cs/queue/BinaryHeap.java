@@ -55,7 +55,7 @@ public class BinaryHeap<T extends Comparable<T>> extends AbstractPriorityQueue<T
     }
 
     @Override
-    protected T remove() {
+    public T remove() {
         if (isEmpty()) return null;
         Collections.swap(keys, 1, size());
         T max = keys.remove(size());

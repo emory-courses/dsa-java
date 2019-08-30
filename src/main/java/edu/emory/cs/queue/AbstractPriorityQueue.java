@@ -38,7 +38,7 @@ public abstract class AbstractPriorityQueue<T extends Comparable<T>> {
      * Removes the key with the highest priority if exists.
      * @return the key with the highest priority if exists; otherwise, {@code null}.
      */
-    abstract protected T remove();
+    abstract public T remove();
 
     /**
      * @return the size of this queue.

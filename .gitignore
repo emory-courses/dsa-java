@@ -1,4 +1,11 @@
-.gradle/
-.idea/
-build
-gradle
+/.gradle/
+/.idea/
+/build
+/gradle
+
+/src/main/java/edu/emory/cs/queue/NaryHeap.java
+/src/main/java/edu/emory/cs/sort/distribution/DoubleBucketSort.java
+/src/test/java/edu/emory/cs/sort/DoubleBucketSortTest.java
+/src/main/java/edu/emory/cs/sort/distribution/MSDRadixSort.java
+/src/main/java/edu/emory/cs/sort/comparison/ShellSortHibbard.java
+/src/main/java/edu/emory/cs/sort/comparison/ShellSortPratt.java

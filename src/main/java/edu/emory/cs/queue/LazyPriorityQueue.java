@@ -49,7 +49,7 @@ public class LazyPriorityQueue<T extends Comparable<T>> extends AbstractPriority
      * @return the key with the highest priority if exists; otherwise, {@code null}.
      */
     @Override
-    protected T remove() {
+    public T remove() {
         if (isEmpty()) return null;
         T max = Collections.max(keys, comparator);
         keys.remove(max);

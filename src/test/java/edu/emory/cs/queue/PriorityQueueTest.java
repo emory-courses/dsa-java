@@ -107,4 +107,12 @@ public class PriorityQueueTest {
         et = System.currentTimeMillis();
         t.remove += et - st;
     }
+
+//    @Test
+//    public void testNaryHeap() {
+//        List<Integer> keys = List.of(4, 1, 3, 2, 5, 6, 8, 3, 4, 7, 5, 9, 7);
+//        testAccuracy(new NaryHeap<>(3), Comparator.reverseOrder(), new ArrayList<>(keys));
+//        testAccuracy(new NaryHeap<Integer>(3, Comparator.reverseOrder()), Comparator.naturalOrder(), new ArrayList<>(keys));
+//        testSpeed(new NaryHeap<>(2), new NaryHeap<>(3), new NaryHeap<>(4), new NaryHeap<>(5), new NaryHeap<>(6));
+//    }
 }

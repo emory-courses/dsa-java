@@ -16,6 +16,19 @@ public class Utils {
         return array;
     }
 
+    static public Integer[] getRandomIntegerArray(Random rand, int size) {
+        return getRandomIntegerArray(rand, size, Integer.MAX_VALUE);
+    }
+
+    static public Integer[] getRandomIntegerArray(Random rand, int size, int range) {
+        Integer[] array = new Integer[size];
+
+        for (int i = 0; i < size; i++)
+            array[i] = rand.nextInt(range);
+
+        return array;
+    }
+
     static public void main(String[] args) {
         System.out.println(getMiddleIndex(0, 10));
     }

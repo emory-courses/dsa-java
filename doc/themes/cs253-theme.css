@@ -1,11 +1,6 @@
 /* @theme cs253-theme */
 @import 'default';
 
-/* section {
-  width: 960px;
-  height: 720px;
-} */
-
 section {
   width: 1024px;
   height: 768px;

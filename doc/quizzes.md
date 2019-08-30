@@ -31,3 +31,13 @@
 * Submission
   * Commit and push all the updates to your Github repository.
   * Submit `quiz1.pdf` to https://canvas.emory.edu/courses/62873/assignments/255722
+
+<!-- ## Quiz
+
+* Create classes `ShellSortPratt` and `ShellSortHibbard` under [`sort.comparison`](../tree/master/src/sort/comparison) extending [`ShellSort`](../tree/master/src/sort/comparison/ShellSort.java).
+* `ShellSortPratt` and `ShellSortHibbard` must use the Pratt and Hibbard sequences, respectively. Feel free to use the code in [`ShellSortKnuth`](../tree/master/src/sort/comparison/ShellSortKnuth.java):
+ * Pratt: successive numbers of the form 2<sup><i>p</i></sup>3<sup><i>q</i></sup> (1, 2, 3, 4, 6, 8, 9, 12, ...)
+ * Hibbard: 2<sup><i>k</i></sup> - 1 (1, 3, 7, 15, 31, 63, ...)
+* Run the [unit test](../tree/master/src/sort/test/SortTest.java) and make sure your sorting algorithms perform accurately.
+* Compare the speed between `ShellSortPratt`, `ShellSortHibbard`, and `ShellSortKnuth` using the [unit test](../tree/master/src/sort/test/SortTest.java). Write a report about the speed comparison and save it as `quiz2.pdf`.
+* Submit `ShellSortPratt.java`, `ShellSortHibbard.java`, and `quiz2.pdf`: https://canvas.emory.edu/courses/32845/assignments/75152 -->
