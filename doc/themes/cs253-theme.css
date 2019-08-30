@@ -7,8 +7,8 @@
 } */
 
 section {
-  width: 960px;
-  height: 720px;
+  width: 1024px;
+  height: 768px;
   font-size: 1.5em;
 }
 
@@ -24,6 +24,10 @@ h1 {
 h2 {
   font-size: 1.4em;
   /* color: #304C71; */
+}
+
+h3 {
+  margin: 0 0 10px 0;
 }
 
 code {

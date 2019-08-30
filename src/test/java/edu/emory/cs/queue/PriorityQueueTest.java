@@ -20,6 +20,7 @@ import org.junit.Test;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static org.junit.Assert.assertEquals;
 
@@ -29,81 +30,81 @@ import static org.junit.Assert.assertEquals;
 public class PriorityQueueTest {
     @Test
     public void testAccuracy() {
-        testAccuracy(new LazyPriorityQueue<>(), Comparator.reverseOrder());
-        testAccuracy(new EagerPriorityQueue<>(), Comparator.reverseOrder());
-        testAccuracy(new BinaryHeap<>(), Comparator.reverseOrder());
+        List<Integer> keys = List.of(4, 1, 3, 2, 5, 6, 8, 3, 4, 7, 5, 9, 7);
 
-        testAccuracy(new LazyPriorityQueue<Integer>(Comparator.reverseOrder()), Comparator.naturalOrder());
-        testAccuracy(new EagerPriorityQueue<Integer>(Comparator.reverseOrder()), Comparator.naturalOrder());
-        testAccuracy(new BinaryHeap<Integer>(Comparator.reverseOrder()), Comparator.naturalOrder());
+        testAccuracy(new LazyPriorityQueue<>(), Comparator.reverseOrder(), new ArrayList<>(keys));
+        testAccuracy(new EagerPriorityQueue<>(), Comparator.reverseOrder(), new ArrayList<>(keys));
+        testAccuracy(new BinaryHeap<>(), Comparator.reverseOrder(), new ArrayList<>(keys));
+
+        testAccuracy(new LazyPriorityQueue<Integer>(Comparator.reverseOrder()), Comparator.naturalOrder(), new ArrayList<>(keys));
+        testAccuracy(new EagerPriorityQueue<Integer>(Comparator.reverseOrder()), Comparator.naturalOrder(), new ArrayList<>(keys));
+        testAccuracy(new BinaryHeap<Integer>(Comparator.reverseOrder()), Comparator.naturalOrder(), new ArrayList<>(keys));
     }
 
-    private void testAccuracy(AbstractPriorityQueue<Integer> q, Comparator<Integer> sort) {
-        List<Integer> keys = new ArrayList<>(Arrays.asList(4, 1, 3, 2, 5, 6, 8, 3, 4, 7, 5, 9, 7));
+    /**
+     * @param q    a priority queue.
+     * @param c    a comparator used for sorting.
+     * @param keys a list of comparable keys.
+     */
+    private <T extends Comparable<T>> void testAccuracy(AbstractPriorityQueue<T> q, Comparator<T> c, List<T> keys) {
         keys.forEach(q::add);
-        keys.sort(sort);
+        keys.sort(c);
         keys.forEach(key -> assertEquals(key, q.remove()));
     }
 
     @Test
     public void testSpeed() {
         testSpeed(new LazyPriorityQueue<>(), new EagerPriorityQueue<>(), new BinaryHeap<>());
-//      testSpeed(new NaryHeap<>(2), new NaryHeap<>(3), new NaryHeap<>(4), new NaryHeap<>(5), new NaryHeap<>(6));
     }
 
     @SafeVarargs
     private void testSpeed(AbstractPriorityQueue<Integer>... qs) {
-        final int ITER = 1000, WARM = 10, LENGTH = qs.length;
+        for (int size = 1000; size <= 10000; size += 1000) {
+            // JVM warmup
+            benchmark(qs, 10, size);
+            // benchmark all priority queues with the same keys
+            Time[] times = benchmark(qs, 1000, size);
 
-        StringBuilder build = new StringBuilder();
-        long[][] times = new long[LENGTH][2];
-        long[][] temp = new long[LENGTH][2];
-        int[] keys;
-        Random rand;
-
-        for (int size = 100; size <= 1000; size += 100) {
-            for (int k = 0; k < LENGTH; k++) {
-                rand = new Random(size);
-
-                for (int j = 0; j < WARM; j++) {
-                    keys = Utils.getRandomIntArray(rand, size);
-                    addRuntime(qs[k], temp[k], keys);
-                }
-
-                for (int j = 0; j < ITER; j++) {
-                    keys = Utils.getRandomIntArray(rand, size);
-                    addRuntime(qs[k], times[k], keys);
-                }
-            }
-
-            build.append(size);
-
-            for (long[] time : times)
-                build.append("\t").append(Arrays.stream(time).mapToObj(Long::toString).collect(Collectors.joining("\t")));
-
-            build.append("\n");
+            StringJoiner joiner = new StringJoiner("\t");
+            joiner.add(Integer.toString(size));
+            joiner.add(Arrays.stream(times).map(t -> Long.toString(t.add)).collect(Collectors.joining("\t")));
+            joiner.add(Arrays.stream(times).map(t -> Long.toString(t.remove)).collect(Collectors.joining("\t")));
+            System.out.println(joiner.toString());
         }
-
-        System.out.println(build.toString());
     }
 
-    private void addRuntime(AbstractPriorityQueue<Integer> queue, long[] times, int[] keys) {
+    private class Time {
+        long add = 0;
+        long remove = 0;
+    }
+
+    private Time[] benchmark(AbstractPriorityQueue<Integer>[] qs, int iter, int size) {
+        Time[] ts = Stream.generate(Time::new).limit(qs.length).toArray(Time[]::new);
+        Random rand = new Random();
+
+        for (int i = 0; i < iter; i++) {
+            int[] keys = Utils.getRandomIntArray(rand, size);
+
+            for (int j = 0; j < qs.length; j++)
+                addRuntime(qs[j], ts[j], keys);
+        }
+
+        return ts;
+    }
+
+    private void addRuntime(AbstractPriorityQueue<Integer> q, Time t, int[] keys) {
         long st, et;
 
+        // runtime for q.add()
         st = System.currentTimeMillis();
-
-        for (int key : keys)
-            queue.add(key);
-
+        Arrays.stream(keys).forEach(q::add);
         et = System.currentTimeMillis();
-        times[0] += et - st;
+        t.add += et - st;
 
+        // runtime for q.remove()
         st = System.currentTimeMillis();
-
-        while (!queue.isEmpty())
-            queue.remove();
-
+        while (!q.isEmpty()) q.remove();
         et = System.currentTimeMillis();
-        times[1] += et - st;
+        t.remove += et - st;
     }
 }

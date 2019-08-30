@@ -31,7 +31,8 @@ public abstract class AbstractPriorityQueue<T extends Comparable<T>> {
 ```
 
 * Class types: `class` vs. `abstract class` vs. `interface`.
-* Generics: `<T extends Comparable<T>>`.
+* [Generics](https://en.wikipedia.org/wiki/Generics_in_Java): `<T extends Comparable<T>>`.
+* Interface in generics: `Comparable`.
 * Member types: `private` vs. `package` vs. `protected` vs. `public`.
 * Constructor: `this`.
 
@@ -60,8 +61,8 @@ public abstract class AbstractPriorityQueue<T extends Comparable<T>> {
 ```  
 
 * Abstract methods: `add()`, `remove()`, `size()`.
-* Regular method: `isEmpty()`.
-* Javadoc.
+* Regular method in abstract class: `isEmpty()`.
+* [Javadoc](https://docs.oracle.com/en/java/javase/12/docs/api/).
 
 ---
 
@@ -83,7 +84,7 @@ public class LazyPriorityQueue<T extends Comparable<T>> extends AbstractPriority
     }
 ```
 
-* Inheritance: `extends AbstractPriorityQueue<T>`.
+* Class inheritance: `extends AbstractPriorityQueue<T>`.
 * Constructors: default vs. parameters, `this` vs. `super`.
 
 ---
@@ -112,9 +113,9 @@ public class LazyPriorityQueue<T extends Comparable<T>> extends AbstractPriority
     public int size() { return keys.size(); }
 ```
 
-* Annotation: [`@Override`](https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/lang/Override.html).
+* Annotation: `@Override`.
 * Edge case handling: `remove()`.
-* Standard API: [`Collections.max()`](https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/util/Collections.html#max(java.util.Collection,java.util.Comparator)).
+* Base API: `Collections.max()`.
 * Complexity: `add()`, `remove()`.
 
 ---
@@ -145,7 +146,7 @@ Source: [`EagerPriorityQueue.java`](../src/main/java/edu/emory/cs/queue/EagerPri
     }
 ```
 
-* Standard API: [Collections.binarySearch()](https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/util/Collections.html#binarySearch(java.util.List,T,java.util.Comparator)).
+* Base API: `Collections.binarySearch()`.
 * Ternary conditional operator: `condition ? : `.
 * Complexity: `add()`, `remove()`.
 
@@ -166,12 +167,13 @@ Source: [`EagerPriorityQueue.java`](../src/main/java/edu/emory/cs/queue/EagerPri
 
 ---
 
-![height:15em](img/priority_queues-0.png)
-
+### Representation
 
 * Binary heap can be represented by a _list_.
 * Index of the parent: _$k/2$_.
 * Index of the children: _$k*2$_ and _$(k*2) + 1$_.
+
+![height:15em](img/priority_queues-0.png)
 
 ---
 
@@ -216,8 +218,9 @@ public class BinaryHeap<T extends Comparable<T>> extends AbstractPriorityQueue<T
     }
 ```
 
-* Add each key to the end of the list and _swim_ until it becomes a heap.
+* Add each key to the end of the list and _swim_.
 * `comparator.compare()`: compare itself to its parent.
+* Base API: `Collections.swap()`.
 
 ---
 
@@ -240,7 +243,7 @@ public class BinaryHeap<T extends Comparable<T>> extends AbstractPriorityQueue<T
     }
 ```
 
-* Replace the root with the last key in the list and _sink_ until it becomes a heap.
+* Replace the root with the last key in the list and _sink_.
 * Compare two children.
 * Compare itself to the greater child.
 
@@ -253,21 +256,31 @@ Source: [`PriorityQueueTest.java`](../src/test/java/edu/emory/cs/queue/PriorityQ
 ### Accuracy
 
 ```java
+/**
+ * @param q a priority queue.
+ * @param c a comparator used for sorting.
+ * @param keys a list of comparable keys.
+ */
+private <T extends Comparable<T>>void testAccuracy(AbstractPriorityQueue<T> q, Comparator<T> c, List<T> keys) {
+    keys.forEach(q::add);
+    keys.sort(c);
+    keys.forEach(key -> assertEquals(key, q.remove()));
+}
+
 @Test
 public void testAccuracy() {
     testAccuracy(new LazyPriorityQueue<>(), Comparator.reverseOrder());
     testAccuracy(new EagerPriorityQueue<>(), Comparator.reverseOrder());
     testAccuracy(new BinaryHeap<>(), Comparator.reverseOrder());
-}
 
-private void testAccuracy(AbstractPriorityQueue<Integer> q, Comparator<Integer> sort) {
-    List<Integer> keys = new ArrayList<>(Arrays.asList(4, 1, 3, 2, 5, 6, 8, 3, 4, 7, 5, 9, 7));
-    keys.forEach(q::add);
-    keys.sort(sort);
-    keys.forEach(key -> assertEquals(key, q.remove()));
+    testAccuracy(new LazyPriorityQueue<Integer>(Comparator.reverseOrder()), Comparator.naturalOrder());
+    testAccuracy(new EagerPriorityQueue<Integer>(Comparator.reverseOrder()), Comparator.naturalOrder());
+    testAccuracy(new BinaryHeap<Integer>(Comparator.reverseOrder()), Comparator.naturalOrder());
 }
 ```
 
+* Generics on method.
+* Lambda expression: `Iterable.forEach()`.
 * Annotation: `@Test`.
 
 ---
@@ -275,42 +288,98 @@ private void testAccuracy(AbstractPriorityQueue<Integer> q, Comparator<Integer> 
 ### Speed
 
 ```java
-private void addRuntime(AbstractPriorityQueue<Integer> queue, long[] times, int[] keys) {
+private class Time {
+    long add;
+    long remove;
+}
+
+private void addRuntime(AbstractPriorityQueue<Integer> q, Time t, int[] keys) {
     long st, et;
 
+    // runtime for q.add()
     st = System.currentTimeMillis();
-
-    for (int key : keys)
-        queue.add(key);
-
+    Arrays.stream(keys).forEach(q::add);
     et = System.currentTimeMillis();
-    times[0] += et - st;
+    t.add += et - st;
 
+    // runtime for q.remove()
     st = System.currentTimeMillis();
-
-    while (!queue.isEmpty())
-        queue.remove();
-
+    while (!q.isEmpty()) q.remove();
     et = System.currentTimeMillis();
-    times[1] += et - st;
+    t.remove += et - st;
 }
 ```
+
+* Class type: `private class`.
+* Constructor type: default constructor.
+* Base API: `System.currentTimeMillis()`.
+* Lambda expression: `Arrays.stream()`. 
+
+---
+
+```java
+private Time[] benchmark(AbstractPriorityQueue<Integer>[] qs, int iter, int size) {
+    Time[] ts = Stream.generate(Time::new).limit(qs.length).toArray(Time[]::new);
+    Random rand = new Random();
+
+    for (int i = 0; i < iter; i++) {
+        int[] keys = Utils.getRandomIntArray(rand, size);
+
+        for (int j = 0; j < qs.length; j++)
+            addRuntime(qs[j], ts[j], keys);
+    }
+
+    return ts;
+}
+
+private void testSpeed(AbstractPriorityQueue<Integer>... qs) {
+    for (int size = 1000; size <= 10000; size += 1000) {
+        // JVM warmup
+        benchmark(qs, 10, size);
+        // benchmark all priority queues with the same keys
+        Time[] times = benchmark(qs, 1000, size);
+    }
+}
+
+@Test
+public void testSpeed() {
+    testSpeed(new LazyPriorityQueue<>(), new EagerPriorityQueue<>(), new BinaryHeap<>());
+}
+```
+* Variable Arguments: `AbstractPriorityQueue<Integer>... qs`.
+* Lambda expression: `Stream.generate().limit().toArray()`.
 
 ---
 
 ### Speed Comparison - Add
 
-![height:18em](img/priority_queues-1.png)
+![height:20em](img/priority_queues-1.png)
 
 * Lazy: _$O(1)$_ vs. Eager: _$O(\log n)$_? vs. Heap: _$O(\log n)$_.
 
 ---
 
+### Speed Comparison - Add
+
+![height:20em](img/priority_queues-2.png)
+
+* Lazy: _$O(1)$_ vs. Heap: _$O(\log n)$_.
+
+---
+
 ### Speed Comparison - Remove
 
-![height:18em](img/priority_queues-2.png)
+![height:20em](img/priority_queues-3.png)
 
 * Lazy: _$O(n)$_, Eager: _$O(1)$_, Heap: _$O(\log n)$_.
+
+---
+
+### Speed Comparison - Remove
+
+![height:20em](img/priority_queues-4.png)
+
+* Eager: _$O(1)$_, Heap: _$O(\log n)$_.
 
 ---
 
@@ -318,4 +387,12 @@ private void addRuntime(AbstractPriorityQueue<Integer> queue, long[] times, int[
 
 * [Priority queue](https://en.wikipedia.org/wiki/Priority_queue).
 * [Binary heap](https://en.wikipedia.org/wiki/Binary_heap).
-* [Generics in Java](https://en.wikipedia.org/wiki/Generics_in_Java).
+* Java Base API:
+  * [Comparable](https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/lang/Comparable.html).
+  * [Collections](https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/util/Collections.html): `max()`, `swap()`, `binarySearch()`.
+  * [Iterable](https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/lang/Iterable.html): `forEach()`.
+  * [Arrays](https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/util/Arrays.html): `forEach()`.
+  * [Stream](https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/util/stream/Stream.html): `generate()`, `limit()`, `toArray()`.
+* Java Annotation:
+  * [@Override](https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/lang/Override.html).
+  * [@Test](http://junit.sourceforge.net/javadoc/org/junit/Test.html).
