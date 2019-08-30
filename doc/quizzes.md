@@ -29,5 +29,5 @@
   * Compare speeds between `TernaryHeap` and `BinaryHeap` for both the `add` and `remove` operations using [`PriorityQueueTest#testSpeed()`](../tree/master/src/queue/PriorityQueueTest.java).
   * Write a report about the speed comparisons and save it to `quiz1.pdf`.
 * Submission
-  * Create the directory `cs253/doc/` under your project and put `quiz1.pdf` to the `doc/` directory.
   * Commit and push all the updates to your Github repository.
+  * Submit `quiz1.pdf` to https://canvas.emory.edu/courses/62873/assignments/255722
