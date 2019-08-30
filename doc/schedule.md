@@ -22,9 +22,9 @@
 |10/28| [Minimum Spanning Trees]() | [md](), [pdf](), [src]() | [quiz 6]() |
 |10/30| [Minimum Spanning Trees]() | [md](), [pdf](), [src]() | [hw3]() |
 |11/04| [Minimum Spanning Trees: directed]() | [md](), [pdf](), [src]() | [quiz 7]() |
-|11/06| [Network Flow: Ford-Fulkerson Algorithm]() | [md](), [pdf](), [src]()  |  |
-|11/11| [Network Flow: Max-flow, Min-cut Theorem]() | [md](), [pdf](), [src]() | [quiz 8]() |
-|11/13| [Network Flow: Simplex Algorithm]() | [md](), [pdf](), [src]() | |
+|11/06| [Network Flows: Ford-Fulkerson Algorithm]() | [md](), [pdf](), [src]()  |  |
+|11/11| [Network Flows: Max-flow, Min-cut Theorem]() | [md](), [pdf](), [src]() | [quiz 8]() |
+|11/13| [Network Flows: Simplex Algorithm]() | [md](), [pdf](), [src]() | |
 |11/18| [Topological Sort]() | [md](), [pdf](), [src]() | [quiz 9]() |
 |11/20| [Shortest Path]() | [md](), [pdf](), [src]() |  |
 |11/25| Randomized Algorithms | | |
