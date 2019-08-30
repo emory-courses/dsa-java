@@ -7,14 +7,14 @@
 |09/04| [Priority Queues](https://speakerdeck.com/jdchoi77/cs253-priority-queues) | [md](priority_queues.md), [pdf](priority_queues.pdf), [src](../src/main/java/edu/emory/cs/queue) |  |
 |09/09| [Priority Queues: Heap](https://speakerdeck.com/jdchoi77/cs253-priority-queues) | [md](priority_queues.md), [pdf](priority_queues.pdf), [src](../src/main/java/edu/emory/cs/queue) | [quiz 1](quizzes.md#quiz-1) |
 |09/11| [Sort: comparison-based]() | [md](), [pdf](), [src]() |  |
-|09/16| Software Project Management | | [quiz 2](sort_comparison_based.md#quiz) | 
+|09/16| Serverless Computing | | [quiz 2]() | 
 |09/18| [Sort: divide and conquer]() | [md](), [pdf](), [src]() | [hw1]() |
 |09/23| [Sort: distribution-based]() | [md](), [pdf](), [src]() | [quiz 3]()  |
 |09/25| [Binary Search Trees]() | [md](binary_search_trees_balanced.md), [pdf](), [src]() |  | 
-|09/30| [Binary Search Trees: AVL]() | [md](), [pdf](), [src]() | [quiz 4]() |
-|10/02| [Binary Search Trees: Red-Black]() | [md](), [pdf](), [src]() | [hw2]() | 
-|10/07| [Tries]() | [md](), [pdf](), [src]() | [quiz 5]() |
-|10/09| [Tries: compressed]() | [md](), [pdf](), [src]() |  |
+|09/30| [Binary Search Trees: AVL]() | [md](), [pdf](), [src]() |  |
+|10/02| [Binary Search Trees: Red-Black]() | [md](), [pdf](), [src]() | [quiz 4]() | 
+|10/07| [Tries]() | [md](), [pdf](), [src]() | [hw2]() |
+|10/09| [Tries: compressed]() | [md](), [pdf](), [src]() | [quiz 5]() |
 |10/14| Fall Break | | |
 |10/16| [Review Session](resources.md#previous-exams) | | |
 |10/21| Midterm Exam | | |
@@ -26,8 +26,8 @@
 |11/11| [Network Flow: Max-flow, Min-cut Theorem]() | [md](), [pdf](), [src]() | [quiz 8]() |
 |11/13| [Network Flow: Simplex Algorithm]() | [md](), [pdf](), [src]() | |
 |11/18| [Topological Sort]() | [md](), [pdf](), [src]() | [quiz 9]() |
-|11/20| [Shortest Path]() | [md](), [pdf](), [src]() | [hw4]() |
-|11/25| Serverless Computing | | |
+|11/20| [Shortest Path]() | [md](), [pdf](), [src]() |  |
+|11/25| Randomized Algorithms | | |
 |11/27| Thanksgiving Recess | | |
 |12/02| [Dynamic Programming]() | [md](), [pdf](), [src]() | [quiz 10]() | |
 |12/04| [Dynamic Programming]() | [md](), [pdf](), [src]() | |

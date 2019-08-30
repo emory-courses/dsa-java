@@ -19,15 +19,15 @@
 
 ## Grading
 
-* Homework assignments: 40%.
-* Take-home quizzes: 10%.
+* Homework assignments: 30%.
+* Take-home quizzes: 20%.
 * Midterm exam: 20%.
 * Final exam: 30%.
 
 
 ## Homework Assignments
 
-* Homework assignments must be original and submitted individually.
+* 3 homework assignments must be original and submitted individually.
 * All assignments are due by the beginning of the class.
 * Late submissions within a week will be accepted with the grading penalty of 15%, and will not be accepted after the first week. Exceptions to this policy will be made only in extraordinary circumstances.
 
@@ -35,7 +35,7 @@
 
 ## Take-Home Quizzes
 
-* Take-home quizzes must be submitted individually.
+* 10 take-home quizzes must be submitted individually.
 * All quizzes are due by the beginning of the class. Late submissions will not be accepted.
 * One take-home quiz will be assigned every week to check if you are keeping up with the topics.
 
