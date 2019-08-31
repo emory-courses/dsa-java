@@ -6,7 +6,7 @@
 |09/02| Labor Day | | |
 |09/04| [Priority Queues](https://speakerdeck.com/jdchoi77/cs253-priority-queues) | [md](priority_queues.md), [pdf](priority_queues.pdf), [src](../src/main/java/edu/emory/cs/queue) |  |
 |09/09| [Priority Queues: Heap](https://speakerdeck.com/jdchoi77/cs253-priority-queues) | [md](priority_queues.md), [pdf](priority_queues.pdf), [src](../src/main/java/edu/emory/cs/queue) | [quiz 1](quizzes.md#quiz-1) |
-|09/11| [Sort: comparison-based]() | [md](), [pdf](), [src]() |  |
+|09/11| [Sort: comparison-based]() | [md](sort_comparison_based.md), [pdf](), [src](../src/main/java/edu/emory/cs/sort/comparison) |  |
 |09/16| Serverless Computing | | [quiz 2]() | 
 |09/18| [Sort: divide and conquer]() | [md](), [pdf](), [src]() | [hw1]() |
 |09/23| [Sort: distribution-based]() | [md](), [pdf](), [src]() | [quiz 3]()  |
