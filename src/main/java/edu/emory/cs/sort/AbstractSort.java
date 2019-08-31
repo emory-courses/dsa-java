@@ -87,7 +87,7 @@ public abstract class AbstractSort<T extends Comparable<T>> {
     }
 
     /**
-     * Sorts the array[beginIndex:endIndex] in ascending order.
+     * Sorts the array[beginIndex:endIndex].
      * @param array an array of comparable keys.
      * @param beginIndex the index of the first key to be sorted (inclusive).
      * @param endIndex the index of the last key to be sorted (exclusive).

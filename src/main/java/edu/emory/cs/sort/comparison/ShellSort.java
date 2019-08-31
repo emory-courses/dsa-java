@@ -25,13 +25,16 @@ import java.util.List;
 public abstract class ShellSort<T extends Comparable<T>> extends InsertionSort<T> {
     protected List<Integer> sequence;
 
-	/** @param n the max-number of items in the list to be sorted. */
-	public ShellSort(int n)
-	{
-		this(Comparator.naturalOrder(), n);
-	}
+    /**
+     * @param n the max-number of items in the list to be sorted.
+     */
+    public ShellSort(int n) {
+        this(Comparator.naturalOrder(), n);
+    }
 
-    /** @param n the max-number of items in the list to be sorted. */
+    /**
+     * @param n the expected size of the list to be sorted.
+     */
     public ShellSort(Comparator<T> comparator, int n) {
         super(comparator);
         sequence = new ArrayList<>();

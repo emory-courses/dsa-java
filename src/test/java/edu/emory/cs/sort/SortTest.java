@@ -46,12 +46,12 @@ public class SortTest {
         testAccuracy(ITERATIONS, SIZE, new InsertionSort<>());
         testAccuracy(ITERATIONS, SIZE, new HeapSort<>());
         testAccuracy(ITERATIONS, SIZE, new ShellSortKnuth<>());
-        testAccuracy(ITERATIONS, SIZE, new MergeSort<>());
-        testAccuracy(ITERATIONS, SIZE, new QuickSort<>());
-        testAccuracy(ITERATIONS, SIZE, new IntroSort<>(new HeapSort<Integer>()));
-        testAccuracy(ITERATIONS, SIZE, new IntroSort<>(new ShellSortKnuth<Integer>()));
-        testAccuracy(ITERATIONS, SIZE, new IntegerBucketSort(0, SIZE));
-        testAccuracy(ITERATIONS, SIZE, new LSDRadixSort());
+//        testAccuracy(ITERATIONS, SIZE, new MergeSort<>());
+//        testAccuracy(ITERATIONS, SIZE, new QuickSort<>());
+//        testAccuracy(ITERATIONS, SIZE, new IntroSort<>(new HeapSort<Integer>()));
+//        testAccuracy(ITERATIONS, SIZE, new IntroSort<>(new ShellSortKnuth<Integer>()));
+//        testAccuracy(ITERATIONS, SIZE, new IntegerBucketSort(0, SIZE));
+//        testAccuracy(ITERATIONS, SIZE, new LSDRadixSort());
 //      testAccuracy(ITERATIONS, SIZE, new MSDRadixSort());
     }
 
