@@ -19,19 +19,16 @@ import edu.emory.cs.sort.comparison.HeapSort;
 import edu.emory.cs.sort.comparison.InsertionSort;
 import edu.emory.cs.sort.comparison.SelectionSort;
 import edu.emory.cs.sort.comparison.ShellSortKnuth;
-import edu.emory.cs.sort.distribution.IntegerBucketSort;
-import edu.emory.cs.sort.distribution.LSDRadixSort;
-import edu.emory.cs.sort.divide_conquer.IntroSort;
-import edu.emory.cs.sort.divide_conquer.MergeSort;
-import edu.emory.cs.sort.divide_conquer.QuickSort;
-import edu.emory.cs.utils.AbstractEngineComparer;
-import edu.emory.cs.utils.Utils;
 import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.Random;
+import java.util.StringJoiner;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
 
 /**
  * @author Jinho D. Choi ({@code jinho.choi@emory.edu})
@@ -39,29 +36,29 @@ import static org.junit.Assert.assertArrayEquals;
 public class SortTest {
     @Test
     public void testAccuracy() {
-        final int ITERATIONS = 100;
-        final int SIZE = 100;
+        final int iter = 100;
+        final int size = 100;
 
-        testAccuracy(ITERATIONS, SIZE, new SelectionSort<>());
-        testAccuracy(ITERATIONS, SIZE, new InsertionSort<>());
-        testAccuracy(ITERATIONS, SIZE, new HeapSort<>());
-        testAccuracy(ITERATIONS, SIZE, new ShellSortKnuth<>());
-//        testAccuracy(ITERATIONS, SIZE, new MergeSort<>());
-//        testAccuracy(ITERATIONS, SIZE, new QuickSort<>());
-//        testAccuracy(ITERATIONS, SIZE, new IntroSort<>(new HeapSort<Integer>()));
-//        testAccuracy(ITERATIONS, SIZE, new IntroSort<>(new ShellSortKnuth<Integer>()));
-//        testAccuracy(ITERATIONS, SIZE, new IntegerBucketSort(0, SIZE));
-//        testAccuracy(ITERATIONS, SIZE, new LSDRadixSort());
-//      testAccuracy(ITERATIONS, SIZE, new MSDRadixSort());
+        testAccuracy(iter, size, new SelectionSort<>());
+        testAccuracy(iter, size, new InsertionSort<>());
+        testAccuracy(iter, size, new HeapSort<>());
+        testAccuracy(iter, size, new ShellSortKnuth<>());
+//        testAccuracy(iter, size, new MergeSort<>());
+//        testAccuracy(iter, size, new QuickSort<>());
+//        testAccuracy(iter, size, new IntroSort<>(new HeapSort<Integer>()));
+//        testAccuracy(iter, size, new IntroSort<>(new ShellSortKnuth<Integer>()));
+//        testAccuracy(iter, size, new IntegerBucketSort(0, size));
+//        testAccuracy(iter, size, new LSDRadixSort());
+//        testAccuracy(iter, size, new MSDRadixSort());
     }
 
-    void testAccuracy(final int ITERATIONS, final int SIZE, AbstractSort<Integer> engine) {
-        final Random rand = new Random(0);
+    private void testAccuracy(final int iter, final int size, AbstractSort<Integer> engine) {
+        final Random rand = new Random();
         Integer[] original, sorted;
 
-        for (int i = 0; i < ITERATIONS; i++) {
-            original = Utils.getRandomIntegerArray(rand, SIZE, SIZE);
-            sorted = Arrays.copyOf(original, SIZE);
+        for (int i = 0; i < iter; i++) {
+            original = Stream.generate(rand::nextInt).limit(size).toArray(Integer[]::new);
+            sorted = Arrays.copyOf(original, size);
 
             engine.sort(original);
             Arrays.sort(sorted);
@@ -70,82 +67,64 @@ public class SortTest {
         }
     }
 
-    //	@Test
-    @SuppressWarnings("unchecked")
-    public void compareSpeeds() {
-        final int ITERATIONS = 1000;
-        final int INIT_SIZE = 100;
-        final int MAX_SIZE = 3000;
-        final int INCREMENT = 100;
-        final int OPS = 1;
-        final Random RAND = new Random(0);
-
-        SortSpeed comp = new SortSpeed();
-//		comp.printTotal(ITERATIONS, INIT_SIZE, MAX_SIZE, INCREMENT, OPS, RAND, new HeapSort<>(), new ShellSortKnuth<>(), new SelectionSort<>(), new InsertionSort<>());
-//		comp.printTotal(ITERATIONS, INIT_SIZE, MAX_SIZE, INCREMENT, OPS, RAND, new HeapSort<>(), new ShellSortKnuth<>(), new MergeSort<>(), new QuickSort<>(), new IntroSort<>(new HeapSort<Integer>()), new IntroSort<>(new ShellSortKnuth<Integer>()));
-        comp.printTotal(ITERATIONS, INIT_SIZE, MAX_SIZE, INCREMENT, OPS, RAND, new IntegerBucketSort(0, MAX_SIZE), new LSDRadixSort(), new QuickSort<>(), new HeapSort<>(), new ShellSortKnuth<>(), new MergeSort<>());
-//		comp.printTotal(ITERATIONS, INIT_SIZE, MAX_SIZE, INCREMENT, OPS, RAND, new IntegerBucketSort(0, MAX_SIZE), new LSDRadixSort(), new QuickSort<>());
-//		comp.printTotal(ITERATIONS, INIT_SIZE, MAX_SIZE, INCREMENT, OPS, RAND, new ShellSortKnuth<>(), new ShellSortHibbard<>(), new ShellSortPratt<>());
-//		comp.printTotal(ITERATIONS, INIT_SIZE, MAX_SIZE, INCREMENT, OPS, RAND, new QuickSort<>(), new LSDRadixSort(), new MSDRadixSort());
+    @Test
+    public void testSpeed() {
+        testSpeed(new HeapSort<>(), new ShellSortKnuth<>(), new SelectionSort<>(), new InsertionSort<>());
     }
 
-    //	@Test
-    @SuppressWarnings("unchecked")
-    public void countOperations() {
-        final int ITERATIONS = 1000;
-        final int INIT_SIZE = 100;
-        final int MAX_SIZE = 1000;
-        final int INCREMENT = 100;
-        final int OPS = 2;
-        final Random RAND = new Random(0);
+    @SafeVarargs
+    private void testSpeed(AbstractSort<Integer>... engines) {
+        final int init_size = 1000;
+        final int max_size = 10000;
+        final int inc = 1000;
+        final int iter = 1000;
 
-        SortOperation comp = new SortOperation();
-//		comp.printTotal(ITERATIONS, INIT_SIZE, MAX_SIZE, INCREMENT, OPS, RAND, new HeapSort<>(), new ShellSortKnuth<>(), new SelectionSort<>(), new InsertionSort<>());
-        comp.printTotal(ITERATIONS, INIT_SIZE, MAX_SIZE, INCREMENT, OPS, RAND, new HeapSort<>(), new ShellSortKnuth<>(), new MergeSort<>(), new QuickSort<>(), new IntroSort<>(new HeapSort<Integer>()), new IntroSort<>(new ShellSortKnuth<Integer>()));
-    }
+        for (int size = init_size; size <= max_size; size += inc) {
+            // JVM warmup
+            benchmark(engines, 10, size);
+            // benchmark all soring algorithms with the same keys
+            Time[] times = benchmark(engines, iter, size);
 
-    class SortSpeed extends AbstractEngineComparer<AbstractSort<Integer>> {
-        @Override
-        @SuppressWarnings("unchecked")
-        public void add(final Random RAND, final int SIZE, long[][] times, AbstractSort<Integer>... engines) {
-            final Integer[] KEYS = Utils.getRandomIntegerArray(RAND, SIZE, SIZE);
-            final int LEN = engines.length;
-            AbstractSort<Integer> engine;
-            Integer[] temp;
-            long st, et;
-            int i;
-
-            for (i = 0; i < LEN; i++) {
-                temp = Arrays.copyOf(KEYS, SIZE);
-                engine = engines[i];
-                st = System.currentTimeMillis();
-                engine.sort(temp);
-                et = System.currentTimeMillis();
-                times[i][0] += (et - st);
-            }
+            StringJoiner joiner = new StringJoiner("\t");
+            joiner.add(Integer.toString(size));
+            joiner.add(Arrays.stream(times).map(t -> Long.toString(t.millis)).collect(Collectors.joining("\t")));
+            joiner.add(Arrays.stream(times).map(t -> Long.toString(t.comparisons)).collect(Collectors.joining("\t")));
+            joiner.add(Arrays.stream(times).map(t -> Long.toString(t.assignments)).collect(Collectors.joining("\t")));
+            System.out.println(joiner.toString());
         }
     }
 
-    class SortOperation extends AbstractEngineComparer<AbstractSort<Integer>> {
-        @Override
-        @SuppressWarnings("unchecked")
-        public void add(final Random RAND, final int SIZE, long[][] times, AbstractSort<Integer>... engines) {
-            final Integer[] KEYS = Utils.getRandomIntegerArray(RAND, SIZE, SIZE);
-            final int LEN = engines.length;
-            Integer[] temp;
-            int i;
+    private class Time {
+        long comparisons = 0;
+        long assignments = 0;
+        long millis = 0;
+    }
 
-            for (i = 0; i < LEN; i++)
-                engines[i].resetCounts();
+    private Time[] benchmark(AbstractSort<Integer>[] engines, int iter, int size) {
+        Time[] ts = Stream.generate(Time::new).limit(engines.length).toArray(Time[]::new);
+        Random rand = new Random();
 
-            for (i = 0; i < LEN; i++) {
-                temp = Arrays.copyOf(KEYS, SIZE);
-                engines[i].sort(temp);
-            }
-            for (i = 0; i < LEN; i++) {
-                times[i][0] += engines[i].getComparisonCount();
-                times[i][1] += engines[i].getAssignmentCount();
-            }
+        for (int i = 0; i < iter; i++) {
+            Integer[] keys = Stream.generate(rand::nextInt).limit(size).toArray(Integer[]::new);
+
+            for (int j = 0; j < engines.length; j++)
+                addRuntime(engines[j], ts[j], Arrays.copyOf(keys, size));
         }
+
+        return ts;
+    }
+
+    private void addRuntime(AbstractSort<Integer> engine, Time t, Integer[] keys) {
+        engine.resetCounts();
+
+        // speed
+        long st = System.currentTimeMillis();
+        engine.sort(keys);
+        long et = System.currentTimeMillis();
+        t.millis += et - st;
+
+        // operations
+        t.assignments += engine.getAssignmentCount();
+        t.comparisons += engine.getComparisonCount();
     }
 }

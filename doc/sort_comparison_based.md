@@ -155,7 +155,7 @@ private int getLeftChildIndex(int beginIndex, int k) {
 ```java
 @Override
 public void sort(T[] array, int beginIndex, int endIndex) {
-    // sink
+    // heapify
     for (int k = getParentIndex(beginIndex, endIndex); k >= beginIndex; k--)
         sink(array, k, beginIndex, endIndex);
 
@@ -284,7 +284,9 @@ public void sort(T[] array, int beginIndex, int endIndex) {
 }
 ```
 
-### InsertionSort
+* How often is `populateSequence()` getting called?
+
+From [`InsertionSort.java`](../src/main/java/edu/emory/cs/sort/comparison/InsertionSort.java):
 
 ```java
 protected void sort(T[] array, int beginIndex, int endIndex, final int h) {
@@ -301,17 +303,33 @@ protected void sort(T[] array, int beginIndex, int endIndex, final int h) {
 Source: [`ShellSortKnuth.java`](../src/main/java/edu/emory/cs/sort/comparison/ShellSortKnuth.java)
 
 ```java
-@Override
-protected void populateSequence(int n) {
-    n /= 3;
-
-    for (int t = sequence.size() + 1; ; t++) {
-        int h = (int) ((Math.pow(3, t) - 1) / 2);
-        if (h <= n) sequence.add(h);
-        else break;
+public class ShellSortKnuth<T extends Comparable<T>> extends ShellSort<T> {
+    public ShellSortKnuth(Comparator<T> comparator) {
+        this(comparator, 1000);
     }
-}
 
+    public ShellSortKnuth(Comparator<T> comparator, int n) {
+        super(comparator, n);
+    }
+
+    @Override
+    protected void populateSequence(int n) {
+        n /= 3;
+
+        for (int t = sequence.size() + 1; ; t++) {
+            int h = (int) ((Math.pow(3, t) - 1) / 2);
+            if (h <= n) sequence.add(h);
+            else break;
+        }
+    }
+```
+
+* Upper bound: `n /= 3`.
+* How many keys are added when `populateSequence()` is called?
+
+---
+
+```java
 @Override
 protected int getSequenceStartIndex(int n) {
     int index = Collections.binarySearch(sequence, n / 3);
@@ -321,7 +339,44 @@ protected int getSequenceStartIndex(int n) {
 }
 ```
 
+* When is `index == sequence.size()` satisfied?
+
 ---
+
+## Unit Tests
+
+Source: [`SortTest.java`](../src/test/java/edu/emory/cs/sort/SortTest.java)
+
+```java
+@Test
+public void testAccuracy() {
+    final int iter = 100;
+    final int size = 100;
+
+    testAccuracy(iter, size, new SelectionSort<>());
+    testAccuracy(iter, size, new InsertionSort<>());
+    testAccuracy(iter, size, new HeapSort<>());
+    testAccuracy(iter, size, new ShellSortKnuth<>());
+}
+
+private void testAccuracy(final int iter, final int size, AbstractSort<Integer> engine) {
+    final Random rand = new Random();
+    Integer[] original, sorted;
+
+    for (int i = 0; i < iter; i++) {
+        original = Stream.generate(rand::nextInt).limit(size).toArray(Integer[]::new);
+        sorted = Arrays.copyOf(original, size);
+
+        engine.sort(original);
+        Arrays.sort(sorted);
+
+        assertArrayEquals(original, sorted);
+    }
+}
+```
+
+---
+
 
 ## Benchmark
 
@@ -344,6 +399,7 @@ protected int getSequenceStartIndex(int n) {
 ### Speed Comparison - Descending
 
 ---
+
 
 ## References
 

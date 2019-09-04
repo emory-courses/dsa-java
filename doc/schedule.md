@@ -4,7 +4,7 @@
 |:---:|---|---|---|
 |08/28| [Introduction](syllabus.md) | [md](getting_started.md) | [quiz 0](quizzes.md#quiz-0) |
 |09/02| Labor Day | | |
-|09/04| [Priority Queues](https://speakerdeck.com/jdchoi77/cs253-priority-queues) | [md](priority_queues.md), [pdf](priority_queues.pdf), [src](../src/main/java/edu/emory/cs/queue) |  |
+|09/04| [Priority Queues](https://speakerdeck.com/jdchoi77/cs253-priority-queues) | [md](priority_queues.md), [pdf](https://drive.google.com/file/d/1biMEUN5zqh0wquFLodMpKj1kzrXjt2ea/view?usp=sharing), [src](../src/main/java/edu/emory/cs/queue) |  |
 |09/09| [Priority Queues: Heap](https://speakerdeck.com/jdchoi77/cs253-priority-queues) | [md](priority_queues.md), [pdf](priority_queues.pdf), [src](../src/main/java/edu/emory/cs/queue) | [quiz 1](quizzes.md#quiz-1) |
 |09/11| [Sort: comparison-based]() | [md](sort_comparison_based.md), [pdf](), [src](../src/main/java/edu/emory/cs/sort/comparison) |  |
 |09/16| Project Management | | [quiz 2]() | 

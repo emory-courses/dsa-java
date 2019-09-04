@@ -13,6 +13,7 @@ paginate: true
 * [Eager Priority Queue](#eager-priority-queue).
 * [Binary Heap](#binary-heap).
 * [Unit Tests](#unit-tests).
+* [Benchmarks](#benchmarks).
 * [References](#references).
 
 ---
@@ -253,8 +254,6 @@ public class BinaryHeap<T extends Comparable<T>> extends AbstractPriorityQueue<T
 
 Source: [`PriorityQueueTest.java`](../src/test/java/edu/emory/cs/queue/PriorityQueueTest.java)
 
-### Accuracy
-
 ```java
 /**
  * @param q a priority queue.
@@ -285,7 +284,7 @@ public void testAccuracy() {
 
 ---
 
-### Speed
+## Benchmarks
 
 ```java
 private class Time {
@@ -311,7 +310,6 @@ private void addRuntime(AbstractPriorityQueue<Integer> q, Time t, int[] keys) {
 ```
 
 * Class type: `private class`.
-* Constructor type: default constructor.
 * Base API: `System.currentTimeMillis()`.
 * Lambda expression: `Arrays.stream()`. 
 
@@ -351,7 +349,7 @@ public void testSpeed() {
 
 ---
 
-### Speed Comparison - Add
+### Benchmark - Add
 
 ![height:20em](img/priority_queues-1.png)
 
@@ -359,7 +357,7 @@ public void testSpeed() {
 
 ---
 
-### Speed Comparison - Add
+### Benchmark - Add
 
 ![height:20em](img/priority_queues-2.png)
 
@@ -367,7 +365,7 @@ public void testSpeed() {
 
 ---
 
-### Speed Comparison - Remove
+### Benchmark - Remove
 
 ![height:20em](img/priority_queues-3.png)
 
@@ -375,7 +373,7 @@ public void testSpeed() {
 
 ---
 
-### Speed Comparison - Remove
+### Benchmark - Remove
 
 ![height:20em](img/priority_queues-4.png)
 
@@ -387,6 +385,7 @@ public void testSpeed() {
 
 * [Priority queue](https://en.wikipedia.org/wiki/Priority_queue).
 * [Binary heap](https://en.wikipedia.org/wiki/Binary_heap).
+* [JUnit](https://junit.org/junit4/javadoc/latest/)
 * Java Base API:
   * [Comparable](https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/lang/Comparable.html).
   * [Collections](https://docs.oracle.com/en/java/javase/12/docs/api/java.base/java/util/Collections.html): `max()`, `swap()`, `binarySearch()`.
