@@ -28,7 +28,6 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
 
 /**
  * @author Jinho D. Choi ({@code jinho.choi@emory.edu})
@@ -106,6 +105,7 @@ public class SortTest {
 
         for (int i = 0; i < iter; i++) {
             Integer[] keys = Stream.generate(rand::nextInt).limit(size).toArray(Integer[]::new);
+//          Arrays.sort(keys, Comparator.reverseOrder());
 
             for (int j = 0; j < engines.length; j++)
                 addRuntime(engines[j], ts[j], Arrays.copyOf(keys, size));

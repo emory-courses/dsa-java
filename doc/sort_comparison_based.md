@@ -16,7 +16,7 @@ paginate: true
 * [Insertion-based Sort](#insertion-based-sort).
   * [Insertion Sort](#insertion-sort).
   * [Shell Sort](#shell-sort).
-* [Benchmark](#benchmark).
+* [Benchmarks](#benchmarks).
 * [References](#references).
 
 ---
@@ -366,33 +366,64 @@ private void testAccuracy(final int iter, final int size, AbstractSort<Integer> 
     for (int i = 0; i < iter; i++) {
         original = Stream.generate(rand::nextInt).limit(size).toArray(Integer[]::new);
         sorted = Arrays.copyOf(original, size);
-
         engine.sort(original);
         Arrays.sort(sorted);
-
         assertArrayEquals(original, sorted);
     }
 }
 ```
 
----
-
-
-## Benchmark
-
-### Number of Comparisons - Random
+* Base API: `Arrays.copyOf()`, `Arrays.sort()`.
 
 ---
 
-### Number of Assignments - Random
+## Benchmarks
+
+### Number of Comparisons (Random)
+
+<br>![height:20em](img/sort_comparison_based-3.png)
 
 ---
 
-### Speed Comparison - Random
+### Number of Comparisons (Random)
+
+<br>![height:20em](img/sort_comparison_based-4.png)
 
 ---
 
-### Speed Comparison - Ascending
+### Number of Assignments (Random)
+
+<br>![height:20em](img/sort_comparison_based-5.png)
+
+---
+
+### Number of Assignments (Random)
+
+<br>![height:20em](img/sort_comparison_based-6.png)
+
+---
+
+### Speed Comparison (Random)
+
+<br>![height:20em](img/sort_comparison_based-7.png)
+
+---
+
+### Speed Comparison (Random)
+
+<br>![height:20em](img/sort_comparison_based-8.png)
+
+---
+
+### Speed Comparison (Ascending)
+
+<br>![height:20em](img/sort_comparison_based-9.png)
+
+---
+
+### Speed Comparison (Ascending)
+
+<br>![height:20em](img/sort_comparison_based-10.png)
 
 ---
 
