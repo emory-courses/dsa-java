@@ -19,9 +19,13 @@ import edu.emory.cs.sort.comparison.HeapSort;
 import edu.emory.cs.sort.comparison.InsertionSort;
 import edu.emory.cs.sort.comparison.SelectionSort;
 import edu.emory.cs.sort.comparison.ShellSortKnuth;
+import edu.emory.cs.sort.divide_conquer.IntroSort;
+import edu.emory.cs.sort.divide_conquer.MergeSort;
+import edu.emory.cs.sort.divide_conquer.QuickSort;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Random;
 import java.util.StringJoiner;
 import java.util.stream.Collectors;
@@ -42,10 +46,10 @@ public class SortTest {
         testAccuracy(iter, size, new InsertionSort<>());
         testAccuracy(iter, size, new HeapSort<>());
         testAccuracy(iter, size, new ShellSortKnuth<>());
-//        testAccuracy(iter, size, new MergeSort<>());
-//        testAccuracy(iter, size, new QuickSort<>());
-//        testAccuracy(iter, size, new IntroSort<>(new HeapSort<Integer>()));
-//        testAccuracy(iter, size, new IntroSort<>(new ShellSortKnuth<Integer>()));
+        testAccuracy(iter, size, new MergeSort<>());
+        testAccuracy(iter, size, new QuickSort<>());
+        testAccuracy(iter, size, new IntroSort<>(new HeapSort<Integer>()));
+        testAccuracy(iter, size, new IntroSort<>(new ShellSortKnuth<Integer>()));
 //        testAccuracy(iter, size, new IntegerBucketSort(0, size));
 //        testAccuracy(iter, size, new LSDRadixSort());
 //        testAccuracy(iter, size, new MSDRadixSort());
@@ -68,7 +72,8 @@ public class SortTest {
 
     @Test
     public void testSpeed() {
-        testSpeed(new HeapSort<>(), new ShellSortKnuth<>(), new SelectionSort<>(), new InsertionSort<>());
+//      testSpeed(new HeapSort<>(), new ShellSortKnuth<>(), new SelectionSort<>(), new InsertionSort<>());
+        testSpeed(new HeapSort<>(), new ShellSortKnuth<>(), new MergeSort<>(), new QuickSort<>(), new IntroSort<>(new HeapSort<Integer>()), new IntroSort<>(new ShellSortKnuth<Integer>()));
     }
 
     @SafeVarargs
@@ -105,7 +110,8 @@ public class SortTest {
 
         for (int i = 0; i < iter; i++) {
             Integer[] keys = Stream.generate(rand::nextInt).limit(size).toArray(Integer[]::new);
-//          Arrays.sort(keys, Comparator.reverseOrder());
+//          Arrays.sort(keys);
+            Arrays.sort(keys, Comparator.reverseOrder());
 
             for (int j = 0; j < engines.length; j++)
                 addRuntime(engines[j], ts[j], Arrays.copyOf(keys, size));

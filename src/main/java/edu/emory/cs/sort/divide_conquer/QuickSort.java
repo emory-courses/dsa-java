@@ -47,11 +47,13 @@ public class QuickSort<T extends Comparable<T>> extends AbstractSort<T> {
         int fst = beginIndex, snd = endIndex;
 
         while (true) {
-            while (++fst < endIndex && compareTo(array, beginIndex, fst) >= 0)
-                ;    // Find where endIndex > fst > pivot
-            while (--snd > beginIndex && compareTo(array, beginIndex, snd) <= 0)
-                ;    // Find where beginIndex < snd < pivot
+            // Find where endIndex > fst > pivot
+            while (++fst < endIndex && compareTo(array, beginIndex, fst) >= 0);
+            // Find where beginIndex < snd < pivot
+            while (--snd > beginIndex && compareTo(array, beginIndex, snd) <= 0);
+            // pointers crossed
             if (fst >= snd) break;
+            // exchange
             swap(array, fst, snd);
         }
 

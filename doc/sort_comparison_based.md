@@ -215,7 +215,7 @@ protected void sort(T[] array, int beginIndex, int endIndex, final int h) {
 
 * Parameter: `h` (_gap_ between two keys that are compared).
 * How many _comparisons_ and _assignments_?
-* How many _swaps_ for the follwing array?
+* How many _swaps_ for the following array?
 
 ![](img/sort_comparison_based-1.png)
 
@@ -379,6 +379,17 @@ private void testAccuracy(final int iter, final int size, AbstractSort<Integer> 
 
 ## Benchmarks
 
+### Comparison Complexities
+
+|         | Selection | Heap          | Insertion    | Shell (Knuth) |
+|:-------:|:---------:|:-------------:|:------------:|:-------------:|
+| Best    | $O(n^2)$  | $O(n \log n)$ | $O(n)$       | $O(n)$        |
+| Worst   | $O(n^2)$  | $O(n \log n)$ | $O(n^2)$     | $O(n^{1.5})$  |
+| Average | $O(n^2)$  | $O(n \log n)$ | $O(n^2)$     | $O(n^{1.5})$  |
+
+---
+
+
 ### Number of Comparisons (Random)
 
 <br>![height:20em](img/sort_comparison_based-3.png)
@@ -429,8 +440,15 @@ private void testAccuracy(final int iter, final int size, AbstractSort<Integer> 
 
 ### Speed Comparison - Descending
 
+<br>![height:20em](img/sort_comparison_based-11.png)
+
 ---
 
+### Speed Comparison - Descending
+
+<br>![height:20em](img/sort_comparison_based-12.png)
+
+---
 
 ## References
 

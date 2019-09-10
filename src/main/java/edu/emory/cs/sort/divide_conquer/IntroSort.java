@@ -16,6 +16,7 @@
 package edu.emory.cs.sort.divide_conquer;
 
 import edu.emory.cs.sort.AbstractSort;
+import edu.emory.cs.utils.Utils;
 
 import java.util.Comparator;
 
@@ -35,28 +36,32 @@ public class IntroSort<T extends Comparable<T>> extends QuickSort<T> {
     }
 
     @Override
-    public void sort(T[] array, int beginIndex, int endIndex) {
-        final int maxdepth = getMaxDepth(beginIndex, endIndex);
-        sortAux(array, beginIndex, endIndex, maxdepth);
+    public void resetCounts() {
+        super.resetCounts();
+        if (engine != null) engine.resetCounts();
     }
 
-    public void sortAux(T[] array, int beginIndex, int endIndex, int maxdepth) {
+    @Override
+    public void sort(T[] array, int beginIndex, int endIndex) {
+        final int maxdepth = getMaxDepth(beginIndex, endIndex);
+        introsort(array, beginIndex, endIndex, maxdepth);
+        comparisons += engine.getComparisonCount();
+        assignments += engine.getAssignmentCount();
+    }
+
+    private void introsort(T[] array, int beginIndex, int endIndex, int maxdepth) {
         if (beginIndex >= endIndex) return;
 
-        if (maxdepth == 0)
+        if (maxdepth == 0)    // encounter the worst case
             engine.sort(array, beginIndex, endIndex);
         else {
             int pivotIndex = partition(array, beginIndex, endIndex);
-            sortAux(array, beginIndex, pivotIndex, maxdepth - 1);
-            sortAux(array, pivotIndex + 1, endIndex, maxdepth - 1);
+            introsort(array, beginIndex, pivotIndex, maxdepth - 1);
+            introsort(array, pivotIndex + 1, endIndex, maxdepth - 1);
         }
     }
 
     protected int getMaxDepth(int beginIndex, int endIndex) {
-        return 2 * (int) log2(endIndex - beginIndex);
-    }
-
-    private double log2(int i) {
-        return Math.log(i) / Math.log(2);
+        return 2 * (int) Utils.log2(endIndex - beginIndex);
     }
 }

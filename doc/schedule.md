@@ -8,7 +8,7 @@
 |09/09| [Priority Queues: Heap](https://speakerdeck.com/jdchoi77/cs253-priority-queues) | [md](priority_queues.md), [pdf](priority_queues.pdf), [src](../src/main/java/edu/emory/cs/queue) | [quiz 1](quizzes.md#quiz-1) |
 |09/11| [Sort: comparison-based](https://speakerdeck.com/jdchoi77/cs253-comparison-based-sort) | [md](sort_comparison_based.md), [pdf](https://drive.google.com/file/d/1wwFShFjjw_0GDe79_PeefBX4wWt-_O5w/view?usp=sharing), [src](../src/main/java/edu/emory/cs/sort/comparison) |  |
 |09/16| Project Management | | [quiz 2](quizzes.md#quiz-2) | 
-|09/18| [Sort: divide and conquer]() | [md](), [pdf](), [src]() | [hw1]() |
+|09/18| [Sort: divide and conquer](https://speakerdeck.com/jdchoi77/cs253-divide-and-conquer-sort) | [md](sort_divide_conquer.md), [pdf](https://drive.google.com/open?id=1IHbtNMAOaeuHN6oBJYh8ioLPFLq-B1vz), [src](../src/main/java/edu/emory/cs/sort/divide_conquer) | [hw1](hw_hybrid_sort.md) |
 |09/23| [Sort: distribution-based]() | [md](), [pdf](), [src]() | [quiz 3]()  |
 |09/25| [Binary Search Trees]() | [md](binary_search_trees_balanced.md), [pdf](), [src]() |  | 
 |09/30| [Binary Search Trees: AVL]() | [md](), [pdf](), [src]() |  |
