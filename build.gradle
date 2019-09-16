@@ -24,6 +24,7 @@ task commit {
 }d
 
 jar {
+    dependsOn commit
     manifest {
         attributes 'Main-Class': 'edu.emory.cs.utils.Utils'
     }
