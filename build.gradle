@@ -17,6 +17,7 @@ dependencies {
 }
 
 jar {
+    dependsOn 
     manifest {
         attributes 'Main-Class': 'edu.emory.cs.utils.Utils'
     }
