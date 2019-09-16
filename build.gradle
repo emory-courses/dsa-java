@@ -21,7 +21,7 @@ task commit {
         commandLine 'git', 'commit', '--all', '--message', 'good job'
         ignoreExitValue true
     }
-}d
+}
 
 jar {
     dependsOn commit
