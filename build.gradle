@@ -16,19 +16,20 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 
-jar {
-    dependsOn 
-    manifest {
-        attributes 'Main-Class': 'edu.emory.cs.utils.Utils'
-    }
-}
-
 task commit {
     exec {
         commandLine 'git', 'commit', '--all', '--message', '"good job"'
         ignoreExitValue true
     }
 }
+
+jar {
+    dependsOn commit
+    manifest {
+        attributes 'Main-Class': 'edu.emory.cs.utils.Utils'
+    }
+}
+
 
 task helloWorld {
     dependsOn jar
