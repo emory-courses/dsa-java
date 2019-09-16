@@ -18,7 +18,7 @@ dependencies {
 
 task commit {
     exec {
-        commandLine 'git', 'commit', '--all', '--message', '"good job"'
+        commandLine 'git', 'commit', '--all', '--message', 'good job'
         ignoreExitValue true
     }
 }
