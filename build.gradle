@@ -22,6 +22,12 @@ jar {
     }
 }
 
+task commit {
+    exec {
+        commandLine 'git', 'commit', '--all', '--message', '"good job"'
+    }
+}
+
 task helloWorld {
     dependsOn jar
     doLast {
