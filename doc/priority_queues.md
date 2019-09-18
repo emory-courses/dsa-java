@@ -268,13 +268,17 @@ private <T extends Comparable<T>>void testAccuracy(AbstractPriorityQueue<T> q, C
 
 @Test
 public void testAccuracy() {
-    testAccuracy(new LazyPriorityQueue<>(), Comparator.reverseOrder());
-    testAccuracy(new EagerPriorityQueue<>(), Comparator.reverseOrder());
-    testAccuracy(new BinaryHeap<>(), Comparator.reverseOrder());
+    List<Integer> keys = List.of(4, 1, 3, 2, 5, 6, 8, 3, 4, 7, 5, 9, 7);
+    Comparator<Integer> natural = Comparator.naturalOrder();
+    Comparator<Integer> reverse = Comparator.reverseOrder();
 
-    testAccuracy(new LazyPriorityQueue<Integer>(Comparator.reverseOrder()), Comparator.naturalOrder());
-    testAccuracy(new EagerPriorityQueue<Integer>(Comparator.reverseOrder()), Comparator.naturalOrder());
-    testAccuracy(new BinaryHeap<Integer>(Comparator.reverseOrder()), Comparator.naturalOrder());
+    testAccuracy(new LazyPriorityQueue<>(), reverse, new ArrayList<>(keys));
+    testAccuracy(new EagerPriorityQueue<>(), reverse, new ArrayList<>(keys));
+    testAccuracy(new BinaryHeap<>(), reverse, new ArrayList<>(keys));
+
+    testAccuracy(new LazyPriorityQueue<Integer>(reverse), natural, new ArrayList<>(keys));
+    testAccuracy(new EagerPriorityQueue<Integer>(reverse), natural, new ArrayList<>(keys));
+    testAccuracy(new BinaryHeap<Integer>(reverse), natural, new ArrayList<>(keys));
 }
 ```
 

@@ -1,0 +1,5 @@
+{
+    "markdown.marp.themes": [
+        "doc/themes/cs253-theme.css"
+      ]
+}
