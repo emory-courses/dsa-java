@@ -230,14 +230,14 @@ protected void sort(T[] array, int beginIndex, int endIndex, final int h) {
 
 ### Sequences
 
-* _Knuth_: $(3^k - 1) / 2 \Rightarrow \{1, 4, 14, 40, 121, \ldots\}$.
-* _Hibbard_: $2^k - 1 \Rightarrow \{1, 2, 3, 4, 6, 8, 9, 12, \ldots\}$.
+* _Knuth_: $(3^k - 1) / 2 \Rightarrow \{1, 4, 13, 40, 121, \ldots\}$.
+* _Hibbard_: $2^k - 1 \Rightarrow \{1, 3, 7, 15, 31, 63, \ldots\}$.
 * _Pratt_: $2^p \cdot 3^q \Rightarrow \{1, 2, 3, 4, 6, 8, 9, 12, \ldots\}$.
 * _Shell_: $n / 2^k \Rightarrow \{500, 250, 125, \ldots\}$, where $n = 1000$.
 
 ![](img/sort_comparison_based-2.png)
 
-* Knuth sequence: $\{14, 4, 1\} < n / 3$, where $n = 42$.
+* Knuth sequence: $\{13, 4, 1\} < n / 3$, where $n = 40$.
 * Only 4 keys to swaps!
 
 ---

@@ -30,7 +30,7 @@ Perhaps, the easiest way is to merge all rows in the input array into an 1D-arra
 ## Task
 
 * Create a class `HybridSortLastname` (e.g., `HybridSortChoi`) implementing the interface [`HybridSort`](../src/main/java/edu/emory/cs/sort/hybrid/HybridSort.java) under the package [`hybridsort`](../src/main/java/edu/emory/cs/sort/hybrid/).
-* Override the `sort` method and test your program for accuracy and speed using [`HybridSortTest`](../tree/master/src/sort/hybrid/HybridSortTest.java). Try different input arrays; you are responsible for the robustness of your program. Also, try different configurations for the speed comparison (e.g., row size, column size, shuffle ratio).
+* Override the `sort` method and test your program for accuracy and speed using [`HybridSortTest`](../src/test/java/edu/emory/cs/sort/HybridSortTest.java). Try different input arrays; you are responsible for the robustness of your program. Also, try different configurations for the speed comparison (e.g., row size, column size, shuffle ratio).
 * Write the report `hw1.pdf` describing the logic behind your mechanism and the speed comparison against the baseline.
 * Submit `HybridSortLastname.java` and `hw1.pdf` to https://canvas.emory.edu/courses/62873/assignments/255736
 
