@@ -55,14 +55,12 @@ public class HybridSortTest {
     @Test
     @SuppressWarnings("unchecked")
     public void testSpeed() {
-        int row = 100, col = 100;
-        double ratio = 0.25;
-
         HybridSort<Integer> gold = new HybridSortChoi<>();
         HybridSort<Integer> mine = new HybridSortChoi<>();  // TODO: replace with your class
+        double ratio = 0.25;
+        int row = 100, col = 100;
 
-//        for (col=100; col<=1500; col+=100)
-        for (row = 100; row <= 1500; row += 100) {
+        for (col=100; col<=1000; col+=100) {    // for (row = 100; row <= 1000; row += 100) {
             long[] time = testSpeed(row, col, ratio, gold, mine);
             StringJoiner join = new StringJoiner("\t");
             join.add(String.format("Row: %d, Col: %d, ratio: %4.2f", row, col, ratio));
@@ -79,7 +77,7 @@ public class HybridSortTest {
     @SuppressWarnings("unchecked")
     private long[] testSpeed(int row, int col, double ratio, HybridSort<Integer>... engine) {
         long[] time = new long[engine.length];
-        final int warm = 10, iter = 100;
+        final int warm = 10, iter = 1000;
         Integer[][] input, t;
         long st, et;
 
