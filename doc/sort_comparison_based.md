@@ -438,13 +438,13 @@ private void testAccuracy(final int iter, final int size, AbstractSort<Integer> 
 
 ---
 
-### Speed Comparison - Descending
+### Speed Comparison (Descending)
 
 <br>![height:20em](img/sort_comparison_based-11.png)
 
 ---
 
-### Speed Comparison - Descending
+### Speed Comparison (- )Descending)
 
 <br>![height:20em](img/sort_comparison_based-12.png)
 

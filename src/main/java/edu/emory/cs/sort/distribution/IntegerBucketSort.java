@@ -1,12 +1,12 @@
-/**
+/*
  * Copyright 2014, Emory University
- * <p>
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * <p>
- * http://www.apache.org/licenses/LICENSE-2.0
- * <p>
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -15,7 +15,7 @@
  */
 package edu.emory.cs.sort.distribution;
 
-import java.util.Comparator;
+import java.util.function.Function;
 
 /**
  * @author Jinho D. Choi ({@code jinho.choi@emory.edu})
@@ -23,21 +23,22 @@ import java.util.Comparator;
 public class IntegerBucketSort extends BucketSort<Integer> {
     private final int GAP;
 
-    public IntegerBucketSort(int min, int max) {
-        this(min, max, Comparator.naturalOrder());
-    }
-
     /**
      * @param min the minimum integer (inclusive).
      * @param max the maximum integer (exclusive).
      */
-    public IntegerBucketSort(int min, int max, Comparator<Integer> comparator) {
-        super(max - min, false, comparator);
+    public IntegerBucketSort(int min, int max) {
+        super(max - min);
         GAP = -min;
     }
 
     @Override
-    protected int getBucketIndex(Integer key) {
+    public void sort(Integer[] array, int beginIndex, int endIndex) {
+        sort(array, beginIndex, endIndex, null);
+    }
+
+    @Override
+    protected int getBucketIndex(Integer key, Function<Integer, Integer> f) {
         return key + GAP;
     }
 }

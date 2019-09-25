@@ -1,12 +1,12 @@
-/**
+/*
  * Copyright 2014, Emory University
- * <p>
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * <p>
- * http://www.apache.org/licenses/LICENSE-2.0
- * <p>
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -15,14 +15,18 @@
  */
 package edu.emory.cs.sort;
 
-import edu.emory.cs.sort.comparison.*;
+import edu.emory.cs.sort.comparison.HeapSort;
+import edu.emory.cs.sort.comparison.InsertionSort;
+import edu.emory.cs.sort.comparison.SelectionSort;
+import edu.emory.cs.sort.comparison.ShellSortKnuth;
+import edu.emory.cs.sort.distribution.IntegerBucketSort;
+import edu.emory.cs.sort.distribution.LSDRadixSort;
 import edu.emory.cs.sort.divide_conquer.IntroSort;
 import edu.emory.cs.sort.divide_conquer.MergeSort;
 import edu.emory.cs.sort.divide_conquer.QuickSort;
 import org.junit.Test;
 
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.Random;
 import java.util.StringJoiner;
 import java.util.stream.Collectors;
@@ -43,17 +47,14 @@ public class SortTest {
         testAccuracy(iter, size, new InsertionSort<>());
         testAccuracy(iter, size, new HeapSort<>());
         testAccuracy(iter, size, new ShellSortKnuth<>());
-//      testAccuracy(iter, size, new ShellSortHibbard<>());
-//      testAccuracy(iter, size, new ShellSortPratt<>());
 
         testAccuracy(iter, size, new MergeSort<>());
         testAccuracy(iter, size, new QuickSort<>());
         testAccuracy(iter, size, new IntroSort<>(new HeapSort<Integer>()));
         testAccuracy(iter, size, new IntroSort<>(new ShellSortKnuth<Integer>()));
 
-//        testAccuracy(iter, size, new IntegerBucketSort(0, size));
-//        testAccuracy(iter, size, new LSDRadixSort());
-//        testAccuracy(iter, size, new MSDRadixSort());
+        testAccuracy(iter, size, new IntegerBucketSort(0, size));
+        testAccuracy(iter, size, new LSDRadixSort());
     }
 
     private void testAccuracy(final int iter, final int size, AbstractSort<Integer> engine) {
@@ -61,7 +62,7 @@ public class SortTest {
         Integer[] original, sorted;
 
         for (int i = 0; i < iter; i++) {
-            original = Stream.generate(rand::nextInt).limit(size).toArray(Integer[]::new);
+            original = Stream.generate(() -> rand.nextInt(size)).limit(size).toArray(Integer[]::new);
             sorted = Arrays.copyOf(original, size);
 
             engine.sort(original);
@@ -73,15 +74,16 @@ public class SortTest {
 
     @Test
     public void testSpeed() {
-//      testSpeed(new HeapSort<>(), new ShellSortKnuth<>(), new SelectionSort<>(), new InsertionSort<>());
-        testSpeed(new HeapSort<>(), new ShellSortKnuth<>(), new MergeSort<>(), new QuickSort<>(), new IntroSort<>(new HeapSort<Integer>()), new IntroSort<>(new ShellSortKnuth<Integer>()));
-//      testSpeed(new ShellSortKnuth<>(), new ShellSortHibbard<>(), new ShellSortPratt<>());
+        final int max_size = 10000;
+
+//      testSpeed(max_size, new HeapSort<>(), new ShellSortKnuth<>(), new SelectionSort<>(), new InsertionSort<>());
+//        testSpeed(max_size, new HeapSort<>(), new ShellSortKnuth<>(), new MergeSort<>(), new QuickSort<>(), new IntroSort<>(new HeapSort<Integer>()), new IntroSort<>(new ShellSortKnuth<Integer>()));
+        testSpeed(max_size, new HeapSort<>(), new ShellSortKnuth<>(), new MergeSort<>(), new QuickSort<>(), new IntegerBucketSort(0, max_size), new LSDRadixSort());
     }
 
     @SafeVarargs
-    private void testSpeed(AbstractSort<Integer>... engines) {
+    private void testSpeed(final int max_size, AbstractSort<Integer>... engines) {
         final int init_size = 1000;
-        final int max_size = 10000;
         final int inc = 1000;
         final int iter = 1000;
 
@@ -111,7 +113,7 @@ public class SortTest {
         Random rand = new Random();
 
         for (int i = 0; i < iter; i++) {
-            Integer[] keys = Stream.generate(rand::nextInt).limit(size).toArray(Integer[]::new);
+            Integer[] keys = Stream.generate(() -> rand.nextInt(size)).limit(size).toArray(Integer[]::new);
 //          Arrays.sort(keys);
 //          Arrays.sort(keys, Comparator.reverseOrder());
 
@@ -135,4 +137,15 @@ public class SortTest {
         t.assignments += engine.getAssignmentCount();
         t.comparisons += engine.getComparisonCount();
     }
+
+//    @Test
+//    public void testOtherSorts() {
+//        final int iter = 100;
+//        final int size = 100;
+//
+//        testAccuracy(iter, size, new ShellSortHibbard<>());
+//        testAccuracy(iter, size, new ShellSortPratt<>());
+//        testAccuracy(iter, size, new MSDRadixSort());
+//        testSpeed(new ShellSortKnuth<>(), new ShellSortHibbard<>(), new ShellSortPratt<>());
+//    }
 }

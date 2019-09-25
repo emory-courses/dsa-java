@@ -47,3 +47,18 @@
 * Submission
   * Commit and push all the updates to your Github repository.
   * Submit `quiz2.pdf` to https://canvas.emory.edu/courses/62873/assignments/255739
+
+
+## Quiz 3
+
+* Implementation
+  * Create the class `MSDRadixSort` under [`sort.distribution`](../src/main/java/edu/emory/cs/sort/distribution) extending [`RadixSort`](../tree/master/src/sort/distribution/RadixSort.java).
+  * `MSDRadixSort` must sort the most significant digit first, the 2nd most significant digit next, and so on.
+  * Feel free to use the code in [`LSDRadixSort`](../src/main/java/edu/emory/cs/sort/distribution/LSDRadixSort.java).
+* Unit Tests
+  * Run the [unit test](../src/test/java/edu/emory/cs/sort/SortTest.java) and make sure your sorting algorithms perform accurately.
+  * Compare the speed between `LSDRadixSort` and `MSDRadixSort` using the [unit test](../src/test/java/edu/emory/cs/sort/SortTest.java).
+  * Write a report about the speed comparison and save it as `quiz3.pdf`.
+* Submission
+  * Commit and push all the updates to your Github repository.
+  * Submit `quiz3.pdf` to https://canvas.emory.edu/courses/62873/assignments/255740
