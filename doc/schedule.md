@@ -11,7 +11,7 @@
 |09/18| [Sort: comparison-based](https://www.slideshare.net/jchoi7s/cs253-comparisonbased-sort-2019) | [md](sort_comparison_based.md), [pdf](sort_comparison_based.pdf), [src](../src/main/java/edu/emory/cs/sort/comparison) | [quiz 2](quizzes.md#quiz-2) |
 |09/23| [Sort: divide and conquer](https://www.slideshare.net/jchoi7s/cs253-divide-conquer-sort-2019) | [md](sort_divide_conquer.md), [pdf](sort_divide_conquer.pdf), [src](../src/main/java/edu/emory/cs/sort/divide_conquer) | [hw1](hw_hybrid_sort.md) |
 |09/25| [Sort: distribution-based](https://www.slideshare.net/jchoi7s/cs253-distributionbased-sort-2019) | [md](sort_distribution_based.md), [pdf](sort_distribution_based.pdf), [src](../src/main/java/edu/emory/cs/sort/distribution) | [quiz 3](quizzes.md#quiz-3)  |
-|09/30| [Binary Search Trees]() | [md](binary_search_trees_balanced.md), [pdf](), [src]() |  | 
+|09/30| [Binary Search Trees](https://www.slideshare.net/jchoi7s/cs253-binary-search-trees-2019) | [md](binary_search_trees.md), [pdf](binary_search_trees.pdf), [src](../src/main/java/edu/emory/cs/tree/) |  | 
 |10/02| [Binary Search Trees: AVL]() | [md](), [pdf](), [src]() | [quiz 4]() |
 |10/07| [Binary Search Trees: Red-Black]() | [md](), [pdf](), [src]() |  | 
 |10/09| [Tries]() | [md](), [pdf](), [src]() | [hw2]() |
