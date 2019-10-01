@@ -52,9 +52,9 @@
 ## Quiz 3
 
 * Implementation
-  * Create the class `MSDRadixSort` under [`sort.distribution`](../src/main/java/edu/emory/cs/sort/distribution) extending [`RadixSort`](../tree/master/src/sort/distribution/RadixSort.java).
+  * Create the class `MSDRadixSort` under [`sort.distribution`](../src/main/java/edu/emory/cs/sort/distribution) extending [`RadixSort`](../src/main/java/edu/emory/cs/sort/distribution/RadixSort.java) or any of its super class including [`BucketSort`](../src/main/java/edu/emory/cs/sort/distribution/BucketSort.java) and [`AbstractSort`](../src/main/java/edu/emory/cs/sort/AbstractSort.java).
   * `MSDRadixSort` must sort the most significant digit first, the 2nd most significant digit next, and so on.
-  * Feel free to use the code in [`LSDRadixSort`](../src/main/java/edu/emory/cs/sort/distribution/LSDRadixSort.java).
+  * Feel free to use the code in [`sort.distribution`](../src/main/java/edu/emory/cs/sort/distribution/).
 * Unit Tests
   * Run the [unit test](../src/test/java/edu/emory/cs/sort/SortTest.java) and make sure your sorting algorithms perform accurately.
   * Compare the speed between `LSDRadixSort` and `MSDRadixSort` using the [unit test](../src/test/java/edu/emory/cs/sort/SortTest.java).

@@ -21,6 +21,7 @@ import edu.emory.cs.sort.comparison.SelectionSort;
 import edu.emory.cs.sort.comparison.ShellSortKnuth;
 import edu.emory.cs.sort.distribution.IntegerBucketSort;
 import edu.emory.cs.sort.distribution.LSDRadixSort;
+import edu.emory.cs.sort.distribution.MSDRadixSort;
 import edu.emory.cs.sort.divide_conquer.IntroSort;
 import edu.emory.cs.sort.divide_conquer.MergeSort;
 import edu.emory.cs.sort.divide_conquer.QuickSort;
@@ -75,9 +76,8 @@ public class SortTest {
     @Test
     public void testSpeed() {
         final int max_size = 10000;
-
 //      testSpeed(max_size, new HeapSort<>(), new ShellSortKnuth<>(), new SelectionSort<>(), new InsertionSort<>());
-//        testSpeed(max_size, new HeapSort<>(), new ShellSortKnuth<>(), new MergeSort<>(), new QuickSort<>(), new IntroSort<>(new HeapSort<Integer>()), new IntroSort<>(new ShellSortKnuth<Integer>()));
+//      testSpeed(max_size, new HeapSort<>(), new ShellSortKnuth<>(), new MergeSort<>(), new QuickSort<>(), new IntroSort<>(new HeapSort<Integer>()), new IntroSort<>(new ShellSortKnuth<Integer>()));
         testSpeed(max_size, new HeapSort<>(), new ShellSortKnuth<>(), new MergeSort<>(), new QuickSort<>(), new IntegerBucketSort(0, max_size), new LSDRadixSort());
     }
 
