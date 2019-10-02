@@ -62,3 +62,14 @@
 * Submission
   * Commit and push all the updates to your Github repository.
   * Submit `quiz3.pdf` to https://canvas.emory.edu/courses/62873/assignments/255740
+
+
+## Quiz 4
+
+## Quiz
+
+* Explain how the `remove` method works in [`AbstractBalancedBinarySearchTree`](../tree/master/src/tree/balanced/AbstractBalancedBinarySearchTree.java):
+ * Explain what gets assigned to `lowest` in line 43.
+ * Explain how the `balance` method in [`AVLTree`](../tree/master/src/tree/balanced/AVLTree.java) and [`RedBlackTree`](../tree/master/src/tree/balanced/RedBlackTree.java) keeps the tree in balance (or not in balance) after a removal.
+* Write a report about your explanation and save it as `quiz4.pdf`.
+* Submit `quiz4.pdf`: https://canvas.emory.edu/courses/32845/assignments/79350

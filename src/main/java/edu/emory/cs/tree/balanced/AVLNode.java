@@ -65,15 +65,11 @@ public class AVLNode<T extends Comparable<T>> extends AbstractBinaryNode<T, AVLN
         if (node != null) {
             int lh = node.hasLeftChild() ? node.getLeftChild().getHeight() : 0;
             int rh = node.hasRightChild() ? node.getRightChild().getHeight() : 0;
-
-            //height = Max(leftChild.height, rightChild.height) + 1
-            int height = (lh > rh) ? lh + 1 : rh + 1;
+            int height = Math.max(lh, rh) + 1;
 
             if (height != node.getHeight()) {
                 node.setHeight(height);
-
-                //Recurrsively update parent height
-                resetHeightsAux(node.getParent());
+                resetHeightsAux(node.getParent());  // recursively update parent height
             }
         }
     }

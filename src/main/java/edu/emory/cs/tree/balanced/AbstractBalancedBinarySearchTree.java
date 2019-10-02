@@ -42,8 +42,7 @@ public abstract class AbstractBalancedBinarySearchTree<T extends Comparable<T>, 
     }
 
     /**
-     * Preserves the balance of the specific node and its ancestors after {@code #add(Comparable)}.
-     *
+     * Preserves the balance of the specific node and its ancestors.
      * @param node the node to be balanced.
      */
     protected abstract void balance(N node);
@@ -52,7 +51,6 @@ public abstract class AbstractBalancedBinarySearchTree<T extends Comparable<T>, 
 
     /**
      * Rotates the specific node to the left.
-     *
      * @param node the node to be rotated.
      */
     protected void rotateLeft(N node) {
@@ -70,7 +68,6 @@ public abstract class AbstractBalancedBinarySearchTree<T extends Comparable<T>, 
 
     /**
      * Rotates the specific node to the right.
-     *
      * @param node the node to be rotated.
      */
     protected void rotateRight(N node) {
