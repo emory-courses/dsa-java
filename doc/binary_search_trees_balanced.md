@@ -11,11 +11,9 @@ paginate: true
 * [Balanced Binary Search Trees](#balanced-binary-search-trees)
   * [Abstract Balanced Binary Search Tree](#abstract-balanced-binary-search-tree)
 * AVL (Adelson-Velskii and Landis) Tree
-  * [AVL Node](#avl-node).
-  * [AVL Tree](#avl-tree).
-* [Red-Black tree](#red-black-tree).
-  *
-  * 
+  * [AVL Node](#avl-node)
+  * [AVL Tree](#avl-tree)
+* [Red-Black tree](#red-black-tree)
 * [References](#references)
 
 ---

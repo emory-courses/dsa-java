@@ -14,15 +14,15 @@
 |09/30| [Binary Search Trees](https://speakerdeck.com/jdchoi77/cs253-binary-search-trees-2019) | [md](binary_search_trees.md), [pdf](binary_search_trees.pdf), [src](../src/main/java/edu/emory/cs/tree/) |  | 
 |10/02| [Binary Search Trees: AVL](https://speakerdeck.com/jdchoi77/cs253-balanced-binary-search-trees-2019) | [md](binary_search_trees_balanced.md), [pdf](binary_search_trees_balanced.pdf), [src](../src/main/java/edu/emory/cs/tree/balanced) | [quiz 4](quizzes.md#quiz-4) |
 |10/07| [Binary Search Trees: Red-Black](https://speakerdeck.com/jdchoi77/cs253-balanced-binary-search-trees-2019) | [md](binary_search_trees_balanced.md), [pdf](binary_search_trees_balanced.pdf), [src](../src/main/java/edu/emory/cs/tree/balanced) |  | 
-|10/09| [Tries]() | [md](), [pdf](), [src]() | [hw2]() |
+|10/09| [Tries]() | [md](), [pdf](), [src]() | [quiz 5](quizzes.md#quiz-5) |
 |10/14| Fall Break | | |
-|10/16| [Review Session](resources.md#previous-exams) | | |
-|10/21| Midterm Exam | | |
+|10/16| [Review Session](resources.md#previous-exams) | |  |
+|10/21| Midterm Exam | | [hw2]() |
 |10/23| Midterm Review | | |
 |10/28| [Minimum Spanning Trees]() | [md](), [pdf](), [src]() | [quiz 6]() |
-|10/30| [Minimum Spanning Trees]() | [md](), [pdf](), [src]() | [hw3]() |
+|10/30| [Minimum Spanning Trees]() | [md](), [pdf](), [src]() |  |
 |11/04| [Minimum Spanning Trees: directed]() | [md](), [pdf](), [src]() | [quiz 7]() |
-|11/06| [Topological Sort]() | [md](), [pdf](), [src]()  |  |
+|11/06| [Topological Sort]() | [md](), [pdf](), [src]()  | [hw3]() |
 |11/11| [Shortest Path]() | [md](), [pdf](), [src]() | [quiz 8]() |
 |11/13| [Network Flows: Ford-Fulkerson]() | [md](), [pdf](), [src]() | |
 |11/18| [Network Flows: Max-flow, Min-cut]() | [md](), [pdf](), [src]() | [quiz 9]() |
