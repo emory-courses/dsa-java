@@ -21,7 +21,6 @@ import edu.emory.cs.sort.comparison.SelectionSort;
 import edu.emory.cs.sort.comparison.ShellSortKnuth;
 import edu.emory.cs.sort.distribution.IntegerBucketSort;
 import edu.emory.cs.sort.distribution.LSDRadixSort;
-import edu.emory.cs.sort.distribution.MSDRadixSort;
 import edu.emory.cs.sort.divide_conquer.IntroSort;
 import edu.emory.cs.sort.divide_conquer.MergeSort;
 import edu.emory.cs.sort.divide_conquer.QuickSort;
@@ -42,7 +41,7 @@ public class SortTest {
     @Test
     public void testAccuracy() {
         final int iter = 100;
-        final int size = 100;
+        final int size = 1000;
 
         testAccuracy(iter, size, new SelectionSort<>());
         testAccuracy(iter, size, new InsertionSort<>());
@@ -147,5 +146,6 @@ public class SortTest {
 //        testAccuracy(iter, size, new ShellSortPratt<>());
 //        testAccuracy(iter, size, new MSDRadixSort());
 //        testSpeed(new ShellSortKnuth<>(), new ShellSortHibbard<>(), new ShellSortPratt<>());
+//        testSpeed(max_size, new QuickSort<>(), new LSDRadixSort(), new MSDRadixSort());
 //    }
 }
