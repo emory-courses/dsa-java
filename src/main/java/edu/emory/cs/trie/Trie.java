@@ -43,10 +43,9 @@ public class Trie<T> {
      */
     public T put(String key, T value) {
         char[] array = key.toCharArray();
-        int i, len = key.length();
         TrieNode<T> node = root;
 
-        for (i = 0; i < len; i++)
+        for (int i = 0; i < key.length(); i++)
             node = node.addChild(array[i]);
 
         node.setEndState(true);
@@ -58,10 +57,9 @@ public class Trie<T> {
      */
     public TrieNode<T> find(String key) {
         char[] array = key.toCharArray();
-        int i, len = key.length();
         TrieNode<T> node = root;
 
-        for (i = 0; i < len; i++) {
+        for (int i = 0; i < key.length(); i++) {
             node = node.getChild(array[i]);
             if (node == null) return null;
         }

@@ -37,5 +37,7 @@ Perhaps, the easiest way is to merge all rows in the input array into an 1D-arra
 ## Note
 
 * You are not allowed to use any of the java built-in sorting methods.
-* There can be any arbitrary number of rows in the input array, where each row meets any of the 5 conditions above.
-* The size of each row can vary.
+* The input matrix contains an arbitrary number of rows, where each row meets any of the 5 conditions above.
+* The input matrix can include any type of the keys that are [Comparable](https://speakerdeck.com/jdchoi77/cs253-tries-2019).
+* The size of each row varies from `0` to any random positive integer.
+* You are not allowed to merge all rows first and apply a fancy sorting algorithm to the 1D array as the baseline approach does.
