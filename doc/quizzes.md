@@ -83,7 +83,6 @@ Your task is to write a method that takes a string and finds all country names i
 
 * Pseudo-code
   * Write a pseudo-code that completes the `get_entities()` method in [`TrieQuiz`](../src/main/java/edu/emory/cs/trie/TrieQuiz.java#L31).
-  * Write a short report about the complexity of your method and save it as `quiz5.pdf`.
 * Submission
-  * Commit and push all the updates to your Github repository.
+  * Write a report including your pseudo-code and a brief explanation about the complexity of your method and save it as `quiz5.pdf`.
   * Submit `quiz5.pdf` to https://canvas.emory.edu/courses/62873/assignments/255742
