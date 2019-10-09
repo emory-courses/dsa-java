@@ -79,7 +79,7 @@
 
 Let `L` be a list of country names in `String` where spaces are allowed (e.g., `"United States"`, `"South Korea"`).
 Let `T` be a trie where all country names in `L` are inserted and each country name is assigned with a unique ID in `Integer` (see the [example](img/tries-2.png)).
-Your task is to write a function that takes a string and finds all country names in the input string using `T`.
+Your task is to write a method that takes a string and finds all country names in the string using `T`.
 
 * Pseudo-code
   * Write a pseudo-code that completes the `get_entities()` method in [`TrieQuiz`](../src/main/java/edu/emory/cs/trie/TrieQuiz.java#L31).
