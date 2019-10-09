@@ -24,13 +24,13 @@ paginate: true
 ```
 * How many character comparisons using a binary search tree or a trie?
 
-![height:18em](img/trie-0.png)
+![height:18em](img/tries-0.png)
 
 ---
 
 ### Children representation
 
-<br>![](img/trie-1.png)
+<br>![](img/tries-1.png)
 <br>
 
 * How many childrens are expected per node?
