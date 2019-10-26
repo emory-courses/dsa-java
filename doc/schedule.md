@@ -19,7 +19,7 @@
 |10/16| [Review Session](resources.md#previous-exams) | |  |
 |10/21| Midterm Exam | | |
 |10/23| Midterm Review | | |
-|10/28| [Minimum Spanning Trees]() | [md](), [pdf](), [src]() | [hw 2]() |
+|10/28| [Minimum Spanning Trees]() | [md](), [pdf](), [src]() | [hw 2](hw_autocomplete.md) |
 |10/30| [Minimum Spanning Trees]() | [md](), [pdf](), [src]() | [quiz 6]() |
 |11/04| [Minimum Spanning Trees: directed]() | [md](), [pdf](), [src]() |  |
 |11/06| [Topological Sort]() | [md](), [pdf](), [src]()  | [quiz 7]() |
