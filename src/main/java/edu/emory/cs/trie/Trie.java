@@ -42,11 +42,10 @@ public class Trie<T> {
      * @return the previously inserted value for the specific key if exists; otherwise, {@code null}.
      */
     public T put(String key, T value) {
-        char[] array = key.toCharArray();
         TrieNode<T> node = root;
 
-        for (int i = 0; i < key.length(); i++)
-            node = node.addChild(array[i]);
+        for (char c : key.toCharArray())
+            node = node.addChild(c);
 
         node.setEndState(true);
         return node.setValue(value);
@@ -56,11 +55,10 @@ public class Trie<T> {
      * @return the node with the specific key if exists; otherwise, {@code null}.
      */
     public TrieNode<T> find(String key) {
-        char[] array = key.toCharArray();
         TrieNode<T> node = root;
 
-        for (int i = 0; i < key.length(); i++) {
-            node = node.getChild(array[i]);
+        for (char c : key.toCharArray()) {
+            node = node.getChild(c);
             if (node == null) return null;
         }
 

@@ -107,36 +107,37 @@ public class Trie<T> {
         return (node != null && node.isEndState()) ? node.getValue() : null;
     }
 
-    public TrieNode<T> find(String key) {
-        char[] array = key.toCharArray();
-        TrieNode<T> node = root;
-
-        for (int i = 0; i < key.length(); i++) {
-            node = node.getChild(array[i]);
-            if (node == null) return null;
-        }
-
-        return node;
-    }
+    
 ```
 
 * Dummay character: `(char)0`.
-* Complexity: `find()`.
 
 ---
 
 ```java
-public T put(String key, T value) {
-    char[] array = key.toCharArray();
+public TrieNode<T> find(String key) {
     TrieNode<T> node = root;
 
-    for (int i = 0; i < key.length(); i++)
-        node = node.addChild(array[i]);
+    for (char c : key.toCharArray()) {
+        node = node.getChild(c);
+        if (node == null) return null;
+    }
+
+    return node;
+}
+
+public T put(String key, T value) {
+    TrieNode<T> node = root;
+
+    for (char c : key.toCharArray())
+        node = node.addChild(c);
 
     node.setEndState(true);
     return node.setValue(value);
 }
 ```
+
+* Complexity: `find()`, `put()`.
 
 ---
 

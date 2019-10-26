@@ -4,7 +4,11 @@
 /gradle/
 
 /solutions/
+/src/main/java/edu/emory/cs/exam/
 /src/main/java/edu/emory/cs/queue/NaryHeap.java
 /src/main/java/edu/emory/cs/sort/comparison/ShellSortHibbard.java
 /src/main/java/edu/emory/cs/sort/comparison/ShellSortPratt.java
 /src/main/java/edu/emory/cs/sort/distribution/MSDRadixSort.java
+/src/main/java/edu/emory/cs/trie/autocomplete/AbstractAutocomplete.java
+/src/main/java/edu/emory/cs/trie/autocomplete/RecentAutocomplete.java
+/src/main/java/edu/emory/cs/trie/autocomplete/FrequentAutocomplete.java
