@@ -86,3 +86,12 @@ Your task is to write a method that takes a string and finds all country names i
 * Submission
   * Write a report including your pseudo-code and a brief explanation about the complexity of your method and save it as `quiz5.pdf`.
   * Submit `quiz5.pdf` to https://canvas.emory.edu/courses/62873/assignments/255742
+
+
+## Quiz 6
+
+Provide a graph example for which Prim's and Kruskal's algorithms generate different kinds of minimum spanning trees.  Explain how these trees are generated.  If you cannot find an example, explain why these algorithms always generate the same minimum spanning tree given any kind of graph.
+
+* Submission
+  * Write a report about your findings and save it as `quiz6.pdf`.
+  * Submit your report to https://canvas.emory.edu/courses/62873/assignments/255743

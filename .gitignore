@@ -12,3 +12,4 @@
 /src/main/java/edu/emory/cs/trie/autocomplete/AbstractAutocomplete.java
 /src/main/java/edu/emory/cs/trie/autocomplete/RecentAutocomplete.java
 /src/main/java/edu/emory/cs/trie/autocomplete/FrequentAutocomplete.java
+/src/main/java/edu/emory/cs/graph/span/MSTAll
