@@ -28,8 +28,8 @@ import java.util.PriorityQueue;
 public class MSTKruskal implements MSTAlgorithm {
     @Override
     public SpanningTree getMinimumSpanningTree(Graph graph) {
+        PriorityQueue<Edge> queue = new PriorityQueue<>(graph.getAllEdges());
         DisjointSet forest = new DisjointSet(graph.size());
-        PriorityQueue<Edge> queue = createEdgePQ(graph);
         SpanningTree tree = new SpanningTree();
         Edge edge;
 
@@ -47,13 +47,5 @@ public class MSTKruskal implements MSTAlgorithm {
         }
 
         return tree;
-    }
-
-    /**
-     * @param graph Graph
-     * @return PriorityQueue that contains all edges in graph sorted by their weights
-     */
-    private PriorityQueue<Edge> createEdgePQ(Graph graph) {
-        return new PriorityQueue<Edge>(graph.getAllEdges());
     }
 }
