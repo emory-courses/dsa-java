@@ -5,6 +5,8 @@
 
 /solutions/
 /src/main/java/edu/emory/cs/exam/
+
+# quizzes
 /src/main/java/edu/emory/cs/queue/NaryHeap.java
 /src/main/java/edu/emory/cs/sort/comparison/ShellSortHibbard.java
 /src/main/java/edu/emory/cs/sort/comparison/ShellSortPratt.java
@@ -13,3 +15,6 @@
 /src/main/java/edu/emory/cs/trie/autocomplete/RecentAutocomplete.java
 /src/main/java/edu/emory/cs/trie/autocomplete/FrequentAutocomplete.java
 /src/main/java/edu/emory/cs/graph/span/MSTAll
+
+# homework
+/src/main/java/edu/emory/cs/sort/hybrid/HybridSortJC.java
