@@ -31,7 +31,7 @@ public class TopologicalSort {
     public List<Integer> sort(Graph graph) {
         Deque<Integer> global = graph.getVerticesWithNoIncomingEdges();
         Deque<Edge>[] outgoingEdgesAll = graph.getOutgoingEdges();
-        List<Integer> order = new ArrayList<Integer>();
+        List<Integer> order = new ArrayList<>();
 
         while (!global.isEmpty()) {
             Deque<Integer> local = new ArrayDeque<>();
@@ -55,10 +55,10 @@ public class TopologicalSort {
 
             //Transfer all vertices in local to global
             while (!local.isEmpty())
-                //Breath-first search
+                // breath-first search
                 global.addLast(local.removeFirst());
-            //Depth-first search
-//				global.addFirst(local.removeLast());
+               // depth-first search
+               // global.addFirst(local.removeLast());
         }
 
         if (!graph.isEmpty()) throw new IllegalArgumentException("Cyclic graph.");
