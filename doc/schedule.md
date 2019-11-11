@@ -23,7 +23,7 @@
 |10/30| [Minimum Spanning Trees](https://speakerdeck.com/jdchoi77/cs253-minimum-spanning-trees-2019) | [pdf](minimum_spanning_trees.pdf), [src](../src/main/java/edu/emory/cs/graph/span/) | [quiz 6](quizzes.md#quiz-6) |
 |11/04| [Minimum Spanning Trees](https://speakerdeck.com/jdchoi77/cs253-minimum-spanning-trees-2019) | [pdf](minimum_spanning_trees.pdf), [src](../src/main/java/edu/emory/cs/graph/span/) |  |
 |11/06| [Minimum Spanning Trees](https://speakerdeck.com/jdchoi77/cs253-minimum-spanning-trees-2019) | [pdf](minimum_spanning_trees.pdf), [src](../src/main/java/edu/emory/cs/graph/span/) | [quiz 7](quizzes.md#quiz-7) |
-|11/11| [Topological Sort]https://speakerdeck.com/jdchoi77/cs253-topological-sort-2019) | [pdf](topological_sort.pdf), [src](../src/main/java/edu/emory/cs/graph/sort/) |  |
+|11/11| [Topological Sort](https://speakerdeck.com/jdchoi77/cs253-topological-sort-2019) | [pdf](topological_sort.pdf), [src](../src/main/java/edu/emory/cs/graph/sort/) |  |
 |11/13| [Network Flows: Ford-Fulkerson]() | [md](), [pdf](), [src]() | [quiz 8]() |
 |11/18| [Network Flows: Max-flow, Min-cut]() | [md](), [pdf](), [src]() | [hw 3]() |
 |11/20| [Network Flows: Simplex Algorithm]() | [md](), [pdf](), [src]() | [quiz 9]() |
