@@ -20,9 +20,9 @@
 |10/21| Midterm Exam | | |
 |10/23| Midterm Review | | |
 |10/28| [Disjoint Sets](disjoint_sets.md) | [md](disjoint_sets.md), [src](../src/main/java/edu/emory/cs/set/DisjointSet.java) | [hw 2](hw_autocomplete.md) |
-|10/30| [Minimum Spanning Trees](https://drive.google.com/file/d/1tYXXHWP5RpgPP5eZuhtJjCz8iLO0OYUl/view?usp=sharing) | [pdf](minimum_spanning_trees.pdf), [src](../src/main/java/edu/emory/cs/graph/span/) | [quiz 6](quizzes.md#quiz-6) |
-|11/04| [Minimum Spanning Trees](https://drive.google.com/file/d/1tYXXHWP5RpgPP5eZuhtJjCz8iLO0OYUl/view?usp=sharing) | [pdf](minimum_spanning_trees.pdf), [src](../src/main/java/edu/emory/cs/graph/span/) |  |
-|11/06| [Minimum Spanning Trees](https://drive.google.com/file/d/1tYXXHWP5RpgPP5eZuhtJjCz8iLO0OYUl/view?usp=sharing) | [pdf](minimum_spanning_trees.pdf), [src](../src/main/java/edu/emory/cs/graph/span/) | [quiz 7](quizzes.md#quiz-7) |
+|10/30| [Minimum Spanning Trees](https://www.slideshare.net/jchoi7s/cs253-minimum-spanning-trees-2019) | [pdf](minimum_spanning_trees.pdf), [src](../src/main/java/edu/emory/cs/graph/span/) | [quiz 6](quizzes.md#quiz-6) |
+|11/04| [Minimum Spanning Trees](https://www.slideshare.net/jchoi7s/cs253-minimum-spanning-trees-2019) | [pdf](minimum_spanning_trees.pdf), [src](../src/main/java/edu/emory/cs/graph/span/) |  |
+|11/06| [Minimum Spanning Trees](https://www.slideshare.net/jchoi7s/cs253-minimum-spanning-trees-2019) | [pdf](minimum_spanning_trees.pdf), [src](../src/main/java/edu/emory/cs/graph/span/) | [quiz 7](quizzes.md#quiz-7) |
 |11/11| [Topological Sort](https://speakerdeck.com/jdchoi77/cs253-topological-sort-2019) | [pdf](topological_sort.pdf), [src](../src/main/java/edu/emory/cs/graph/sort/) |  |
 |11/13| [Shortest Path Algorithms](https://www.slideshare.net/jchoi7s/cs253-shortest-path-algorithms-2019) | [pdf](shortest_path_algorithms.pdf), [src](../src/main/java/edu/emory/cs/graph/path/) | [quiz 8](quizzes.md#quiz-8) |
 |11/18| [Network Flows](https://www.slideshare.net/jchoi7s/cs253-network-flow-2019) | [pdf](network_flow.pdf), [src](../src/main/java/edu/emory/cs/graph/flow/) | [hw 3]() |
