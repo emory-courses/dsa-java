@@ -104,3 +104,13 @@ What are the worst-case complexities of Prim's, Kruscal's and Chu–Liu-Edmonds�
 * Submission
   * Write a report about your findings and save it as `quiz7.pdf`.
   * Submit your report to https://canvas.emory.edu/courses/62873/assignments/255744
+
+
+## Quiz 8
+
+What is the worst-case complexity of Dijkstra’s algorithm when `V` is the number of vertices and `E` is the number of edges in a graph? Explain your answer.
+
+* Submission
+  * Write a report about your findings and save it as `quiz8.pdf`.
+  * Submit your report to https://canvas.emory.edu/courses/62873/assignments/255745
+
