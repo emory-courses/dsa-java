@@ -16,96 +16,87 @@
 package edu.emory.cs.graph.span;
 
 import edu.emory.cs.graph.Edge;
+import edu.emory.cs.graph.Graph;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 import java.util.regex.Pattern;
 
 /**
  * @author Jinho D. Choi ({@code jinho.choi@emory.edu})
  */
-public class MSTWord {
-    private List<String> words;
-    private List<float[]> vectors;
+public abstract class MSTWord {
+    List<WVPair> vertices;
+    Graph graph;
 
-    public void readVectors(InputStream in) throws Exception {
+    public MSTWord(InputStream in) {
+        try {
+            vertices = readVertices(in);
+            graph = createGraph();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    protected abstract Graph createGraph();
+
+    public abstract SpanningTree getMinimumSpanningTree();
+
+    public abstract List<String> getShortestPath(int source, int target);
+
+    public List<WVPair> readVertices(InputStream in) throws Exception {
         BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+        List<WVPair> vertices = new ArrayList<>();
         Pattern p = Pattern.compile("\t");
         String line, word;
-        float[] vector;
+        double[] vector;
         String[] t;
 
-        words = new ArrayList<>();
-        vectors = new ArrayList<>();
 
         while ((line = reader.readLine()) != null) {
             t = p.split(line);
             word = t[0];
-            vector = new float[t.length - 1];
+            vector = new double[t.length - 1];
 
             for (int i = 1; i < t.length; i++)
-                vector[i - 1] = Float.parseFloat(t[i]);
+                vector[i - 1] = Double.parseDouble(t[i]);
 
-            words.add(word);
-            vectors.add(vector);
+            vertices.add(new WVPair(word, vector));
         }
 
         reader.close();
-    }
-
-    public SpanningTree findMinimumSpanningTree() {
-        SpanningTree tree = new SpanningTree();
-
-        // TODO: This code produces a dummy graph
-        Random rand = new Random();
-        int size = words.size();
-
-        for (int source = 0; source < size; source++) {
-            int target = 0;
-
-            while (true) {
-                target = rand.nextInt(size);
-                if (target != source) break;
-            }
-
-            tree.addEdge(new Edge(source, target, rand.nextFloat()));
-        }
-
-        return tree;
-    }
-
-    public float getEuclideanDistance(float[] v1, float[] v2) {
-        // TODO:
-        return 0;
-    }
-
-    public float getCosineDistance(float[] v1, float[] v2) {
-        // TODO:
-        return 0;
+        return vertices;
     }
 
     public void printSpanningTree(OutputStream out, SpanningTree tree) {
         PrintStream fout = new PrintStream(new BufferedOutputStream(out));
         fout.println("digraph G {");
 
-        for (Edge edge : tree.getEdges())
-            fout.printf("\"%s\" -> \"%s\"[label=\"%5.4f\"];\n", words.get(edge.getSource()), words.get(edge.getTarget()), edge.getWeight());
+        for (Edge edge : tree.getEdges()) {
+            fout.printf("\"%s\" -> \"%s\"[label=\"%5.4f\"];\n", vertices.get(edge.getSource()).getWord(), vertices.get(edge.getTarget()).getWord(), edge.getWeight());
+        }
 
         fout.println("}");
         fout.close();
     }
 
-    static public void main(String[] args) throws Exception {
-        final String INPUT_FILE = "/Users/jdchoi/Documents/EmoryNLP/cs571/vsm/word_vectors.txt";
-        final String OUTPUT_FILE = "/Users/jdchoi/Documents/EmoryNLP/cs571/vsm/word_vectors.dot";
+    protected class WVPair {
+        private String word;
+        private double[] vector;
 
-        MSTWord mst = new MSTWord();
+        public WVPair(String word, double[] vector) {
+            this.word = word;
+            this.vector = vector;
+        }
 
-        mst.readVectors(new FileInputStream(INPUT_FILE));
-        SpanningTree tree = mst.findMinimumSpanningTree();
-        mst.printSpanningTree(new FileOutputStream(OUTPUT_FILE), tree);
-        System.out.println(tree.getTotalWeight());
+        public String getWord() {
+            return word;
+        }
+
+        public double[] getVector() {
+            return vector;
+        }
     }
 }

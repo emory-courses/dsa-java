@@ -18,3 +18,5 @@
 
 # homework
 /src/main/java/edu/emory/cs/sort/hybrid/HybridSortJC.java
+/src/main/java/edu/emory/cs/graph/span/MSTWordAnswer.java
+/src/main/resources/word_vectors.dot
