@@ -26,7 +26,7 @@
 |11/11| [Topological Sort](https://speakerdeck.com/jdchoi77/cs253-topological-sort-2019) | [pdf](topological_sort.pdf), [src](../src/main/java/edu/emory/cs/graph/sort/) |  |
 |11/13| [Shortest Path Algorithms](https://www.slideshare.net/jchoi7s/cs253-shortest-path-algorithms-2019) | [pdf](shortest_path_algorithms.pdf), [src](../src/main/java/edu/emory/cs/graph/path/) | [quiz 8](quizzes.md#quiz-8) |
 |11/18| [Network Flows](https://www.slideshare.net/jchoi7s/cs253-network-flow-2019-194815341) | [pdf](network_flow.pdf), [src](../src/main/java/edu/emory/cs/graph/flow/) | [hw 3](hw_mst_words.md) |
-|11/20| [Network Flows](https://www.slideshare.net/jchoi7s/cs253-network-flow-2019-194815341) | [pdf](network_flow.pdf), [src](../src/main/java/edu/emory/cs/graph/flow/) | [quiz 9]() |
+|11/20| [Network Flows](https://www.slideshare.net/jchoi7s/cs253-network-flow-2019-194815341) | [pdf](network_flow.pdf), [src](../src/main/java/edu/emory/cs/graph/flow/) | [quiz 9](quizzes.md#quiz-9) |
 |11/25| Strongly Connected Components | | |
 |11/27| Thanksgiving Recess | | |
 |12/02| [Dynamic Programming]() | [md](), [pdf](), [src]() | [quiz 10]() | |
