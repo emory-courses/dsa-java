@@ -29,7 +29,7 @@
 |11/20| [Network Flows](https://speakerdeck.com/jdchoi77/cs253-network-flows-2019) | [pdf](network_flow.pdf), [src](../src/main/java/edu/emory/cs/graph/flow/) | [quiz 9](quizzes.md#quiz-9) |
 |11/25| Strongly Connected Components | | |
 |11/27| Thanksgiving Recess | | |
-|12/02| [Dynamic Programming](https://speakerdeck.com/jdchoi77/cs253-dynamic-programming-2019) | [pdf](dynamic_programming.pdf), [src](../src/main/java/edu/emory/cs/dynamic) | [quiz 10]() | |
+|12/02| [Dynamic Programming](https://speakerdeck.com/jdchoi77/cs253-dynamic-programming-2019) | [pdf](dynamic_programming.pdf), [src](../src/main/java/edu/emory/cs/dynamic) | [quiz 10](quizzes.md#quiz-10) | |
 |12/04| [Dynamic Programming](https://speakerdeck.com/jdchoi77/cs253-dynamic-programming-2019) | [pdf](dynamic_programming.pdf), [src](../src/main/java/edu/emory/cs/dynamic) | |
 |12/09| [Review Session](resources.md#previous-exams) | ||
 |12/16| Final Exam: 8AM | ||
