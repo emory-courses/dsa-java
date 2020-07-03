@@ -1,6 +1,16 @@
 # CS253: Data Structures and Algorithms
 
-This is an advanced course in computer science, studying computational methods of processing big data using various structures and algorithms. This course covers data structures such as sets, maps, heaps, trees, graphs as well as their applications in the construction of efficient algorithms for select, sort, balance, match, etc. Advanced topics such as data compression, dynamic programming, linear programming, and network flow are also discussed. Homework assignments require sufficient skills in Java programming, Git version control, Gradle software project management, and AWS Lambda serverless computing. Prerequisites: CS171.
+This is an advanced programming course in computer science that teaches how to design structures and algorithms to process big data and standard methods to benchmark their performance for large-scale computing.
+The topics cover data structures such as _priority queues_, _search trees_, _disjoint sets_, and _graphs_, as well as their applications in the construction of efficient algorithms such as _sorting_, _searching_, _balancing_, _spanning_, and _optimization_.
+Throughout this course, students are expected to
+
+* Have deep conceptual understanding in various data structures and algorithms.
+* Implement their conceptual understanding in a programming language.
+* Explore the most effective structures and algorithms for given tasks.
+* Properly assess the quality of their implementations.
+
+The prerequisite of this course is "CS171: Introduction to Computer Science II" (or equivalent).
+There are 10 weekly quizzes and 4 homework assignments that require sufficient skills in Java programming, Git version control, Gradle software project management, and LaTex writing.
 
 * [Syllabus](doc/syllabus.md)
 * [Schedule](doc/schedule.md)
