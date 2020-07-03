@@ -3,6 +3,7 @@
 This lecture gives an overview of Java Programming that is essential to understand the course materials.
 > You are the owner of your program and it is important for you to know what every word means in your code. 
 
+----
 ## Class
 
 A class is a template to instantiate an object.
@@ -42,13 +43,11 @@ public class Number {
 
 * [Javadoc](https://docs.oracle.com/en/java/javase/14/docs/specs/javadoc/doc-comment-spec.html): @param
 
-The problem is that we cannot define these methods unless we know what type of "number" this class implements; in other words, it is too abstrat to define the code
-  
+The problem is that we cannot define these methods unless we know what type of "number" this class implements; in other words, it is too abstract to define the methods.
+Thus, we need to redefine `Number` with an abstract class type.
 
 
+----
+## Abstract Class Types
 
-
-sd
-
-
- 
+Hello world
