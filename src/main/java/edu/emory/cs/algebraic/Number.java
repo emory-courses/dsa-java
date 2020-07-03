@@ -20,8 +20,7 @@ package edu.emory.cs.algebraic;
  */
 public class Ring {
 
-}
+    public Ring add(Ring a, Ring b) {
 
-class A {
-
+    }
 }
