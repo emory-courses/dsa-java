@@ -20,16 +20,16 @@ import java.util.stream.IntStream;
 /**
  * @author Jinho D. Choi
  */
-public interface Number {
+public interface Numeral<T extends Numeral<T>> {
     /**
-     * Adds `n` to this number.
-     * @param n the number to be added.
+     * Adds `n` to this numeral.
+     * @param n the numeral to be added.
      */
-    void add(Number n);
+    void add(T n);
 
     /**
-     * Multiplies `n` to this number.
-     * @param n the number to be multiplied.
+     * Multiplies `n` to this numeral.
+     * @param n the numeral to be multiplied.
      */
-    void multiply(Number n);
+    void multiply(T n);
 }

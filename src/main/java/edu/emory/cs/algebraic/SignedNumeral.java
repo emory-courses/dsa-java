@@ -18,5 +18,19 @@ package edu.emory.cs.algebraic;
 /**
  * @author Jinho D. Choi
  */
-public class SignedNumeral {
+public interface SignedNumeral<T extends SignedNumeral<T>> extends Numeral<T> {
+    /**
+     * Flips the sign of this numeral.
+     */
+    void flipSign();
+
+    /**
+     * Subtracts `n` from this numeral.
+     * @param n the numeral to be subtracted.
+     */
+    default void subtract(T n) {
+        n.flipSign();
+        add(n);
+        n.flipSign();
+    }
 }
