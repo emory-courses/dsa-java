@@ -5,11 +5,12 @@ This lecture gives an overview of Java Programming that is essential to understa
 
 ## Contents
 
-* [Class](#class)
-* [Interface](#interface)
-* [Casting](#casting)
-* [Polymorphism](#polymorphism)
-* [Abstract Class](#abstract-class)
+1. [Class](#class)
+1. [Interface](#interface)
+1. [Casting](#casting)
+1. [Polymorphism](#polymorphism)
+1. [Generics](#generics)
+1. [Abstract Class](#abstract-class)
 
 ## Author
 
@@ -193,7 +194,7 @@ Unfortunately, this would decrease the level of abstraction that we originally d
 
 
 ----
-## Generic
+## Generics
 
 The last way is to use [generics](https://docs.oracle.com/javase/tutorial/java/generics/), introduced in Java 5, as follows:
 
