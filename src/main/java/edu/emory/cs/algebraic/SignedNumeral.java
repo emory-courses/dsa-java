@@ -19,9 +19,7 @@ package edu.emory.cs.algebraic;
  * @author Jinho D. Choi
  */
 public interface SignedNumeral<T extends SignedNumeral<T>> extends Numeral<T> {
-    /**
-     * Flips the sign of this numeral.
-     */
+    /** Flips the sign of this numeral. */
     void flipSign();
 
     /**

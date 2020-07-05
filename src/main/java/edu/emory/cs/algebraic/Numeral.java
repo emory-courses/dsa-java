@@ -15,8 +15,6 @@
  */
 package edu.emory.cs.algebraic;
 
-import java.util.stream.IntStream;
-
 /**
  * @author Jinho D. Choi
  */
