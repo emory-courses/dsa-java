@@ -16,5 +16,13 @@
 package edu.emory.cs.algebraic;
 
 /** @author Jinho D. Choi */
-public class LongInteger {
+public class LongInteger  {
+
+
+
+
+    static public void main(String[] args) {
+        System.out.println(NumeralSign.POSITIVE.value());
+
+    }
 }

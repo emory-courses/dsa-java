@@ -16,7 +16,22 @@
 package edu.emory.cs.algebraic;
 
 /** @author Jinho D. Choi */
-public enum Sign {
-    POS,
-    NEG;
+public enum NumeralSign {
+    POSITIVE('+'),
+    NEGATIVE('-');
+
+    private char label;
+
+    NumeralSign(char label) {
+        this.label = label;
+    }
+
+    public char value() {
+        return label;
+    }
+}
+
+public enum NumeralSign {
+    POSITIVE,
+    NEGATIVE;
 }

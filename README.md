@@ -9,8 +9,8 @@ Throughout this course, students are expected to
 * Explore the most effective structures and algorithms for given tasks.
 * Properly assess the quality of their implementations.
 
-The prerequisite of this course is "CS171: Introduction to Computer Science II" (or equivalent).
-There are 10 weekly quizzes and 4 homework assignments that require sufficient skills in Java programming, Git version control, Gradle software project management, and LaTex writing.
+The prerequisite of this course is CS171: Introduction to Computer Science II (or equivalent).
+There are weekly quizzes and homework assignments that require sufficient skills in Java programming, Git version control, Gradle software project management, and scientific writing.
 
 * [Syllabus](doc/syllabus.md)
 * [Schedule](doc/schedule.md)

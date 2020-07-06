@@ -15,6 +15,8 @@
  */
 package edu.emory.cs.algebraic;
 
+import static edu.emory.cs.algebraic.NumeralSign.POSITIVE;
+
 /**
  * @author Jinho D. Choi
  */
