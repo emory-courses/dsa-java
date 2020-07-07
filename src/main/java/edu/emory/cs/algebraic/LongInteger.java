@@ -18,17 +18,17 @@ package edu.emory.cs.algebraic;
 /** @author Jinho D. Choi */
 public class LongInteger extends SignedNumeral<LongInteger> {
     @Override
-    public void divide(LongInteger n) {
-
-    }
-
-    @Override
     public void add(LongInteger n) {
 
     }
 
     @Override
     public void multiply(LongInteger n) {
+
+    }
+
+    @Override
+    public void divide(LongInteger n) {
 
     }
 }

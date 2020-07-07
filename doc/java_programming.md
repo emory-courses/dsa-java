@@ -391,6 +391,7 @@ Thus, `SignedNumeral` has 3 abstract methods, `add()` & `multiply()` inherited f
 ----
 ## Regular Class
 
+Let us define a regular class that inherits `SignedNumeral`:
 
 ```java
 public class LongInteger extends SignedNumeral<LongInteger> {
@@ -410,6 +411,9 @@ public class LongInteger extends SignedNumeral<LongInteger> {
     }
 }
 ```
+
+
+
 
 ## Static
 

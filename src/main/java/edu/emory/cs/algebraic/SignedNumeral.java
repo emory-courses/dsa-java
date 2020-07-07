@@ -17,19 +17,38 @@ package edu.emory.cs.algebraic;
 
 /** @author Jinho D. Choi */
 public abstract class SignedNumeral<T extends SignedNumeral<T>> implements Numeral<T> {
+    /** The sign of this numeral. */
     protected Sign sign;
 
+    /**
+     * Create a signed numeral.
+     * the default sign is {@link Sign#POSITIVE}.
+     */
     public SignedNumeral() {
         this(Sign.POSITIVE);
     }
 
+    /**
+     * Create a signed numeral.
+     * @param sign the sign of this numeral.
+     */
     public SignedNumeral(Sign sign) {
         this.sign = sign;
     }
 
+    /** @return true if this numeral is positive; otherwise, false. */
+    public boolean isPositive() {
+        return sign == Sign.POSITIVE;
+    }
+
+    /** @return true if this numeral is negative; otherwise, false. */
+    public boolean isNegative() {
+        return sign == Sign.NEGATIVE;
+    }
+
     /** Flips the sign of this numeral. */
     public void flipSign() {
-        sign = (sign == Sign.POSITIVE) ? Sign.NEGATIVE : Sign.POSITIVE;
+        sign = isPositive() ? Sign.NEGATIVE : Sign.POSITIVE;
     }
 
     /**

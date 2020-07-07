@@ -23,8 +23,7 @@
 
 ## Textbook
 
-* No textbook is required. Feel free to use the following book for references:<br>
-  [Data Structure & Algorithms in Java (6th Edition)](https://www.amazon.com/Data-Structures-Algorithms-Java-6th-ebook/dp/B00JDRQF8C), Goodrich, Tamassia, Goldwasser
+* [Data Structured and Algorithms in Java](https://emorynlp.gitbook.io/data-structures-and-algorithms-in-java/) (2020 Edition) by Jinho D. Choi.
 
 
 ## Classes
@@ -38,8 +37,8 @@
 
 ## Grading
 
-* 4 homework assignments: 60% (15 points each)
-* 10 weekly quizzes: 40% (4 points each)
+* 3 homework assignments: 30%
+* 10 weekly quizzes: 70%
 * No written exam
 
 
