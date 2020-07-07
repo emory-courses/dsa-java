@@ -20,18 +20,14 @@ public enum NumeralSign {
     POSITIVE('+'),
     NEGATIVE('-');
 
-    private char label;
+    private final char value;
 
-    NumeralSign(char label) {
-        this.label = label;
+    NumeralSign(char value) {
+        this.value = value;
     }
 
+    /** @return the value of the corresponding item. */
     public char value() {
-        return label;
+        return value;
     }
-}
-
-public enum NumeralSign {
-    POSITIVE,
-    NEGATIVE;
 }
