@@ -15,22 +15,36 @@
  */
 package edu.emory.cs.algebraic;
 
-import static edu.emory.cs.algebraic.NumeralSign.POSITIVE;
+/** @author Jinho D. Choi */
+public abstract class SignedNumeral<T extends SignedNumeral<T>> implements Numeral<T> {
+    protected Sign sign;
 
-/**
- * @author Jinho D. Choi
- */
-public interface SignedNumeral<T extends SignedNumeral<T>> extends Numeral<T> {
+    public SignedNumeral() {
+        this(Sign.POSITIVE);
+    }
+
+    public SignedNumeral(Sign sign) {
+        this.sign = sign;
+    }
+
     /** Flips the sign of this numeral. */
-    void flipSign();
+    public void flipSign() {
+        sign = (sign == Sign.POSITIVE) ? Sign.NEGATIVE : Sign.POSITIVE;
+    }
 
     /**
      * Subtracts `n` from this numeral.
      * @param n the numeral to be subtracted.
      */
-    default void subtract(T n) {
+    public void subtract(T n) {
         n.flipSign();
         add(n);
         n.flipSign();
     }
+
+    /**
+     * Divides this numeral by `n`.
+     * @param n the numeral to be divided.
+     */
+    public abstract void divide(T n);
 }

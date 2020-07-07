@@ -16,13 +16,19 @@
 package edu.emory.cs.algebraic;
 
 /** @author Jinho D. Choi */
-public class LongInteger  {
+public class LongInteger extends SignedNumeral<LongInteger> {
+    @Override
+    public void divide(LongInteger n) {
 
+    }
 
+    @Override
+    public void add(LongInteger n) {
 
+    }
 
-    static public void main(String[] args) {
-        System.out.println(NumeralSign.POSITIVE.value());
+    @Override
+    public void multiply(LongInteger n) {
 
     }
 }

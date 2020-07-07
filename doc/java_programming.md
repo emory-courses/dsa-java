@@ -11,14 +11,18 @@ This lecture gives an overview of Java Programming that is essential to understa
 1. [Polymorphism](#polymorphism)
 1. [Generics](#generics)
 1. [Enum](#enum)
+1. [Interface Revisited](#interface-revisited)
 1. [Abstract Class](#abstract-class)
+1. [Regular Class](#regular-class)
+
 
 ## Author
 
 * [Jinho D. Choi](http://www.cs.emory.edu/~choi)
 
+
 ----
-## 1. Class
+## Class
 
 A class is a template to instantiate an object.
 > What is the difference between "class" and "object"?
@@ -61,14 +65,14 @@ The problem is that we cannot define the methods unless we know what numeral typ
 Thus, we need to declare `Numeral` as an abstract class type.
 > What are the advantages of `Numeral` being an abstract class that becomes a super class of all numeral types?
 
-There are two types of [abstract classes](https://docs.oracle.com/javase/tutorial/java/IandI/abstract.html) in Java, `abstract class` and `interface`.
+There are two types of abstract classes in Java, `abstract class` and `interface`.
 > Can an object be instantiated by an abstract class or an interface?
 
 
 ----
-## 2. Interface
+## Interface
 
-Let us define `Numeral` as an interface:
+Let us define `Numeral` as an [interface](https://docs.oracle.com/javase/tutorial/java/IandI/createinterface.html):
 
 ```java
 public interface Numeral {
@@ -115,7 +119,7 @@ There are three ways of handling this error:
 
 
 ----
-## 3. Casting
+## Casting
 
 The first way is to downcast the type of `n` to `SignedNumeral`, which makes the compiler think that `n` has the method `flipSign()`:
 
@@ -135,7 +139,7 @@ This removes the compile error; however, it will likely cause a worse kind of er
 
 
 ----
-## 4. Polymorphism
+## Polymorphism
 
 The second way is to change the type of `n` to `SignedNumeral` in the parameter setting:
 
@@ -185,7 +189,7 @@ Unfortunately, this would decrease the level of abstraction that we originally d
 
 
 ----
-## 5. Generics
+## Generics
 
 The third way is to use [generics](https://docs.oracle.com/javase/tutorial/java/generics/), introduced in Java 5:
 
@@ -269,43 +273,150 @@ Generics are used everywhere in Java; it is important to understand the core con
 ----
 ## Enum
 
-
+Let us create an [enum](https://docs.oracle.com/javase/tutorial/java/javaOO/enum.html) class to represent the "sign":
 
 ```java
-public enum NumeralSign {
+public enum Sign {
     POSITIVE,
     NEGATIVE;
 }
 ```
 
+* All items in an enum are have the [scope](https://docs.oracle.com/javase/tutorial/java/javaOO/classvars.html) of `static` and the access-level of `public`.
+* Items must be delimited by `','` and ends with `';'`.
+
+The items in the enum can be assigned with specific values that are more indicative (e.g., `+`, `-`):
+
+```java
+public enum Sign {
+    POSITIVE('+'),
+    NEGATIVE('-');
+
+    private final char value;
+
+    Sign(char value) {
+        this.value = value;
+    }
+
+    /** @return the value of the corresponding item. */
+    public char value() {
+        return value;
+    }
+}
+```
+
+* `final`: makes this field a constant, not a [variable](https://docs.oracle.com/javase/tutorial/java/nutsandbolts/variables.html), such that the value cannot be reassigned later.
+* `this`: points to the [current](https://docs.oracle.com/javase/tutorial/java/javaOO/thiskey.html) object such that `this.value` is the member field of the corresponding object.
+* `@return`: adds a [javadoc](https://docs.oracle.com/en/java/javase/14/docs/specs/javadoc/doc-comment-spec.html) comment about the return value of this method.
+> Why should the member field `value` be `private` in the above example?
+
+Note that `value` in the constructor (without `this`) indicates the local parameter whereas `value` in the `value()` method indicates the member field of the corresponding object.
+
+----
+## Interface Revisited
+
+In `SignedNumeral`, it would be convenient to have a member field that indicates the sign of the numeral:
+
+```java
+public interface SignedNumeral<T extends SignedNumeral<T>> extends Numeral<T> {
+    Sign sign = Sign.POSITIVE;
+    ...
+}
+```
+
+* All member fields of an interface are `static` and `public`.
+> Can you declare a member field in an interface without assigning a value?
+
+Given the `sign` field, it may seem intuitive to define `flipSign()` as a default method:
+ 
+```java
+/** Flips the sign of this numeral. */
+default void flipSign() {
+    sign = (sign == Sign.POSITIVE) ? Sign.NEGATIVE : Sign.POSITIVE;
+}
+```
+
+* _condition_ `?` _A_ `:` _B_: a [ternary operator](https://docs.oracle.com/javase/tutorial/java/nutsandbolts/op2.html) that returns "A" if the condition is true; otherwise, returns "B".
+> Are there any advantages of using a ternary operator instead of using a regular if statement?
+
+Unfortunately, this gives a compile error because `sign` is a final field whose value cannot be reassigned.
+In fact, an interface is not meant to define so many default methods, which were not even allowed before Java 8.
+For such explicit implementations, it is better to define `SignedNumeral` as an abstract class instead of an interface.
+
 
 ----
 ## Abstract Class
 
-It would be convenient to have a member instance that indicates the sign of the numeral:
+Let us turn `SignedNumeral` into an [abstract class](https://docs.oracle.com/javase/tutorial/java/IandI/abstract.html):
 
 ```java
+public abstract class SignedNumeral<T extends SignedNumeral<T>> implements Numeral<T> {
+    protected Sign sign;
 
+    public SignedNumeral() {
+        this(Sign.POSITIVE);
+    }
 
+    public SignedNumeral(Sign sign) {
+        this.sign = sign;
+    }
+
+    public void flipSign() {
+        sign = (sign == Sign.POSITIVE) ? Sign.NEGATIVE : Sign.POSITIVE;
+    }
+
+    public void subtract(T n) {
+        n.flipSign(); add(n); n.flipSign();
+    }
+
+    /**
+     * Divides this numeral by `n`.
+     * @param n the numeral to be divided.
+     */
+    public abstract void divide(T n);
+}
 ```
 
+* Unlike an interface, fields and methods in an abstract can be decorated by any modifiers that need to be explicitly coded.
+* `protected`: allows subclasses of `SignedNumeral` and other classes in the `algebraic` package to directly access the field `sign`.
+* Two [constructors](https://docs.oracle.com/javase/tutorial/java/javaOO/constructors.html) are overloaded, one with no parameter and the other with the parameter `sign`.
+* `this(char)`: calls the second constructor in the current class.
+* `abstract`: indicates that `divide()` is an abstract method.
+> What is the advantage of calling `this(Sign.POSITIVE)` instead of stating `this.sign = Sign.POSITIVE`?
+
+Thus, `SignedNumeral` has 3 abstract methods, `add()` & `multiply()` inherited from `Numeral` and `divide()` declared here.
+> Can you define an abstract class or an interface without an abstract method?
 
 
-how many abstract methods are in this interface?
-
-implements
-multiple inheritance
+----
+## Regular Class
 
 
-<!-- Updated java_programming.md -->
+```java
+public class LongInteger extends SignedNumeral<LongInteger> {
+    @Override
+    public void divide(LongInteger n) {
+
+    }
+
+    @Override
+    public void add(LongInteger n) {
+
+    }
+
+    @Override
+    public void multiply(LongInteger n) {
+
+    }
+}
+```
+
+## Static
 
 
-> What are other types of methods allowed in an [interface](https://docs.oracle.com/javase/tutorial/java/IandI/defaultmethods.html)?<br>
-> Can an interface have a member instance?
 
 
 
 Comparable to Numeral
 
 Collections
-

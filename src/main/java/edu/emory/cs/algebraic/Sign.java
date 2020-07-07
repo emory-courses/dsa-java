@@ -16,13 +16,13 @@
 package edu.emory.cs.algebraic;
 
 /** @author Jinho D. Choi */
-public enum NumeralSign {
+public enum Sign {
     POSITIVE('+'),
     NEGATIVE('-');
 
     private final char value;
 
-    NumeralSign(char value) {
+    Sign(char value) {
         this.value = value;
     }
 
