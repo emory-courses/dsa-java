@@ -1,7 +1,10 @@
 /.gradle/
 /.idea/
+/.vscode/
 /build/
-/gradle/
+/gradle/wrapper/gradle-wrapper.jar
+gradlew
+gradlew.bat
 
 /solutions/
 /src/main/java/edu/emory/cs/exam/

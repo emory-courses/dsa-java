@@ -17,6 +17,25 @@ package edu.emory.cs.algebraic;
 
 /** @author Jinho D. Choi */
 public class LongInteger extends SignedNumeral<LongInteger> {
+    private byte[] numeral;
+
+//    public LongInteger(String value) {
+//        numeral = new byte[size];
+//    }
+
+    public LongInteger(int size) {
+        numeral = new byte[size];
+    }
+
+    public void set(String value) {
+//        sign = switch(value.charAt(0)) {
+//            case '-' ->
+//        }
+
+        System.out.println("SDFSF");
+    }
+
+
     @Override
     public void add(LongInteger n) {
 
@@ -31,4 +50,9 @@ public class LongInteger extends SignedNumeral<LongInteger> {
     public void divide(LongInteger n) {
 
     }
+
+    static public void main(String[] args) {
+        System.out.println("SDFSFS");
+    }
+
 }
