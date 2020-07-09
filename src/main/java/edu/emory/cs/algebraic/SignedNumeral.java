@@ -21,7 +21,7 @@ public abstract class SignedNumeral<T extends SignedNumeral<T>> implements Numer
     protected Sign sign;
 
     /**
-     * Create a signed numeral.
+     * Creates a signed numeral.
      * the default sign is {@link Sign#POSITIVE}.
      */
     public SignedNumeral() {
@@ -29,7 +29,7 @@ public abstract class SignedNumeral<T extends SignedNumeral<T>> implements Numer
     }
 
     /**
-     * Create a signed numeral.
+     * Creates a signed numeral.
      * @param sign the sign of this numeral.
      */
     public SignedNumeral(Sign sign) {
