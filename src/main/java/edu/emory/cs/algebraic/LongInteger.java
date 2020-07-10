@@ -15,13 +15,9 @@
  */
 package edu.emory.cs.algebraic;
 
-import java.nio.InvalidMarkException;
 import java.security.InvalidParameterException;
-import java.time.temporal.ValueRange;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.IntStream;
 
 /** @author Jinho D. Choi */
 public class LongInteger extends SignedNumeral<LongInteger> {
@@ -42,7 +38,7 @@ public class LongInteger extends SignedNumeral<LongInteger> {
         set(n);
     }
 
-    public LongInteger(LongInteger li) {
+    public LongInteger(LongInteger n) {
 
     }
 
