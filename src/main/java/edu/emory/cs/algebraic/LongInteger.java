@@ -18,7 +18,9 @@ package edu.emory.cs.algebraic;
 import java.nio.InvalidMarkException;
 import java.security.InvalidParameterException;
 import java.time.temporal.ValueRange;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.stream.IntStream;
 
 /** @author Jinho D. Choi */
@@ -40,8 +42,8 @@ public class LongInteger extends SignedNumeral<LongInteger> {
         set(n);
     }
 
-    public LongInteger(int n) {
-        set(n);
+    public LongInteger(LongInteger li) {
+
     }
 
     /**
@@ -54,7 +56,7 @@ public class LongInteger extends SignedNumeral<LongInteger> {
     public void set(String n) {
         // 'n' must not be null
         if (n == null)
-            throw new NullPointerException("The value cannot be null");
+            throw new NullPointerException();
 
         // set this.sign
         sign = switch (n.charAt(0)) {
@@ -64,29 +66,32 @@ public class LongInteger extends SignedNumeral<LongInteger> {
         };
 
         // allocate this.numeral[]
-        int size = (n.length() / 10 + 1) * 10;
-        numeral = new byte[size];
-        Arrays.fill(numeral, (byte) -1);
+        numeral = new byte[n.length()];
 
         for (int i = 0; i < n.length(); i++) {
             numeral[i] = (byte) (n.charAt(i) - 48);
-            if (0 <= numeral[i] && numeral[i] <= 9)
-                throw new InvalidParameterException("The value must contain only [+-\\d]");
+            if (0 > numeral[i] || numeral[i] > 9)
+                throw new InvalidParameterException(String.format("%d is not a valid value", numeral[i]));
         }
     }
 
-    /**
-     * TODO: to be implemented
-     * @param n
-     */
-    public void set(int n) {
-
-    }
-
-
     @Override
     public void add(LongInteger n) {
+        List<Byte> result = new ArrayList<>();
+        int size = Math.max(numeral.length, n.numeral.length), r = 0;
 
+        if (sign == n.sign)
+            ;
+        else
+            ;
+    }
+
+    private byte[] addSameSign(LongInteger n) {
+        return null;
+    }
+
+    private byte[] addDifferentSign(LongInteger n) {
+        return null;
     }
 
     @Override
@@ -99,17 +104,32 @@ public class LongInteger extends SignedNumeral<LongInteger> {
         // TODO:
     }
 
-    static public void main(String[] args) {
-        String s = "12345";
-        ValueRange range = ValueRange.of(0, 9);
-        byte[] b = new byte[5];
-        for (int i = 0; i < s.length(); i++) {
-            b[i] = (byte) (s.charAt(i) - 48);
-//            if (!range.isValidIntValue(b[i]))
-//                System.out.println(s.charAt(i));
-        }
-
-        System.out.println(Arrays.toString(b));
+    @Override
+    public String toString() {
+        StringBuilder build = new StringBuilder();
+        if (isNegative()) build.append("-");
+        for (byte n : numeral) build.append(n);
+        return build.toString();
     }
 
+    static public void main(String[] args) {
+        String a = "123";
+        String b = "+456";
+        String c = "-789";
+
+        LongInteger la = new LongInteger(a);
+        LongInteger lb = new LongInteger(b);
+        LongInteger lc = new LongInteger(c);
+
+        System.out.println(la);
+        System.out.println(lb);
+        System.out.println(lc);
+
+    }
+
+//    implements Comparable<LongInteger>
+//    @Override
+//    public int compareTo(LongInteger o) {
+//        return 0;
+//    }
 }
