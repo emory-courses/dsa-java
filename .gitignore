@@ -2,19 +2,21 @@
 /.idea/
 /.vscode/
 /build/
-/gradle/wrapper/gradle-wrapper.jar
-gradlew
-gradlew.bat
 
-/solutions/
-/src/main/java/edu/emory/cs/exam/
 
 # quizzes
+/src/main/java/edu/emory/cs/algebraic/LongIntegerQuizSol.java
 /src/main/java/edu/emory/cs/queue/NaryHeap.java
 /src/main/java/edu/emory/cs/sort/comparison/ShellSortHibbard.java
 /src/main/java/edu/emory/cs/sort/comparison/ShellSortPratt.java
 /src/main/java/edu/emory/cs/sort/distribution/MSDRadixSort.java
 /src/main/java/edu/emory/cs/graph/span/MSTAll
+
+
+
+/solutions/
+/src/main/java/edu/emory/cs/exam/
+
 
 # homework
 /src/main/java/edu/emory/cs/trie/autocomplete/AbstractAutocomplete.java
@@ -24,3 +26,4 @@ gradlew.bat
 /src/main/java/edu/emory/cs/sort/hybrid/HybridSortJC.java
 /src/main/java/edu/emory/cs/graph/span/MSTWordAnswer.java
 /src/main/resources/word_vectors.dot
+

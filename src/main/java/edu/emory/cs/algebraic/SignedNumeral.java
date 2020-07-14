@@ -62,8 +62,8 @@ public abstract class SignedNumeral<T extends SignedNumeral<T>> implements Numer
     }
 
     /**
-     * Divides this numeral by `n`.
-     * @param n the numeral to be divided.
+     * Multiplies `n` to this numeral.
+     * @param n the numeral to be multiplied.
      */
-    public abstract void divide(T n);
+    public abstract void multiply(T n);
 }

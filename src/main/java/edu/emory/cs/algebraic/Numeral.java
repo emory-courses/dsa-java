@@ -22,10 +22,4 @@ public interface Numeral<T extends Numeral<T>> {
      * @param n the numeral to be added.
      */
     void add(T n);
-
-    /**
-     * Multiplies `n` to this numeral.
-     * @param n the numeral to be multiplied.
-     */
-    void multiply(T n);
 }

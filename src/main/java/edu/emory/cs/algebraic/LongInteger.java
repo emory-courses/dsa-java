@@ -16,17 +16,25 @@
 package edu.emory.cs.algebraic;
 
 import java.security.InvalidParameterException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
 /** @author Jinho D. Choi */
-public class LongInteger extends SignedNumeral<LongInteger> {
+public class LongInteger extends SignedNumeral<LongInteger> implements Comparable<LongInteger> {
     /** The values of this numeral (excluding the sign). */
-    private byte[] numeral;
+    protected byte[] numeral;
 
     /** Creates a long integer with the default value of "0". */
     public LongInteger() {
         this("0");
+    }
+
+    /**
+     * Creates a long integer by copying the specific object.
+     * @param n the object to be copied.
+     */
+    public LongInteger(LongInteger n) {
+        super(n.sign);
+        numeral = Arrays.copyOf(n.numeral, n.numeral.length);
     }
 
     /**
@@ -36,10 +44,6 @@ public class LongInteger extends SignedNumeral<LongInteger> {
      */
     public LongInteger(String n) {
         set(n);
-    }
-
-    public LongInteger(LongInteger n) {
-
     }
 
     /**
@@ -65,67 +69,108 @@ public class LongInteger extends SignedNumeral<LongInteger> {
         numeral = new byte[n.length()];
 
         for (int i = 0; i < n.length(); i++) {
-            numeral[i] = (byte) (n.charAt(i) - 48);
-            if (0 > numeral[i] || numeral[i] > 9)
-                throw new InvalidParameterException(String.format("%d is not a valid value", numeral[i]));
+            byte v = (byte)(n.charAt(i) - 48);
+            if (0 > v || v > 9)
+                throw new InvalidParameterException(String.format("%d is not a valid value", v));
+            numeral[n.length() - i - 1] = v;
         }
     }
 
     @Override
     public void add(LongInteger n) {
-        List<Byte> result = new ArrayList<>();
-        int size = Math.max(numeral.length, n.numeral.length), r = 0;
-
         if (sign == n.sign)
-            ;
+            addSameSign(n);
         else
-            ;
+            addDifferentSign(n);
     }
 
-    private byte[] addSameSign(LongInteger n) {
-        return null;
+    /**
+     * Adds the specific integer that has the same sign as this integer.
+     * @param n the integer to be added with the same sign.
+     */
+    protected void addSameSign(LongInteger n) {
+        int m = Math.max(numeral.length, n.numeral.length);
+        byte[] result = new byte[m + 1];
+        System.arraycopy(numeral, 0, result, 0, numeral.length);
+
+        for (int i = 0; i < n.numeral.length; i++) {
+            result[i] += n.numeral[i];
+
+            if (result[i] >= 10) {
+                result[i] -= 10;
+                result[i + 1] += 1;
+            }
+        }
+
+        numeral = result[m] == 0 ? Arrays.copyOf(result, m) : result;
     }
 
-    private byte[] addDifferentSign(LongInteger n) {
-        return null;
+    /**
+     * Adds the specific integer that has a different sign as this integer.
+     * @param n the integer to be added with a different sign
+     */
+    protected void addDifferentSign(LongInteger n) {
+        throw new UnsupportedOperationException("Cannot add two LongIntegers with different signs");
     }
 
     @Override
     public void multiply(LongInteger n) {
+        byte[] result = new byte[numeral.length + n.numeral.length];
 
-    }
+        for (int i = 0; i < numeral.length; i++) {
+            for (int j = 0; j < n.numeral.length; j++) {
+                int k = i + j, prod = numeral[i] * n.numeral[j];
+                result[k] += prod;
+                result[k + 1] += result[k] / 10;
+                result[k] %= 10;
+            }
+        }
 
-    @Override
-    public void divide(LongInteger n) {
-        // TODO:
+        int i; for (i = result.length - 1; i >= 0; i--) {
+            if (result[i] != 0) {
+                if (i + 1 < result.length)
+                    result = Arrays.copyOf(result, i + 1);
+                break;
+            }
+        }
+
+        if (i < 0) result = Arrays.copyOf(result, 1);
+        sign = sign == n.sign ? Sign.POSITIVE : Sign.NEGATIVE;
+        numeral = result;
     }
 
     @Override
     public String toString() {
         StringBuilder build = new StringBuilder();
-        if (isNegative()) build.append("-");
-        for (byte n : numeral) build.append(n);
+        if (sign == Sign.NEGATIVE) build.append("-");
+        for (int i = numeral.length - 1; i >= 0; i--)
+            build.append(numeral[i]);
         return build.toString();
     }
 
-    static public void main(String[] args) {
-        String a = "123";
-        String b = "+456";
-        String c = "-789";
-
-        LongInteger la = new LongInteger(a);
-        LongInteger lb = new LongInteger(b);
-        LongInteger lc = new LongInteger(c);
-
-        System.out.println(la);
-        System.out.println(lb);
-        System.out.println(lc);
-
+    @Override
+    public int compareTo(LongInteger n) {
+        if (isPositive())
+            return n.isNegative() ? 1 : compareAbs(n);
+        else
+            return n.isPositive() ? -1 : -compareAbs(n);
     }
 
-//    implements Comparable<LongInteger>
-//    @Override
-//    public int compareTo(LongInteger o) {
-//        return 0;
-//    }
+    /**
+     * @param n the object to be compared.
+     * @return a negative integer, zero, or a positive integer as the absolute value of this object is
+     * less than, equal to, or greater than the absolute value of the specified object.
+     */
+    public int compareAbs(LongInteger n) {
+        int diff = numeral.length - n.numeral.length;
+
+        if (diff == 0) {
+            for (int i = numeral.length - 1; i >= 0; i--) {
+                diff = numeral[i] - n.numeral[i];
+                if (diff == 0) break;
+            }
+        }
+
+        return diff;
+    }
 }

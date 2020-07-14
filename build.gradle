@@ -1,7 +1,4 @@
-plugins {
-    id 'java'
-}
-
+plugins { id 'java' }
 group 'edu.emory.cs'
 version '1.0-SNAPSHOT'
 
@@ -14,10 +11,4 @@ repositories {
 
 dependencies {
     testImplementation 'junit:junit:4.13'
-}
-
-jar {
-    manifest {
-        attributes 'Main-Class': 'edu.emory.cs.utils.Utils'
-    }
 }

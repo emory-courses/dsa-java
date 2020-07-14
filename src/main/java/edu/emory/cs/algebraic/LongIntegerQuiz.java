@@ -1,5 +1,5 @@
 /*
- * Copyright 2014, Emory University
+ * Copyright 2020 Emory University
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,20 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package edu.emory.cs.utils;
+package edu.emory.cs.algebraic;
 
-import org.junit.Test;
+/** @author Jinho D. Choi */
+public class LongIntegerQuiz extends LongInteger {
+    public LongIntegerQuiz() { super(); }
 
-import static org.junit.Assert.assertEquals;
+    public LongIntegerQuiz(LongInteger n) { super(n); }
 
-public class UtilsTest {
-    @Test
-    public void testst() {
-        System.out.println("SDFSFs");
-    }
+    public LongIntegerQuiz(String n) { super(n); }
 
-    @Test
-    public void getMiddleIndexTest() {
-        assertEquals(5, Utils.getMiddleIndex(0, 10));
+    @Override
+    protected void addDifferentSign(LongInteger n) {
+        // TODO: to be filled
     }
 }
