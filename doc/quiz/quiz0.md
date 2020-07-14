@@ -11,26 +11,14 @@
 * Add the instructors as collaborators of your GitHub repository:
   * Jinho Choi: `jdchoi77`
   * Jiaying Lu: `lujiaying`  
-* Commit and push the following classes with required contents:
-  * build.gradle
+* Commit and push the followings to your GitHub repository:
+  * [`gradle/wrapper/*`](https://github.com/emory-courses/dsa-java/tree/master/gradle/wrapper)
+  * [`.gitignore`](https://github.com/emory-courses/dsa-java/blob/master/.gitignore)
+  * [`build.gradle`](https://github.com/emory-courses/dsa-java/blob/master/build.gradle)
+  * [`gradlew`](https://github.com/emory-courses/dsa-java/blob/master/gradlew)
+  * [`gradlew.bat`](https://github.com/emory-courses/dsa-java/blob/master/gradlew.bat)
+  * [`settings.gradle`](https://github.com/emory-courses/dsa-java/blob/master/settings.gradle)
   *  [`src/main/java/edu/emory/cs/utils/Utils.java`](https://github.com/emory-courses/dsa-java/blob/master/src/main/java/edu/emory/cs/utils/Utils.java).
   *  [`src/test/java/edu/emory/cs/utils/UtilsTest.java`](https://github.com/emory-courses/dsa-java/blob/master/src/test/java/edu/emory/cs/utils/UtilsTest.java).
-
-
-
-/environment-setup
-
-
-
-
-
-Go to [Settings] under your GitHub repository and add the instructors as collaborators:
-
-Make sure they are private
-
-
-* Follow the instructions in [Getting Started](getting_started.md).
-* Make sure your Github repository includes the following classes with required contents:
-* Submit the followings to https://canvas.emory.edu/courses/62873/assignments/253603
-  * URL to your Github repository (e.g., https://github.com/your_id/cs253).
-  * Java archive: `cs253-1.0-SNAPSHOT.jar`.
+* Submit the following to https://canvas.emory.edu/courses/76034/assignments/345083
+  * The URL of your GitHub repository (e.g., https://github.com/your_id/cs253)
