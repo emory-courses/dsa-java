@@ -20,8 +20,8 @@ import java.util.Arrays;
 
 /** @author Jinho D. Choi */
 public class LongInteger extends SignedNumeral<LongInteger> implements Comparable<LongInteger> {
-    /** The values of this numeral (excluding the sign). */
-    protected byte[] numeral;
+    /** The values of this integer (excluding the sign). */
+    protected byte[] digits;
 
     /** Creates a long integer with the default value of "0". */
     public LongInteger() {
@@ -34,7 +34,7 @@ public class LongInteger extends SignedNumeral<LongInteger> implements Comparabl
      */
     public LongInteger(LongInteger n) {
         super(n.sign);
-        numeral = Arrays.copyOf(n.numeral, n.numeral.length);
+        digits = Arrays.copyOf(n.digits, n.digits.length);
     }
 
     /**
@@ -47,7 +47,7 @@ public class LongInteger extends SignedNumeral<LongInteger> implements Comparabl
     }
 
     /**
-     * Sets the sign and values of this numeral.
+     * Sets the sign and values of this integer.
      * @param n the sign and values to be set.
      * @throws NullPointerException      when `n` is null.
      * @throws InvalidParameterException when `n` contains non-digit character
@@ -65,14 +65,16 @@ public class LongInteger extends SignedNumeral<LongInteger> implements Comparabl
             default -> Sign.POSITIVE;
         };
 
-        // allocate this.numeral[]
-        numeral = new byte[n.length()];
+        // set this.digits
+        digits = new byte[n.length()];
 
-        for (int i = 0; i < n.length(); i++) {
+        for (int i = 0, j = n.length() - 1; i < n.length(); i++, j--) {
             byte v = (byte)(n.charAt(i) - 48);
-            if (0 > v || v > 9)
-                throw new InvalidParameterException(String.format("%d is not a valid value", v));
-            numeral[n.length() - i - 1] = v;
+            digits[j] = v;
+            if (0 > v || v > 9) {
+                String s = String.format("%d is not a valid value", v);
+                throw new InvalidParameterException(s);
+            }
         }
     }
 
@@ -89,20 +91,22 @@ public class LongInteger extends SignedNumeral<LongInteger> implements Comparabl
      * @param n the integer to be added with the same sign.
      */
     protected void addSameSign(LongInteger n) {
-        int m = Math.max(numeral.length, n.numeral.length);
+        // copy this integer to result[]
+        int m = Math.max(digits.length, n.digits.length);
         byte[] result = new byte[m + 1];
-        System.arraycopy(numeral, 0, result, 0, numeral.length);
+        System.arraycopy(digits, 0, result, 0, digits.length);
 
-        for (int i = 0; i < n.numeral.length; i++) {
-            result[i] += n.numeral[i];
-
+        // add n to result
+        for (int i = 0; i < n.digits.length; i++) {
+            result[i] += n.digits[i];
             if (result[i] >= 10) {
                 result[i] -= 10;
                 result[i + 1] += 1;
             }
         }
 
-        numeral = result[m] == 0 ? Arrays.copyOf(result, m) : result;
+        // set this.digits
+        digits = result[m] == 0 ? Arrays.copyOf(result, m) : result;
     }
 
     /**
@@ -110,41 +114,37 @@ public class LongInteger extends SignedNumeral<LongInteger> implements Comparabl
      * @param n the integer to be added with a different sign
      */
     protected void addDifferentSign(LongInteger n) {
-        throw new UnsupportedOperationException("Cannot add two LongIntegers with different signs");
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void multiply(LongInteger n) {
-        byte[] result = new byte[numeral.length + n.numeral.length];
+        // set this.sign
+        sign = (sign == n.sign) ? Sign.POSITIVE : Sign.NEGATIVE;
 
-        for (int i = 0; i < numeral.length; i++) {
-            for (int j = 0; j < n.numeral.length; j++) {
-                int k = i + j, prod = numeral[i] * n.numeral[j];
+        // multiply this and n and save it to result
+        byte[] result = new byte[digits.length + n.digits.length];
+        for (int i = 0; i < digits.length; i++) {
+            for (int j = 0; j < n.digits.length; j++) {
+                int k = i + j, prod = digits[i] * n.digits[j];
                 result[k] += prod;
                 result[k + 1] += result[k] / 10;
                 result[k] %= 10;
             }
         }
 
-        int i; for (i = result.length - 1; i >= 0; i--) {
-            if (result[i] != 0) {
-                if (i + 1 < result.length)
-                    result = Arrays.copyOf(result, i + 1);
-                break;
-            }
-        }
-
-        if (i < 0) result = Arrays.copyOf(result, 1);
-        sign = sign == n.sign ? Sign.POSITIVE : Sign.NEGATIVE;
-        numeral = result;
+        // set this.digits
+        int m; for (m = result.length - 1; m > 0; m--)
+            if (result[m] != 0) break;
+        digits = ++m < result.length ? Arrays.copyOf(result, m) : result;
     }
 
     @Override
     public String toString() {
         StringBuilder build = new StringBuilder();
         if (sign == Sign.NEGATIVE) build.append("-");
-        for (int i = numeral.length - 1; i >= 0; i--)
-            build.append(numeral[i]);
+        for (int i = digits.length - 1; i >= 0; i--)
+            build.append(digits[i]);
         return build.toString();
     }
 
@@ -162,11 +162,11 @@ public class LongInteger extends SignedNumeral<LongInteger> implements Comparabl
      * less than, equal to, or greater than the absolute value of the specified object.
      */
     public int compareAbs(LongInteger n) {
-        int diff = numeral.length - n.numeral.length;
+        int diff = digits.length - n.digits.length;
 
         if (diff == 0) {
-            for (int i = numeral.length - 1; i >= 0; i--) {
-                diff = numeral[i] - n.numeral[i];
+            for (int i = digits.length - 1; i >= 0; i--) {
+                diff = digits[i] - n.digits[i];
                 if (diff == 0) break;
             }
         }

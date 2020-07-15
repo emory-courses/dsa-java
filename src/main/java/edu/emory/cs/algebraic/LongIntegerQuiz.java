@@ -17,8 +17,6 @@ package edu.emory.cs.algebraic;
 
 /** @author Jinho D. Choi */
 public class LongIntegerQuiz extends LongInteger {
-    public LongIntegerQuiz() { super(); }
-
     public LongIntegerQuiz(LongInteger n) { super(n); }
 
     public LongIntegerQuiz(String n) { super(n); }
