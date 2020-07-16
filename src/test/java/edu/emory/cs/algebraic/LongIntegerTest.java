@@ -23,25 +23,19 @@ import static org.junit.Assert.assertTrue;
 /** @author Jinho D. Choi */
 public class LongIntegerTest {
     @Test
-    public void testConstructor0() {
+    public void testConstructors() {
+        // default constructor
         assertEquals("0", new LongInteger().toString());
-    }
 
-    @Test
-    public void testConstructor1() {
-        assertEquals("1", new LongInteger("1").toString());
-        assertEquals("12", new LongInteger("+12").toString());
-        assertEquals("-456", new LongInteger("-456").toString());
+        // constructor with a string parameter
+        assertEquals("12", new LongInteger("12").toString());
+        assertEquals("34", new LongInteger("+34").toString());
+        assertEquals("-56", new LongInteger("-56").toString());
         assertEquals("-0", new LongInteger("-0").toString());
-    }
 
-    @Test
-    public void testConstructor2() {
-        LongInteger a = new LongInteger(new LongInteger("12"));
-        assertEquals("12", a.toString());
-
-        a = new LongInteger(new LongInteger("-34"));
-        assertEquals("-34", a.toString());
+        // copy constructor
+        assertEquals("12", new LongInteger(new LongInteger("12")).toString());
+        assertEquals("-34", new LongInteger(new LongInteger("-34")).toString());
     }
 
     @Test
@@ -95,52 +89,27 @@ public class LongIntegerTest {
     }
 
     @Test
-    public void testAddDifferentSign() {
-        // TODO: change LongIntegerQuizSol to your class
-        LongInteger a = new LongIntegerQuizSol("0");
+    public void testMultiply() {
+        LongInteger a = new LongInteger("123456789");
 
-        // 0 + -0
-        a.add(new LongIntegerQuizSol("-0"));
+        a.multiply(new LongInteger("1"));
+        assertEquals("123456789", a.toString());
+
+        a.multiply(new LongInteger("-1"));
+        assertEquals("-123456789", a.toString());
+
+        a.multiply(new LongInteger("-1234567890123456789"));
+        assertEquals("152415787517146788750190521", a.toString());
+
+        a.multiply(new LongInteger("0"));
         assertEquals("0", a.toString());
 
-        // -0 + 0
-        a.set("-0");
-        a.add(new LongIntegerQuizSol("0"));
+        a.multiply(new LongInteger("-0"));
         assertEquals("-0", a.toString());
-
-        // 123 + -123
-        a.set("123");
-        a.add(new LongIntegerQuizSol("-123"));
-        assertEquals("0", a.toString());
-
-        // -123 + 123
-        a.set("-123");
-        a.add(new LongIntegerQuizSol("123"));
-        assertEquals("-0", a.toString());
-
-        // 123 + -122
-        a.set("123");
-        a.add(new LongIntegerQuizSol("-122"));
-        assertEquals("1", a.toString());
-
-        // -123 + 122
-        a.set("-123");
-        a.add(new LongIntegerQuizSol("122"));
-        assertEquals("-1", a.toString());
-
-        // 123 + -8
-        a.set("123");
-        a.add(new LongIntegerQuizSol("-8"));
-        assertEquals("115", a.toString());
-
-        // 8 + -123
-        a.set("8");
-        a.add(new LongIntegerQuizSol("-123"));
-        assertEquals("-115", a.toString());
     }
 
     @Test
-    public void testMultiply() {
+    public void testMultiply2() {
         LongInteger a = new LongInteger("1");
 
         // 1 * positive
@@ -191,6 +160,12 @@ public class LongIntegerTest {
         // negative * negative
         a.multiply(a);
         assertEquals("19139435018496", a.toString());
+
+        a.multiply(new LongInteger("0"));
+        assertEquals("0", a.toString());
+
+        a.multiply(new LongInteger("-0"));
+        assertEquals("-0", a.toString());
     }
 
     @Test

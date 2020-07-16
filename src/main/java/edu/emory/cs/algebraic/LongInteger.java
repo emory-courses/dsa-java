@@ -167,7 +167,7 @@ public class LongInteger extends SignedNumeral<LongInteger> implements Comparabl
         if (diff == 0) {
             for (int i = digits.length - 1; i >= 0; i--) {
                 diff = digits[i] - n.digits[i];
-                if (diff == 0) break;
+                if (diff != 0) break;
             }
         }
 

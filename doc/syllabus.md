@@ -23,7 +23,7 @@
 
 ## Textbook
 
-* [Data Structured and Algorithms in Java](https://emorynlp.gitbook.io/data-structures-and-algorithms-in-java/) (2020 Edition) by Jinho D. Choi.
+* [Data Structured and Algorithms in Java](https://emory.gitbook.io/dsa-java/) (2020 Edition) by Jinho D. Choi.
 
 
 ## Classes
