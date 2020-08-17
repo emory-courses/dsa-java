@@ -1,5 +1,5 @@
 /*
- * Copyright 2014, Emory University
+ * Copyright 2020 Emory University
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,24 +20,29 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-/**
- * @author Jinho D. Choi ({@code jinho.choi@emory.edu})
- */
+/** @author Jinho D. Choi */
 public class LazyPriorityQueue<T extends Comparable<T>> extends AbstractPriorityQueue<T> {
-    private List<T> keys;
+    private final List<T> keys;
 
-    public LazyPriorityQueue(Comparator<T> comparator) {
-        super(comparator);
-        keys = new ArrayList<>();
-    }
-
+    /** Initializes this as a maximum PQ. */
     public LazyPriorityQueue() {
         this(Comparator.naturalOrder());
     }
 
+    /** @see AbstractPriorityQueue#AbstractPriorityQueue(Comparator). */
+    public LazyPriorityQueue(Comparator<T> priority) {
+        super(priority);
+        keys = new ArrayList<>();
+    }
+
+    @Override
+    public int size() {
+        return keys.size();
+    }
+
     /**
-     * Adds a key to the back of the list.
-     * @param key the comparable key.
+     * Appends a key to {@link #keys}.
+     * @param key the key to be added.
      */
     @Override
     public void add(T key) {
@@ -45,19 +50,14 @@ public class LazyPriorityQueue<T extends Comparable<T>> extends AbstractPriority
     }
 
     /**
-     * Finds the key with the highest priority, and removes it from the list.
-     * @return the key with the highest priority if exists; otherwise, {@code null}.
+     * Finds the key with the highest/lowest priority, and removes it from {@link #keys}.
+     * @return the key with the highest/lowest priority if exists; otherwise, null.
      */
     @Override
     public T remove() {
         if (isEmpty()) return null;
-        T max = Collections.max(keys, comparator);
+        T max = Collections.max(keys, priority);
         keys.remove(max);
         return max;
-    }
-
-    @Override
-    public int size() {
-        return keys.size();
     }
 }

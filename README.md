@@ -12,5 +12,5 @@ Throughout this course, students are expected to
 An intermediate-level of a Java programming course is the prerequisite of this course.
 There are weekly quizzes and homework assignments that require sufficient skills in Java programming, Git version control, Gradle software project management, and scientific writing.
 
-* [Syllabus](doc/syllabus.md)
-* [Schedule](doc/schedule.md)
+* [Syllabus](docs/syllabus.md)
+* [Schedule](docs/schedule.md)

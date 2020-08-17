@@ -13,20 +13,39 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package edu.emory.cs.graph.flow;
 
+/* @theme cs253-theme */
+@import 'default';
 
-import edu.emory.cs.graph.Graph;
+section {
+  width: 1024px;
+  height: 768px;
+  font-size: 1.5em;
+}
 
-/**
- * @author Jinho D. Choi ({@code jinho.choi@emory.edu})
- */
-public abstract class MFAlgorithm {
-    /**
-     * @param graph  a graph.
-     * @param source the source vertex.
-     * @param target the target vertex.
-     * @return the maximum flow from the source to the target vertices.
-     */
-    public abstract MaxFlow getMaximumFlow(Graph graph, int source, int target);
+section::after, footer {
+  font-size: 0.7em;
+}
+
+h1 {
+  font-size: 2em;
+  color: #304C71;
+}
+
+h2 {
+  font-size: 1.4em;
+  /* color: #304C71; */
+}
+
+h3 {
+  margin: 10px 0 15px 0;
+}
+
+code {
+  color: #191970;
+}
+
+em {
+  font-style: normal;
+  color: #800000;
 }

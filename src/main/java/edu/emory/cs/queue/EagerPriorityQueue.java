@@ -1,5 +1,5 @@
 /*
- * Copyright 2014, Emory University
+ * Copyright 2020 Emory University
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,45 +20,43 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-/**
- * @author Jinho D. Choi ({@code jinho.choi@emory.edu})
- */
+/** @author Jinho D. Choi */
 public class EagerPriorityQueue<T extends Comparable<T>> extends AbstractPriorityQueue<T> {
-    private List<T> keys;
-
-    public EagerPriorityQueue(Comparator<T> comparator) {
-        super(comparator);
-        keys = new ArrayList<>();
-    }
+    private final List<T> keys;
 
     public EagerPriorityQueue() {
         this(Comparator.naturalOrder());
     }
 
+    public EagerPriorityQueue(Comparator<T> priority) {
+        super(priority);
+        keys = new ArrayList<>();
+    }
+
+    @Override
+    public int size() {
+        return keys.size();
+    }
+
     /**
-     * Adds a key to the list according to the priority.
-     * @param key the comparable key.
+     * Adds a key to {@link #keys} by the priority.
+     * @param key the key to be added.
      */
     @Override
     public void add(T key) {
         // binary search (if not found, index < 0)
-        int index = Collections.binarySearch(keys, key, comparator);
+        int index = Collections.binarySearch(keys, key, priority);
         // if not found, the appropriate index is {@code -(index +1)}
         if (index < 0) index = -(index + 1);
         keys.add(index, key);
     }
 
     /**
-     * Remove the last key in the list.
+     * Removes the last key in {@link #keys}.
      * @return the key with the highest priority if exists; otherwise, {@code null}.
      */
     @Override
     public T remove() {
         return isEmpty() ? null : keys.remove(keys.size() - 1);
-    }
-
-    @Override
-    public int size() {
-        return keys.size();
     }
 }

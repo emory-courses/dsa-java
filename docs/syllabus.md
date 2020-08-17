@@ -2,20 +2,31 @@
 
 ## General
 
-* Course webpage: https://github.com/emory-courses/cs253
-* Class hours: MW 1:00pm - 2:15pm, MSC N302
-* Zoom: https://emory.zoom.us/j/95380639487 
+* Course webpage: https://github.com/emory-courses/dsa-java
+* Class location: https://emory.zoom.us/j/95380639487 
+* Class hours: MW 1:00pm - 2:15pm
 * Prerequisites: CS171 (or equivalent)
+
+## Instructors
+
+* [Jinho Choi](http://cs.emory.edu/~choi): assistant professor of computer science
+* [Jiaying Lu](https://lujiaying.github.io): Ph.D student in computer science<br>
+* [Wenjing Ma](https://marvinquiet.github.io): Ph.D student in computer science<br>
+* Contact: _firstname.lastname_@emory.edu
+* Instructors get hundreds of emails daily, which makes them very easy to miss. Please use [Issues](issue_guidelines.md) for questions and comments that can be shared publicly and use emails for private matters.
+
 
 
 ## Instructors
 
-* [Jinho Choi](http://cs.emory.edu/~choi) - Professor of Computer Science<br>
+* [Jinho Choi](http://cs.emory.edu/~choi) - Assistant Professor of Computer Science<br>
   : Office hours: MW 2:30pm - 4:00pm<br>
-  : Zoom: https://emory.zoom.us/j/94707085577
-* [Jiaying Lu](https://lujiaying.github.io) - Ph.D. Student in Computer Science<br>
+* [Jiaying Lu](https://lujiaying.github.io) - Ph.D Student in Computer Science and Informatics<br>
   : Office hours: TuTh 1:00pm - 2:30pm<br>
-  : Zoom: https://emory.zoom.us/j/97291132910
+* [Wenjing Ma](https://marvinquiet.github.io) - Ph.D Student in Computer Science and Informatics<br>
+  : Office hours: TuTh 10:30am - 12:00pm<br>
+* Virtual office hours<br>
+  : https://emory.zoom.us/j/94707085577 (password posted in Canvas)
 * Instructors' email addresses<br>
   : _firstname.lastname_@emory.edu
 * Instructors get hundreds of emails daily, which makes them easy to miss. Please use [GitHub Issues](https://github.com/emory-courses/cs253/issues) for questions that can be shared publicly and use emails for private matters.
