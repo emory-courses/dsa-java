@@ -17,7 +17,7 @@
 
 ## Office Hours
 
-* Link: https://emory.zoom.us/j/94707085577 (password posted in Canvas)
+* https://emory.zoom.us/j/94707085577 (password posted in Canvas)
 * Jinho Choi: MW 2:30pm - 4:00pm
 * Jiaying Lu: TuTh 1:00pm - 2:30pm
 * Wenjing Ma: TuTh 10:30am - 12:00pm
