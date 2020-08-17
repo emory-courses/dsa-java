@@ -1,7 +1,7 @@
 ---
 name: Quiz
 about: Questions and comments about quizzes
-title: "[QUIZ#] "
+title: "[QZ#] "
 labels: quiz
 assignees: jdchoi77, lujiaying
 
