@@ -3,7 +3,7 @@ name: Homework
 about: Questions and comments about homework assignments
 title: "[HW#] "
 labels: homework
-assignees: jdchoi77, lujiaying
+assignees: jdchoi77, lujiaying, marvinquiet
 
 ---
 

@@ -3,7 +3,7 @@ name: Quiz
 about: Questions and comments about quizzes
 title: "[QZ#] "
 labels: quiz
-assignees: jdchoi77, lujiaying
+assignees: jdchoi77, lujiaying, marvinquiet
 
 ---
 

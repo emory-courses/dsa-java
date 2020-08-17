@@ -3,7 +3,7 @@ name: Lecture
 about: Questions and comments about lectures
 title: ''
 labels: lecture
-assignees: jdchoi77, lujiaying
+assignees: jdchoi77, lujiaying, marvinquiet
 
 ---
 
