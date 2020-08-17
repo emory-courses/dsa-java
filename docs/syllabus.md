@@ -9,28 +9,18 @@
 
 ## Instructors
 
-* [Jinho Choi](http://cs.emory.edu/~choi): assistant professor of computer science
-* [Jiaying Lu](https://lujiaying.github.io): Ph.D student in computer science<br>
-* [Wenjing Ma](https://marvinquiet.github.io): Ph.D student in computer science<br>
+* [Jinho Choi](http://cs.emory.edu/~choi): Assistant Professor of Computer Science
+* [Jiaying Lu](https://lujiaying.github.io): Ph.D Student in Computer Science
+* [Wenjing Ma](https://marvinquiet.github.io): Ph.D Student in Computer Science
 * Contact: _firstname.lastname_@emory.edu
 * Instructors get hundreds of emails daily, which makes them very easy to miss. Please use [Issues](issue_guidelines.md) for questions and comments that can be shared publicly and use emails for private matters.
 
+## Office Hours
 
-
-## Instructors
-
-* [Jinho Choi](http://cs.emory.edu/~choi) - Assistant Professor of Computer Science<br>
-  : Office hours: MW 2:30pm - 4:00pm<br>
-* [Jiaying Lu](https://lujiaying.github.io) - Ph.D Student in Computer Science and Informatics<br>
-  : Office hours: TuTh 1:00pm - 2:30pm<br>
-* [Wenjing Ma](https://marvinquiet.github.io) - Ph.D Student in Computer Science and Informatics<br>
-  : Office hours: TuTh 10:30am - 12:00pm<br>
-* Virtual office hours<br>
-  : https://emory.zoom.us/j/94707085577 (password posted in Canvas)
-* Instructors' email addresses<br>
-  : _firstname.lastname_@emory.edu
-* Instructors get hundreds of emails daily, which makes them easy to miss. Please use [GitHub Issues](https://github.com/emory-courses/cs253/issues) for questions that can be shared publicly and use emails for private matters.
-
+* Link: https://emory.zoom.us/j/94707085577 (password posted in Canvas)
+* Jinho Choi: MW 2:30pm - 4:00pm
+* Jiaying Lu: TuTh 1:00pm - 2:30pm
+* Wenjing Ma: TuTh 10:30am - 12:00pm
 
 ## Textbook
 
