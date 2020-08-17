@@ -7,6 +7,6 @@ assignees: jdchoi77, lujiaying
 
 ---
 
-**Lecture title**: title of the lecture
+** Title of the Lecture **
 -----
 Your question/comment.
