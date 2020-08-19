@@ -70,10 +70,10 @@ public class BinaryHeap<T extends Comparable<T>> extends AbstractPriorityQueue<T
     }
 
     private void sink() {
-        for (int i = 1, j = 2; j <= size(); i = j, j *= 2) {
-            if (j < size() && compare(j, j + 1) < 0) j++;
-            if (compare(i, j) >= 0) break;
-            Collections.swap(keys, i, j);
+        for (int k = 1, i  = 2; i <= size(); k = i, i *= 2) {
+            if (i < size() && compare(i, i + 1) < 0) i++;
+            if (compare(k, i) >= 0) break;
+            Collections.swap(keys, k, i);
         }
     }
 }

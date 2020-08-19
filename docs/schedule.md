@@ -2,7 +2,7 @@
 
 | Date | Topic | Materials | To Do |
 |:---:|---|---|:---:|
-|08/19| [Getting Started]() | [book](https://emory.gitbook.io/dsa-java/getting-started), [main](../src/main/java/edu/emory/cs/utils), [test](../src/test/java/edu/emory/cs/utils) | [quiz 0](https://canvas.emory.edu/courses/76034/assignments/345083) |
+|08/19| [Getting Started](https://emory.zoom.us/rec/share/3NdrH4He5D5OHInCzFPcAocZD5TPeaa81XcY-acOzUnhn2hLi4-a5rCElFMxd2zY) | [book](https://emory.gitbook.io/dsa-java/getting-started), [main](../src/main/java/edu/emory/cs/utils), [test](../src/test/java/edu/emory/cs/utils) | [quiz 0](https://canvas.emory.edu/courses/76034/assignments/345083) |
 |08/24| [Java Essentials]() | [book](https://emory.gitbook.io/dsa-java/java-essentials), [main](../src/main/java/edu/emory/cs/algebraic), [test](../src/test/java/edu/emory/cs/algebraic) | |
 |08/26| [Java Essentials]() | | |
 |08/31| [Java Essentials]() | | [quiz 1](https://canvas.emory.edu/courses/76034/assignments/346026) |

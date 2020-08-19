@@ -29,29 +29,31 @@ import static org.junit.Assert.assertEquals;
  */
 public class PriorityQueueTest {
     @Test
-    public void testAccuracy() {
+    public void testRobustness() {
         List<Integer> keys = List.of(4, 1, 3, 2, 5, 6, 8, 3, 4, 7, 5, 9, 7);
         Comparator<Integer> natural = Comparator.naturalOrder();
         Comparator<Integer> reverse = Comparator.reverseOrder();
 
-        testAccuracy(new LazyPriorityQueue<>(), reverse, new ArrayList<>(keys));
-        testAccuracy(new EagerPriorityQueue<>(), reverse, new ArrayList<>(keys));
-        testAccuracy(new BinaryHeap<>(), reverse, new ArrayList<>(keys));
+        testRobustness(new LazyPriorityQueue<>(), keys, reverse);
+        testRobustness(new EagerPriorityQueue<>(), keys, reverse);
+        testRobustness(new BinaryHeap<>(), keys, reverse);
 
-        testAccuracy(new LazyPriorityQueue<Integer>(reverse), natural, new ArrayList<>(keys));
-        testAccuracy(new EagerPriorityQueue<Integer>(reverse), natural, new ArrayList<>(keys));
-        testAccuracy(new BinaryHeap<Integer>(reverse), natural, new ArrayList<>(keys));
+        testRobustness(new LazyPriorityQueue<>(reverse), keys, natural);
+        testRobustness(new EagerPriorityQueue<>(reverse), keys, natural);
+        testRobustness(new BinaryHeap<>(reverse), keys, natural);
     }
 
     /**
-     * @param q    a priority queue.
-     * @param c    a comparator used for sorting.
+     * @param pq   a priority queue.
      * @param keys a list of comparable keys.
+     * @param comp a comparator used for sorting.
      */
-    private <T extends Comparable<T>> void testAccuracy(AbstractPriorityQueue<T> q, Comparator<T> c, List<T> keys) {
-        keys.forEach(q::add);
-        keys.sort(c);
-        keys.forEach(key -> assertEquals(key, q.remove()));
+    <T extends Comparable<T>> void testRobustness(AbstractPriorityQueue<T> pq, List<T> keys, Comparator<T> comp) {
+        keys.forEach(pq::add);
+        keys.forEach(key -> pq.add(key));
+        for (T key : keys) pq.add(key);
+        keys = keys.stream().sorted(comp).collect(Collectors.toList());
+        keys.forEach(key -> assertEquals(key, pq.remove()));
     }
 
     @Test
