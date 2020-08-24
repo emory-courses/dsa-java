@@ -15,10 +15,10 @@
  */
 package edu.emory.cs.queue;
 
-import edu.emory.cs.utils.Utils;
 import org.junit.Test;
 
 import java.util.*;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -34,13 +34,13 @@ public class PriorityQueueTest {
         Comparator<Integer> natural = Comparator.naturalOrder();
         Comparator<Integer> reverse = Comparator.reverseOrder();
 
-        testRobustness(new LazyPriorityQueue<>(), keys, reverse);
-        testRobustness(new EagerPriorityQueue<>(), keys, reverse);
-        testRobustness(new BinaryHeap<>(), keys, reverse);
+        testRobustnessAux(new LazyPriorityQueue<>(), keys, reverse);
+        testRobustnessAux(new EagerPriorityQueue<>(), keys, reverse);
+        testRobustnessAux(new BinaryHeap<>(), keys, reverse);
 
-        testRobustness(new LazyPriorityQueue<>(reverse), keys, natural);
-        testRobustness(new EagerPriorityQueue<>(reverse), keys, natural);
-        testRobustness(new BinaryHeap<>(reverse), keys, natural);
+        testRobustnessAux(new LazyPriorityQueue<>(reverse), keys, natural);
+        testRobustnessAux(new EagerPriorityQueue<>(reverse), keys, natural);
+        testRobustnessAux(new BinaryHeap<>(reverse), keys, natural);
     }
 
     /**
@@ -48,26 +48,29 @@ public class PriorityQueueTest {
      * @param keys a list of comparable keys.
      * @param comp a comparator used for sorting.
      */
-    <T extends Comparable<T>> void testRobustness(AbstractPriorityQueue<T> pq, List<T> keys, Comparator<T> comp) {
+    <T extends Comparable<T>> void testRobustnessAux(AbstractPriorityQueue<T> pq, List<T> keys, Comparator<T> comp) {
         keys.forEach(pq::add);
-        keys.forEach(key -> pq.add(key));
-        for (T key : keys) pq.add(key);
         keys = keys.stream().sorted(comp).collect(Collectors.toList());
         keys.forEach(key -> assertEquals(key, pq.remove()));
     }
 
     @Test
-    public void testSpeed() {
-        testSpeed(new LazyPriorityQueue<>(), new EagerPriorityQueue<>(), new BinaryHeap<>());
+    public void testRuntime() {
+        testRuntimeAux(new LazyPriorityQueue<>(), new EagerPriorityQueue<>(), new BinaryHeap<>());
     }
 
     @SafeVarargs
-    private void testSpeed(AbstractPriorityQueue<Integer>... qs) {
-        for (int size = 1000; size <= 10000; size += 1000) {
-            // JVM warmup
-            benchmark(qs, 10, size);
+    final <T extends Comparable<T>> void testRuntimeAux(AbstractPriorityQueue<Integer>... queues) {
+        final int BEGIN_SIZE = 100;
+        final int END_SIZE = 1000;
+        final int INC = 100;
+        Random rand = new Random();
+
+        for (int size = BEGIN_SIZE; size <= END_SIZE; size += INC) {
+            // JVM warm-up
+            benchmark(queues, size, 10, rand::nextInt);
             // benchmark all priority queues with the same keys
-            Time[] times = benchmark(qs, 1000, size);
+            Time[] times = benchmark(queues, size, 1000, rand::nextInt);
 
             StringJoiner joiner = new StringJoiner("\t");
             joiner.add(Integer.toString(size));
@@ -77,39 +80,37 @@ public class PriorityQueueTest {
         }
     }
 
-    private class Time {
+    <T extends Comparable<T>> Time[] benchmark(AbstractPriorityQueue<T>[] queues, int size, int iter, Supplier<T> sup) {
+        Time[] times = Stream.generate(Time::new).limit(queues.length).toArray(Time[]::new);
+
+        for (int i = 0; i < iter; i++) {
+            List<T> keys = Stream.generate(sup).limit(size).collect(Collectors.toList());
+            for (int j = 0; j < queues.length; j++)
+                addRuntime(queues[j], times[j], keys);
+        }
+
+        return times;
+    }
+
+    static class Time {
         long add = 0;
         long remove = 0;
     }
 
-    private Time[] benchmark(AbstractPriorityQueue<Integer>[] qs, int iter, int size) {
-        Time[] ts = Stream.generate(Time::new).limit(qs.length).toArray(Time[]::new);
-        Random rand = new Random();
-
-        for (int i = 0; i < iter; i++) {
-            int[] keys = Utils.getRandomIntArray(rand, size);
-
-            for (int j = 0; j < qs.length; j++)
-                addRuntime(qs[j], ts[j], keys);
-        }
-
-        return ts;
-    }
-
-    private void addRuntime(AbstractPriorityQueue<Integer> q, Time t, int[] keys) {
+    <T extends Comparable<T>> void addRuntime(AbstractPriorityQueue<T> queue, Time time, List<T> keys) {
         long st, et;
 
-        // runtime for q.add()
+        // runtime for add()
         st = System.currentTimeMillis();
-        Arrays.stream(keys).forEach(q::add);
+        keys.forEach(queue::add);
         et = System.currentTimeMillis();
-        t.add += et - st;
+        time.add += et - st;
 
-        // runtime for q.remove()
+        // runtime for remove()
         st = System.currentTimeMillis();
-        while (!q.isEmpty()) q.remove();
+        while (!queue.isEmpty()) queue.remove();
         et = System.currentTimeMillis();
-        t.remove += et - st;
+        time.remove += et - st;
     }
 
 //    @Test
@@ -120,3 +121,15 @@ public class PriorityQueueTest {
 //        testSpeed(new NaryHeap<>(2), new NaryHeap<>(3), new NaryHeap<>(4), new NaryHeap<>(5), new NaryHeap<>(6));
 //    }
 }
+
+
+//        100	1	13	4	25	2	12
+//        200	2	20	5	45	0	28
+//        300	0	43	14	91	4	19
+//        400	2	39	12	164	2	47
+//        500	8	52	18	228	8	60
+//        600	11	70	14	315	8	83
+//        700	4	86	21	420	3	104
+//        800	8	86	20	567	6	105
+//        900	7	111	29	693	7	148
+//        1000	5	103	42	862	5	146

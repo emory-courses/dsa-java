@@ -28,3 +28,11 @@ repositories {
 dependencies {
     testImplementation 'junit:junit:4.13'
 }
+
+//tasks.withType(JavaCompile).each {
+//    it.options.compilerArgs.add('--enable-preview')
+//}
+//
+//test {
+//    jvmArgs(['--enable-preview'])
+//}
