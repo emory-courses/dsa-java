@@ -6,7 +6,7 @@
 |08/24| [Java Essentials](https://emory.zoom.us/rec/share/7JFFC4n55EdIZLOS9ALzHaIcGI_deaa81CVN_6IEzBkLLrTHjm2qeypF3o5GGb2p) | [book](https://emory.gitbook.io/dsa-java/java-essentials), [main](../src/main/java/edu/emory/cs/algebraic), [test](../src/test/java/edu/emory/cs/algebraic) | |
 |08/26| [Java Essentials](https://emory.zoom.us/rec/share/--t2MZus7XhJZ43t0xD8ZaE5RJ7gX6a8hyFPrqYJzEq5EauMN41Byvc_tMZyFYKa) | | |
 |08/31| [Java Essentials](https://emory.zoom.us/rec/share/tMMsAe3aqltIYpHz2BzfWYkHM4O_eaa8hHIarKZZnR5E8nIOfU61JnBMBh1CF-KF) | | |
-|09/02| [Java Essentials]() | | [quiz 1](https://canvas.emory.edu/courses/76034/assignments/346026) |
+|09/02| [Java Essentials](https://emory.zoom.us/rec/share/S--sbobV_7w8bWKcgJtwJ28-lCtmWW4vRuvvBly0cdY6QnNiGiCSW-3hAwHYZS_2.vG4rNR1Y1EEWvh5R) | | [quiz 1](https://canvas.emory.edu/courses/76034/assignments/346026) |
 |09/07| [Priority Queues]() | [book](https://emory.gitbook.io/dsa-java/priority-queues), [main](../src/main/java/edu/emory/cs/queue) | |
 |09/09| [Priority Queues]() | | |
 |09/14| [Priority Queues]() | | [quiz 2]() |
