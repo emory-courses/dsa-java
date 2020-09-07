@@ -61,9 +61,9 @@ public class PriorityQueueTest {
 
     @SafeVarargs
     final <T extends Comparable<T>> void testRuntimeAux(AbstractPriorityQueue<Integer>... queues) {
-        final int BEGIN_SIZE = 100;
-        final int END_SIZE = 1000;
-        final int INC = 100;
+        final int BEGIN_SIZE = 1000;
+        final int END_SIZE = 10000;
+        final int INC = 1000;
         Random rand = new Random();
 
         for (int size = BEGIN_SIZE; size <= END_SIZE; size += INC) {
@@ -112,24 +112,4 @@ public class PriorityQueueTest {
         et = System.currentTimeMillis();
         time.remove += et - st;
     }
-
-//    @Test
-//    public void testNaryHeap() {
-//        List<Integer> keys = List.of(4, 1, 3, 2, 5, 6, 8, 3, 4, 7, 5, 9, 7);
-//        testAccuracy(new NaryHeap<>(3), Comparator.reverseOrder(), new ArrayList<>(keys));
-//        testAccuracy(new NaryHeap<Integer>(3, Comparator.reverseOrder()), Comparator.naturalOrder(), new ArrayList<>(keys));
-//        testSpeed(new NaryHeap<>(2), new NaryHeap<>(3), new NaryHeap<>(4), new NaryHeap<>(5), new NaryHeap<>(6));
-//    }
 }
-
-
-//        100	1	13	4	25	2	12
-//        200	2	20	5	45	0	28
-//        300	0	43	14	91	4	19
-//        400	2	39	12	164	2	47
-//        500	8	52	18	228	8	60
-//        600	11	70	14	315	8	83
-//        700	4	86	21	420	3	104
-//        800	8	86	20	567	6	105
-//        900	7	111	29	693	7	148
-//        1000	5	103	42	862	5	146
