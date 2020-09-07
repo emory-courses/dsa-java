@@ -9,7 +9,7 @@
 |09/02| [Java Essentials](https://emory.zoom.us/rec/share/S--sbobV_7w8bWKcgJtwJ28-lCtmWW4vRuvvBly0cdY6QnNiGiCSW-3hAwHYZS_2.vG4rNR1Y1EEWvh5R) | | [quiz 1](https://canvas.emory.edu/courses/76034/assignments/346026) |
 |09/07| [Priority Queues](https://emory.zoom.us/rec/share/DVMf6c2WU_n6w-AcBTaWjLpcNpp3x449S8KQz9ljwskniU8s4dudP2DzaWQlFCA.sKP1vlgXDjj5vK7C) | [book](https://emory.gitbook.io/dsa-java/priority-queues), [main](../src/main/java/edu/emory/cs/queue) | |
 |09/09| [Priority Queues]() | | |
-|09/14| [Priority Queues]() | | [quiz 2]() |
+|09/14| [Priority Queues]() | | [quiz 2](https://canvas.emory.edu/courses/76034/assignments/386413) |
 |09/16| [Sorting Algorithms]() | [book](https://emory.gitbook.io/dsa-java/sorting-algorithms), [main](../src/main/java/edu/emory/cs/sort) | |
 |09/21| [Sorting Algorithms]() | | [hw 1](hw_hybrid_sort.md) |
 |09/23| [Sorting Algorithms]() | | [quiz 3]() | 
