@@ -6,7 +6,9 @@
 
 # quizzes
 /src/main/java/edu/emory/cs/algebraic/LongIntegerQuizSol.java
-/src/main/java/edu/emory/cs/queue/NaryHeap.java
+/src/main/java/edu/emory/cs/queue/TernaryHeapQuizSol.java
+
+
 /src/main/java/edu/emory/cs/sort/comparison/ShellSortHibbard.java
 /src/main/java/edu/emory/cs/sort/comparison/ShellSortPratt.java
 /src/main/java/edu/emory/cs/sort/distribution/MSDRadixSort.java
