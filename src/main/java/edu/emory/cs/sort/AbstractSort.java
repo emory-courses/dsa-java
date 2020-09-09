@@ -21,21 +21,22 @@ import java.util.Comparator;
  * @author Jinho D. Choi ({@code jinho.choi@emory.edu})
  */
 public abstract class AbstractSort<T extends Comparable<T>> {
-    protected Comparator<T> comparator;
+    private final Comparator<T> comparator;
     protected long comparisons;
     protected long assignments;
 
+    /** @param comparator specifies the precedence of comparable keys. */
     public AbstractSort(Comparator<T> comparator) {
         this.comparator = comparator;
         resetCounts();
     }
 
-    /** @return the total number of comparisons performed by this sort. */
+    /** @return the total number of comparisons performed during sort. */
     public long getComparisonCount() {
         return comparisons;
     }
 
-    /** @return the total number of assignments performed by this sort. */
+    /** @return the total number of assignments performed during sort. */
     public long getAssignmentCount() {
         return assignments;
     }
@@ -46,9 +47,9 @@ public abstract class AbstractSort<T extends Comparable<T>> {
 
     /**
      * @param array an array of comparable keys.
-     * @param i the index of the first key.
-     * @param j the index of the second key.
-     * @return {@code array[i].compareTo(array[j])}
+     * @param i     the index of the first key.
+     * @param j     the index of the second key.
+     * @return array[i].compareTo(array[j]).
      */
     protected int compareTo(T[] array, int i, int j) {
         comparisons++;
@@ -56,7 +57,7 @@ public abstract class AbstractSort<T extends Comparable<T>> {
     }
 
     /**
-     * {@code array[index] = value}
+     * array[index] = value.
      * @param array an array of comparable keys.
      * @param index the index of the array to assign.
      * @param value the value to be assigned.
@@ -67,10 +68,10 @@ public abstract class AbstractSort<T extends Comparable<T>> {
     }
 
     /**
-     * Swaps {@code array[i]} and {@code array[j]}.
+     * Swaps array[i] and array[j].
      * @param array an array of comparable keys.
-     * @param i the index of the first key.
-     * @param j the index of the second key.
+     * @param i     the index of the first key.
+     * @param j     the index of the second key.
      */
     protected void swap(T[] array, int i, int j) {
         T t = array[i];
@@ -88,9 +89,9 @@ public abstract class AbstractSort<T extends Comparable<T>> {
 
     /**
      * Sorts the array[beginIndex:endIndex].
-     * @param array an array of comparable keys.
+     * @param array      an array of comparable keys.
      * @param beginIndex the index of the first key to be sorted (inclusive).
-     * @param endIndex the index of the last key to be sorted (exclusive).
+     * @param endIndex   the index of the last key to be sorted (exclusive).
      */
     abstract public void sort(T[] array, int beginIndex, int endIndex);
 }
