@@ -101,7 +101,7 @@ public class SortTest {
         }
     }
 
-    private class Time {
+    static class Time {
         long comparisons = 0;
         long assignments = 0;
         long millis = 0;
@@ -136,16 +136,4 @@ public class SortTest {
         t.assignments += engine.getAssignmentCount();
         t.comparisons += engine.getComparisonCount();
     }
-
-//    @Test
-//    public void testOtherSorts() {
-//        final int iter = 100;
-//        final int size = 100;
-//
-//        testAccuracy(iter, size, new ShellSortHibbard<>());
-//        testAccuracy(iter, size, new ShellSortPratt<>());
-//        testAccuracy(iter, size, new MSDRadixSort());
-//        testSpeed(new ShellSortKnuth<>(), new ShellSortHibbard<>(), new ShellSortPratt<>());
-//        testSpeed(max_size, new QuickSort<>(), new LSDRadixSort(), new MSDRadixSort());
-//    }
 }

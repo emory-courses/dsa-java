@@ -27,11 +27,7 @@ public class ShellSortKnuth<T extends Comparable<T>> extends ShellSort<T> {
     }
 
     public ShellSortKnuth(Comparator<T> comparator) {
-        this(comparator, 1000);
-    }
-
-    public ShellSortKnuth(Comparator<T> comparator, int n) {
-        super(comparator, n);
+        super(comparator);
     }
 
     @Override
