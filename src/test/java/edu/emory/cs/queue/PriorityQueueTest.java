@@ -60,13 +60,13 @@ public class PriorityQueueTest {
     }
 
     @SafeVarargs
-    final <T extends Comparable<T>> void testRuntimeAux(AbstractPriorityQueue<Integer>... queues) {
-        final int BEGIN_SIZE = 1000;
-        final int END_SIZE = 10000;
-        final int INC = 1000;
-        Random rand = new Random();
+    final void testRuntimeAux(AbstractPriorityQueue<Integer>... queues) {
+        final int begin_size = 1000;
+        final int end_size = 10000;
+        final int inc = 1000;
+        final Random rand = new Random();
 
-        for (int size = BEGIN_SIZE; size <= END_SIZE; size += INC) {
+        for (int size = begin_size; size <= end_size; size += inc) {
             // JVM warm-up
             benchmark(queues, size, 10, rand::nextInt);
             // benchmark all priority queues with the same keys
