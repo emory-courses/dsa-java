@@ -148,6 +148,11 @@ public class LongInteger extends SignedNumeral<LongInteger> implements Comparabl
         return build.toString();
     }
 
+    /**
+     * @param n the object to be compared.
+     * @return a negative integer, zero, or a positive integer as the value of this object is
+     * less than, equal to, or greater than the value of the specified object.
+     */
     @Override
     public int compareTo(LongInteger n) {
         if (isPositive())
