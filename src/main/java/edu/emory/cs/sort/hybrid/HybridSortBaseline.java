@@ -26,10 +26,10 @@ import java.util.Arrays;
 /**
  * @author Jinho D. Choi ({@code jinho.choi@emory.edu})
  */
-public class HybridSortChoi<T extends Comparable<T>> implements HybridSort<T> {
+public class HybridSortBaseline<T extends Comparable<T>> implements HybridSort<T> {
     private final AbstractSort<T> engine;
 
-    public HybridSortChoi() {
+    public HybridSortBaseline() {
         engine = new IntroSort<T>(new ShellSortKnuth<T>());
     }
 
