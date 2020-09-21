@@ -30,7 +30,7 @@ import static org.junit.Assert.assertArrayEquals;
  * @author Jinho D. Choi ({@code jinho.choi@emory.edu})
  */
 public class HybridSortTest {
-    private Random rand = new Random();
+    private final Random rand = new Random();
 
     @Test
     public void testAccuracy() {
@@ -58,9 +58,9 @@ public class HybridSortTest {
         HybridSort<Integer> gold = new HybridSortChoi<>();
         HybridSort<Integer> mine = new HybridSortChoi<>();  // TODO: replace with your class
         double ratio = 0.25;
-        int row = 100, col = 100;
+        int row = 100, col;
 
-        for (col=100; col<=1000; col+=100) {    // for (row = 100; row <= 1000; row += 100) {
+        for (col = 100; col <= 1000; col += 100) {    // for (row = 100; row <= 1000; row += 100) {
             long[] time = testSpeed(row, col, ratio, gold, mine);
             StringJoiner join = new StringJoiner("\t");
             join.add(String.format("Row: %d, Col: %d, ratio: %4.2f", row, col, ratio));
@@ -70,8 +70,8 @@ public class HybridSortTest {
     }
 
     /**
-     * @param row the row size of the input.
-     * @param col the column size of the input.
+     * @param row   the row size of the input.
+     * @param col   the column size of the input.
      * @param ratio the ratio of the input to be shuffled (for the 3rd and 4th cases).
      */
     @SuppressWarnings("unchecked")
@@ -122,25 +122,19 @@ public class HybridSortTest {
     }
 
     private Integer[] randomArray(int size, double ratio) {
-        switch (rand.nextInt(5)) {
-            case 0:
-                return randomArray(size, 0, Comparator.naturalOrder());
-            case 1:
-                return randomArray(size, 0, Comparator.reverseOrder());
-            case 2:
-                return randomArray(size, ratio, Comparator.naturalOrder());
-            case 3:
-                return randomArray(size, ratio, Comparator.reverseOrder());
-            case 4:
-                return randomArray(size, 0, null);
-            default:
-                throw new IllegalArgumentException();
-        }
+        return switch (rand.nextInt(5)) {
+            case 0 -> randomArray(size, 0, Comparator.naturalOrder());
+            case 1 -> randomArray(size, 0, Comparator.reverseOrder());
+            case 2 -> randomArray(size, ratio, Comparator.naturalOrder());
+            case 3 -> randomArray(size, ratio, Comparator.reverseOrder());
+            case 4 -> randomArray(size, 0, null);
+            default -> throw new IllegalArgumentException();
+        };
     }
 
     private Integer[] randomArray(int size, double ratio, Comparator<Integer> comparator) {
         Integer[] array = new Integer[size];
-        int shuffle = (int) (size * ratio);
+        int shuffle = (int)(size * ratio);
 
         for (int i = 0; i < size; i++) array[i] = rand.nextInt();
         if (comparator != null) Arrays.sort(array, comparator);

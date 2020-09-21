@@ -16,6 +16,8 @@
 package edu.emory.cs.sort.hybrid;
 
 import edu.emory.cs.sort.AbstractSort;
+import edu.emory.cs.sort.comparison.ShellSortKnuth;
+import edu.emory.cs.sort.divide_conquer.IntroSort;
 import edu.emory.cs.sort.divide_conquer.QuickSort;
 
 import java.lang.reflect.Array;
@@ -25,10 +27,10 @@ import java.util.Arrays;
  * @author Jinho D. Choi ({@code jinho.choi@emory.edu})
  */
 public class HybridSortChoi<T extends Comparable<T>> implements HybridSort<T> {
-    private AbstractSort<T> engine;
+    private final AbstractSort<T> engine;
 
     public HybridSortChoi() {
-        engine = new QuickSort<>();
+        engine = new IntroSort<T>(new ShellSortKnuth<T>());
     }
 
     @Override

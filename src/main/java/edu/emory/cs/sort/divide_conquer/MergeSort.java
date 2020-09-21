@@ -18,14 +18,13 @@ package edu.emory.cs.sort.divide_conquer;
 import edu.emory.cs.sort.AbstractSort;
 import edu.emory.cs.utils.Utils;
 
-import java.util.Arrays;
+import java.lang.reflect.Array;
 import java.util.Comparator;
 
 /**
  * @author Jinho D. Choi ({@code jinho.choi@emory.edu})
  */
 public class MergeSort<T extends Comparable<T>> extends AbstractSort<T> {
-    /** n-extra spaces. */
     private T[] temp;
 
     public MergeSort() {
@@ -37,49 +36,52 @@ public class MergeSort<T extends Comparable<T>> extends AbstractSort<T> {
     }
 
     @Override
+//    @SuppressWarnings("unchecked")
     public void sort(T[] array, int beginIndex, int endIndex) {
+        if (temp == null || temp.length < array.length)
+            temp = (T[])Array.newInstance(array[0].getClass(), array.length);
+        sort(array, temp, beginIndex, endIndex);
+    }
+
+    /**
+     * @param input the input array.
+     * @param temp the array to hold the copy of the input array.
+     * @param beginIndex the beginning index of the 1st half (inclusive).
+     * @param endIndex the ending index of the 2nd half (exclusive).
+     */
+    protected void sort(T[] input, T[] temp, int beginIndex, int endIndex) {
         if (beginIndex + 1 >= endIndex) return;
         int middleIndex = Utils.getMiddleIndex(beginIndex, endIndex);
 
         // sort left partition
-        sort(array, beginIndex, middleIndex);
+        sort(input, temp, beginIndex, middleIndex);
         // sort Right partition
-        sort(array, middleIndex, endIndex);
+        sort(input, temp, middleIndex, endIndex);
         // merge partitions
-        merge(array, beginIndex, middleIndex, endIndex);
+        merge(input, temp, beginIndex, middleIndex, endIndex);
     }
 
     /**
+     * @param input the input array.
+     * @param temp the array to hold the copy of the input array.
      * @param beginIndex  the beginning index of the 1st half (inclusive).
      * @param middleIndex the ending index of the 1st half (exclusive).
      * @param endIndex    the ending index of the 2nd half (exclusive).
      */
-    private void merge(T[] array, int beginIndex, int middleIndex, int endIndex) {
-        int fst = beginIndex, snd = middleIndex;
-        copy(array, beginIndex, endIndex);
+    protected void merge(T[] input, T[] temp, int beginIndex, int middleIndex, int endIndex) {
+        int fst = beginIndex, snd = middleIndex, N = endIndex - beginIndex;
+        System.arraycopy(input, beginIndex, temp, beginIndex, N);
+        assignments += N;
 
         for (int k = beginIndex; k < endIndex; k++) {
             if (fst >= middleIndex)                    // no key left in the 1st half
-                assign(array, k, temp[snd++]);
+                assign(input, k, temp[snd++]);
             else if (snd >= endIndex)                  // no key left in the 2nd half
-                assign(array, k, temp[fst++]);
+                assign(input, k, temp[fst++]);
             else if (compareTo(temp, fst, snd) < 0)    // 1st key < 2nd key
-                assign(array, k, temp[fst++]);
+                assign(input, k, temp[fst++]);
             else
-                assign(array, k, temp[snd++]);
+                assign(input, k, temp[snd++]);
         }
-    }
-
-    private void copy(T[] array, int beginIndex, int endIndex) {
-        int N = array.length;
-
-        if (temp == null || temp.length < N)
-            temp = Arrays.copyOf(array, N);
-        else {
-            N = endIndex - beginIndex;
-            System.arraycopy(array, beginIndex, temp, beginIndex, N);
-        }
-
-        assignments += N;
     }
 }
