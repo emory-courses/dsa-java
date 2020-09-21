@@ -28,12 +28,12 @@ public class TernaryHeapQuizTest extends PriorityQueueTest {
         Comparator<Integer> natural = Comparator.naturalOrder();
         Comparator<Integer> reverse = Comparator.reverseOrder();
 
-        testRobustnessAux(new TernaryHeapQuiz<>(), keys, reverse);
-        testRobustnessAux(new TernaryHeapQuiz<>(reverse), keys, natural);
+        testRobustness(new TernaryHeapQuiz<>(), keys, reverse);
+        testRobustness(new TernaryHeapQuiz<>(reverse), keys, natural);
     }
 
     @Test
     public void testRuntime() {
-        testRuntimeAux(new BinaryHeap<>(), new TernaryHeapQuiz<>());
+        testRuntime(new BinaryHeap<>(), new TernaryHeapQuiz<>());
     }
 }

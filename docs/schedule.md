@@ -11,7 +11,7 @@
 |09/09| [Priority Queues](https://emory.zoom.us/rec/share/Wm3gHZgt7QpFnsHZ0cj4yPUWA0eHcYyqmBabufO4sBnqnDIO4f01O0W9qDGMW7Q8.JSR5KwQUcJvJcP0y) | | |
 |09/14| [Priority Queues](https://emory.zoom.us/rec/share/Z3X64yGo07pAHv975fMk6c4eASrfBHOJ1emsFENlojwiU5ELuL_4DKPX16_XbXdS.OoGgu61emBxUX3L3) | | [quiz 2](https://canvas.emory.edu/courses/76034/assignments/386413) |
 |09/16| [Sorting Algorithms](https://emory.zoom.us/rec/share/x8s80Uevdgfd1dC3gu5eCYnRW2jc4vgl1x1KZnF6zgKOqd6kYd7iE_r2QNonLM0v.uQXg0ljURVJZVmN3) | [book](https://emory.gitbook.io/dsa-java/sorting-algorithms), [main](../src/main/java/edu/emory/cs/sort) | |
-|09/21| [Sorting Algorithms]() | | [hw 1](hw_hybrid_sort.md) |
+|09/21| [Sorting Algorithms](https://emory.zoom.us/rec/share/DFf08RCNdJkOPORmy3M4RcWzMFtvLfBq2BDMwJTiUS7J6P3RoOXU5WFtDc5JiLRQ.FG54Jx0hCHVcedPB) | | [hw 1](https://canvas.emory.edu/courses/76034/assignments/391370) |
 |09/23| [Sorting Algorithms]() | | [quiz 3]() | 
 |09/28| [Binary Search Trees]() | [book](https://emory.gitbook.io/dsa-java/binary-search-trees), [main](../src/main/java/edu/emory/cs/tree) | |
 |09/30| [Binary Search Trees]() | | |

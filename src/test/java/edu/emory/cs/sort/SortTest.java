@@ -40,22 +40,22 @@ import static org.junit.Assert.assertArrayEquals;
  */
 public class SortTest {
     @Test
-    public void testRobustnessAux() {
-        testRobustnessAux(new SelectionSort<>());
-        testRobustnessAux(new InsertionSort<>());
-        testRobustnessAux(new HeapSort<>());
-        testRobustnessAux(new ShellSortKnuth<>());
+    public void testRobustness() {
+        testRobustness(new SelectionSort<>());
+        testRobustness(new InsertionSort<>());
+        testRobustness(new HeapSort<>());
+        testRobustness(new ShellSortKnuth<>());
 
-        testRobustnessAux(new MergeSort<>());
-        testRobustnessAux(new QuickSort<>());
-        testRobustnessAux(new IntroSort<>(new HeapSort<Integer>()));
-        testRobustnessAux(new IntroSort<>(new ShellSortKnuth<Integer>()));
+        testRobustness(new MergeSort<>());
+        testRobustness(new QuickSort<>());
+        testRobustness(new IntroSort<>(new HeapSort<Integer>()));
+        testRobustness(new IntroSort<>(new ShellSortKnuth<Integer>()));
 
-        testRobustnessAux(new IntegerBucketSort(0, 10000));
-        testRobustnessAux(new LSDRadixSort());
+        testRobustness(new IntegerBucketSort(0, 10000));
+        testRobustness(new LSDRadixSort());
     }
 
-    void testRobustnessAux(AbstractSort<Integer> engine) {
+    void testRobustness(AbstractSort<Integer> engine) {
         final int iter = 100;
         final int size = 1000;
         final Random rand = new Random();
@@ -73,14 +73,14 @@ public class SortTest {
     }
 
     @Test
-    public void testRuntimeAux() {
+    public void testRuntime() {
 //      testRuntimeAux(new HeapSort<>(), new ShellSortKnuth<>(), new SelectionSort<>(), new InsertionSort<>());
 //      testRuntimeAux(new HeapSort<>(), new ShellSortKnuth<>(), new MergeSort<>(), new QuickSort<>(), new IntroSort<>(new HeapSort<Integer>()), new IntroSort<>(new ShellSortKnuth<Integer>()));
-        testRuntimeAux(new HeapSort<>(), new ShellSortKnuth<>(), new MergeSort<>(), new QuickSort<>(), new IntegerBucketSort(0, 10000), new LSDRadixSort());
+        testRuntime(new HeapSort<>(), new ShellSortKnuth<>(), new MergeSort<>(), new QuickSort<>(), new IntegerBucketSort(0, 10000), new LSDRadixSort());
     }
 
     @SafeVarargs
-    final void testRuntimeAux(AbstractSort<Integer>... engines) {
+    final void testRuntime(AbstractSort<Integer>... engines) {
         final int max_size = 10000;
         final int init_size = 1000;
         final int inc = 1000;

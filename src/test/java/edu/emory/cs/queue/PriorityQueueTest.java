@@ -34,13 +34,13 @@ public class PriorityQueueTest {
         Comparator<Integer> natural = Comparator.naturalOrder();
         Comparator<Integer> reverse = Comparator.reverseOrder();
 
-        testRobustnessAux(new LazyPriorityQueue<>(), keys, reverse);
-        testRobustnessAux(new EagerPriorityQueue<>(), keys, reverse);
-        testRobustnessAux(new BinaryHeap<>(), keys, reverse);
+        testRobustness(new LazyPriorityQueue<>(), keys, reverse);
+        testRobustness(new EagerPriorityQueue<>(), keys, reverse);
+        testRobustness(new BinaryHeap<>(), keys, reverse);
 
-        testRobustnessAux(new LazyPriorityQueue<>(reverse), keys, natural);
-        testRobustnessAux(new EagerPriorityQueue<>(reverse), keys, natural);
-        testRobustnessAux(new BinaryHeap<>(reverse), keys, natural);
+        testRobustness(new LazyPriorityQueue<>(reverse), keys, natural);
+        testRobustness(new EagerPriorityQueue<>(reverse), keys, natural);
+        testRobustness(new BinaryHeap<>(reverse), keys, natural);
     }
 
     /**
@@ -48,7 +48,7 @@ public class PriorityQueueTest {
      * @param keys a list of comparable keys.
      * @param comp a comparator used for sorting.
      */
-    <T extends Comparable<T>> void testRobustnessAux(AbstractPriorityQueue<T> pq, List<T> keys, Comparator<T> comp) {
+    <T extends Comparable<T>> void testRobustness(AbstractPriorityQueue<T> pq, List<T> keys, Comparator<T> comp) {
         keys.forEach(pq::add);
         keys = keys.stream().sorted(comp).collect(Collectors.toList());
         keys.forEach(key -> assertEquals(key, pq.remove()));
@@ -56,11 +56,11 @@ public class PriorityQueueTest {
 
     @Test
     public void testRuntime() {
-        testRuntimeAux(new LazyPriorityQueue<>(), new EagerPriorityQueue<>(), new BinaryHeap<>());
+        testRuntime(new LazyPriorityQueue<>(), new EagerPriorityQueue<>(), new BinaryHeap<>());
     }
 
     @SafeVarargs
-    final void testRuntimeAux(AbstractPriorityQueue<Integer>... queues) {
+    final void testRuntime(AbstractPriorityQueue<Integer>... queues) {
         final int begin_size = 1000;
         final int end_size = 10000;
         final int inc = 1000;

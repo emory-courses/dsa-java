@@ -33,20 +33,20 @@ public class HybridSortTest {
     private final Random rand = new Random();
 
     @Test
-    public void testAccuracy() {
+    public void testRobustness() {
         HybridSort<Integer> gold = new HybridSortBaseline<>();
         HybridSort<Integer> mine = new HybridSortBaseline<>();  // TODO: replace with your class
 
         Integer[][] input = {{0, 1, 2, 3}, {7, 6, 5, 4}, {0, 3, 1, 2}, {4, 7, 6, 5}, {9, 8, 11, 10}};
-        testAccuracy(input, gold, mine);
+        testRobustness(input, gold, mine);
 
         for (int row = 10; row <= 20; row++)
             for (int col = 10; col <= 20; col++)
                 for (int i = 0; i < 100; i++)
-                    testAccuracy(randomInput(row, col, 0.25), gold, mine);
+                    testRobustness(randomInput(row, col, 0.25), gold, mine);
     }
 
-    private void testAccuracy(Integer[][] input, HybridSort<Integer> choi, HybridSort<Integer> mine) {
+    void testRobustness(Integer[][] input, HybridSort<Integer> choi, HybridSort<Integer> mine) {
         Integer[] gold = choi.sort(copyOf(input));
         Integer[] auto = mine.sort(input);
         assertArrayEquals(gold, auto);
@@ -75,7 +75,7 @@ public class HybridSortTest {
      * @param ratio the ratio of the input to be shuffled (for the 3rd and 4th cases).
      */
     @SuppressWarnings("unchecked")
-    private long[] testSpeed(int row, int col, double ratio, HybridSort<Integer>... engine) {
+    long[] testSpeed(int row, int col, double ratio, HybridSort<Integer>... engine) {
         long[] time = new long[engine.length];
         final int warm = 10, iter = 1000;
         Integer[][] input, t;
