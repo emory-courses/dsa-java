@@ -1,37 +1,5 @@
 # Quizzes
 
-## Quiz 2
-
-* Implementation
-  * Create the classes `ShellSortPratt` and `ShellSortHibbard` under [`sort.comparison`](../src/main/java/edu/emory/cs/sort/comparison) extending [`ShellSort`](../src/main/java/edu/emory/cs/sort/comparison/ShellSort.java).
-  * `ShellSortPratt` and `ShellSortHibbard` must use the Pratt and Hibbard sequences, respectively.
-    * Pratt: successive numbers of the form 2<sup><i>p</i></sup>3<sup><i>q</i></sup> (1, 2, 3, 4, 6, 8, 9, 12, ...).
-    * Hibbard: 2<sup><i>k</i></sup> - 1 (1, 3, 7, 15, 31, 63, ...).
-  * Feel free to use the code in [`ShellSortKnuth`](../src/main/java/edu/emory/cs/sort/comparison/ShellSortKnuth.java).
-* Unit Tests
-  * Run the [unit test](../src/test/java/edu/emory/cs/sort/SortTest.java) and make sure your sorting algorithms perform accurately.
-  * Compare the speeds between `ShellSortPratt`, `ShellSortHibbard`, and `ShellSortKnuth` using the [unit test](../src/test/java/edu/emory/cs/sort/SortTest.java).
-  * Write a report about the speed comparison and save it as `quiz2.pdf`.
-* Submission
-  * Commit and push all the updates to your Github repository.
-  * Submit `quiz2.pdf` to https://canvas.emory.edu/courses/62873/assignments/255739
-
-
-## Quiz 3
-
-* Implementation
-  * Create the class `MSDRadixSort` under [`sort.distribution`](../src/main/java/edu/emory/cs/sort/distribution) extending [`RadixSort`](../src/main/java/edu/emory/cs/sort/distribution/RadixSort.java) or any of its super class including [`BucketSort`](../src/main/java/edu/emory/cs/sort/distribution/BucketSort.java) and [`AbstractSort`](../src/main/java/edu/emory/cs/sort/AbstractSort.java).
-  * `MSDRadixSort` must sort the most significant digit first, the 2nd most significant digit next, and so on.
-  * Feel free to use the code in [`sort.distribution`](../src/main/java/edu/emory/cs/sort/distribution/).
-* Unit Tests
-  * Run the [unit test](../src/test/java/edu/emory/cs/sort/SortTest.java) and make sure your sorting algorithms perform accurately.
-  * Compare the speed between `LSDRadixSort` and `MSDRadixSort` using the [unit test](../src/test/java/edu/emory/cs/sort/SortTest.java).
-  * Write a report about the speed comparison and save it as `quiz3.pdf`.
-* Submission
-  * Commit and push all the updates to your Github repository.
-  * Submit `quiz3.pdf` to https://canvas.emory.edu/courses/62873/assignments/255740
-
-
 ## Quiz 4
 
 * Interpretation
