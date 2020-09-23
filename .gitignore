@@ -7,13 +7,14 @@
 # quizzes
 /src/main/java/edu/emory/cs/algebraic/LongIntegerQuizSol.java
 /src/main/java/edu/emory/cs/queue/TernaryHeapQuizSol.java
-
-
 /src/main/java/edu/emory/cs/sort/comparison/ShellSortHibbard.java
 /src/main/java/edu/emory/cs/sort/comparison/ShellSortPratt.java
+/src/main/java/edu/emory/cs/sort/divide_conquer/MergeSortQuizSol.java
 /src/main/java/edu/emory/cs/sort/distribution/MSDRadixSort.java
-/src/main/java/edu/emory/cs/graph/span/MSTAll
 
+
+
+/src/main/java/edu/emory/cs/graph/span/MSTAll
 
 
 /solutions/

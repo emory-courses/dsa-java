@@ -13,12 +13,31 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package edu.emory.cs.sort.divide_conquer;
+package edu.emory.cs.sort.comparison;
 
-/** @author Jinho D. Choi */
-public class MergeSortQuiz<T extends Comparable<T>> extends MergeSort<T> {
+import java.util.Collections;
+import java.util.Comparator;
+
+/**
+ * @author Jinho D. Choi ({@code jinho.choi@emory.edu})
+ */
+public class ShellSortQuiz<T extends Comparable<T>> extends ShellSort<T> {
+    public ShellSortQuiz() {
+        this(Comparator.naturalOrder());
+    }
+
+    public ShellSortQuiz(Comparator<T> comparator) {
+        super(comparator);
+    }
+
     @Override
-    protected void sort(T[] input, T[] temp, int beginIndex, int endIndex) {
+    protected void populateSequence(int n) {
         // TODO: to be filled
+    }
+
+    @Override
+    protected int getSequenceStartIndex(int n) {
+        // TODO: to be filled
+        return -1;
     }
 }

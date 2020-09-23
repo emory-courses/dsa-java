@@ -15,15 +15,7 @@
  */
 package edu.emory.cs.sort.distribution;
 
-import edu.emory.cs.sort.AbstractSort;
-
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.function.Function;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 /**
  * @author Jinho D. Choi ({@code jinho.choi@emory.edu})
@@ -33,15 +25,10 @@ public abstract class RadixSort extends BucketSort<Integer> {
         super(10);
     }
 
-    @Override
-    protected int getBucketIndex(Integer key, Function<Integer, Integer> f) {
-        return f.apply(key) % 10;
-    }
-
     /**
-     * @param array the input array to be sorted.
+     * @param array      the input array to be sorted.
      * @param beginIndex the beginning index (inclusive).
-     * @param endIndex the ending index (exclusive).
+     * @param endIndex   the ending index (exclusive).
      * @return the order of the most significant digit in the input array.
      * It returns `0` if the max number in the array is <= 0.
      */

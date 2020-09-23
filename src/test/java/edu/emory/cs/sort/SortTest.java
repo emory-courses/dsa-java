@@ -41,6 +41,7 @@ import static org.junit.Assert.assertArrayEquals;
 public class SortTest {
     @Test
     public void testRobustness() {
+
         testRobustness(new SelectionSort<>());
         testRobustness(new InsertionSort<>());
         testRobustness(new HeapSort<>());
@@ -67,16 +68,15 @@ public class SortTest {
 
             engine.sort(original);
             Arrays.sort(sorted);
-
             assertArrayEquals(original, sorted);
         }
     }
 
     @Test
     public void testRuntime() {
-//      testRuntimeAux(new HeapSort<>(), new ShellSortKnuth<>(), new SelectionSort<>(), new InsertionSort<>());
-//      testRuntimeAux(new HeapSort<>(), new ShellSortKnuth<>(), new MergeSort<>(), new QuickSort<>(), new IntroSort<>(new HeapSort<Integer>()), new IntroSort<>(new ShellSortKnuth<Integer>()));
-        testRuntime(new HeapSort<>(), new ShellSortKnuth<>(), new MergeSort<>(), new QuickSort<>(), new IntegerBucketSort(0, 10000), new LSDRadixSort());
+        testRuntime(new HeapSort<>(), new ShellSortKnuth<>(), new SelectionSort<>(), new InsertionSort<>());
+//    testRuntime(new HeapSort<>(), new ShellSortKnuth<>(), new MergeSort<>(), new QuickSort<>(), new IntroSort<>(new HeapSort<Integer>()), new IntroSort<>(new ShellSortKnuth<Integer>()));
+//    testRuntime(new HeapSort<>(), new ShellSortKnuth<>(), new MergeSort<>(), new QuickSort<>(), new IntegerBucketSort(0, 10000), new LSDRadixSort());
     }
 
     @SafeVarargs

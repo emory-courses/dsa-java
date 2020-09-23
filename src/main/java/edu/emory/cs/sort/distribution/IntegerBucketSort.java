@@ -15,13 +15,11 @@
  */
 package edu.emory.cs.sort.distribution;
 
-import java.util.function.Function;
-
 /**
  * @author Jinho D. Choi ({@code jinho.choi@emory.edu})
  */
 public class IntegerBucketSort extends BucketSort<Integer> {
-    private final int GAP;
+    private final int MIN;
 
     /**
      * @param min the minimum integer (inclusive).
@@ -29,16 +27,11 @@ public class IntegerBucketSort extends BucketSort<Integer> {
      */
     public IntegerBucketSort(int min, int max) {
         super(max - min);
-        GAP = -min;
+        MIN = min;
     }
 
     @Override
     public void sort(Integer[] array, int beginIndex, int endIndex) {
-        sort(array, beginIndex, endIndex, null);
-    }
-
-    @Override
-    protected int getBucketIndex(Integer key, Function<Integer, Integer> f) {
-        return key + GAP;
+        sort(array, beginIndex, endIndex, key -> key - MIN);
     }
 }
