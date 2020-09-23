@@ -13,30 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package edu.emory.cs.sort.comparison;
-
-import java.util.Comparator;
+package edu.emory.cs.sort.distribution;
 
 /**
  * @author Jinho D. Choi ({@code jinho.choi@emory.edu})
  */
-public class ShellSortQuiz<T extends Comparable<T>> extends ShellSort<T> {
-    public ShellSortQuiz() {
-        this(Comparator.naturalOrder());
-    }
-
-    public ShellSortQuiz(Comparator<T> comparator) {
-        super(comparator);
-    }
-
+public class RadixSortQuiz extends RadixSort {
     @Override
-    protected void populateSequence(int n) {
+    public void sort(Integer[] array, int beginIndex, int endIndex) {
         // TODO: to be filled
-    }
-
-    @Override
-    protected int getSequenceStartIndex(int n) {
-        // TODO: to be filled
-        return -1;
     }
 }
