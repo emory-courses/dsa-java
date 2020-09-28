@@ -25,36 +25,31 @@ public abstract class AbstractBinarySearchTree<T extends Comparable<T>, N extend
         setRoot(null);
     }
 
-    /**
-     * @return a new node with the specific key.
-     */
+    /** @return a new node with the specific key. */
     abstract public N createNode(T key);
 
-    /**
-     * @return the root of this tree.
-     */
+    /** @return {@code true} if the specific node is the root of this tree. */
+    public boolean isRoot(N node) {
+        return root == node;
+    }
+
+    /** @return the root of this tree. */
     public N getRoot() {
         return root;
     }
 
-    /**
-     * Sets the root of this tree to the specific node.
-     */
+    /** Sets the root of this tree to the specific node. */
     public void setRoot(N node) {
         if (node != null) node.setParent(null);
         root = node;
     }
 
-    /**
-     * @return {@code true} if the specific node is the root of this tree.
-     */
-    public boolean isRoot(N node) {
-        return root == node;
+    /** @return the node with the specific key if exists; otherwise, {@code null}. */
+    public N get(T key) {
+        return findNode(root, key);
     }
 
-    /**
-     * @return the node with the specific key if exists; otherwise, {@code null}.
-     */
+    /** @return the node with the specific key if exists; otherwise, {@code null}. */
     protected N findNode(N node, T key) {
         if (node == null) return null;
         int diff = key.compareTo(node.getKey());
@@ -67,18 +62,14 @@ public abstract class AbstractBinarySearchTree<T extends Comparable<T>, N extend
             return node;
     }
 
-    /**
-     * @return the node with the specific key if exists; otherwise, {@code null}.
-     */
-    public N get(T key) {
-        return findNode(root, key);
+    /** @return the node with the minimum key under the subtree of {@code node}. */
+    protected N findMinNode(N node) {
+        return node.hasLeftChild() ? findMinNode(node.getLeftChild()) : node;
     }
 
-    /**
-     * @return {@code true} if the specific key exists; otherwise, {@code false}.
-     */
-    public boolean contains(T key) {
-        return get(key) != null;
+    /** @return the node with the maximum key under the subtree of {@code node}. */
+    protected N findMaxNode(N node) {
+        return node.hasRightChild() ? findMaxNode(node.getRightChild()) : node;
     }
 
 //	============================== Add ==============================
@@ -107,7 +98,8 @@ public abstract class AbstractBinarySearchTree<T extends Comparable<T>, N extend
                 node.setLeftChild(newNode = createNode(key));
             else
                 newNode = addAux(child, key);
-        } else if (diff > 0) {
+        }
+        else if (diff > 0) {
             if ((child = node.getRightChild()) == null)
                 node.setRightChild(newNode = createNode(key));
             else
@@ -119,9 +111,7 @@ public abstract class AbstractBinarySearchTree<T extends Comparable<T>, N extend
 
 //	============================== Remove ==============================
 
-    /**
-     * @return the removed node with the specific key if exists; otherwise, {@code null}.
-     */
+    /** @return the removed node with the specific key if exists; otherwise, {@code null}. */
     public N remove(T key) {
         N node = findNode(root, key);
 
@@ -133,9 +123,14 @@ public abstract class AbstractBinarySearchTree<T extends Comparable<T>, N extend
         return node;
     }
 
-    /**
-     * @return the lowest node whose subtree has been updatede.
-     */
+    private void replaceChild(N oldNode, N newNode) {
+        if (isRoot(oldNode))
+            setRoot(newNode);
+        else
+            oldNode.getParent().replaceChild(oldNode, newNode);
+    }
+
+    /** @return the lowest node whose subtree has been updatede. */
     protected N removeHibbard(N node) {
         N successor = node.getRightChild();
         N min = findMinNode(successor);
@@ -152,9 +147,7 @@ public abstract class AbstractBinarySearchTree<T extends Comparable<T>, N extend
         return parent;
     }
 
-    /**
-     * @return the lowest node whose subtree has been updatede.
-     */
+    /** @return the lowest node whose subtree has been updatede. */
     protected N removeSelf(N node) {
         N parent = node.getParent();
         N child = null;
@@ -166,41 +159,21 @@ public abstract class AbstractBinarySearchTree<T extends Comparable<T>, N extend
         return parent;
     }
 
-    private void replaceChild(N oldNode, N newNode) {
-        if (isRoot(oldNode))
-            setRoot(newNode);
-        else
-            oldNode.getParent().replaceChild(oldNode, newNode);
-    }
-
 //	============================== Min/Max ==============================
 
-    /**
-     * @return the minimum key in this tree if exists; otherwise, {@code null}.
-     */
+    /** @return {@code true} if the specific key exists; otherwise, {@code false}. */
+    public boolean contains(T key) {
+        return get(key) != null;
+    }
+
+    /** @return the minimum key in this tree if exists; otherwise, {@code null}. */
     public T min() {
         return (root != null) ? findMinNode(root).getKey() : null;
     }
 
-    /**
-     * @return the node with the minimum key under the subtree of {@code node}.
-     */
-    protected N findMinNode(N node) {
-        return node.hasLeftChild() ? findMinNode(node.getLeftChild()) : node;
-    }
-
-    /**
-     * @return the maximum key in this tree if exists; otherwise, {@code null}.
-     */
+    /** @return the maximum key in this tree if exists; otherwise, {@code null}. */
     public T max() {
         return (root != null) ? findMaxNode(root).getKey() : null;
-    }
-
-    /**
-     * @return the node with the maximum key under the subtree of {@code node}.
-     */
-    protected N findMaxNode(N node) {
-        return node.hasRightChild() ? findMaxNode(node.getRightChild()) : node;
     }
 
     public String toString() {

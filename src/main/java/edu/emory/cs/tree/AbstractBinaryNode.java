@@ -28,6 +28,33 @@ public abstract class AbstractBinaryNode<T extends Comparable<T>, N extends Abst
         setKey(key);
     }
 
+    //	============================== Checks ==============================
+    public boolean hasParent() {
+        return parent != null;
+    }
+
+    public boolean hasLeftChild() {
+        return left_child != null;
+    }
+
+    public boolean hasRightChild() {
+        return right_child != null;
+    }
+
+    public boolean hasBothChildren() {
+        return hasLeftChild() && hasRightChild();
+    }
+
+    /** @return true if the specific node is the left child of this node. */
+    public boolean isLeftChild(N node) {
+        return left_child == node;
+    }
+
+    /** @return true if the specific node is the right child of this node. */
+    public boolean isRightChild(N node) {
+        return right_child == node;
+    }
+
     //	============================== Getters ==============================
     public T getKey() {
         return key;
@@ -53,7 +80,7 @@ public abstract class AbstractBinaryNode<T extends Comparable<T>, N extends Abst
     public N getSibling() {
         if (hasParent()) {
             N parent = getParent();
-            return parent.isLeftChild((N) this) ? parent.getRightChild() : parent.getLeftChild();
+            return parent.isLeftChild((N)this) ? parent.getRightChild() : parent.getLeftChild();
         }
 
         return null;
@@ -83,11 +110,15 @@ public abstract class AbstractBinaryNode<T extends Comparable<T>, N extends Abst
         right_child = node;
     }
 
+    /**
+     * Replaces the parent of the specific node to be this node.
+     * @param node the node whose parent to be replaced.
+     */
     @SuppressWarnings("unchecked")
     protected void replaceParent(N node) {
         if (node != null) {
             if (node.hasParent()) node.getParent().replaceChild(node, null);
-            node.setParent((N) this);
+            node.setParent((N)this);
         }
     }
 
@@ -97,32 +128,7 @@ public abstract class AbstractBinaryNode<T extends Comparable<T>, N extends Abst
         else if (isRightChild(oldChild)) setRightChild(newChild);
     }
 
-    //	============================== Checks ==============================
-    public boolean hasParent() {
-        return parent != null;
-    }
-
-    public boolean hasLeftChild() {
-        return left_child != null;
-    }
-
-    public boolean hasRightChild() {
-        return right_child != null;
-    }
-
-    public boolean hasBothChildren() {
-        return hasLeftChild() && hasRightChild();
-    }
-
-    /** @return {@code true} if the specific node is the left child of this node. */
-    public boolean isLeftChild(N node) {
-        return left_child == node;
-    }
-
-    /** @return {@code true} if the specific node is the right child of this node. */
-    public boolean isRightChild(N node) {
-        return right_child == node;
-    }
+//	============================== Helpers ==============================
 
     @Override
     public String toString() {
