@@ -122,7 +122,11 @@ public abstract class AbstractBinaryNode<T extends Comparable<T>, N extends Abst
         }
     }
 
-    /** Replaces the old child with the new child if exists. */
+    /**
+     * Replaces the old child with the new child if exists.
+     * @param oldChild the old child of this node to be replaced.
+     * @param newChild the new child to be added to this node.
+     */
     public void replaceChild(N oldChild, N newChild) {
         if (isLeftChild(oldChild)) setLeftChild(newChild);
         else if (isRightChild(oldChild)) setRightChild(newChild);
