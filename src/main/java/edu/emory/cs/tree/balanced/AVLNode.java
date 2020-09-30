@@ -22,9 +22,7 @@ import edu.emory.cs.tree.AbstractBinaryNode;
  * @author Jinho D. Choi ({@code jinho.choi@emory.edu})
  */
 public class AVLNode<T extends Comparable<T>> extends AbstractBinaryNode<T, AVLNode<T>> {
-    /**
-     * The height of this node.
-     */
+    /** The height of this node. */
     private int height;
 
     public AVLNode(T key) {
@@ -32,12 +30,10 @@ public class AVLNode<T extends Comparable<T>> extends AbstractBinaryNode<T, AVLN
         height = 1;
     }
 
-    //	============================== Getters ==============================
     public int getHeight() {
         return height;
     }
 
-    //	============================== Setters ==============================
     public void setHeight(int height) {
         this.height = height;
     }
@@ -54,9 +50,7 @@ public class AVLNode<T extends Comparable<T>> extends AbstractBinaryNode<T, AVLN
         resetHeights();
     }
 
-    /**
-     * Resets the heights of this node and its ancestor, recursively.
-     */
+    /** Resets the heights of this node and its ancestor, recursively. */
     public void resetHeights() {
         resetHeightsAux(this);
     }
@@ -74,11 +68,7 @@ public class AVLNode<T extends Comparable<T>> extends AbstractBinaryNode<T, AVLN
         }
     }
 
-//	=================================================================
-
-    /**
-     * @return height(left - subtree) - height(right-subtree).
-     */
+    /** @return height(left-subtree) - height(right-subtree). */
     public int getBalanceFactor() {
         if (hasBothChildren())
             return left_child.getHeight() - right_child.getHeight();

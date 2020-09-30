@@ -22,19 +22,19 @@ package edu.emory.cs.tree.balanced;
 public class AVLTree<T extends Comparable<T>> extends AbstractBalancedBinarySearchTree<T, AVLNode<T>> {
     @Override
     public AVLNode<T> createNode(T key) {
-        return new AVLNode<T>(key);
+        return new AVLNode<>(key);
     }
 
     @Override
     protected void rotateLeft(AVLNode<T> node) {
         super.rotateLeft(node);
-        node.resetHeights();  // reset Height after rotation
+        node.resetHeights();
     }
 
     @Override
     protected void rotateRight(AVLNode<T> node) {
         super.rotateRight(node);
-        node.resetHeights();  // reset Height after rotation
+        node.resetHeights();
     }
 
     @Override
@@ -74,18 +74,20 @@ public class AVLTree<T extends Comparable<T>> extends AbstractBalancedBinarySear
         if (bf == 2) {
             AVLNode<T> child = node.getLeftChild();
 
-            if (child.getBalanceFactor() == -1)    //Case 2
+            if (child.getBalanceFactor() == -1)    // Case 2
                 rotateLeft(child);
 
-            rotateRight(node);        //Case 1
-        } else if (bf == -2) {
+            rotateRight(node);        // Case 1
+        }
+        else if (bf == -2) {
             AVLNode<T> child = node.getRightChild();
 
-            if (child.getBalanceFactor() == 1)        //Case 4
+            if (child.getBalanceFactor() == 1)        // Case 4
                 rotateRight(child);
 
-            rotateLeft(node);        //Case 3
-        } else
-            balance(node.getParent());        //Recurrsively balance parent
+            rotateLeft(node);        // Case 3
+        }
+        else
+            balance(node.getParent());
     }
 }
