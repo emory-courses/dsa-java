@@ -29,11 +29,9 @@
 
 ## Classes
 
-* Students are expected to digest assigned lecture notes in the course webpage and prepare answers to the questions in the notes prior to each class.
-* The actual classes will be driven by discussions and coding exercises with the aim of minimum lecturing on the materials that are already covered in the notes.
-* All students are expected to join virtually during the regular class hours although all classes are recorded for those who reside in different time zones.
-* It tremendously helps instructors interpret how students are doing when their faces are shown so please turn on the videos if you can during the classes.
-
+Students are expected to
+* Digest assigned lecture notes in the course webpage and prepare answers to the questions in the notes.
+* Join virtually during the regular class hours although all classes are recorded for those who reside in different time zones.
 
 
 ## Grading
@@ -46,14 +44,13 @@
 ## Homework Assignments
 
 * They aim to assess conceptual understanding, programming ability, and analytical writing skills.
-* Each homework can be submitted anytime within 3 weeks from the assigned date.
+* Late submissions within a week will be accepted with the grading penalty of 15%, and will not be accepted after the first week. Exceptions to this policy will be made only in extraordinary circumstances.
 
 
 ## Weekly Quizzes
 
 * They aim to check if students are keeping up with the weekly contents.
-* Each quiz can be submitted anytime within 1 week from the assigned date.
-
+* Late submissions will not be accepted.
 
 ## Notes
 
