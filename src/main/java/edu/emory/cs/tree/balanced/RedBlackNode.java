@@ -22,7 +22,7 @@ import edu.emory.cs.tree.AbstractBinaryNode;
  */
 public class RedBlackNode<T extends Comparable<T>> extends AbstractBinaryNode<T, RedBlackNode<T>> {
     /** If true, this node is red; otherwise, black. */
-    private boolean b_red;
+    private boolean is_red;
 
     public RedBlackNode(T key) {
         super(key);
@@ -30,19 +30,19 @@ public class RedBlackNode<T extends Comparable<T>> extends AbstractBinaryNode<T,
     }
 
     public void setToRed() {
-        b_red = true;
+        is_red = true;
     }
 
     public void setToBlack() {
-        b_red = false;
+        is_red = false;
     }
 
     public boolean isRed() {
-        return b_red;
+        return is_red;
     }
 
     public boolean isBlack() {
-        return !b_red;
+        return !is_red;
     }
 
     @Override

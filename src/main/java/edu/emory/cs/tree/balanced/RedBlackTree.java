@@ -87,11 +87,11 @@ public class RedBlackTree<T extends Comparable<T>> extends AbstractBalancedBinar
         if (grandParent != null) {
             RedBlackNode<T> parent = node.getParent();
 
-            if (grandParent.isLeftChild(parent) && parent.isRightChild(node)) {       //Case 2
+            if (grandParent.isLeftChild(parent) && parent.isRightChild(node)) {       // Case 2
                 rotateLeft(parent);
                 node = parent;
             }
-            else if (grandParent.isRightChild(parent) && parent.isLeftChild(node)) {       //Case 4
+            else if (grandParent.isRightChild(parent) && parent.isLeftChild(node)) {       // Case 4
                 rotateRight(parent);
                 node = parent;
             }
@@ -99,10 +99,10 @@ public class RedBlackTree<T extends Comparable<T>> extends AbstractBalancedBinar
             node.getParent().setToBlack();
             grandParent.setToRed();
 
-            if (node.getParent().isLeftChild(node))        //Case 1
+            if (node.getParent().isLeftChild(node))        // Case 1
                 rotateRight(grandParent);
             else
-                rotateLeft(grandParent);            //Case 3
+                rotateLeft(grandParent);            // Case 3
         }
     }
 }
