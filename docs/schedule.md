@@ -15,7 +15,7 @@
 |09/23| [Sorting Algorithms](https://emory.zoom.us/rec/share/uiXNhP026htrIjXBRBuLPYpjoVphL0TLVh5Ha76W_IpBbLciMnRaqOuMkuMqKWHX.x7UkAoHiy8FJxW4n) | | [quiz 3](https://canvas.emory.edu/courses/76034/assignments/392261) | 
 |09/28| [Binary Search Trees](https://emory.zoom.us/rec/share/mhRyb-H31IQu3mMAZJFn8Ox9PFVC5u_iuCItYVGpMw8CkNMqbmEnfcYjok0SyKmO.zJjq3K3cTTQSLrY9) | [book](https://emory.gitbook.io/dsa-java/binary-search-trees), [main](../src/main/java/edu/emory/cs/tree), [test](../src/test/java/edu/emory/cs/tree)  | |
 |09/30| [Binary Search Trees](https://emory.zoom.us/rec/share/MkwWbtIFV4r6KYI2hV8kUw5g643cwSefJl3FeIgtl137tJNVFSrN4JDZG3Pt19Qf.qyFGJAJ_gsBho6IX) | | |
-|10/05| [Binary Search Trees]() | | [quiz 4]() |
+|10/05| [Binary Search Trees](https://emory.zoom.us/rec/share/4BNd_dgh1rlRr0IoJ1buTgw14kHMM2CNmgxjd_44ZdsU7nlFGZ13G_N6GsIfQ4wq.n1zESZDTD3HIeFQQ) | | [quiz 4]() |
 |10/07| [Tries]() | [book](https://emory.gitbook.io/dsa-java/tries), [main](../src/main/java/edu/emory/cs/trie) | |
 |10/12| [Tries]() | | [quiz 5]() |
 |10/14| [Homework 1]() | | [hw 2](hw_autocomplete.md) |

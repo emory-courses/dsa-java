@@ -1,16 +1,5 @@
 # Quizzes
 
-## Quiz 4
-
-* Interpretation
-  * Explain how the `remove()` method works in [`AbstractBalancedBinarySearchTree`](../src/main/java/edu/emory/cs/tree/balanced/AbstractBalancedBinarySearchTree.java#L33):
-  * Explain what gets assigned to `lowest` in [line 37](../src/main/java/edu/emory/cs/tree/balanced/AbstractBalancedBinarySearchTree.java#L37).
-  * Explain how the `balance()` method in [`AVLTree`](../src/main/java/edu/emory/cs/tree/balanced/AVLTree.java#L41) and [`RedBlackTree`](../src/main/java/edu/emory/cs/tree/balanced/RedBlackTree.java#L28) keeps the tree in balance (or not in balance) after a removal.
-* Submission
-  * Write a report about your explanation and save it as `quiz4.pdf`.
-  * Submit `quiz4.pdf` to https://canvas.emory.edu/courses/62873/assignments/255741
-
-
 ## Quiz 5
 
 Let `L` be a list of country names in `String` where spaces are allowed (e.g., `"United States"`, `"South Korea"`).
