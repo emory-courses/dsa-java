@@ -130,13 +130,16 @@ public class TreeTest {
 
     @Test
     @Ignore
-    public void testAccuracy() {
-        testAccuracy(1000, 1000, new BinarySearchTree<>());
-        testAccuracy(1000, 1000, new AVLTree<>());
-        testAccuracy(1000, 1000, new RedBlackTree<>());
+    public void testRobustness() {
+        testRobustness(new BinarySearchTree<>());
+        testRobustness(new AVLTree<>());
+        testRobustness(new RedBlackTree<>());
     }
 
-    private void testAccuracy(final int ITERATIONS, final int SIZE, AbstractBinarySearchTree<Integer, ?> tree) {
+    private void testRobustness(AbstractBinarySearchTree<Integer, ?> tree) {
+        final int ITERATIONS = 1000;
+        final int SIZE = 1000;
+
         Random rand = new Random(0);
         List<Integer> list;
 

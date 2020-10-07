@@ -79,7 +79,7 @@ public abstract class AbstractBinarySearchTree<T extends Comparable<T>, N extend
      * If this tree already contains the key, nothing is added.
      */
     public N add(T key) {
-        N node = null;
+        N node;
 
         if (root == null)
             setRoot(node = createNode(key));

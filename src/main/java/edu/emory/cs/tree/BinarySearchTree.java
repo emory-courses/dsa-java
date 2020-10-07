@@ -25,6 +25,6 @@ public class BinarySearchTree<T extends Comparable<T>> extends AbstractBinarySea
      */
     @Override
     public BinaryNode<T> createNode(T key) {
-        return new BinaryNode<T>(key);
+        return new BinaryNode<>(key);
     }
 }

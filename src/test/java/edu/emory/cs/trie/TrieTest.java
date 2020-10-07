@@ -24,7 +24,16 @@ import static org.junit.Assert.*;
  */
 public class TrieTest {
     @Test
-    public void test() {
+    public void testTrieNode() {
+        TrieNode<Integer> n = new TrieNode<>(null, 'r');
+        TrieNode<Integer> a  = n.addChild('a');
+        TrieNode<Integer> b = n.removeChild('a');
+        assertEquals(a, b);
+    }
+
+
+    @Test
+    public void testTrie() {
         final String[] vocab = {"she", "shell", "sell", "selling", "shore", "woman", "women", "won"};
         Trie<Integer> trie = new Trie<>();
         int i, len = vocab.length;
@@ -44,7 +53,6 @@ public class TrieTest {
         assertFalse(trie.remove("wons"));
         assertEquals(7, trie.get("won").intValue());
 
-        trie.remove("won");
         assertNull(trie.get("won"));
         assertEquals(5, trie.get("woman").intValue());
 

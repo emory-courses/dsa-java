@@ -19,7 +19,7 @@ package edu.emory.cs.trie;
  * @author Jinho D. Choi ({@code jinho.choi@emory.edu})
  */
 public class Trie<T> {
-    private TrieNode<T> root;
+    private final TrieNode<T> root;
 
     public Trie() {
         root = new TrieNode<>(null, (char) 0);
@@ -38,9 +38,7 @@ public class Trie<T> {
         return get(key) != null;
     }
 
-    /**
-     * @return the previously inserted value for the specific key if exists; otherwise, {@code null}.
-     */
+    /** @return the previously inserted value for the specific key if exists; otherwise, {@code null}. */
     public T put(String key, T value) {
         TrieNode<T> node = root;
 
@@ -51,9 +49,7 @@ public class Trie<T> {
         return node.setValue(value);
     }
 
-    /**
-     * @return the node with the specific key if exists; otherwise, {@code null}.
-     */
+    /** @return the node with the specific key if exists; otherwise, {@code null}. */
     public TrieNode<T> find(String key) {
         TrieNode<T> node = root;
 
@@ -65,9 +61,7 @@ public class Trie<T> {
         return node;
     }
 
-    /**
-     * @return {@code true} if a node with the specific key if exists; otherwise, {@code false}.
-     */
+    /** @return {@code true} if a node with the specific key if exists; otherwise, {@code false}. */
     public boolean remove(String key) {
         TrieNode<T> node = find(key);
 
