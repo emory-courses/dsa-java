@@ -31,15 +31,16 @@ public class TrieTest {
         assertEquals(a, b);
     }
 
-
     @Test
     public void testTrie() {
         final String[] vocab = {"she", "shell", "sell", "selling", "shore", "woman", "women", "won"};
         Trie<Integer> trie = new Trie<>();
         int i, len = vocab.length;
 
-        for (i = 0; i < len; i++)
-            trie.put(vocab[i], i);
+        for (i = 0; i < len; i++) {
+            Integer t = trie.put(vocab[i], i);
+            assertNull(t);
+        }
 
         for (i = 0; i < len; i++)
             assertEquals(i, trie.get(vocab[i]).intValue());
@@ -53,7 +54,7 @@ public class TrieTest {
         assertFalse(trie.remove("wons"));
         assertEquals(7, trie.get("won").intValue());
 
-        assertNull(trie.get("won"));
+        assertTrue(trie.remove("won"));
         assertEquals(5, trie.get("woman").intValue());
 
         trie.remove("selling");
@@ -64,7 +65,6 @@ public class TrieTest {
         assertNull(trie.get("she"));
         assertEquals(1, trie.get("shell").intValue());
         assertEquals(4, trie.get("shore").intValue());
-
-        System.out.println("sell".compareTo("selling"));
+//        System.out.println("sell".compareTo("selling"));
     }
 }

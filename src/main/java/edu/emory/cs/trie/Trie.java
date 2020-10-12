@@ -22,11 +22,23 @@ public class Trie<T> {
     private final TrieNode<T> root;
 
     public Trie() {
-        root = new TrieNode<>(null, (char) 0);
+        root = new TrieNode<>(null, (char)0);
     }
 
     public TrieNode<T> getRoot() {
         return root;
+    }
+
+    /** @return the node with the specific key if exists; otherwise, {@code null}. */
+    public TrieNode<T> find(String key) {
+        TrieNode<T> node = root;
+
+        for (char c : key.toCharArray()) {
+            node = node.getChild(c);
+            if (node == null) return null;
+        }
+
+        return node;
     }
 
     public T get(String key) {
@@ -47,18 +59,6 @@ public class Trie<T> {
 
         node.setEndState(true);
         return node.setValue(value);
-    }
-
-    /** @return the node with the specific key if exists; otherwise, {@code null}. */
-    public TrieNode<T> find(String key) {
-        TrieNode<T> node = root;
-
-        for (char c : key.toCharArray()) {
-            node = node.getChild(c);
-            if (node == null) return null;
-        }
-
-        return node;
     }
 
     /** @return {@code true} if a node with the specific key if exists; otherwise, {@code false}. */
