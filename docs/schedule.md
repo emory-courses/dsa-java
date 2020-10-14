@@ -22,9 +22,9 @@
 |10/19| [Disjoint Sets]() | [book](https://emory.gitbook.io/dsa-java/disjoint-sets), [main](../src/main/java/edu/emory/cs/set) | |
 |10/21| [Topological Sorting]() | [book](https://emory.gitbook.io/dsa-java/topological-sorting), [main](../src/main/java/edu/emory/cs/graph/sort) | [quiz 6]() |
 |10/26| [Minimum Spanning Trees]() | [book](https://emory.gitbook.io/dsa-java/minimum-spanning-trees), [main](../src/main/java/edu/emory/cs/graph/span) | |
-|10/28| [Minimum Spanning Trees]() | | [hw 3]() |
+|10/28| [Minimum Spanning Trees]() | | |
 |11/02| [Minimum Spanning Trees]() | | [quiz 7]() |
-|11/04| [Homework 2]() | | |
+|11/04| [Homework 2]() | | [hw 3]() |
 |11/09| [Network Flows]() | [book](https://emory.gitbook.io/dsa-java/network-flows), [main](../src/main/java/edu/emory/cs/graph/flow) | |
 |11/11| [Network Flows]() | | [quiz 8]() | 
 |11/16| [Dynamic Programming]() | [book](https://emory.gitbook.io/dsa-java/dynamic-programming), [main](../src/main/java/edu/emory/cs/dynamic) | |
