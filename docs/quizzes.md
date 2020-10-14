@@ -1,17 +1,5 @@
 # Quizzes
 
-## Quiz 5
-
-Let `L` be a list of country names in `String` where spaces are allowed (e.g., `"United States"`, `"South Korea"`).
-Let `T` be a trie where all country names in `L` are inserted and each country name is assigned with a unique ID in `Integer` (see the [example](img/tries-2.png)).
-Your task is to write a method that takes a string and finds all country names in the string using `T`.
-
-* Pseudo-code
-  * Write a pseudo-code that completes the `get_entities()` method in [`TrieQuiz`](../src/main/java/edu/emory/cs/trie/TrieQuiz.java#L31).
-* Submission
-  * Write a report including your pseudo-code and a brief explanation about the complexity of your method and save it as `quiz5.pdf`.
-  * Submit `quiz5.pdf` to https://canvas.emory.edu/courses/62873/assignments/255742
-
 
 ## Quiz 6
 

@@ -33,4 +33,9 @@ public class Entity {
         this.end_index = end_index;
         this.country_id = country_id;
     }
+
+    @Override
+    public String toString() {
+        return String.format("(%d, %d, %d)", begin_index, end_index, country_id);
+    }
 }
