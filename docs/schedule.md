@@ -16,8 +16,8 @@
 |09/28| [Binary Search Trees](https://emory.zoom.us/rec/share/mhRyb-H31IQu3mMAZJFn8Ox9PFVC5u_iuCItYVGpMw8CkNMqbmEnfcYjok0SyKmO.zJjq3K3cTTQSLrY9) | [book](https://emory.gitbook.io/dsa-java/binary-search-trees), [main](../src/main/java/edu/emory/cs/tree), [test](../src/test/java/edu/emory/cs/tree)  | |
 |09/30| [Binary Search Trees](https://emory.zoom.us/rec/share/MkwWbtIFV4r6KYI2hV8kUw5g643cwSefJl3FeIgtl137tJNVFSrN4JDZG3Pt19Qf.qyFGJAJ_gsBho6IX) | | |
 |10/05| [Binary Search Trees](https://emory.zoom.us/rec/share/4BNd_dgh1rlRr0IoJ1buTgw14kHMM2CNmgxjd_44ZdsU7nlFGZ13G_N6GsIfQ4wq.n1zESZDTD3HIeFQQ) | | [quiz 4](https://canvas.emory.edu/courses/76034/assignments/396465) |
-|10/07| [Tries](https://emory.zoom.us/rec/share/AR6PtqaiDN4hQfSYXwrbThtQdIR0Fd-A26VdwDlXJmRCNmt-8jKO_nZ5GgjH6Gw.__gUSUYvMThYDZ88) | [book](https://emory.gitbook.io/dsa-java/tries), [main](../src/main/java/edu/emory/cs/trie) | |
-|10/12| [Tries](https://emory.zoom.us/rec/share/Bnz7t774imZCdpwRfZDeQ9l4VKZ1NeZZRmCHb8-nTWQ4z9N8yIL5l86MBVQXNWBg.F9khycWvYUyItPE1) | | [quiz 5]() |
+|10/07| [Tries](https://emory.zoom.us/rec/share/AR6PtqaiDN4hQfSYXwrbThtQdIR0Fd-A26VdwDlXJmRCNmt-8jKO_nZ5GgjH6Gw.__gUSUYvMThYDZ88) | [book](https://emory.gitbook.io/dsa-java/tries), [main](../src/main/java/edu/emory/cs/trie), [test](../src/test/java/edu/emory/cs/trie) | |
+|10/12| [Tries](https://emory.zoom.us/rec/share/Bnz7t774imZCdpwRfZDeQ9l4VKZ1NeZZRmCHb8-nTWQ4z9N8yIL5l86MBVQXNWBg.F9khycWvYUyItPE1) | | [quiz 5](https://canvas.emory.edu/courses/76034/assignments/399575) |
 |10/14| [Homework 1]() | | [hw 2](hw_autocomplete.md) |
 |10/19| [Disjoint Sets]() | [book](https://emory.gitbook.io/dsa-java/disjoint-sets), [main](../src/main/java/edu/emory/cs/set) | |
 |10/21| [Topological Sorting]() | [book](https://emory.gitbook.io/dsa-java/topological-sorting), [main](../src/main/java/edu/emory/cs/graph/sort) | [quiz 6]() |

@@ -21,22 +21,19 @@ import java.util.List;
 /**
  * @author Jinho D. Choi ({@code jinho.choi@emory.edu})
  */
-public class AutocompleteChoi extends Autocomplete<List<String>> {
-    public AutocompleteChoi(String dict_file, int max) {
+public class AutocompleteHW extends Autocomplete<List<String>> {
+    public AutocompleteHW(String dict_file, int max) {
         super(dict_file, max);
     }
 
     @Override
     public List<String> getCandidates(String prefix) {
-        // TODO: must be modified
-        if (prefix.equals("sh"))
-            return List.of("she", "ship", "shell");
-
+        // TODO: to be updated
         return List.of("dummy", "candidate");
     }
 
     @Override
     public void pickCandidate(String prefix, String candidate) {
-        // TODO: must be filled
+        // TODO: to be filled
     }
 }
