@@ -15,10 +15,7 @@
  */
 package edu.emory.cs.graph;
 
-
-/**
- * @author Jinho D. Choi ({@code jinho.choi@emory.edu})
- */
+/** @author Jinho D. Choi ({@code jinho.choi@emory.edu}) */
 public class Edge implements Comparable<Edge> {
     private int source;
     private int target;
@@ -28,8 +25,12 @@ public class Edge implements Comparable<Edge> {
         init(source, target, weight);
     }
 
+    public Edge(int source, int target) {
+        this(source, target, 0);
+    }
+
     public Edge(Edge edge) {
-        init(edge.getSource(), edge.getTarget(), edge.getWeight());
+        this(edge.getSource(), edge.getTarget(), edge.getWeight());
     }
 
     private void init(int source, int target, double weight) {
@@ -63,7 +64,7 @@ public class Edge implements Comparable<Edge> {
     }
 
     public void addWeight(double weight) {
-        weight += weight;
+        this.weight += weight;
     }
 
     @Override

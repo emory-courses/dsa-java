@@ -20,7 +20,7 @@
 |10/12| [Tries](https://emory.zoom.us/rec/share/Bnz7t774imZCdpwRfZDeQ9l4VKZ1NeZZRmCHb8-nTWQ4z9N8yIL5l86MBVQXNWBg.F9khycWvYUyItPE1) | | [quiz 5](https://canvas.emory.edu/courses/76034/assignments/399575) |
 |10/14| [Homework 1](https://emory.zoom.us/rec/share/Otk202-ZPGS5n8M-5evp5iUeasYWl4_6P9Fe3PFN1S97l2Uzh8cvPD7MguLqFkBI.GK7kqLF_5HHyQSSt) | | [hw 2](https://emory.gitbook.io/dsa-java/tries/homework) |
 |10/19| [Disjoint Sets](https://emory.zoom.us/rec/share/DETYfhEuw8UOXM7-m1V-lT5PYsBRAyR0ex3mZ2lYKl-P8hHsX7-y5FVmJkS_9tRv.Ck5FrEMkLLSGD_Zx) | [book](https://emory.gitbook.io/dsa-java/disjoint-sets), [main](../src/main/java/edu/emory/cs/set) | |
-|10/21| [Topological Sorting]() | [book](https://emory.gitbook.io/dsa-java/topological-sorting), [main](../src/main/java/edu/emory/cs/graph/sort) | [quiz 6]() |
+|10/21| [Topological Sorting](https://emory.zoom.us/rec/share/ZaZ004n_WlTmCGj-Sq0TK-f0Jr2IUAC8vKSDRS6ivcmWWY1EA3vU1ItE5rBCmfHr.lLsMxAy9Z7SB13hY) | [book](https://emory.gitbook.io/dsa-java/topological-sorting), [main](../src/main/java/edu/emory/cs/graph/sort) | [quiz 6]() |
 |10/26| [Minimum Spanning Trees]() | [book](https://emory.gitbook.io/dsa-java/minimum-spanning-trees), [main](../src/main/java/edu/emory/cs/graph/span) | |
 |10/28| [Minimum Spanning Trees]() | | |
 |11/02| [Minimum Spanning Trees]() | | [quiz 7]() |

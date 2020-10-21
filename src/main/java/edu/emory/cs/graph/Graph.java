@@ -16,39 +16,38 @@
 package edu.emory.cs.graph;
 
 import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
  * @author Jinho D. Choi ({@code jinho.choi@emory.edu})
  */
 public class Graph {
-    private List<Edge>[] incoming_edges;
+    private final List<List<Edge>> incoming_edges;
 
-    @SuppressWarnings("unchecked")
     public Graph(int size) {
-        incoming_edges = (List<Edge>[]) Stream.generate(ArrayList<Edge>::new).limit(size).toArray(List<?>[]::new);
-    }
-
-    public List<Edge> getIncomingEdges(int target) {
-        return incoming_edges[target];
-    }
-
-    public List<Edge> getAllEdges() {
-        List<Edge> edges = new ArrayList<>();
-
-        for (int i = 0; i < size(); i++)
-            edges.addAll(incoming_edges[i]);
-
-        return edges;
+        incoming_edges = Stream.generate(ArrayList<Edge>::new).limit(size).collect(Collectors.toList());
     }
 
     public int size() {
-        return incoming_edges.length;
+        return incoming_edges.size();
+    }
+
+    public List<Edge> getIncomingEdges(int target) {
+        return incoming_edges.get(target);
+    }
+
+    public List<Edge> getAllEdges() {
+        return incoming_edges.stream().flatMap(List::stream).collect(Collectors.toList());
+    }
+
+    public List<Edge> getOutgoingEdge(int source) {
+        return new ArrayList<>();
     }
 
     @SuppressWarnings("unchecked")
     public Deque<Edge>[] getOutgoingEdges() {
-        Deque<Edge>[] edges = (Deque<Edge>[]) Stream.generate(ArrayDeque<Edge>::new).limit(size()).toArray(Deque<?>[]::new);
+        Deque<Edge>[] edges = (Deque<Edge>[])Stream.generate(ArrayDeque<Edge>::new).limit(size()).toArray(Deque<?>[]::new);
 
         for (int target = 0; target < size(); target++) {
             for (Edge edge : getIncomingEdges(target))
@@ -121,10 +120,10 @@ public class Graph {
     public String toString() {
         StringBuilder build = new StringBuilder();
 
-        for (int i = 0; i < incoming_edges.length; i++) {
+        for (int i = 0; i < incoming_edges.size(); i++) {
             build.append(i);
             build.append(" <- ");
-            build.append(incoming_edges[i].toString());
+            build.append(incoming_edges.get(i).toString());
             build.append("\n");
         }
 
