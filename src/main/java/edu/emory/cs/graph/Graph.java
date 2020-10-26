@@ -17,6 +17,7 @@ package edu.emory.cs.graph;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 /**
@@ -41,32 +42,19 @@ public class Graph {
         return incoming_edges.stream().flatMap(List::stream).collect(Collectors.toList());
     }
 
-    public List<Edge> getOutgoingEdge(int source) {
-        return new ArrayList<>();
+    public Deque<Integer> getVerticesWithNoIncomingEdges() {
+        return IntStream.range(0, size()).filter(i -> getIncomingEdges(i).isEmpty()).boxed().collect(Collectors.toCollection(ArrayDeque::new));
     }
 
-    @SuppressWarnings("unchecked")
-    public Deque<Edge>[] getOutgoingEdges() {
-        Deque<Edge>[] edges = (Deque<Edge>[])Stream.generate(ArrayDeque<Edge>::new).limit(size()).toArray(Deque<?>[]::new);
+    public List<Deque<Edge>> getOutgoingEdges() {
+        List<Deque<Edge>> outgoing_edges = Stream.generate(ArrayDeque<Edge>::new).limit(size()).collect(Collectors.toList());
 
         for (int target = 0; target < size(); target++) {
-            for (Edge edge : getIncomingEdges(target))
-                edges[edge.getSource()].add(edge);
+            for (Edge incoming_edge : getIncomingEdges(target))
+                outgoing_edges.get(incoming_edge.getSource()).add(incoming_edge);
         }
 
-        return edges;
-    }
-
-    public Deque<Integer> getVerticesWithNoIncomingEdges() {
-        Deque<Integer> deque = new ArrayDeque<>();
-        int i, size = size();
-
-        for (i = 0; i < size; i++) {
-            if (getIncomingEdges(i).isEmpty())
-                deque.add(i);
-        }
-
-        return deque;
+        return outgoing_edges;
     }
 
     public Edge setDirectedEdge(int source, int target, double weight) {
@@ -82,8 +70,7 @@ public class Graph {
     }
 
     public boolean containsCycle() {
-        Deque<Integer> notVisited = new ArrayDeque<>();
-        for (int i = 0; i < size(); i++) notVisited.add(i);
+        Deque<Integer> notVisited = IntStream.range(0, size()).boxed().collect(Collectors.toCollection(ArrayDeque::new));
 
         while (!notVisited.isEmpty()) {
             if (containsCycleAux(notVisited.poll(), notVisited, new HashSet<>()))
@@ -106,6 +93,41 @@ public class Graph {
         }
 
         return false;
+    }
+
+    public List<Integer> topological_sort(boolean depth_first) {
+        Deque<Integer> global = getVerticesWithNoIncomingEdges();
+        List<Deque<Edge>> outgoingEdgesAll = getOutgoingEdges();
+        List<Integer> order = new ArrayList<>();
+
+        while (!global.isEmpty()) {
+            Deque<Integer> local = new ArrayDeque<>();
+            int vertex = global.poll();
+
+            //Add vertex to the sequence
+            order.add(vertex);
+            Deque<Edge> outgoingEdges = outgoingEdgesAll.get(vertex);
+
+            while (!outgoingEdges.isEmpty()) {
+                Edge edge = outgoingEdges.poll();
+                List<Edge> incomingEdges = getIncomingEdges(edge.getTarget());
+
+                //Remove edge in all incomingEdges of the target vertex
+                incomingEdges.remove(edge);
+
+                //If the vertex has no incoming edges, add it to the local queue awaited to be added to the global deque
+                if (incomingEdges.isEmpty())
+                    local.add(edge.getTarget());
+            }
+
+            //Transfer all vertices in local to global
+            while (!local.isEmpty())
+                if (depth_first) global.addFirst(local.removeLast());
+                else global.addLast(local.removeFirst());
+        }
+
+        if (!isEmpty()) throw new IllegalArgumentException("Cyclic graph.");
+        return order;
     }
 
     public boolean isEmpty() {

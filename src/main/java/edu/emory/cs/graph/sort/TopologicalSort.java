@@ -28,9 +28,9 @@ import java.util.List;
  * @author Jinho D. Choi ({@code jinho.choi@emory.edu})
  */
 public class TopologicalSort {
-    public List<Integer> sort(Graph graph) {
+    public List<Integer> sort(Graph graph, boolean breadth_first) {
         Deque<Integer> global = graph.getVerticesWithNoIncomingEdges();
-        Deque<Edge>[] outgoingEdgesAll = graph.getOutgoingEdges();
+        List<Deque<Edge>> outgoingEdgesAll = graph.getOutgoingEdges();
         List<Integer> order = new ArrayList<>();
 
         while (!global.isEmpty()) {
@@ -39,7 +39,7 @@ public class TopologicalSort {
 
             //Add vertex to the sequence
             order.add(vertex);
-            Deque<Edge> outgoingEdges = outgoingEdgesAll[vertex];
+            Deque<Edge> outgoingEdges = outgoingEdgesAll.get(vertex);
 
             while (!outgoingEdges.isEmpty()) {
                 Edge edge = outgoingEdges.poll();
@@ -55,10 +55,8 @@ public class TopologicalSort {
 
             //Transfer all vertices in local to global
             while (!local.isEmpty())
-                // breath-first search
-                global.addLast(local.removeFirst());
-               // depth-first search
-               // global.addFirst(local.removeLast());
+                if (breadth_first) global.addLast(local.removeFirst());
+                else global.addFirst(local.removeLast());
         }
 
         if (!graph.isEmpty()) throw new IllegalArgumentException("Cyclic graph.");
