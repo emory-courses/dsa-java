@@ -24,10 +24,18 @@ import java.util.stream.Stream;
  * @author Jinho D. Choi ({@code jinho.choi@emory.edu})
  */
 public class Graph {
+    /**
+     * A list of edge lists where each dimension of the outer list indicates a target vertex and
+     * the inner list corresponds to the list of incoming edges to that target vertex.
+     */
     private final List<List<Edge>> incoming_edges;
 
     public Graph(int size) {
         incoming_edges = Stream.generate(ArrayList<Edge>::new).limit(size).collect(Collectors.toList());
+    }
+
+    public Graph(Graph g) {
+        incoming_edges = g.incoming_edges.stream().map(ArrayList::new).collect(Collectors.toList());
     }
 
     public int size() {
@@ -46,6 +54,10 @@ public class Graph {
         return IntStream.range(0, size()).filter(i -> getIncomingEdges(i).isEmpty()).boxed().collect(Collectors.toCollection(ArrayDeque::new));
     }
 
+    /**
+     * @return a list of edge deque where each dimension in the outer list represents the deque of outgoing edges for
+     * the corresponding source vertex.
+     */
     public List<Deque<Edge>> getOutgoingEdges() {
         List<Deque<Edge>> outgoing_edges = Stream.generate(ArrayDeque<Edge>::new).limit(size()).collect(Collectors.toList());
 
@@ -102,41 +114,37 @@ public class Graph {
 
         while (!global.isEmpty()) {
             Deque<Integer> local = new ArrayDeque<>();
-            int vertex = global.poll();
 
-            //Add vertex to the sequence
+            // add vertex to the path
+            int vertex = global.poll();
             order.add(vertex);
             Deque<Edge> outgoingEdges = outgoingEdgesAll.get(vertex);
 
             while (!outgoingEdges.isEmpty()) {
                 Edge edge = outgoingEdges.poll();
-                List<Edge> incomingEdges = getIncomingEdges(edge.getTarget());
 
-                //Remove edge in all incomingEdges of the target vertex
+                // remove one outgoing edge at a time
+                List<Edge> incomingEdges = getIncomingEdges(edge.getTarget());
                 incomingEdges.remove(edge);
 
-                //If the vertex has no incoming edges, add it to the local queue awaited to be added to the global deque
+                // if the target vertex has no incoming edges, add it to the local queue awaited to be added to the global deque
                 if (incomingEdges.isEmpty())
                     local.add(edge.getTarget());
             }
 
             //Transfer all vertices in local to global
-            while (!local.isEmpty())
+            while (!local.isEmpty()) {
                 if (depth_first) global.addFirst(local.removeLast());
                 else global.addLast(local.removeFirst());
+            }
         }
 
-        if (!isEmpty()) throw new IllegalArgumentException("Cyclic graph.");
+        if (!hasNoEdge()) throw new IllegalArgumentException("Cyclic graph.");
         return order;
     }
 
-    public boolean isEmpty() {
-        for (int i = 0; i < size(); i++) {
-            if (!getIncomingEdges(i).isEmpty())
-                return false;
-        }
-
-        return true;
+    public boolean hasNoEdge() {
+        return IntStream.range(0, size()).allMatch(i -> getIncomingEdges(i).isEmpty());
     }
 
     public String toString() {

@@ -13,33 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package edu.emory.cs.graph.sort;
+package edu.emory.cs.graph;
 
-import edu.emory.cs.graph.Graph;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 
 /**
  * @author Jinho D. Choi ({@code jinho.choi@emory.edu})
  */
-public class TopologicalSortTest {
+public class GraphTest {
     @Test
-    public void test() {
-//		Graph graph = new Graph(8);
-//		
-//		graph.setDirectedEdge(0, 3, 1);
-//		graph.setDirectedEdge(0, 4, 1);
-//		graph.setDirectedEdge(1, 3, 1);
-//		graph.setDirectedEdge(2, 4, 1);
-//		graph.setDirectedEdge(3, 5, 1);
-//		graph.setDirectedEdge(3, 6, 1);
-//		graph.setDirectedEdge(3, 7, 1);
-//		graph.setDirectedEdge(4, 6, 1);
-//		graph.setDirectedEdge(2, 7, 1);
-//		
-//		TopologicalSort s = new TopologicalSort();
-//		System.out.println(s.sort(graph).toString());
-
+    public void testContainsCycle() {
         Graph graph = new Graph(5);
 
         graph.setDirectedEdge(0, 1, 1);
@@ -50,6 +37,24 @@ public class TopologicalSortTest {
         graph.setDirectedEdge(4, 2, 1);
 
         System.out.println(graph.toString());
-        System.out.println(graph.containsCycle());
+        assertTrue(graph.containsCycle());
+    }
+
+    @Test
+    public void testTopologicalSort() {
+		Graph graph = new Graph(8);
+
+		graph.setDirectedEdge(0, 3, 1);
+		graph.setDirectedEdge(0, 4, 1);
+		graph.setDirectedEdge(1, 3, 1);
+		graph.setDirectedEdge(2, 4, 1);
+		graph.setDirectedEdge(3, 5, 1);
+		graph.setDirectedEdge(3, 6, 1);
+		graph.setDirectedEdge(3, 7, 1);
+		graph.setDirectedEdge(4, 6, 1);
+		graph.setDirectedEdge(2, 7, 1);
+
+		assertEquals("[0, 1, 2, 3, 4, 5, 7, 6]", new Graph(graph).topological_sort(false).toString());
+        assertEquals("[0, 1, 3, 5, 2, 4, 6, 7]", new Graph(graph).topological_sort(true).toString());
     }
 }

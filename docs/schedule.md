@@ -19,17 +19,17 @@
 |10/07| [Tries](https://emory.zoom.us/rec/share/AR6PtqaiDN4hQfSYXwrbThtQdIR0Fd-A26VdwDlXJmRCNmt-8jKO_nZ5GgjH6Gw.__gUSUYvMThYDZ88) | [book](https://emory.gitbook.io/dsa-java/tries), [main](../src/main/java/edu/emory/cs/trie), [test](../src/test/java/edu/emory/cs/trie) | |
 |10/12| [Tries](https://emory.zoom.us/rec/share/Bnz7t774imZCdpwRfZDeQ9l4VKZ1NeZZRmCHb8-nTWQ4z9N8yIL5l86MBVQXNWBg.F9khycWvYUyItPE1) | | [quiz 5](https://canvas.emory.edu/courses/76034/assignments/399575) |
 |10/14| [Homework 1](https://emory.zoom.us/rec/share/Otk202-ZPGS5n8M-5evp5iUeasYWl4_6P9Fe3PFN1S97l2Uzh8cvPD7MguLqFkBI.GK7kqLF_5HHyQSSt) | | [hw 2](https://emory.gitbook.io/dsa-java/tries/homework) |
-|10/19| [Disjoint Sets](https://emory.zoom.us/rec/share/DETYfhEuw8UOXM7-m1V-lT5PYsBRAyR0ex3mZ2lYKl-P8hHsX7-y5FVmJkS_9tRv.Ck5FrEMkLLSGD_Zx) | [book](https://emory.gitbook.io/dsa-java/disjoint-sets), [main](../src/main/java/edu/emory/cs/set) | |
-|10/21| [Graphs](https://emory.zoom.us/rec/share/ZaZ004n_WlTmCGj-Sq0TK-f0Jr2IUAC8vKSDRS6ivcmWWY1EA3vU1ItE5rBCmfHr.lLsMxAy9Z7SB13hY) | [book](https://emory.gitbook.io/dsa-java/graphs), [main](../src/main/java/edu/emory/cs/graph) |  |
-|10/26| [Graphs]() |  | [quiz 6]() |
+|10/19| [Disjoint Sets](https://emory.zoom.us/rec/share/DETYfhEuw8UOXM7-m1V-lT5PYsBRAyR0ex3mZ2lYKl-P8hHsX7-y5FVmJkS_9tRv.Ck5FrEMkLLSGD_Zx) | [book](https://emory.gitbook.io/dsa-java/disjoint-sets), [main](../src/main/java/edu/emory/cs/set), [test](../src/test/java/edu/emory/cs/set) | |
+|10/21| [Graphs](https://emory.zoom.us/rec/share/ZaZ004n_WlTmCGj-Sq0TK-f0Jr2IUAC8vKSDRS6ivcmWWY1EA3vU1ItE5rBCmfHr.lLsMxAy9Z7SB13hY) | [book](https://emory.gitbook.io/dsa-java/graphs), [main](../src/main/java/edu/emory/cs/graph), [test](../src/test/java/edu/emory/cs/graph) |  |
+|10/26| [Graphs](https://emory.zoom.us/rec/share/bVzolXB5jeui-Zrk9qWuw9k4aIuQxC5Oh1eS_I2puAPvR9pSPGHFZ-xqIzjbDZLn.MwIa6daltyBEPWCY) |  | [quiz 6]() |
 |10/28| [Minimum Spanning Trees]() | [book](https://emory.gitbook.io/dsa-java/minimum-spanning-trees), [main](../src/main/java/edu/emory/cs/graph/span) | |
-|11/02| [Minimum Spanning Trees]() | | [quiz 7]() |
-|11/04| [Homework 2]() | | [hw 3]() |
-|11/09| [Network Flows]() | [book](https://emory.gitbook.io/dsa-java/network-flows), [main](../src/main/java/edu/emory/cs/graph/flow) | |
-|11/11| [Network Flows]() | | [quiz 8]() | 
-|11/16| [Dynamic Programming]() | [book](https://emory.gitbook.io/dsa-java/dynamic-programming), [main](../src/main/java/edu/emory/cs/dynamic) | |
+|11/02| [Minimum Spanning Trees]() | | |
+|11/04| [Network Flows]() | [book](https://emory.gitbook.io/dsa-java/network-flows), [main](../src/main/java/edu/emory/cs/graph/flow) | [quiz 7]() |
+|11/09| [Network Flows]() | | |
+|11/11| [Homework 2]() | | [hw 3]() | 
+|11/16| [Dynamic Programming]() | [book](https://emory.gitbook.io/dsa-java/dynamic-programming), [main](../src/main/java/edu/emory/cs/dynamic) | [quiz 8]() |
 |11/18| [Dynamic Programming]() | | |
-|11/23| [Homework 3]() | | [quiz 9]() |
+|11/23| Review | | [quiz 9]() |
 
 <!--  -->
 <!-- [Shortest Path Algorithms]() | [md](), [pdf](shortest_path_algorithms.pdf), [main](../src/main/java/edu/emory/cs/graph/path/) | [quiz 8](quiz0.md#quiz-8) | -->

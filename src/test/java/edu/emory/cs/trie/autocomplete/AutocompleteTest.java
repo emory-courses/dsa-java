@@ -23,7 +23,7 @@ import java.util.List;
  * @author Jinho D. Choi ({@code jinho.choi@emory.edu})
  */
 public class AutocompleteTest {
-    class Eval {
+    static class Eval {
         int correct = 0;
         int total = 0;
     }
