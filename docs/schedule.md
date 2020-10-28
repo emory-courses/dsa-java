@@ -22,7 +22,7 @@
 |10/19| [Disjoint Sets](https://emory.zoom.us/rec/share/DETYfhEuw8UOXM7-m1V-lT5PYsBRAyR0ex3mZ2lYKl-P8hHsX7-y5FVmJkS_9tRv.Ck5FrEMkLLSGD_Zx) | [book](https://emory.gitbook.io/dsa-java/disjoint-sets), [main](../src/main/java/edu/emory/cs/set), [test](../src/test/java/edu/emory/cs/set) | |
 |10/21| [Graphs](https://emory.zoom.us/rec/share/ZaZ004n_WlTmCGj-Sq0TK-f0Jr2IUAC8vKSDRS6ivcmWWY1EA3vU1ItE5rBCmfHr.lLsMxAy9Z7SB13hY) | [book](https://emory.gitbook.io/dsa-java/graphs), [main](../src/main/java/edu/emory/cs/graph), [test](../src/test/java/edu/emory/cs/graph) |  |
 |10/26| [Graphs](https://emory.zoom.us/rec/share/bVzolXB5jeui-Zrk9qWuw9k4aIuQxC5Oh1eS_I2puAPvR9pSPGHFZ-xqIzjbDZLn.MwIa6daltyBEPWCY) |  | [quiz 6](https://canvas.emory.edu/courses/76034/assignments/403938) |
-|10/28| [Minimum Spanning Trees]() | [book](https://emory.gitbook.io/dsa-java/minimum-spanning-trees), [main](../src/main/java/edu/emory/cs/graph/span) | |
+|10/28| [Minimum Spanning Trees](https://emory.zoom.us/rec/share/RxmwTrgVWVSj6pC7oCp3sUCS7gs2a4SCIk3iSY1px_VJIzRPbySy9ZLKSDYRHSbD.8Xk7igj7w2gU6YCF) | [book](https://emory.gitbook.io/dsa-java/minimum-spanning-trees), [main](../src/main/java/edu/emory/cs/graph/span) | |
 |11/02| [Minimum Spanning Trees]() | | |
 |11/04| [Network Flows]() | [book](https://emory.gitbook.io/dsa-java/network-flows), [main](../src/main/java/edu/emory/cs/graph/flow) | [quiz 7]() |
 |11/09| [Network Flows]() | | |
