@@ -22,19 +22,16 @@ import edu.emory.cs.set.DisjointSet;
 import java.util.PriorityQueue;
 
 
-/**
- * @author Jinho D. Choi ({@code jinho.choi@emory.edu})
- */
-public class MSTKruskal implements MSTAlgorithm {
+/** @author Jinho D. Choi ({@code jinho.choi@emory.edu}) */
+public class MSTKruskal implements MST {
     @Override
     public SpanningTree getMinimumSpanningTree(Graph graph) {
         PriorityQueue<Edge> queue = new PriorityQueue<>(graph.getAllEdges());
         DisjointSet forest = new DisjointSet(graph.size());
         SpanningTree tree = new SpanningTree();
-        Edge edge;
 
         while (!queue.isEmpty()) {
-            edge = queue.poll();
+            Edge edge = queue.poll();
 
             if (!forest.inSameSet(edge.getTarget(), edge.getSource())) {
                 tree.addEdge(edge);

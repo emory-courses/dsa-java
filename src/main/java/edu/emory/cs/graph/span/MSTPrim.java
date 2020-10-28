@@ -26,7 +26,7 @@ import java.util.Set;
 /**
  * @author Jinho D. Choi ({@code jinho.choi@emory.edu})
  */
-public class MSTPrim implements MSTAlgorithm {
+public class MSTPrim implements MST {
     @Override
     public SpanningTree getMinimumSpanningTree(Graph graph) {
         PriorityQueue<Edge> queue = new PriorityQueue<>();
@@ -34,7 +34,7 @@ public class MSTPrim implements MSTAlgorithm {
         Set<Integer> visited = new HashSet<>();
         Edge edge;
 
-        //Add all connecting vertices from start vertex to the queue
+        // add all connecting vertices from start vertex to the queue
         add(queue, visited, graph, 0);
 
         while (!queue.isEmpty()) {
@@ -42,11 +42,9 @@ public class MSTPrim implements MSTAlgorithm {
 
             if (!visited.contains(edge.getSource())) {
                 tree.addEdge(edge);
-
-                //If a spanning tree is found, break.
+                // if a spanning tree is found, break.
                 if (tree.size() + 1 == graph.size()) break;
-
-                //Add all connecting vertices from current vertex to the queue
+                // add all connecting vertices from current vertex to the queue
                 add(queue, visited, graph, edge.getSource());
             }
         }
@@ -55,17 +53,21 @@ public class MSTPrim implements MSTAlgorithm {
     }
 
     /**
-     * @param queue   Queue of all vertices awaited to explore
-     * @param visited Set of visited vertices
-     * @param graph   Graph
-     * @param target  Target vertex
+     * Adds the target to the visited set, and adds the incoming edges of the target vertex that have not been visited to the queue.
+     * @param queue   queue of incoming edges to explore.
+     * @param visited set of visited vertices.
+     * @param graph   the graph to find the minimum spanning tree from.
+     * @param target  the target vertex to be added.
      */
     private void add(PriorityQueue<Edge> queue, Set<Integer> visited, Graph graph, int target) {
         visited.add(target);
-
         for (Edge edge : graph.getIncomingEdges(target)) {
             if (!visited.contains(edge.getSource()))
                 queue.add(edge);
         }
+
+//        graph.getIncomingEdges(target).stream().
+//                filter(edge -> !visited.contains(edge.getSource())).
+//                collect(Collectors.toCollection(() -> queue));
     }
 }

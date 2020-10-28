@@ -27,7 +27,7 @@ import java.util.Set;
 /**
  * @author Jinho D. Choi ({@code jinho.choi@emory.edu})
  */
-public class MSTEdmonds implements MSTAlgorithm {
+public class MSTEdmonds implements MST {
     @Override
     public SpanningTree getMinimumSpanningTree(Graph graph) {
         List<Set<Integer>> forest = initForest(graph.size());

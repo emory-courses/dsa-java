@@ -21,8 +21,6 @@
 /src/main/java/edu/emory/cs/trie/autocomplete/RecentAutocomplete.java
 /src/main/java/edu/emory/cs/trie/autocomplete/FrequentAutocomplete.java
 /src/test/java/edu/emory/cs/trie/autocomplete/AutocompleteTestHW.java
-/src/main/java/edu/emory/cs/graph/span/MSTAll
-
-/src/main/java/edu/emory/cs/graph/span/MSTWordAnswer.java
+/src/main/java/edu/emory/cs/graph/span/MSTAllSol.java
+/src/main/java/edu/emory/cs/graph/span/MSTWordHWSol.java
 /src/main/resources/word_vectors.dot
-

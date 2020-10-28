@@ -23,42 +23,35 @@ import java.util.Set;
 /**
  * @author Jinho D. Choi ({@code jinho.choi@emory.edu})
  */
-public class Subgraph
-{
-	private List<Edge>   l_edges;
-	private Set<Integer> s_vertices;
-	
-	public Subgraph()
-	{
-		l_edges    = new ArrayList<>();
-		s_vertices = new HashSet<>();
-	}
-	
-	public Subgraph(Subgraph graph)
-	{
-		l_edges    = new ArrayList<>(graph.getEdges());
-		s_vertices = new HashSet<>(graph.getVertices());
-	}
-	
-	public List<Edge> getEdges()
-	{
-		return l_edges;
-	}
-	
-	public Set<Integer> getVertices()
-	{
-		return s_vertices;
-	}
+public class Subgraph {
+    private final List<Edge> edges;
+    private final Set<Integer> vertices;
 
-	public void addEdge(Edge edge)
-	{
-		l_edges.add(edge);
-		s_vertices.add(edge.getSource());
-		s_vertices.add(edge.getTarget());
-	}
-	
-	public boolean contains(int vertex)
-	{
-		return s_vertices.contains(vertex);
-	}
+    public Subgraph() {
+        edges = new ArrayList<>();
+        vertices = new HashSet<>();
+    }
+
+    public Subgraph(Subgraph graph) {
+        edges = new ArrayList<>(graph.getEdges());
+        vertices = new HashSet<>(graph.getVertices());
+    }
+
+    public List<Edge> getEdges() {
+        return edges;
+    }
+
+    public Set<Integer> getVertices() {
+        return vertices;
+    }
+
+    public void addEdge(Edge edge) {
+        edges.add(edge);
+        vertices.add(edge.getSource());
+        vertices.add(edge.getTarget());
+    }
+
+    public boolean contains(int vertex) {
+        return vertices.contains(vertex);
+    }
 }

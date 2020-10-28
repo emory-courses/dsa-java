@@ -20,11 +20,9 @@ import edu.emory.cs.graph.Edge;
 import java.util.*;
 
 
-/**
- * @author Jinho D. Choi ({@code jinho.choi@emory.edu})
- */
+/** @author Jinho D. Choi ({@code jinho.choi@emory.edu}) */
 public class SpanningTree implements Comparable<SpanningTree> {
-    private List<Edge> edges;
+    private final List<Edge> edges;
     private double total_weight;
 
     public SpanningTree() {
@@ -36,17 +34,66 @@ public class SpanningTree implements Comparable<SpanningTree> {
         total_weight = tree.getTotalWeight();
     }
 
-    public double getTotalWeight() {
-        return total_weight;
-    }
-
     public List<Edge> getEdges() {
         return edges;
+    }
+
+    public double getTotalWeight() {
+        return total_weight;
     }
 
     public int size() {
         return edges.size();
     }
+
+    public void addEdge(Edge edge) {
+        edges.add(edge);
+        total_weight += edge.getWeight();
+    }
+
+    @Override
+    public int compareTo(SpanningTree tree) {
+        double diff = total_weight - tree.total_weight;
+        if (diff > 0) return 1;
+        else if (diff < 0) return -1;
+        else return 0;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder build = new StringBuilder();
+
+        for (Edge edge : edges)
+            build.append(String.format("\n%d <- %d : %f", edge.getTarget(), edge.getSource(), edge.getWeight()));
+
+        return build.length() > 0 ? build.substring(1) : "";
+    }
+
+    public String getUndirectedSequence() {
+        int i, size = size(), min, max;
+        int[] array = new int[size];
+        Edge edge;
+
+        for (i = 0; i < size; i++) {
+            edge = edges.get(i);
+
+            if (edge.getSource() < edge.getTarget()) {
+                min = edge.getSource();
+                max = edge.getTarget();
+            }
+            else {
+                min = edge.getTarget();
+                max = edge.getSource();
+            }
+
+            array[i] = min * (size + 1) + max;
+        }
+
+        Arrays.sort(array);
+        return Arrays.toString(array);
+    }
+
+    // ========================= For MSTEdmonds.java =========================
 
     public Set<Integer> getTargets() {
         Set<Integer> set = new HashSet<>();
@@ -64,21 +111,13 @@ public class SpanningTree implements Comparable<SpanningTree> {
         return cycles;
     }
 
-    /**
-     * @return Map whose keys are source vertices and keys are the edges.
-     */
+    /** @return Map whose keys are source vertices and keys are the edges. */
     private Map<Integer, List<Edge>> getEdgeMap() {
         Map<Integer, List<Edge>> map = new HashMap<>();
         List<Edge> tmp;
 
         for (Edge edge : edges) {
-            tmp = map.get(edge.getSource());
-
-            if (tmp == null) {
-                tmp = new ArrayList<>();
-                map.put(edge.getSource(), tmp);
-            }
-
+            tmp = map.computeIfAbsent(edge.getSource(), k -> new ArrayList<>());
             tmp.add(edge);
         }
 
@@ -88,7 +127,6 @@ public class SpanningTree implements Comparable<SpanningTree> {
     private Edge getAnyEdge(Map<Integer, List<Edge>> map) {
         for (List<Edge> edge : map.values())
             return edge.get(0);
-
         return null;
     }
 
@@ -102,45 +140,19 @@ public class SpanningTree implements Comparable<SpanningTree> {
             removeAll(edgeMap, set, cycle);
             cycles.add(cycle);
             getCyclesAux(cycles, edgeMap, new ArrayList<>(), new HashSet<>(), getAnyEdge(edgeMap));
-        } else {
+        }
+        else {
             List<Edge> tmp = edgeMap.get(curr.getTarget());
 
             if (tmp == null) {
                 removeAll(edgeMap, set, cycle);
                 getCyclesAux(cycles, edgeMap, new ArrayList<>(), new HashSet<>(), getAnyEdge(edgeMap));
-            } else {
+            }
+            else {
                 for (Edge edge : new ArrayList<>(tmp))
                     getCyclesAux(cycles, edgeMap, new ArrayList<>(cycle), new HashSet<>(set), edge);
             }
         }
-    }
-
-    public String getUndirectedSequence() {
-        int i, size = size(), min, max;
-        int[] array = new int[size];
-        Edge edge;
-
-        for (i = 0; i < size; i++) {
-            edge = edges.get(i);
-
-            if (edge.getSource() < edge.getTarget()) {
-                min = edge.getSource();
-                max = edge.getTarget();
-            } else {
-                min = edge.getTarget();
-                max = edge.getSource();
-            }
-
-            array[i] = min * (size + 1) + max;
-        }
-
-        Arrays.sort(array);
-        return Arrays.toString(array);
-    }
-
-    public void addEdge(Edge edge) {
-        edges.add(edge);
-        total_weight += edge.getWeight();
     }
 
     private void removeAll(Map<Integer, List<Edge>> map, Set<Integer> set, List<Edge> cycle) {
@@ -154,23 +166,5 @@ public class SpanningTree implements Comparable<SpanningTree> {
                 if (tmp.isEmpty()) map.remove(source);
             }
         }
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder build = new StringBuilder();
-
-        for (Edge edge : edges)
-            build.append(String.format("\n%d <- %d : %f", edge.getTarget(), edge.getSource(), edge.getWeight()));
-
-        return build.length() > 0 ? build.substring(1) : "";
-    }
-
-    @Override
-    public int compareTo(SpanningTree tree) {
-        double diff = total_weight - tree.total_weight;
-        if (diff > 0) return 1;
-        else if (diff < 0) return -1;
-        else return 0;
     }
 }

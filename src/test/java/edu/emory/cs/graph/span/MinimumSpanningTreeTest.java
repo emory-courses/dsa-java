@@ -16,7 +16,6 @@
 package edu.emory.cs.graph.span;
 
 import edu.emory.cs.graph.Graph;
-import org.junit.Ignore;
 import org.junit.Test;
 
 
@@ -25,7 +24,7 @@ import org.junit.Test;
  */
 public class MinimumSpanningTreeTest {
     @Test
-    public void testUndirected() throws Exception {
+    public void testUndirected() {
         Graph graph = new Graph(5);
         graph.setUndirectedEdge(0, 1, 5 - 2);
         graph.setUndirectedEdge(0, 2, 5 - 1);
@@ -35,8 +34,8 @@ public class MinimumSpanningTreeTest {
         graph.setUndirectedEdge(2, 3, 5 - 1);
         graph.setUndirectedEdge(3, 4, 5 - 2);
 
-        MSTAlgorithm prim = new MSTPrim();
-        MSTAlgorithm kruskal = new MSTKruskal();
+        MST prim = new MSTPrim();
+        MST kruskal = new MSTKruskal();
         SpanningTree tree;
 
         tree = prim.getMinimumSpanningTree(graph);
@@ -74,6 +73,7 @@ public class MinimumSpanningTreeTest {
 
         MSTEdmonds mst = new MSTEdmonds();
         SpanningTree tree = mst.getMinimumSpanningTree(graph);
+        System.out.println(tree.toString());
 
         graph = new Graph(4);
 

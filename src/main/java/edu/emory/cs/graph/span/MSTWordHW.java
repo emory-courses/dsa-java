@@ -23,8 +23,8 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.util.List;
 
-public class MSTWordChoi extends MSTWord {
-    public MSTWordChoi(InputStream in) {
+public class MSTWordHW extends MSTWord {
+    public MSTWordHW(InputStream in) {
         super(in);
     }
 
@@ -49,7 +49,7 @@ public class MSTWordChoi extends MSTWord {
         final String INPUT_FILE = "src/main/resources/word_vectors.txt";
         final String OUTPUT_FILE = "src/main/resources/word_vectors.dot";
 
-        MSTWord mst = new MSTWordChoi(new FileInputStream(INPUT_FILE));
+        MSTWord mst = new MSTWordHW(new FileInputStream(INPUT_FILE));
         SpanningTree tree = mst.getMinimumSpanningTree();
         mst.printSpanningTree(new FileOutputStream(OUTPUT_FILE), tree);
         System.out.println(tree.getTotalWeight());
