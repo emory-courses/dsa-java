@@ -3,7 +3,6 @@
 /.vscode/
 /build/
 
-
 # quizzes
 /src/main/java/edu/emory/cs/algebraic/LongIntegerQuizSol.java
 /src/main/java/edu/emory/cs/queue/TernaryHeapQuizSol.java
@@ -12,21 +11,18 @@
 /src/main/java/edu/emory/cs/sort/divide_conquer/MergeSortQuizSol.java
 /src/main/java/edu/emory/cs/sort/distribution/MSDRadixSort.java
 /src/main/java/edu/emory/cs/tree/balanced/BalancedBinarySearchTreeQuizSol.java
-
-
-/src/main/java/edu/emory/cs/graph/span/MSTAll
-
+/src/main/java/edu/emory/cs/trie/TrieQuizSol.java
 
 /solutions/
-/src/main/java/edu/emory/cs/exam/
-
 
 # homework
+/src/main/java/edu/emory/cs/sort/hybrid/HybridSortJC.java
 /src/main/java/edu/emory/cs/trie/autocomplete/AbstractAutocomplete.java
 /src/main/java/edu/emory/cs/trie/autocomplete/RecentAutocomplete.java
 /src/main/java/edu/emory/cs/trie/autocomplete/FrequentAutocomplete.java
 /src/test/java/edu/emory/cs/trie/autocomplete/AutocompleteTestHW.java
-/src/main/java/edu/emory/cs/sort/hybrid/HybridSortJC.java
+/src/main/java/edu/emory/cs/graph/span/MSTAll
+
 /src/main/java/edu/emory/cs/graph/span/MSTWordAnswer.java
 /src/main/resources/word_vectors.dot
 
