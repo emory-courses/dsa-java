@@ -18,7 +18,6 @@ package edu.emory.cs.graph.flow;
 import edu.emory.cs.graph.Edge;
 import edu.emory.cs.graph.Graph;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -51,19 +50,6 @@ public class MaxFlow {
 
     public double getResidual(Edge edge) {
         return edge.getWeight() - flow_map.get(edge);
-    }
-
-    public List<Edge> getFlowEdges() {
-        List<Edge> edges = new ArrayList<>();
-
-        for (Edge edge : flow_map.keySet()) {
-            double r = flow_map.get(edge);
-
-            if (r > 0)
-                edges.add(new Edge(edge.getSource(), edge.getTarget(), r));
-        }
-
-        return edges;
     }
 
     //	============================== Setters ==============================

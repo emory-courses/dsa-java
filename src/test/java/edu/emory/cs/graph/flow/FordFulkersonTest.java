@@ -57,7 +57,6 @@ public class FordFulkersonTest {
 
     double test(NetworkFlow mfa, Graph graph, int source, int target) {
         MaxFlow m = mfa.getMaximumFlow(graph, source, target);
-        System.out.println(m.getFlowEdges().toString());
         return m.getMaxFlow();
     }
 
