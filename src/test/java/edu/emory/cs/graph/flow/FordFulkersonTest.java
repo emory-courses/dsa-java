@@ -27,7 +27,7 @@ import static org.junit.Assert.assertEquals;
 public class FordFulkersonTest {
     @Test
     public void test() {
-        MFAlgorithm mfa = new FordFulkerson();
+        NetworkFlow mfa = new FordFulkerson();
         Graph graph;
         double mf;
 
@@ -42,7 +42,7 @@ public class FordFulkersonTest {
 
     @Test
     public void testUnDirected() {
-        MFAlgorithm mfa = new FordFulkerson();
+        NetworkFlow mfa = new FordFulkerson();
         Graph graph;
         double mf;
 
@@ -55,7 +55,7 @@ public class FordFulkersonTest {
         assertEquals(2, (int) mf);
     }
 
-    double test(MFAlgorithm mfa, Graph graph, int source, int target) {
+    double test(NetworkFlow mfa, Graph graph, int source, int target) {
         MaxFlow m = mfa.getMaximumFlow(graph, source, target);
         System.out.println(m.getFlowEdges().toString());
         return m.getMaxFlow();

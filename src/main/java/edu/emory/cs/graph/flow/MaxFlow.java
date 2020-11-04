@@ -28,56 +28,53 @@ import java.util.Map;
  * @author Jinho D. Choi ({@code jinho.choi@emory.edu})
  */
 public class MaxFlow {
-    private Map<Edge, Double> m_flows;
-    private double d_maxFlow;
+    private Map<Edge, Double> flow_map;
+    private double maxflow;
 
     public MaxFlow(Graph graph) {
         init(graph);
     }
 
     public void init(Graph graph) {
-        m_flows = new HashMap<>();
-        d_maxFlow = 0;
+        flow_map = new HashMap<>();
+        maxflow = 0;
 
         for (Edge edge : graph.getAllEdges())
-            m_flows.put(edge, 0d);
+            flow_map.put(edge, 0d);
     }
 
-    //	============================== Getter ==============================
-    public double getResidual(Edge edge) {
-        return edge.getWeight() - m_flows.get(edge);
-    }
+    //	============================== Getters ==============================
 
     public double getMaxFlow() {
-        return d_maxFlow;
+        return maxflow;
+    }
+
+    public double getResidual(Edge edge) {
+        return edge.getWeight() - flow_map.get(edge);
     }
 
     public List<Edge> getFlowEdges() {
         List<Edge> edges = new ArrayList<>();
-        double r;
-        Edge e;
 
-        for (Edge edge : m_flows.keySet()) {
-            r = m_flows.get(edge);
+        for (Edge edge : flow_map.keySet()) {
+            double r = flow_map.get(edge);
 
-            if (r > 0) {
-                e = new Edge(edge.getSource(), edge.getTarget(), r);
-                edges.add(e);
-            }
+            if (r > 0)
+                edges.add(new Edge(edge.getSource(), edge.getTarget(), r));
         }
 
         return edges;
     }
 
-    //	============================== Setter ==============================
-    public void updateResidual(List<Edge> path, double flow) {
-        for (Edge edge : path) updateResidual(edge, flow);
-        d_maxFlow += flow;
+    //	============================== Setters ==============================
+
+    public void updateFlow(List<Edge> path, double flow) {
+        path.forEach(e -> updateFlow(e, flow));
+        maxflow += flow;
     }
 
-    public void updateResidual(Edge edge, double flow) {
-        Double prev = m_flows.get(edge);
-        if (prev == null) prev = 0d;
-        m_flows.put(edge, prev + flow);
+    public void updateFlow(Edge edge, double flow) {
+        Double prev = flow_map.getOrDefault(edge, 0d);
+        flow_map.put(edge, prev + flow);
     }
 }

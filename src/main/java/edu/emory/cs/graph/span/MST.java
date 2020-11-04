@@ -26,5 +26,5 @@ public interface MST {
      * @param graph a graph containing at least one spanning tree.
      * @return a minimum spanning tree.
      */
-    public SpanningTree getMinimumSpanningTree(Graph graph);
+    SpanningTree getMinimumSpanningTree(Graph graph);
 }

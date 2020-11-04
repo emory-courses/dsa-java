@@ -25,7 +25,7 @@ import java.util.List;
 /**
  * @author Jinho D. Choi ({@code jinho.choi@emory.edu})
  */
-public class FordFulkerson extends MFAlgorithm {
+public class FordFulkerson implements NetworkFlow {
     /**
      * @param graph  a graph.
      * @param source the source vertex.
@@ -35,15 +35,14 @@ public class FordFulkerson extends MFAlgorithm {
     public MaxFlow getMaximumFlow(Graph graph, int source, int target) {
         MaxFlow mf = new MaxFlow(graph);
         Subgraph sub;
-        double min;
 
         //Continuously find a new path to push flow from source to target
         while ((sub = getAugmentingPath(graph, mf, new Subgraph(), source, target)) != null) {
             //Get the edge with the minimum edge
-            min = getMin(mf, sub.getEdges());
+            double min = getMin(mf, sub.getEdges());
 
             //Update all forward path edges with -min.getWeight()
-            mf.updateResidual(sub.getEdges(), min);
+            mf.updateFlow(sub.getEdges(), min);
             //Update all backward path edges with +min.getWeight()
             updateBackward(graph, sub, mf, min);
         }
@@ -65,7 +64,7 @@ public class FordFulkerson extends MFAlgorithm {
 
             for (Edge rEdge : graph.getIncomingEdges(edge.getSource())) {
                 if (rEdge.getSource() == edge.getTarget()) {
-                    mf.updateResidual(rEdge, -min);
+                    mf.updateFlow(rEdge, -min);
                     found = true;
                     break;
                 }
@@ -73,7 +72,7 @@ public class FordFulkerson extends MFAlgorithm {
 
             if (!found) {
                 Edge rEdge = graph.setDirectedEdge(edge.getTarget(), edge.getSource(), 0);
-                mf.updateResidual(rEdge, -min);
+                mf.updateFlow(rEdge, -min);
             }
         }
     }
@@ -85,9 +84,8 @@ public class FordFulkerson extends MFAlgorithm {
      */
     private double getMin(MaxFlow mf, List<Edge> path) {
         double min = mf.getResidual(path.get(0));
-        int i, size = path.size();
 
-        for (i = 1; i < size; i++)
+        for (int i = 1; i < path.size(); i++)
             min = Math.min(min, mf.getResidual(path.get(i)));
 
         return min;
@@ -110,7 +108,6 @@ public class FordFulkerson extends MFAlgorithm {
             if (mf.getResidual(edge) <= 0) continue;    // no residual
             tmp = new Subgraph(sub);
             tmp.addEdge(edge);
-
             tmp = getAugmentingPath(graph, mf, tmp, source, edge.getSource());
             if (tmp != null) return tmp;
         }
