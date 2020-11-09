@@ -24,7 +24,7 @@
 |10/26| [Graphs](https://emory.zoom.us/rec/share/bVzolXB5jeui-Zrk9qWuw9k4aIuQxC5Oh1eS_I2puAPvR9pSPGHFZ-xqIzjbDZLn.MwIa6daltyBEPWCY) |  | [quiz 6](https://canvas.emory.edu/courses/76034/assignments/403938) |
 |10/28| [Minimum Spanning Trees](https://emory.zoom.us/rec/share/RxmwTrgVWVSj6pC7oCp3sUCS7gs2a4SCIk3iSY1px_VJIzRPbySy9ZLKSDYRHSbD.8Xk7igj7w2gU6YCF) | [book](https://emory.gitbook.io/dsa-java/minimum-spanning-trees), [main](../src/main/java/edu/emory/cs/graph/span) | |
 |11/02| [Minimum Spanning Trees](https://emory.zoom.us/rec/share/XwA9aj5cZC-889M8TW3EbiceBaU-a2GPKLYNoAxscP5hGJ5Qw4DMnNIUyioWHhoa.MTi-l4idfEnJ5YP7) | | |
-|11/04| [Network Flows](https://emory.zoom.us/rec/share/wr0YuPZB43JqbognWbYg5WvpVcpzgFzy3ypyXE-CfR8cfOohuA5OBo9L9jj6XPsF.Zz1qWjCOXwojWWmb) | [book](https://emory.gitbook.io/dsa-java/network-flows), [main](../src/main/java/edu/emory/cs/graph/flow) | [quiz 7]() |
+|11/04| [Network Flows](https://emory.zoom.us/rec/share/wr0YuPZB43JqbognWbYg5WvpVcpzgFzy3ypyXE-CfR8cfOohuA5OBo9L9jj6XPsF.Zz1qWjCOXwojWWmb) | [book](https://emory.gitbook.io/dsa-java/network-flows), [main](../src/main/java/edu/emory/cs/graph/flow) | [quiz 7](https://canvas.emory.edu/courses/76034/assignments/407840) |
 |11/09| [Network Flows]() | | |
 |11/11| [Homework 2]() | | [hw 3]() | 
 |11/16| [Dynamic Programming]() | [book](https://emory.gitbook.io/dsa-java/dynamic-programming), [main](../src/main/java/edu/emory/cs/dynamic) | [quiz 8]() |
