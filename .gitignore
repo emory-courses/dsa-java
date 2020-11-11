@@ -24,5 +24,3 @@
 /src/main/java/edu/emory/cs/graph/span/MSTAllHWSol.java
 /src/main/java/edu/emory/cs/graph/span/MSTWordHWSol.java
 /src/main/resources/word_vectors.dot
-
-/src/test/java/edu/emory/cs/graph/span/MSTAllHWTest.java
