@@ -29,7 +29,7 @@ public class NetworkFlowQuizExtra {
      * @param target the target vertex.
      * @return a set of all augmenting paths between the specific source and target vertices in the graph.
      */
-    private Set<Subgraph> getAugmentingPaths(Graph graph, int source, int target) {
+    public Set<Subgraph> getAugmentingPaths(Graph graph, int source, int target) {
         // TODO: to be updated
         return null;
     }
