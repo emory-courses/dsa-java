@@ -23,6 +23,7 @@ import java.util.Set;
 /** @author Jinho D. Choi */
 public class NetworkFlowQuizExtra {
     /**
+     * Using breadth-first traverse.
      * @param graph  a directed graph.
      * @param source the ource vertex.
      * @param target the target vertex.
