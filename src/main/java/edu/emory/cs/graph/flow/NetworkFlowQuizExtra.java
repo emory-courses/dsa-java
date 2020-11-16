@@ -18,11 +18,10 @@ package edu.emory.cs.graph.flow;
 import edu.emory.cs.graph.Graph;
 import edu.emory.cs.graph.Subgraph;
 
-import java.util.HashSet;
 import java.util.Set;
 
 /** @author Jinho D. Choi */
-public class NetworkFlowQuiz {
+public class NetworkFlowQuizExtra {
     /**
      * @param graph  a directed graph.
      * @param source the ource vertex.
