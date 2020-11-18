@@ -17,19 +17,11 @@ package edu.emory.cs.dynamic.fibonacci;
 
 import java.util.Arrays;
 
-/**
- * @author Jinho D. Choi ({@code jinho.choi@emory.edu})
- */
+/** @author Jinho D. Choi */
 public class FibonacciDynamic implements Fibonacci {
     @Override
     public int get(int k) {
         return getAux(k, createTable(k));
-    }
-
-    private int getAux(int k, int[] table) {
-        if (table[k] < 0)
-            table[k] = getAux(k - 1, table) + getAux(k - 2, table);
-        return table[k];
     }
 
     /**
@@ -42,5 +34,10 @@ public class FibonacciDynamic implements Fibonacci {
         table[1] = 1;
         Arrays.fill(table, 2, k + 1, -1);
         return table;
+    }
+
+    private int getAux(int k, int[] table) {
+        if (table[k] >= 0) return table[k];
+        return table[k] = getAux(k - 1, table) + getAux(k - 2, table);
     }
 }

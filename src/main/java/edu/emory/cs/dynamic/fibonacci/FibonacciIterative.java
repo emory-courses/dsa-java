@@ -15,9 +15,7 @@
  */
 package edu.emory.cs.dynamic.fibonacci;
 
-/**
- * @author Jinho D. Choi ({@code jinho.choi@emory.edu})
- */
+/** @author Jinho D. Choi */
 public class FibonacciIterative implements Fibonacci {
     @Override
     public int get(int k) {

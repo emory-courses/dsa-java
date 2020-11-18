@@ -16,8 +16,8 @@
 package edu.emory.cs.dynamic;
 
 import edu.emory.cs.dynamic.hanoi.Hanoi;
-import edu.emory.cs.dynamic.hanoi.DHanoi;
-import edu.emory.cs.dynamic.hanoi.RHanoi;
+import edu.emory.cs.dynamic.hanoi.HanoiDynamic;
+import edu.emory.cs.dynamic.hanoi.HanoiRecursive;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -36,8 +36,8 @@ public class HanoiTest {
         final char intermediate = 'I';
         final char destination = 'D';
 
-        Hanoi recursive = new RHanoi();
-        Hanoi dynamic = new DHanoi();
+        Hanoi recursive = new HanoiRecursive();
+        Hanoi dynamic = new HanoiDynamic();
 
         for (int k = 1; k < 20; k++)
             assertEquals(recursive.solve(k, source, intermediate, destination), dynamic.solve(k, source, intermediate, destination));
@@ -49,8 +49,8 @@ public class HanoiTest {
         final int ITERATIONS = 100;
         final int MAX_K = 20;
 
-        Hanoi recursive = new RHanoi();
-        Hanoi dynamic = new DHanoi();
+        Hanoi recursive = new HanoiRecursive();
+        Hanoi dynamic = new HanoiDynamic();
 
         for (int k = 2; k < MAX_K; k++)
             System.out.println(testSpeed(ITERATIONS, k, dynamic, recursive));
