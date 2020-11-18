@@ -22,7 +22,7 @@ import java.util.List;
 /**
  * @author Jinho D. Choi ({@code jinho.choi@emory.edu})
  */
-public class RHanoi extends AbstractHanoi {
+public class RHanoi extends Hanoi {
     @Override
     public List<String> solve(int n, char source, char intermediate, char destination) {
         List<String> list = new ArrayList<>();

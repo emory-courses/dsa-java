@@ -15,32 +15,14 @@
  */
 package edu.emory.cs.dynamic.fibonacci;
 
-/**
- * @author Jinho D. Choi ({@code jinho.choi@emory.edu})
- */
-public abstract class AbstractFibonacci {
-    /**
-     * @return the k'th Fibonacci number.
-     * @throws IllegalArgumentException if {@code k < 0}.
-     */
+/** @author Jinho D. Choi */
+public class FibonacciRecursive implements Fibonacci {
+    @Override
     public int get(int k) {
-        if (k < 0) throw new IllegalArgumentException("Invalid: " + k);
-
-        switch (k) {
-            //Base cases of Fibonacci sequence
-            case 0:
-                return 0;
-            case 1:
-                return 1;
-
-            default:
-                return get2p(k);
-        }
+        return switch (k) {
+            case 0 -> 0;
+            case 1 -> 1;
+            default -> get(k - 1) + get(k - 2);
+        };
     }
-
-    /**
-     * @param k must be greater than 1.
-     * @return the k'th Fibonacci number.
-     */
-    protected abstract int get2p(int k);
 }

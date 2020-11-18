@@ -15,10 +15,10 @@
  */
 package edu.emory.cs.dynamic;
 
-import edu.emory.cs.dynamic.fibonacci.AbstractFibonacci;
-import edu.emory.cs.dynamic.fibonacci.DFibonacci;
-import edu.emory.cs.dynamic.fibonacci.LFibonacci;
-import edu.emory.cs.dynamic.fibonacci.RFibonacci;
+import edu.emory.cs.dynamic.fibonacci.Fibonacci;
+import edu.emory.cs.dynamic.fibonacci.FibonacciDynamic;
+import edu.emory.cs.dynamic.fibonacci.FibonacciIterative;
+import edu.emory.cs.dynamic.fibonacci.FibonacciRecursive;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -30,11 +30,11 @@ import static org.junit.Assert.assertEquals;
 public class FibonacciTest {
     @Test
     public void compare() {
-        AbstractFibonacci recursive = new RFibonacci();
-        AbstractFibonacci loop = new LFibonacci();
-        AbstractFibonacci dynamic = new DFibonacci();
+        Fibonacci recursive = new FibonacciRecursive();
+        Fibonacci iterative = new FibonacciIterative();
+        Fibonacci dynamic = new FibonacciDynamic();
 
         for (int k = 0; k < 20; k++)
-            assertEquals(recursive.get(k), loop.get(k), dynamic.get(k));
+            assertEquals(recursive.get(k), iterative.get(k), dynamic.get(k));
     }
 }

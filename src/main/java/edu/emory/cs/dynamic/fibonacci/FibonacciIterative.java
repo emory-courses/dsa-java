@@ -15,36 +15,21 @@
  */
 package edu.emory.cs.dynamic.fibonacci;
 
-import java.util.Arrays;
-
 /**
  * @author Jinho D. Choi ({@code jinho.choi@emory.edu})
  */
-public class DFibonacci extends AbstractFibonacci {
+public class FibonacciIterative implements Fibonacci {
     @Override
-    public int get2p(int k) {
-        return get2p(k, createTable(k));
-    }
+    public int get(int k) {
+        if (k < 2) return k;
+        int f0 = 0, f1 = 1, f2;
 
-    private int get2p(int k, int[] table) {
-        if (table[k] < 0)
-            table[k] = get2p(k - 1, table) + get2p(k - 2, table);
+        for (int i = 2; i < k; i++) {
+            f2 = f0 + f1;
+            f0 = f1;
+            f1 = f2;
+        }
 
-        return table[k];
-    }
-
-    /**
-     * @param k size of dynamic table
-     * @return dynamic table
-     */
-    private int[] createTable(int k) {
-        int[] table = new int[k + 1];
-        table[0] = 0;
-        table[1] = 1;
-
-        //Fill table[2~k] with -1
-        Arrays.fill(table, 2, k + 1, -1);
-
-        return table;
+        return f0 + f1;
     }
 }
