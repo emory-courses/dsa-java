@@ -28,7 +28,7 @@
 |11/09| [Network Flow](https://emory.zoom.us/rec/share/V1kmAnGCAt1fq4mUwk1guU-GFLOARx_6rv2D8WFaTGAwB6AM-xcM-vdzO5Qr3_A.O0WRExISMuAcHVqg) | | |
 |11/11| [Homework 2](https://emory.zoom.us/rec/share/1FzBXB8581_8fTwXZz1lCLGPquaFgE13i9TWY-f8u2wpifBzTtq4m31qAyKwTd0m.khjxck1oQ5s4K23R) | | [hw 3](https://canvas.emory.edu/courses/76034/assignments/408681) | 
 |11/16| [Network Flow](https://emory.zoom.us/rec/share/AyviVMlLixWFDeJzUC_wb__x0AvIhJN8GFlD1u_ffst-V9fIGYvqQnZgSZlJD-jB.84wsBJ68HPBVxogb) |  | [quiz 8](https://canvas.emory.edu/courses/76034/assignments/410195) |
-|11/18| [Dynamic Programming]() | [book](https://emory.gitbook.io/dsa-java/dynamic-programming), [main](../src/main/java/edu/emory/cs/dynamic), [test](../src/test/java/edu/emory/cs/dynamic) | |
+|11/18| [Dynamic Programming](https://emory.zoom.us/rec/share/P1k3sxxd-2GSF26EQmPjVoCU6xZ_FOOZ-yQ92yJLZASLqKxVU_0yK8lZyqEN2oCV.tzbLlckOfJrrRAyH) | [book](https://emory.gitbook.io/dsa-java/dynamic-programming), [main](../src/main/java/edu/emory/cs/dynamic), [test](../src/test/java/edu/emory/cs/dynamic) | |
 |11/23| [Dynamic Programming]() | | [quiz 9]() |
 
 <!--  -->
