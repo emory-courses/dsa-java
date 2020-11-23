@@ -30,7 +30,7 @@ public class LCSDynamic extends LCS {
      * @param d the second string.
      * @return the dynamic table populated by estimating the # of LCSs in the grid of the two specific strings.
      */
-    private int[][] createTable(char[] c, char[] d) {
+    protected int[][] createTable(char[] c, char[] d) {
         final int N = c.length, M = d.length;
         int[][] table = new int[N][M];
 
@@ -41,7 +41,7 @@ public class LCSDynamic extends LCS {
         return table;
     }
 
-    private String solve(char[] c, char[] d, int i, int j, int[][] table) {
+    protected String solve(char[] c, char[] d, int i, int j, int[][] table) {
         if (i < 0 || j < 0) return "";
 
         // a common sequence is found
