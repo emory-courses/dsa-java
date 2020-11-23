@@ -25,29 +25,10 @@ public class LCSDynamic extends LCS {
         return solve(c, d, i, j, createTable(c, d));
     }
 
-    private String solve(char[] c, char[] d, int i, int j, int[][] table) {
-        if (i < 0 || j < 0)
-            return "";
-
-        //Found common sequence
-        if (c[i] == d[j])
-            return solve(c, d, i - 1, j - 1, table) + c[i];
-
-        //If search on String c has exhausted
-        if (i == 0) return solve(c, d, i, j - 1, table);
-        //If search on String d has exhausted
-        if (j == 0) return solve(c, d, i - 1, j, table);
-
-        //Recursively search for the table[i][j] with the largest element
-        return (table[i - 1][j] > table[i][j - 1]) ? solve(c, d, i - 1, j, table) : solve(c, d, i, j - 1, table);
-    }
-
     /**
-     * Populating lcs dynamic table of the (sub)strings c and d
-     *
-     * @param c String 1
-     * @param d String 2
-     * @return dynamic table populated by finding the lcs of c[0~i] and d[0~j]
+     * @param c the first string.
+     * @param d the second string.
+     * @return the dynamic table populated by estimating the # of LCSs in the grid of the two specific strings.
      */
     private int[][] createTable(char[] c, char[] d) {
         final int N = c.length, M = d.length;
@@ -58,6 +39,19 @@ public class LCSDynamic extends LCS {
                 table[i][j] = (c[i] == d[j]) ? table[i - 1][j - 1] + 1 : Math.max(table[i - 1][j], table[i][j - 1]);
 
         return table;
+    }
+
+    private String solve(char[] c, char[] d, int i, int j, int[][] table) {
+        if (i < 0 || j < 0) return "";
+
+        // a common sequence is found
+        if (c[i] == d[j])  return solve(c, d, i - 1, j - 1, table) + c[i];
+        // search on the first string has been exhausted
+        if (i == 0) return solve(c, d, i, j - 1, table);
+        // search on the second string has been exhausted
+        if (j == 0) return solve(c, d, i - 1, j, table);
+
+        return (table[i - 1][j] > table[i][j - 1]) ? solve(c, d, i - 1, j, table) : solve(c, d, i, j - 1, table);
     }
 }
 
