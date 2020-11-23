@@ -18,7 +18,7 @@ package edu.emory.cs.dynamic.lcs;
 /**
  * @author Jinho D. Choi ({@code jinho.choi@emory.edu})
  */
-public abstract class AbstractLCS {
+public abstract class LCS {
     /**
      * @param a the first string.
      * @param b the second string.

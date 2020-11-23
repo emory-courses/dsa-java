@@ -18,7 +18,7 @@ package edu.emory.cs.dynamic.lcs;
 /**
  * @author Jinho D. Choi ({@code jinho.choi@emory.edu})
  */
-public class RLCS extends AbstractLCS {
+public class LCSRecursive extends LCS {
     @Override
     protected String solve(char[] c, char[] d, int i, int j) {
         if (i < 0 || j < 0)

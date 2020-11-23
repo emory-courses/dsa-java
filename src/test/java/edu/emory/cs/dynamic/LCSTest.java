@@ -15,9 +15,9 @@
  */
 package edu.emory.cs.dynamic;
 
-import edu.emory.cs.dynamic.lcs.AbstractLCS;
-import edu.emory.cs.dynamic.lcs.DLCS;
-import edu.emory.cs.dynamic.lcs.RLCS;
+import edu.emory.cs.dynamic.lcs.LCS;
+import edu.emory.cs.dynamic.lcs.LCSDynamic;
+import edu.emory.cs.dynamic.lcs.LCSRecursive;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -29,8 +29,8 @@ import static org.junit.Assert.assertEquals;
 public class LCSTest {
     @Test
     public void compare() {
-        AbstractLCS r = new RLCS();
-        AbstractLCS d = new DLCS();
+        LCS r = new LCSRecursive();
+        LCS d = new LCSDynamic();
 
         String a = "ACGTCGTGT";
         String b = "CTAGTGGAG";

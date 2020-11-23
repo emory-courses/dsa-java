@@ -19,7 +19,7 @@ package edu.emory.cs.dynamic.lcs;
 /**
  * @author Jinho D. Choi ({@code jinho.choi@emory.edu})
  */
-public class DLCS extends AbstractLCS {
+public class LCSDynamic extends LCS {
     @Override
     protected String solve(char[] c, char[] d, int i, int j) {
         return solve(c, d, i, j, createTable(c, d));
