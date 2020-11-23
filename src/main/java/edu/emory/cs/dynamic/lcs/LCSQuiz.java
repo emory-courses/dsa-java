@@ -16,8 +16,8 @@
 package edu.emory.cs.dynamic.lcs;
 
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 /**
  * @author Jinho D. Choi ({@code jinho.choi@emory.edu})
@@ -26,11 +26,11 @@ public class LCSQuiz extends LCSDynamic {
     /**
      * @param a the first string.
      * @param b the second string.
-     * @return a list of all longest common sequences between the two strings.
+     * @return a set of all longest common sequences between the two strings.
      */
-    public List<String> solveAll(String a, String b) {
+    public Set<String> solveAll(String a, String b) {
         // TODO: to be filled
-        return new ArrayList<>();
+        return null;
     }
 }
 
