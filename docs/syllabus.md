@@ -3,35 +3,22 @@
 ## General
 
 * Course webpage: https://github.com/emory-courses/dsa-java
-* Class location: https://emory.zoom.us/j/95380639487 
-* Class hours: MW 1:00pm - 2:15pm
+* Class location: Math & Science Center (MSC) N306 
+* Class hours: MW 2:30pm - 3:45pm
 * Prerequisites: CS171 (or equivalent)
 
 ## Instructors
 
-* [Jinho Choi](http://cs.emory.edu/~choi): Assistant Professor of Computer Science
-* [Jiaying Lu](https://lujiaying.github.io): Ph.D Student in Computer Science
-* [Wenjing Ma](https://marvinquiet.github.io): Ph.D Student in Computer Science
+* [Jinho Choi](http://cs.emory.edu/~choi): Associate Professor of Computer Science
+  * Office hours: TuTh 4pm - 5:30pm, MSC W302F
+* TBA
+  * Office hours: TBA
 * Contact: _firstname.lastname_@emory.edu
-* Instructors get hundreds of emails daily, which makes them very easy to miss. Please use [Issues](issue_guidelines.md) for questions and comments that can be shared publicly and use emails for private matters.
-
-## Office Hours
-
-* https://emory.zoom.us/j/94707085577 (password posted in Canvas)
-* Jinho Choi: MW 2:30pm - 4:00pm
-* Jiaying Lu: TuTh 1:00pm - 2:30pm
-* Wenjing Ma: TuTh 10:30am - 12:00pm
+* Instructors get tons of emails daily. Please use [Issues](issue_guidelines.md) for questions and comments that can be shared publicly and use emails for private matters only.
 
 ## Textbook
 
-* [Data Structured and Algorithms in Java](https://emory.gitbook.io/dsa-java/) (2020 Edition) by Jinho D. Choi.
-
-
-## Classes
-
-Students are expected to
-* Digest assigned lecture notes in the course webpage and prepare answers to the questions in the notes.
-* Join virtually during the regular class hours although all classes are recorded for those who reside in different time zones.
+* [Data Structured and Algorithms in Java](https://emory.gitbook.io/dsa-java/) (2022 Edition) by Jinho D. Choi.
 
 
 ## Grading
@@ -47,9 +34,9 @@ Students are expected to
 * Late submissions within a week will be accepted with the grading penalty of 15%, and will not be accepted after the first week. Exceptions to this policy will be made only in extraordinary circumstances.
 
 
-## Weekly Quizzes
+## Topical Quizzes
 
-* They aim to check if students are keeping up with the weekly contents.
+* They aim to check if students are keeping up with each topic.
 * Late submissions will not be accepted.
 
 ## Notes

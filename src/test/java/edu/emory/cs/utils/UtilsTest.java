@@ -21,11 +21,6 @@ import static org.junit.Assert.assertEquals;
 
 public class UtilsTest {
     @Test
-    public void testst() {
-        System.out.println("SDFSFs");
-    }
-
-    @Test
     public void getMiddleIndexTest() {
         assertEquals(5, Utils.getMiddleIndex(0, 10));
     }
