@@ -1,10 +1,9 @@
 ---
 name: Homework
 about: Questions and comments about homework assignments
-title: "[HW#] "
+title: "[HW#] Your title"
 labels: homework
-assignees: jdchoi77, lujiaying, marvinquiet
-
+assignees: jdchoi77
 ---
 
-Replace `#` in the title with the appropriate homework number.
+Replace `#` in the title with the appropriate homework number and "Your title" with your own title.

@@ -1,12 +1,9 @@
 ---
 name: Lecture
 about: Questions and comments about lectures
-title: ''
+title: "Your title"
 labels: lecture
-assignees: jdchoi77, lujiaying, marvinquiet
-
+assignees: jdchoi77
 ---
 
-**Title of the Lecture**
------
-Your question/comment.
+Replace "Your title" with your own title.

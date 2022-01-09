@@ -1,10 +1,9 @@
 ---
 name: Miscellaneous
 about: Questions and comments about miscellaneous matters
-title: ''
-labels: ''
-assignees: jdchoi77, lujiaying, marvinquiet
-
+title: "Your title"
+labels: misc
+assignees: jdchoi77
 ---
 
-
+Replace "Your title" with your own title.
