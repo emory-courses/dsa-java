@@ -22,5 +22,5 @@
   * [`settings.gradle`](../../settings.gradle)
   * [`src/main/java/edu/emory/cs/utils/Utils.java`](../../src/main/java/edu/emory/cs/utils/Utils.java)
   * [`src/test/java/edu/emory/cs/utils/UtilsTest.java`](../../src/test/java/edu/emory/cs/utils/UtilsTest.java)
-* Submit the URL of your GitHub repository to Canvas:
-  * https://canvas.emory.edu/courses/97976/assignments/554960
+* Submit the URL of your GitHub repository to Canvas: <br>
+  https://canvas.emory.edu/courses/97976/assignments/554960

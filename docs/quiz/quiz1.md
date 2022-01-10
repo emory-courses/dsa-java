@@ -10,5 +10,5 @@
 * Commit and push everything under the following packages to your GitHub repository:
   * Main: [`edu.emory.cs.algebraic`](../../src/main/java/edu/emory/cs/algebraic)
   * Test: [`edu.emory.cs.algebraic`](../../src/test/java/edu/emory/cs/algebraic)
-* Submit the answers to the [quizzes](https://emory.gitbook.io/dsa-java/java-essentials/exercises#quizzes) in Canvas:
-  * https://canvas.emory.edu/courses/97976/assignments/554961
+* Submit the answers to the [quizzes](https://emory.gitbook.io/dsa-java/java-essentials/exercises#quizzes) in Canvas: <br>
+  https://canvas.emory.edu/courses/97976/assignments/554961
