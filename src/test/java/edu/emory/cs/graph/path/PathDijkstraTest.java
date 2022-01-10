@@ -16,7 +16,7 @@
 package edu.emory.cs.graph.path;
 
 import edu.emory.cs.graph.Graph;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 
 /**

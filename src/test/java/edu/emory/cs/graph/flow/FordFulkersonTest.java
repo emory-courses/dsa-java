@@ -16,9 +16,9 @@
 package edu.emory.cs.graph.flow;
 
 import edu.emory.cs.graph.Graph;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 /**

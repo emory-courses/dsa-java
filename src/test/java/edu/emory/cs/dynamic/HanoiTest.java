@@ -18,12 +18,12 @@ package edu.emory.cs.dynamic;
 import edu.emory.cs.dynamic.hanoi.Hanoi;
 import edu.emory.cs.dynamic.hanoi.HanoiDynamic;
 import edu.emory.cs.dynamic.hanoi.HanoiRecursive;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import java.util.StringJoiner;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 /**
@@ -44,7 +44,7 @@ public class HanoiTest {
     }
 
     @Test
-    @Ignore
+    @Disabled
     public void testSpeed() {
         final int ITERATIONS = 100;
         final int MAX_K = 20;

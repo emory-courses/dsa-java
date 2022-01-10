@@ -20,9 +20,9 @@ import edu.emory.cs.dynamic.knapsack.AbstractKnapsack;
 import edu.emory.cs.dynamic.knapsack.DKnapsack;
 import edu.emory.cs.dynamic.knapsack.KnapsackItem;
 import edu.emory.cs.dynamic.knapsack.RKnapsack;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 /**

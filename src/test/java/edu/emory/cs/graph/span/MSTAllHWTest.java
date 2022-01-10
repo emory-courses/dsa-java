@@ -17,7 +17,7 @@ package edu.emory.cs.graph.span;
 
 import edu.emory.cs.graph.Edge;
 import edu.emory.cs.graph.Graph;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.*;
 

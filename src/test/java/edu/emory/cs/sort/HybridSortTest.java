@@ -17,14 +17,14 @@ package edu.emory.cs.sort;
 
 import edu.emory.cs.sort.hybrid.HybridSort;
 import edu.emory.cs.sort.hybrid.HybridSortBaseline;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Random;
 import java.util.StringJoiner;
 
-import static org.junit.Assert.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 /**
  * @author Jinho D. Choi ({@code jinho.choi@emory.edu})

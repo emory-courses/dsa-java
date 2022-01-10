@@ -17,9 +17,9 @@ package edu.emory.cs.tree;
 
 import edu.emory.cs.tree.balanced.AVLNode;
 import edu.emory.cs.tree.balanced.RedBlackNode;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author Jinho D. Choi ({@code jinho.choi@emory.edu})

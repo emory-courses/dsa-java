@@ -17,8 +17,8 @@ package edu.emory.cs.tree;
 
 import edu.emory.cs.tree.balanced.AVLTree;
 import edu.emory.cs.tree.balanced.RedBlackTree;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
 import java.util.List;
@@ -26,7 +26,7 @@ import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author Jinho D. Choi ({@code jinho.choi@emory.edu})
@@ -67,7 +67,7 @@ public class TreeTest {
     }
 
     @Test
-    @Ignore
+    @Disabled
     public void testAVLTree() {
         AVLTree<Integer> tree = new AVLTree<>();
         tree.add(5);
@@ -129,7 +129,7 @@ public class TreeTest {
     }
 
     @Test
-    @Ignore
+    @Disabled
     public void testRobustness() {
         testRobustness(new BinarySearchTree<>());
         testRobustness(new AVLTree<>());

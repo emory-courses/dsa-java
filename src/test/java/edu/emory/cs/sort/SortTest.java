@@ -24,7 +24,7 @@ import edu.emory.cs.sort.distribution.LSDRadixSort;
 import edu.emory.cs.sort.divide_conquer.IntroSort;
 import edu.emory.cs.sort.divide_conquer.MergeSort;
 import edu.emory.cs.sort.divide_conquer.QuickSort;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -33,7 +33,7 @@ import java.util.StringJoiner;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 /**
  * @author Jinho D. Choi ({@code jinho.choi@emory.edu})

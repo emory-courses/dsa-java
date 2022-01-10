@@ -15,7 +15,7 @@
  */
 package edu.emory.cs.queue;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Comparator;
 import java.util.List;

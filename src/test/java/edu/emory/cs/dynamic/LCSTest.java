@@ -18,9 +18,9 @@ package edu.emory.cs.dynamic;
 import edu.emory.cs.dynamic.lcs.LCS;
 import edu.emory.cs.dynamic.lcs.LCSDynamic;
 import edu.emory.cs.dynamic.lcs.LCSRecursive;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 /**

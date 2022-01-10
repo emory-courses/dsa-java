@@ -19,9 +19,9 @@ import edu.emory.cs.dynamic.fibonacci.Fibonacci;
 import edu.emory.cs.dynamic.fibonacci.FibonacciDynamic;
 import edu.emory.cs.dynamic.fibonacci.FibonacciIterative;
 import edu.emory.cs.dynamic.fibonacci.FibonacciRecursive;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 /**

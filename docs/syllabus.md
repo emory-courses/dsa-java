@@ -10,12 +10,16 @@
 ## Instructors
 
 * [Jinho Choi](http://cs.emory.edu/~choi) <br>
-  : Associate Professor of Computer Science<br>
-  : Office Hours &rarr; TuTh 4pm - 5:30pm, MSC W302F
-* TA<br>
-  : _TBA_<br>
-  : Office Hours &rarr; _TBA_
+  : Associate Professor of Computer Science <br>
+  : Office Hours &rarr; TuTh 4pm - 5:30pm
+* [Jessica Ji](https://www.linkedin.com/in/yuxin-jessica-ji/) <br>
+  : Senior in QTM and Linguistics <br>
+  : Office Hours &rarr; MW 9am - 10:30am 
+* Leisheng Yu <br>
+  : Senior in CS and Applied Mathematics <br>
+  : Office Hours &rarr; WF 3:30pm - 5:00pm
 * Contact: _firstname.lastname_@emory.edu
+* Zoom link to all office hours: https://emory.zoom.us/j/91473219159
 * Please use [Issues](issue_guidelines.md) for questions and comments that can be shared publicly and use emails for private matters only.
 
 ## Textbook
@@ -24,7 +28,7 @@
 
 ## Grading
 
-* 1+9 topical quizzes: 70%
+* 1 + 9 topical quizzes: 70%
 * 3 homework assignments: 30%
 
 ## Notes
