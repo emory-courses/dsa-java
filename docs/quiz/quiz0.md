@@ -2,7 +2,7 @@
 
 ## Tasks
 
-* Setup the development environment by following the [chapter](https://emory.gitbook.io/dsa-java/getting-started/).
+* Setup the development environment by following [Getting Started](https://emory.gitbook.io/dsa-java/getting-started/).
 * Complete the [exercises](https://emory.gitbook.io/dsa-java/getting-started/exercises).
 * Make sure your GitHub repository is set to **private**.
 * Add the instructors as collaborators of your GitHub repository:
