@@ -5,7 +5,7 @@
 |01/11| 0. Getting Started | [book](https://emory.gitbook.io/dsa-java/getting-started), [main](../src/main/java/edu/emory/cs/utils), [test](../src/test/java/edu/emory/cs/utils) | [Quiz 0](quiz/quiz0.md) |
 |01/13| 1. Java Essentials | [book](https://emory.gitbook.io/dsa-java/java-essentials), [main](../src/main/java/edu/emory/cs/algebraic), [test](../src/test/java/edu/emory/cs/algebraic) |                         |
 |01/18| 1. Java Essentials | |                         |
-|01/20| 1. Java Essentials | |       [Quiz 1]()        |
+|01/20| 1. Java Essentials | | [Quiz 1](quiz/quiz1.md) |
 |01/25| 2. Priority Queues | [book](https://emory.gitbook.io/dsa-java/priority-queues), [main](../src/main/java/edu/emory/cs/queue), [test](../src/test/java/edu/emory/cs/queue) |                         |
 |01/27| 2. Priority Queues | |                         |
 |02/01| 2. Priority Queues | |       [Quiz 2]()        |
