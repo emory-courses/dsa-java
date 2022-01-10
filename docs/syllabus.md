@@ -17,7 +17,7 @@
   : Office Hours &rarr; MW 9am - 10:30am 
 * [Leisheng Yu](https://www.linkedin.com/in/leisheng-yu-2419731a9/) <br>
   : Senior in CS and Applied Mathematics <br>
-  : Office Hours &rarr; WF 3:30pm - 5:00pm
+  : Office Hours &rarr; WF 2:30pm - 4:00pm
 * Contact: _firstname.lastname_@emory.edu
 * Zoom link to all office hours: https://emory.zoom.us/j/91473219159
 * Please use [Issues](issue_guidelines.md) for questions and comments that can be shared publicly and use emails for private matters only.
