@@ -1,6 +1,6 @@
 ---
 name: Homework
-description: Questions and comments about homework assignments
+about: Questions and comments about homework assignments
 title: "[HW#] Your title"
 labels: homework
 assignees:
