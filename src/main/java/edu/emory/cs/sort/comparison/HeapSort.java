@@ -34,7 +34,7 @@ public class HeapSort<T extends Comparable<T>> extends AbstractSort<T> {
     @Override
     public void sort(T[] array, int beginIndex, int endIndex) {
         // heapify all elements
-        for (int k = getParentIndex(beginIndex, endIndex); k >= beginIndex; k--)
+        for (int k = getParentIndex(beginIndex, endIndex - 1); k >= beginIndex; k--)
             sink(array, k, beginIndex, endIndex);
 
         // swap the endIndex element with the root element and sink it
@@ -53,7 +53,7 @@ public class HeapSort<T extends Comparable<T>> extends AbstractSort<T> {
     }
 
     private int getParentIndex(int beginIndex, int k) {
-        return beginIndex + (k - beginIndex) / 2 - 1;
+        return beginIndex + (k - beginIndex - 1) / 2;
     }
 
     private int getLeftChildIndex(int beginIndex, int k) {

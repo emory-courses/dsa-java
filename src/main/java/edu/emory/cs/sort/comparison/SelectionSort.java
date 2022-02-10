@@ -34,7 +34,7 @@ public class SelectionSort<T extends Comparable<T>> extends AbstractSort<T> {
     @Override
     public void sort(T[] array, final int beginIndex, final int endIndex) {
         for (int i = endIndex; i > beginIndex; i--) {
-            int max = 0;
+            int max = beginIndex;
 
             for (int j = beginIndex + 1; j < i; j++) {
                 if (compareTo(array, j, max) > 0)
