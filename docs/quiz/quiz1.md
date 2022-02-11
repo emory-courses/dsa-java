@@ -2,7 +2,7 @@
 
 ## Tasks
 
-* Create the [`edu.emory.cs.algebraic`](../../src/main/java/edu/emory/cs/algebraic) package by following [Java Essentials](https://emory.gitbook.io/dsa-java/java-essentials/).
+* Create the [`edu.emory.cs.algebraic`](../../src/main/java/edu/emory/cs/algebraic) package by following [Chapter 1](https://emory.gitbook.io/dsa-java/java-essentials/).
 * Complete the [exercises](https://emory.gitbook.io/dsa-java/java-essentials/exercises).
 
 ## Submissions
