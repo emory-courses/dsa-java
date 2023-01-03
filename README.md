@@ -1,17 +1,3 @@
 # Data Structures and Algorithms in Java
 
-This is an advanced programming course in Computer Science that teaches how to design efficient structures and algorithms to process big data and methods to benchmark their performance for large-scale computing.
-Topics cover data structures such as _priority queues_, _binary trees_, _tries_, and _graphs_ as well as their applications in the construction of effective algorithms such as _sorting_, _searching_, _balancing_, _traversing_, and _spanning_.
-Advanced topics such as _network flow_ and _dynamic programming_ are also discussed.
-Throughout this course, students are expected to
-
-* Have deep conceptual understanding in various data structures and algorithms.
-* Implement their conceptual understanding in a programming language.
-* Explore the most effective structures and algorithms for given tasks.
-* Properly assess the quality of their implementations.
-
-Intermediate-level of Java programming is a prerequisite of this course.
-There are topical quizzes and homework assignments that require sufficient skills in Java programming, Git version control, Gradle software project management, and scientific writing.
-
-* [Syllabus](docs/syllabus.md)
-* [Schedule](docs/schedule.md)
+http://emory.gitbook.io/dsa-java
