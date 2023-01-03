@@ -29,6 +29,8 @@ repositories {
 
 test {
     useJUnitPlatform()
+    minHeapSize = "8g" // initial heap size
+    maxHeapSize = "16g" // maximum heap size
 }
 
 dependencies {
