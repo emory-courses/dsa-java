@@ -95,7 +95,7 @@ public class LongInteger extends SignedNumeral<LongInteger> implements Comparabl
         int m = Math.max(digits.length, n.digits.length);
         byte[] result = new byte[m + 1];
         System.arraycopy(digits, 0, result, 0, digits.length);
-//        System.out.println(Arrays.toString(result));
+
         // add n to result
         for (int i = 0; i < m; i++) {
             if (i < n.digits.length)
