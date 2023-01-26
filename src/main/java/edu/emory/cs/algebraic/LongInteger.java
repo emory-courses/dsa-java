@@ -70,11 +70,11 @@ public class LongInteger extends SignedNumeral<LongInteger> implements Comparabl
 
         for (int i = 0, j = n.length() - 1; i < n.length(); i++, j--) {
             byte v = (byte)(n.charAt(i) - 48);
-            digits[j] = v;
             if (0 > v || v > 9) {
                 String s = String.format("%d is not a valid value", v);
                 throw new InvalidParameterException(s);
             }
+            digits[j] = v;
         }
     }
 
@@ -95,10 +95,11 @@ public class LongInteger extends SignedNumeral<LongInteger> implements Comparabl
         int m = Math.max(digits.length, n.digits.length);
         byte[] result = new byte[m + 1];
         System.arraycopy(digits, 0, result, 0, digits.length);
-
+//        System.out.println(Arrays.toString(result));
         // add n to result
-        for (int i = 0; i < n.digits.length; i++) {
-            result[i] += n.digits[i];
+        for (int i = 0; i < m; i++) {
+            if (i < n.digits.length)
+                result[i] += n.digits[i];
             if (result[i] >= 10) {
                 result[i] -= 10;
                 result[i + 1] += 1;

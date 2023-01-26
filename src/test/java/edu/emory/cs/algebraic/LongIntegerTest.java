@@ -86,6 +86,15 @@ public class LongIntegerTest {
         // negative + negative: carry -> significant digit
         a.add(a);
         assertEquals("-1158", a.toString());
+
+        // carry multiple digits
+        a = new LongInteger("999");
+        a.add(new LongInteger("1"));
+        assertEquals("1000", a.toString());
+
+        a = new LongInteger("1");
+        a.add(new LongInteger("999"));
+        assertEquals("1000", a.toString());
     }
 
     @Test
