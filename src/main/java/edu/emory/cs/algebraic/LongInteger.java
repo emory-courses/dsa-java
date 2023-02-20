@@ -60,10 +60,18 @@ public class LongInteger extends SignedNumeral<LongInteger> implements Comparabl
 
         // set this.sign
         sign = switch (n.charAt(0)) {
-            case '-' -> { n = n.substring(1); yield Sign.NEGATIVE; }
-            case '+' -> { n = n.substring(1); yield Sign.POSITIVE; }
+            case '-' -> {n = n.substring(1); yield Sign.NEGATIVE;}
+            case '+' -> {n = n.substring(1); yield Sign.POSITIVE;}
             default -> Sign.POSITIVE;
         };
+
+        // TODO: we will make it more efficient by merging the condition with one above
+//        int k;
+//        for (k = 0; k < n.length(); k++) {
+//            if (n.charAt(k) != '0')
+//                break;
+//        }
+//        if (k > 0) n = n.substring(k);
 
         // set this.digits
         digits = new byte[n.length()];
